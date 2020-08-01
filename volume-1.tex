@@ -11,6 +11,9 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{stmaryrd}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{pgfplots}
 \makeindex
 \usepackage[all]{xy}
 
@@ -69,7 +72,12 @@ and reloids can be considered as a generalization of (oriented) graphs,
 this provides us with a common generalization of calculus and discrete
 mathematics.
 
-It is defined a generalization of limit for arbitrary (including discontinuous and multivalued) functions, what allows to define for example derivative of an arbitrary real function.
+I consider (generalized) limit of arbitrary (discontinuous) function, defined in terms of funcoids.
+Definition of generalized limit makes it obvious to define such things as derivative of an arbitrary function, integral of an arbitrary function, etc. It is given a definition of non-dif\-fe\-re\-nti\-able solution of a (partial) differential equation. It's raised the question how do such solutions ``look like'' starting a possible big future research program.
+
+The generalized solution of one simple example differential equation is also considered.
+
+The generalized derivatives and integrals are linear operators. For example $\int_a^b f(x)dx - \int_a^b f(x)dx = 0$ is defined and true for \emph{every} function.
 
 The concept of continuity is defined by an algebraic formula (instead
 of old messy epsilon-delta notation) for arbitrary morphisms (including
@@ -81,6 +89,8 @@ Also I define connectedness for funcoids and reloids.
 Then I consider generalizations of funcoids: pointfree funcoids and
 generalization of pointfree funcoids: staroids and multifuncoids.
 Also I define several kinds of products of funcoids and other morphisms.
+
+I define \emph{space} as an element of an ordered semigroup action, that is a semigroup action conforming to a partial order. Topological spaces, uniform spaces, proximity spaces, (directed) graphs, metric spaces, etc.\ all are spaces. It can be further generalized to ordered precategory actions (that I call \emph{interspaces}). I build basic general topology (continuity, limit, openness, closedness, hausdorffness, compactness, etc.)\ in an arbitrary space. Now general topology is an algebraic theory.
 
 Before going to topology, this book studies properties of co-brouwerian
 lattices and filters.
@@ -132,6 +142,10 @@ of uniform spaces}
 \part{Algebra of general topology}
 
 \include{chap-osgroups}
+
+\part{Generalized limit}
+
+\include{limit}
 
 \part{Postface}
 \include{chap-postface}
