@@ -1,10 +1,10 @@
 \chapter{Introduction}
 
-I defined \emph{funcoid} and based on this generalized \emph{limit of an arbitrary (even discontinuous) function} in~\cite{volume-1-edition1}.
+I defined \emph{funcoid} and based on this generalized \emph{limit of an arbitrary (even discontinuous) function} above in this book.
 
 In this article I consider generalized limits in more details.
 
-This article is written in such a way that a reader could understand the main ideas on generalized limits without resorting to reading~\cite{volume-1-edition1} beforehand, but to follow the proofs you need read that first.
+This article is written in such a way that a reader could understand the main ideas on generalized limits without resorting to reading the rest of this book beforehand, but to follow the proofs you need read that first.
 
 Definition of generalized limit makes it obvious to define such things as derivative of an arbitrary function, integral of an arbitrary function, etc.
 
@@ -25,7 +25,7 @@ For an example, consider some real function~$f$ from $x$-axis to $y$-axis:
 \end{tikzpicture}
 \end{figure}
  
-Take it's infinitely small fragment (in our example, an infinitely small interval for~$x$ around zero; see the actual book for an explanation what is infinitely small):
+Take it's infinitely small fragment (in our example, an infinitely small interval for~$x$ around zero; see the rest of the book for an explanation what is infinitely small):
 \begin{figure}[H]
 \begin{tikzpicture}
 \begin{axis}[grid=both,
@@ -112,7 +112,7 @@ Hurrah! Now we can define derivative and integral of \emph{every} function.
 
 \chapter{Funcoids}
 
-I will reprise (without proofs) several equivalent definitions of funcoid from~\cite{volume-1-edition1}:
+I will reprise (without proofs) several equivalent definitions of funcoid from above in this book:
 
 Binary relation $\delta$ between two sets (source and destination of the funcoid), conforming to the axioms:
 
@@ -161,17 +161,17 @@ $(\alpha,\beta)^{-1} = (\beta,\alpha)$.
 
 Funcoids also form a poset which is a complete lattice.
 
-Funcoids are a generalization of both topological spaces and proximity spaces (see~\cite{volume-1-edition1}).
+Funcoids are a generalization of both topological spaces and proximity spaces.
 
-Also funcoids are~(\cite{volume-1-edition1}) a generalization of binary relations. (I will denote the funcoid corresponding~(\cite{volume-1-edition1}) to a binary relation~$f$ as~$\uparrow f$) This makes funcoids a common generalization for topologies/proximities and functions, so they are a convenient tool to study functions between spaces.
+Also funcoids are (see above) a generalization of binary relations. (I will denote the funcoid corresponding (see above) to a binary relation~$f$ as~$\uparrow f$) This makes funcoids a common generalization for topologies/proximities and functions, so they are a convenient tool to study functions between spaces.
 
 Another important for this article operation on funcoids is \emph{restricting} a funcoid to a filter (generalizing restricting a function to a set):~$f|_{\mathcal{X}}$ for a funcoid~$f$ and filter~$\mathcal{X}$.
 
-In~\cite{volume-1-edition1} we also have a funcoid called \emph{funcoidal product} $\mathcal{X}\times^{\mathsf{FCD}}\mathcal{Y}$ of two filters~$\mathcal{X}$ and~$\mathcal{Y}$.
+Above we also have a funcoid called \emph{funcoidal product} $\mathcal{X}\times^{\mathsf{FCD}}\mathcal{Y}$ of two filters~$\mathcal{X}$ and~$\mathcal{Y}$.
 
 \chapter{Limit for funcoids}
 
-It is easy~\cite{volume-1-edition1} to generalize topological limit for a funcoid: a funcoid~$f$ (e.g.\ a function) \emph{tends} to point~$a$ ($f\to a$) regarding a funcoid~$\nu$ (e.g.\ to a topological or proximity space) on a filter~$\mathcal{X}$ iff
+It is easy (see above for details) to generalize topological limit for a funcoid: a funcoid~$f$ (e.g.\ a function) \emph{tends} to point~$a$ ($f\to a$) regarding a funcoid~$\nu$ (e.g.\ to a topological or proximity space) on a filter~$\mathcal{X}$ iff
 \[ \supfun{f}\mathcal{X} \sqsubseteq \supfun{\nu}\uparrow\{a\}. \]
 (Here~$\uparrow$ denotes a principal filter corresponding to a set.)
 
@@ -181,7 +181,7 @@ Then: a funcoid~$f$ tends to point~$a$ regarding a funcoid~$\nu$ on a filter~$\m
 
 $\lim f$ is such a point that $f$~tends to $\lim f$.
 
-If $\nu$~is $T_2$-separable (see~\cite{volume-1-edition1}), then there exists no more than one~$\lim f$.
+If $\nu$~is $T_2$-separable (see above), then there exists no more than one~$\lim f$.
 
 So far, not much different than limits on topological spaces (but somehow more algebraic).
 
@@ -189,7 +189,7 @@ So far, not much different than limits on topological spaces (but somehow more a
 
 \section{The definition of generalized limit}
 
-In~\cite{volume-1-edition1} generalized limit is defined like the formula:
+Above generalized limit is defined like the formula:
 
 \begin{equation}\label{xlim1}
 \xlim f = \setcond{ \nu\circ f\circ \uparrow r}{r\in G}.
@@ -283,7 +283,7 @@ of a constant function.
 \end{align*}
 \end{proof}
 
-In further we will use on of the definitions of continuity from~\cite{volume-1-edition1}:
+In further we will use on of the definitions of continuity from above:
 \[ f\in\continuous(\mu,\nu)\Leftrightarrow
 f\circ\mu \sqsubseteq \nu\circ f \]
 and other notation from the book.
@@ -485,7 +485,7 @@ $\varphi (\lambda i \in D : \{ x_0 \}) = \{ \varphi x \}$.
 \end{prop}
 
 \begin{proof}
-  Need to prove (theorem 1650 in~\cite{volume-1-edition1})
+  Need to prove (theorem~\ref{pf-atom-cont})
   \[ \supfun{\varphi} \prod^{\reloids}_{X \in \prod a} X \sqsubseteq \bigsqcap
      \setcond{\bigsqcup \rsupfun{x \mapsto \supfun{\varphi}
      \prod^{\reloids}_{X \in \prod x} X} \atoms \mathcal{X}}{\mathcal{X} \in
@@ -496,7 +496,7 @@ $\varphi (\lambda i \in D : \{ x_0 \}) = \{ \varphi x \}$.
      \prod x} X} \atoms \mathcal{X} =\\ \supfun{\varphi} \bigsqcup \rsupfun{x
      \mapsto \prod^{\reloids}_{X \in \prod x} X} \atoms \mathcal{X} .
 \end{multline*}
-  But by theorem 1875 in~\cite{volume-1-edition1}:
+  But by theorem~\ref{spfn-atoms}:
   \[ \bigsqcup \rsupfun{x \mapsto \prod^{\reloids}_{X \in \prod x} X}
      \atoms \mathcal{X} = \prod^{\reloids}_{X \in \prod \mathcal{X}}
      X . \]
@@ -747,7 +747,7 @@ y_0 \rsuprel{\nu} y_1 \Leftrightarrow
 \]
 where $\atoms\dom y_0$ is the set of ultrafilters over the filter $\dom y_0$.
 
-The above makes $\nu$ a pointfree funcoid (as defined in~\cite{volume-1-edition1}) on this set of funcoids:
+The above makes $\nu$ a pointfree funcoid on this set of funcoids:
 
 \begin{proof}
 Because funcoids are isomorphic to filters on certain boolean lattice, it's enough to prove:
