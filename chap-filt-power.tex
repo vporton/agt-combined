@@ -1,0 +1,144 @@
+\chapter{Power of filters}
+
+\section{Germs of functions}
+
+\begin{defn}
+  Functions $f, g \in \mathbf{Rel} (\Ob \mathcal{X} , B)$
+  \emph{are of the same $\mathcal{X}$-germ} for a filter object
+  $\mathcal{X}$ iff there exists $X \in \up \mathcal{X}$ such that $f|_X
+  = g|_X$.
+\end{defn}
+
+\begin{prop}
+  Being of the same germ is an equivalence relation.
+\end{prop}
+
+\begin{proof}
+  ~
+  \begin{description}
+    \item[Reflexivity] Take arbitrary $X \in \up \mathcal{X}$.
+    
+    \item[Symmetry] Obvious.
+    
+    \item[Transitivity] Let $f|_X = g|_X$ and $g|_Y = h|_Y$. Then $f|_{X \cap
+    Y} = h|_{X \cap Y}$.
+  \end{description}
+\end{proof}
+
+\begin{defn}
+  A \emph{germ} is an equivalence class of being the same germ.
+\end{defn}
+
+\begin{obvious}
+Every germ is a filter on $\mathbf{Set}$.
+\end{obvious}
+
+\begin{thm}
+  Let $A$, $B$ be sets.
+
+  The following are mutually inverse bijections between monovalued reloids $f
+  : A \rightarrow B$ with $\dom f = \mathcal{X}$ and $\mathcal{X}$-germs
+  $S$ of functions $A \rightarrow B$ for $\mathcal{X} \in \mathscr{F} A$:
+  \begin{enumerate}
+    \item $f \mapsto \up^{\mathbf{Set}} f$;
+    \item $S \mapsto s|_{\mathcal{X}}$ if $s\in S$.
+  \end{enumerate}
+  The second bijection can also be written as $S \mapsto \left(\bigsqcap^{\mathsf{RLD}} S\right)|_{\mathcal{X}}$ or
+  if $\card B\ne 1$ as $S \mapsto \bigsqcap^{\mathsf{RLD}} S$.
+\end{thm}
+
+\begin{rem}
+$s|_{\mathcal{X}}$ is always defined because $S$ is nonempty (it is an equivalence class).
+\end{rem}
+
+\begin{proof}
+  First prove that $\up^{\mathbf{Set}} f$ is an
+  $\mathcal{X}$-germ. Really, $F \in \up^{\mathbf{Set}} f
+  \Leftrightarrow F \sqsupseteq f \Leftrightarrow F|_{\mathcal{X}} = f
+  \Leftrightarrow \exists X \in \up \mathcal{X} : F|_X \sqsupseteq f$;
+  thus $F, G \in \up^{\mathbf{Set}} f \Rightarrow \exists X \in
+  \up \mathcal{X} : F|_X \sqsupseteq f \wedge \exists Y \in \up
+  \mathcal{X} : G|_Y \sqsupseteq f \Rightarrow \exists X \in \up
+  \mathcal{X} : F|_{X \cap Y} \sqsupseteq f \wedge \exists Y \in \up
+  \mathcal{X} : G|_{X \cap Y} \sqsupseteq f \Rightarrow \exists Z \in
+  \up \mathcal{X} : (F|_Z \sqsupseteq f \wedge G|_Z \sqsupseteq f)
+  \Rightarrow \exists Z \in \up \mathcal{X} : (F \sqcap G) |_Z
+  \sqsupseteq f$ and $F \in \up^{\mathbf{Set}} f \wedge \exists
+  X \in \up \mathcal{X} : F|_X = G|_X \Rightarrow F \sqsupseteq f \wedge
+  F|_{\mathcal{X}} = G|_{\mathcal{X}} \Rightarrow G|_{\mathcal{X}} \sqsupseteq
+  f \Rightarrow G \in \up^{\mathbf{Set}} f$. We have proved
+  that $\up^{\mathbf{Set}} f$ is an equivalence class of the
+  suitable equivalence relation, that is $\up^{\mathbf{Set}} f$
+  is an $\mathcal{X}$-germ.
+  
+  That $\bigsqcap^{\mathsf{RLD}} S$ is a monovalued reloid is obvious.
+  Also $\im \bigsqcap^{\mathsf{RLD}} S = \mathcal{X}$ is obvious.
+
+  Now prove that our correspondences are mutually inverse.
+
+  Let $f_0 : A \rightarrow B$ be a monovalued reloid and $\dom f =
+  \mathcal{X}$. Let $S = \up^{\mathbf{Set}} f_0$ and $f_1 =
+  s|_{\mathcal{X}}$ for an~$s\in S$. We need to prove $f_1 = f_0$. Really,
+  $f_1 = F|_{\mathcal{X}}$ for an $F\in\up^{\mathbf{Set}}f_0$; thus $f_1=f_0$.
+  
+  Let $S_0$ be an $\mathcal{X}$-germ of functions $A \rightarrow B$. Let $f =
+  s|_{\mathcal{X}}$ for an~$s\in S_0$ and $S_1 =
+  \up^{\mathbf{Set}} f$. We need to prove $S_1 = S_0$. Really,
+  \[
+  S_1 = \up^{\mathbf{Set}}(s|_{\mathcal{X}}) =
+  \setcond{F\in\mathbf{Set}}{F\sqsupseteq s|_{\mathcal{X}}} =
+  \setcond{F\in\mathbf{Set}}{\exists X\in\up\mathcal{X}:F|_X\sqsupseteq s|_X} =
+  \setcond{F\in\mathbf{Set}}{\exists X\in\up\mathcal{X}:F|_X=s|_X} = S_0.
+  \]
+  
+  $\left(\bigsqcap^{\mathsf{RLD}} S\right)|_{\mathcal{X}} =
+  \bigsqcap^{\mathsf{RLD}}_{s\in S} s|_{\mathcal{X}} = s|_{\mathcal{X}}$
+  for every choice of~$s\in S$.
+
+  We can assume that $B \neq \emptyset$ because otherwise the theorem is
+  obvious. Thus we can assume $\card B>1$.
+
+  If $\mathcal{X} = X$ then obviously $S$ has just one element $F$ and
+  $\im \bigsqcap^{\mathsf{RLD}} S = \im F = X =
+  \mathcal{X}$. Otherwise for every $X \in \up \mathcal{X}$ there are
+  elements $F$, $G$ of $S$ such that $\dom (F \sqcap G) \sqsubseteq X$
+  (using $\card B > 1$).
+  
+  By properties of generalized filter bases $X \times \top \sqsupseteq
+  \bigsqcap^{\mathsf{RLD}} S \Leftrightarrow \exists F, G \in S : X
+  \times \top \sqsupseteq F \sqcap G \Leftrightarrow X \sqsupseteq
+  \mathcal{X}$. Thus $\im \bigsqcap^{\mathsf{RLD}} S =
+  \mathcal{X}$.
+\end{proof}
+
+\section{Power of filters}
+
+Let's define $\mathcal{Y}^{\mathcal{X}}$ for filters~$\mathcal{X}$,~$\mathcal{Y}$:
+
+First define $Y^{\mathcal{X}}$ for a set~$Y$:
+\[ Y^{\mathcal{X}} = \setcond{ f \in \mathsf{RLD} (\Ob \mathcal{X}
+   , Y) }{ \dom f = \mathcal{X} \wedge f\text{ is monovalued} } . \]
+
+Now $\mathcal{Y}^{\mathcal{X}} = \bigsqcap^{\mathsf{RLD}}_{Y \in
+\up \mathcal{Y}} Y^{\mathcal{X}}$.
+
+\cite{filt-cat}~defines an isomorphic to this way to define ``exponentiation'' of filters.
+
+TODO: Check $\mathcal{Y}^1 \cong \mathcal{Y}$; $\mathcal{Z}^{\mathcal{X}
+\times^{\mathsf{RLD}} \mathcal{Y}} \cong
+(\mathcal{Z}^{\mathcal{X}})^{\mathcal{Y}}$; $\mathcal{Z}^{\mathcal{X} \amalg
+\mathcal{Y}} \cong \mathcal{Z}^{\mathcal{X}} \times^{\mathsf{RLD}}
+\mathcal{Z}^{\mathcal{Y}}$; $\mathcal{Y}^2 \cong \mathcal{Y}\times^{\mathsf{RLD}}\mathcal{Y}$;
+$\mathcal{Y}^0 \cong 1$; $\mathcal{Y}^N \cong \prod^{\mathsf{RLD}}_{n\in N}\mathcal{Y}$.
+More formulas at \url{https://en.wikipedia.org/wiki/Cartesian_closed_category}.
+
+Andreas Blass says in a private email that it is not cartesian closed: ``Unfortunately, the two categories of filters in my paper are
+not cartesian closed.  This is mentioned in a parenthetical comment
+near the bottom of page 141.  The operation of cartesian product with
+the cofinite filter on the natural numbers has no right adjoint,
+because it does not preserve infinite coproducts.''
+about~\cite{filt-cat}.
+
+But it is probably a braided closed monoidal category?
+
+See \cite{filt-cat} for more categorical properties of filters.

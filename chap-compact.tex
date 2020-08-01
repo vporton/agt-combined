@@ -1,0 +1,365 @@
+\chapter{Compact funcoids}
+
+Compact funcoids are defined. Attempted to prove that under certain conditions the
+reloid corresponding to a compact funcoid is the neighborhood of the diagonal
+of the product funcoid.
+
+This is a rough partial draft. The proofs are with errors.
+
+\fxnote{The below examples also show that subatomic product does not coincide with Tychonoff product.}
+
+\section{The rest}
+
+\begin{defn}
+  A funcoid $f$ is \emph{directly compact} iff
+  \[ \forall \mathcal{F} \in \mathfrak{F}: (\supfun{f}
+     \mathcal{F} \neq \bot \Rightarrow \Cor \supfun{f} \mathcal{F}
+     \neq \bot). \]
+\end{defn}
+
+\begin{obvious}
+A funcoid $f$ is directly compact iff $\forall a \in \atoms \dom f :
+\Cor \supfun{f} a \neq \bot$.
+\end{obvious}
+
+\begin{obvious}
+A reflexive funcoid~$f$ is directly compact iff
+\[ \forall \mathcal{F} \in \mathfrak{F}: (\mathcal{F} \neq \bot \Rightarrow \Cor \supfun{f} \mathcal{F}
+     \neq \bot). \]
+\end{obvious}
+
+\begin{defn}
+  A funcoid $f$ is \emph{reversely compact} iff $f^{- 1}$ is directly
+  compact.
+\end{defn}
+
+\begin{defn}
+  A funcoid is \emph{compact} iff it is both directly compact and reversely
+  compact.
+\end{defn}
+
+\begin{prop}
+  $\prod^{\mathsf{RLD}} a = \uparrow^{\mathsf{RLD}} \prod_{i \in
+  \dom a} (\uparrow^{\mathsf{RLD}})^{- 1} a_i$ for every indexed
+  family $a$ of principal filters.
+\end{prop}
+
+\begin{proof}
+Because $\prod_{i \in \dom a} (\uparrow^{\mathsf{RLD}})^{- 1} a_i
+\in \up \prod^{\mathsf{RLD}} a$.
+\fxwarning{More detailed proof.}
+\end{proof}
+
+\begin{lem}
+$\prod^{\mathsf{RLD}}_{i \in \dom a} \Cor a_i = \Cor
+\prod^{\mathsf{RLD}} a$.
+\end{lem}
+
+\begin{proof}
+$\Cor \prod^{\mathsf{RLD}} a = \bigsqcap \left\{
+\uparrow^{\mathsf{RLD}} \prod A \hspace{1em} | \hspace{1em} A \in
+\up a \right\} = \uparrow^{\mathsf{RLD}} \bigcap \left\{ \prod A
+\hspace{1em} | \hspace{1em} A \in \up a \right\} =
+\uparrow^{\mathsf{RLD}} \bigcap \left\{ \prod A \hspace{1em} |
+\hspace{1em} A \in \subsets \prod \mathfrak{U}, \forall i \in \dom a
+: A_i \in \up a_i \right\} = \uparrow^{\mathsf{RLD}} \bigcap
+\left\{ \prod \bigcap K_i \hspace{1em} | \hspace{1em} K \in \subsets
+\subsets \prod \mathfrak{U}, \forall i \in \dom a : K_i \in
+\subsets \up a_i \right\} = \uparrow^{\mathsf{RLD}} \bigcap
+\left\{ \prod (\uparrow^{\mathsf{RLD}})^{- 1} \Cor a_i
+\hspace{1em} | \hspace{1em} i \in \dom a \right\} =
+\uparrow^{\mathsf{RLD}} \prod_{i \in \dom
+a}^{\mathsf{RLD}} \Cor a_i$.
+
+\fxwarning{Check for little errors.}
+\end{proof}
+
+\begin{cor}
+  $\prod^{\mathsf{RLD}}_{i \in n} \langle \CoCompl f_i \rangle
+  \mathcal{X}_i = \left\langle \CoCompl \prod^{(A)} f \right\rangle
+  \prod^{\mathsf{RLD}} \mathcal{X}$ for every $n$-indexed families $f$
+  of funcoids and $\mathcal{X}$ of filters on the same set (with $\Src
+  f_i = \Base (\mathcal{X}_i)$ for every $i \in n$).
+\end{cor}
+
+\begin{proof}
+  ~
+  \begin{eqnarray*}
+    \prod^{\mathsf{RLD}}_{i \in n} \langle \CoCompl f_i \rangle
+    \mathcal{X}_i & = & \\
+    \prod^{\mathsf{RLD}}_{i \in n} \Cor \langle f_i \rangle
+    \mathcal{X}_i & = & \\
+    \Cor \prod^{\mathsf{RLD}}_{i \in n} \langle f_i \rangle 
+    \mathcal{X}_i & = & \text{(*)}\\
+    \Cor \prod^{\mathsf{RLD}}_{i \in n} \langle f_i \rangle
+    \Pr^{\mathsf{RLD}}_i \left( \prod^{\mathsf{RLD}} \mathcal{X}
+    \right) & = & \\
+    \Cor \left\langle \prod^{(A)} f \right\rangle
+    \prod^{\mathsf{RLD}} \mathcal{X} & = & \\
+    \left\langle \CoCompl \prod^{(A)} f \right\rangle
+    \prod^{\mathsf{RLD}} \mathcal{X} . &  & 
+  \end{eqnarray*}
+  (*) You should verify the special case when $\mathcal{X}_i =
+  \bot^{\mathfrak{F}}$ for some $i$.
+\end{proof}
+
+\begin{thm}
+Let $f$ be an indexed family of funcoids. \fxnote{Reverse theorem (for non-least funcoids).}
+
+\begin{enumerate}
+  \item $\prod f$ is directly compact if every $f_i$ is directly compact.
+  
+  \item $\prod f$ is reversely compact if every $f_i$ is reversely compact.
+  
+  \item $\prod f$ is compact if every $f_i$ is compact.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+  It is enough to prove only the first statement.
+  
+  Let each $f_i$ is directly compact.
+  
+  Let $\left\langle \prod f \right\rangle a \neq \bot$. Then $\left\langle \prod
+  f \right\rangle a = \left\langle \prod^{(A)} f \right\rangle a =
+  \prod^{\mathsf{RLD}}_{i \in \dom f} \langle f_i \rangle
+  \Pr^{\mathsf{RLD}}_i a$. Thus every $\langle f_i \rangle
+  \Pr^{\mathsf{RLD}}_i a \neq \bot$. Consequently by compactness
+  $\Cor \langle f_i \rangle \Pr^{\mathsf{RLD}}_i a \neq \bot$;
+  $\prod_{i \in \dom f} \Cor \langle f_i \rangle
+  \Pr^{\mathsf{RLD}}_i a \neq \bot$; $\Cor \prod_{i \in \dom
+  f} \langle f_i \rangle \Pr^{\mathsf{RLD}}_i a \neq \bot$; $\Cor
+  \left\langle \prod f \right\rangle a \neq \bot$.
+  
+  So $\prod f$ is directly compact.
+\end{proof}
+
+\begin{prop}
+  The following expressions are pairwise equal:
+  \begin{enumerate}
+    \item\label{ff-id-s} $\langle f \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}}$;
+    
+    \item\label{ff-id-at} $\bigsqcup \setcond{ \langle f \times^{(A)} f \rangle p }
+    {p \in \atoms 1^{\mathsf{RLD}} }$;
+    
+    \item\label{ff-id-p} $\bigsqcup \setcond{ \supfun{f} x \times^{\mathsf{RLD}}
+    \supfun{f} x }{ x \in \atoms^{\mathscr{F}} }$;
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+~
+\begin{widedisorder}
+\item[\ref{ff-id-s}$\Leftrightarrow$\ref{ff-id-at}] Theorem~\bookref{fcd-atoms}.
+
+\item[\ref{ff-id-at}$\Leftrightarrow$\ref{ff-id-p}]
+$\bigsqcup \setcond{ \langle f \times^{(A)} f \rangle p }{p \in \atoms 1^{\mathsf{RLD}} } =
+\bigsqcup \setcond{ \supfun{f}\dom p \times^{\mathsf{RLD}} \supfun{f}\im p }{p \in \atoms 1^{\mathsf{RLD}} } =
+\bigsqcup \setcond{ \supfun{f} x \times^{\mathsf{RLD}} \supfun{f} x }{ x \in \atoms^{\mathscr{F}} }$.
+\end{widedisorder}
+\end{proof}
+
+\begin{prop}\label{ff-ge-g}
+  Let $g$ be a reloid and $f = \tofcd g$ and $f=f\circ f^{-1}$. Then $\langle f
+  \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}} \sqsupseteq g$.
+\end{prop}
+
+\begin{proof}
+  $\langle f \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}} \nasymp
+  \uparrow^{\mathsf{RLD}} Y \Leftrightarrow
+  \uparrow^{\mathsf{RLD}} 1^{\mathsf{RLD}} \mathrel{[f \times^{(A)} f]}
+  \uparrow^{\mathsf{RLD}} Y \Leftrightarrow
+  \uparrow^{\mathsf{FCD}} 1^{\mathsf{RLD}} \mathrel{[f \times^{(C)} f]}
+  \uparrow^{\mathsf{FCD}} Y \Leftrightarrow f \circ
+  \uparrow^{\mathsf{FCD}} 1^{\mathsf{RLD}} \circ f^{- 1} \nasymp
+  \uparrow^{\mathsf{FCD}} Y \Leftrightarrow f \circ f^{- 1} \nasymp
+  \uparrow^{\mathsf{FCD}} Y \Leftrightarrow f \nasymp
+  \uparrow^{\mathsf{FCD}} Y \Leftrightarrow f \sqcap
+  \uparrow^{\mathsf{FCD}} Y \neq \bot \Leftarrow
+  \torldin (f \sqcap \uparrow^{\mathsf{FCD}}
+  Y) \neq \bot \Leftrightarrow \torldin f \sqcap
+  \torldin \uparrow^{\mathsf{FCD}} Y \neq \bot
+  \Leftarrow \torldin f \sqcap
+  \torldout \uparrow^{\mathsf{FCD}} Y \neq \bot
+  \Leftrightarrow \torldin f \sqcap
+  \uparrow^{\mathsf{RLD}} Y \neq \bot \Leftrightarrow
+  \torldin  \tofcd g \sqcap
+  \uparrow^{\mathsf{RLD}} Y \neq \bot \Leftarrow g \sqcap
+  \uparrow^{\mathsf{RLD}} Y \neq \bot \Leftrightarrow g \nasymp
+  \uparrow^{\mathsf{RLD}} Y$.
+\end{proof}
+
+\begin{prop}
+  Let $g$ be a reloid and $f = \tofcd g$ and $f=f\circ f^{-1}$. Then
+  $\rsupfun{f \times^{\mathrm{in}} f} 1^{\mathsf{RLD}} \sqsupseteq g$.
+\end{prop}
+
+\begin{proof}
+$\rsupfun{f \times^{\mathrm{in}} f} 1^{\mathsf{RLD}} =
+\rsupfun{\torldin f\circ^{(C)}\torldin f} 1^{\mathsf{RLD}} =
+\torldin f\circ 1^{\mathsf{RLD}} \circ \torldin f^{-1} = 
+\torldin f\circ \torldin f^{-1} = 
+\torldin (f\circ f^{-1}) = \torldin f = \torldin\tofcd g \sqsupseteq g$.
+\end{proof}
+
+\begin{lem}
+  $\Cor \langle f \times^{(A)} f \rangle^{\ast} g \sqsubseteq 1^{\mathsf{RLD}}$ if
+  $\tofcd g = f$ for a $T_1$-separable reloid $g$.
+\end{lem}
+
+\subsection{Propositions from~\cite{bourb-top-1} which do not hold for our products}
+
+In this subsection I present counter-examples against modified propositions from~\cite{bourb-top-1}
+in which I replace Tychonoff product with our subatomic or cross-inner products.
+
+TODO: Consider as a counter-example the non-transitive compact funcoid
+$\setcond{(x,y)}{x,y\in [0;1], |x-y|<\frac{1}{3}}$.
+
+\begin{example}
+$\rsupfun{1^{\mathbf{Rel}} \times^{(A)} 1^{\mathbf{Rel}}} 1^{\mathbf{Rel}} \sqsupset 1^{\mathbf{Rel}}$.
+\end{example}
+
+\begin{proof}
+$\rsupfun{1^{\mathbf{Rel}} \times^{(A)} 1^{\mathbf{Rel}}} 1^{\mathbf{Rel}} =
+\bigsqcup_{x\in\atoms 1^{\mathbf{Rel}}} \rsupfun{1^{\mathbf{Rel}} \times^{(A)} 1^{\mathbf{Rel}}} x =
+\bigsqcup_{x\in\atoms 1^{\mathbf{Rel}}} \left( \rsupfun{1^{\mathbf{Rel}}} \dom x \times^{\mathsf{RLD}} \rsupfun{1^{\mathbf{Rel}}} \im x \right) =
+\bigsqcup_{x\in\atoms 1^{\mathbf{Rel}}} \left( \dom x \times^{\mathsf{RLD}} \im x \right) =
+\bigsqcup_{x\in\atoms \mathscr{F}} ( x \times^{\mathsf{RLD}} x ) \sqsupset
+1^{\mathbf{Rel}}$.
+\end{proof}
+
+Statement~2 on page~172 of~\cite{bourb-top-1} does not survive modification:
+
+\begin{example}
+  ~
+  \begin{enumerate}
+    \item\label{vmv} There is a funcoid~$f$ and $V \in \up f$ such that
+      $V \circ M \circ V^{- 1} \notin \up \rsupfun{f
+      \times^{(A)} f } M$.
+    \item\label{ffm} $\langle f \times^{(A)} f \rangle^{\ast} M \sqsupset g \circ
+      \uparrow^{\mathsf{RLD}} M \circ g^{- 1}$ for some reloid~$g$, binary relation~$M$ and
+      the funcoid~$f=\tofcd g$.
+  \end{enumerate}
+\end{example}
+
+\begin{proof}
+  ~
+  \begin{widedisorder}
+    \item[\ref{vmv}] Take $f=M=V=1^{\mathbf{Rel}}$ and use the example above.
+    \item[\ref{ffm}] Take $f=g=M=1^{\mathbf{Rel}}$ and use the example above.
+  \end{widedisorder}
+\end{proof}
+
+\begin{cor}
+  $\langle f \times^{(A)} f \rangle^{\ast} M \sqsubseteq \langle f \times^{(C)} f
+  \rangle^{\ast} M$.
+\end{cor}
+
+\begin{cor}
+  $V \circ V^{- 1} \in \up \langle f \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}}$; $f
+  \circ f^{- 1} \sqsupseteq \langle f \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}}$.
+\end{cor}
+
+\begin{proof}
+  ??
+\end{proof}
+
+\begin{rem}
+  I attempted to generalize the below theorem more than the standard general
+  topology theorem about correspondence of compact and uniform spaces, but
+  haven't really succeeded much, as it appears to be needed that the reloid in
+  question is reflexive, symmetric, and transitive, that is just a uniform
+  space as in the standard general topology.
+\end{rem}
+
+Does the reverse inequality hold, that is
+$g \sqsupseteq \rsupfun{f \times^{(A)} f} 1^{\mathsf{RLD}}$
+and/or
+$g \sqsupseteq \rsupfun{f \times^{\mathrm{in}} f} 1^{\mathsf{RLD}}$
+(for compact~$f=\tofcd g$)?
+
+\begin{grayed}
+\begin{thm}
+$g\sqsubseteq\rsupfun{f \times^{(A)} f} 1^{\mathsf{RLD}}$
+for compact~$f=\tofcd g$.
+(We have already proved this in an easier way, and not only for compact funcoids.)
+\end{thm}
+
+Suppose there is $U \in \up \langle f \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}}$
+such that $U \notin \up g$.
+
+Then $\setcond{ V \setminus U }{ V \in \up g } = g \setminus U$ would be a proper filter.
+
+Thus by reflexivity $\langle f \times^{(A)} f \rangle^{\ast} (g \setminus U) \neq
+\bot$.
+
+By compactness of $f \times^{(A)} f$, $\Cor \langle f \times^{(A)} f \rangle^{\ast}
+(g \setminus U) \neq \bot$.
+
+Suppose $\uparrow \{ (x , x) \} \sqsubseteq \langle f \times^{(A)} f \rangle^{\ast}
+(g \setminus U)$; then $g \setminus U \nasymp \langle f^{- 1} \times^{(A)} f^{- 1}
+\rangle \{ (x , x) \}$; $U \sqsubset \langle f^{- 1} \times^{(A)} f^{- 1} \rangle \{
+(x , x) \} \sqsubseteq \langle f^{- 1} \times^{(A)} f^{- 1} \rangle 1^{\mathsf{RLD}}$ what is
+impossible.
+
+Thus there exist $x \neq y$ such that $\{ (x , y) \} \sqsubseteq \Cor
+\langle f \times^{(A)} f \rangle^{\ast} (g \setminus U)$. Thus $\{ (x , y) \}
+\sqsubseteq \langle f \times^{(A)} f \rangle^{\ast} g$.
+
+Thus by the lemma $\{ (x , y) \} \sqsubseteq 1^{\mathsf{RLD}}$ what is impossible. So $U
+\in \up g$.
+
+We have $\up \langle f \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}} \subseteq
+\up g$; $\langle f \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}} \sqsupseteq g$.
+
+\begin{cor}
+  Let $f$ is a $T_1$-separable (the same as $T_2$ for symmetric transitive)
+  compact funcoid and $g$ is a uniform space (reflexive, symmetric, and
+  transitive endoreloid) such that $\tofcd g = f$. Then $g =
+  \langle f \times^{(A)} f \rangle^{\ast} 1^{\mathsf{RLD}}$.
+\end{cor}
+\end{grayed}
+
+
+An (incomplete) attempt to prove one more theorem follows:
+
+\begin{thm}
+  Let $\mu$ and $\nu$ be uniform spaces, $\tofcd
+  \mu$ be a compact funcoid. Then a map $f$ is a continuous map from
+  $\tofcd \mu$ to $\tofcd \nu$ iff $f$ is
+  a (uniformly) continuous map from $\mu$ to $\nu$.
+\end{thm}
+
+\begin{proof}
+\fxerror{errors in this proof.}
+
+http://math.stackexchange.com/questions/665202/bourbaki-on-the-fact-that-continuous-function-on-a-compact-is-uniformly-continuo/670956?iemail=1\&noredirect=1\#670956
+
+We have $\mu= \langle \tofcd \mu \times
+\tofcd \mu \rangle \uparrow^{\mathsf{RLD}} 1^{\mathsf{RLD}}$
+
+$f \in \mathrm{C}_? (\tofcd \mu, \tofcd
+\nu)$. Then
+\[ f \times^{(A)} f \in \mathrm{C}_? (\tofcd (\mu \times^{(A)}
+   \mu) , \tofcd (\nu \times^{(A)} \nu)) \]
+$(f \times^{(A)} f) \circ \tofcd (\mu \times^{(A)} \mu)
+\sqsubseteq \tofcd (\nu \times^{(A)} \nu) \circ (f \times^{(A)} f)$
+
+For every $V \in \up (\nu \times^{(A)} \nu)$ we have $\langle g^{- 1} \rangle
+V \in \langle \tofcd (\mu \times^{(A)} \mu) \rangle
+\{ y \}$ for some $y$.
+
+$\langle g^{- 1} \rangle V \in \langle \tofcd \mu \times^{(A)}
+\tofcd \mu \rangle \uparrow^{\mathsf{RLD}} 1^{\mathsf{RLD}}
+= \up \mu$
+
+$\supfun{g} \langle g^{- 1} \rangle V \sqsubseteq V$
+
+We need to prove $f \in \mathrm{C} (\mu, \nu)$ that is $\forall p \in
+\up \nu \exists q \in \up \mu: \supfun{f} q
+\sqsubseteq p$. But this follows from the above.
+\end{proof}
+
+\fxnote{A space is compact if and only if it is both, complete and totally bounded.}
+
+\url{http://math.stackexchange.com/questions/1101995/non-symmetric-version-of-compact-totally-bounded-complete}

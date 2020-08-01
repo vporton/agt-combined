@@ -1,0 +1,1023 @@
+\chapter{Products in dagger categories with complete ordered Hom-sets}
+
+\fxwarning{This is a rough draft. It is not yet checked for errors.}
+
+\begin{note}
+  What I previously denoted $\prod F$ is now denoted $\bigodot^{\text{proj}}_{\sqcap} F$ (and
+  likewise for $\mathord{\coprod}$). The other draft chapters referring to
+  this chapter may be not yet updated.
+\end{note}
+
+\begin{prop}
+  ~
+  \fxwarning{Should we move this to volume 1?}
+  \begin{enumerate}
+    \item Every entirely defined monovalued morphism is metamonovalued and metacomplete.
+    \item Every surjective injective morphism is metainjective and co-metacomplete.
+  \end{enumerate}
+
+\end{prop}
+
+\begin{proof}
+Let's prove the first (the second follows from duality):
+  
+Let $f$ be an entirely defined monovalued morphism.
+
+$\left( \bigsqcap G \right) \circ f \sqsubseteq \bigsqcap_{g \in G} (g \circ
+f)$ by monotonicity of composition.
+
+Using the fact that $f$ is monovalued and entirely defined:
+
+$\left( \bigsqcap_{g \in G} (g \circ f) \right) \circ f^{\dagger} \sqsubseteq
+\bigsqcap_{g \in G} (g \circ f \circ f^{\dagger}) \sqsubseteq \bigsqcap G$;
+
+$\bigsqcap_{g \in G} (g \circ f) \sqsubseteq \left( \bigsqcap_{g \in G} (g
+\circ f) \right) \circ f^{\dagger} \circ f \sqsubseteq \left( \bigsqcap G
+\right) \circ f$.
+
+So $\left( \bigsqcap G \right) \circ f = \bigsqcap_{g \in G} (g \circ f)$.
+
+Let $f$ be a entirely defined monovalued morphism.
+
+$f \circ \left( \bigsqcup G \right) \sqsupseteq \bigsqcup_{g \in G} (f \circ
+g)$ by monotonicity of composition.
+
+Using the fact that $f$ is entirely defined and monovalued:
+
+$f^{\dagger} \circ \left( \bigsqcup_{g \in G} (f \circ g) \right) \sqsupseteq
+\bigsqcup_{g \in G} (f^{\dagger} \circ f \circ g) \sqsupseteq \bigsqcap G$;
+
+$\bigsqcup_{g \in G} (f \circ g) \sqsupseteq f \circ f^{\dagger} \circ
+\bigsqcup_{g \in G} (f \circ g) \sqsupseteq f \circ \left( \bigsqcup G
+\right)$.
+
+So $f \circ \left( \bigsqcup G \right) = \bigsqcup_{g \in G} (f \circ g)$.
+\end{proof}
+
+\section{General product in partially ordered dagger category}
+
+To understand the below better, you can restrict your imagination to the case
+when $\mathcal{C}$ is the category $\mathbf{Rel}$.
+
+\subsection{Products}
+
+Let $\mathcal{C}$ be a dagger category, each Hom-set of which is a complete
+lattice (having order agreed with the dagger).
+
+We will designate some morphisms as \emph{principal} and require that
+principal morphisms are both metacomplete and co-metacomplete. (For a
+particular example of the category $\mathbf{Rel}$, all morphisms are
+considered principal.)
+
+Let $\prod^{(Q)} X$ be an object for each indexed family $X$ of objects.
+
+Let $\pi$ be a partial function mapping elements $X \in \dom \pi$ (which
+consists of small indexed families of objects of $\mathcal{C}$) to indexed
+families $\prod^{(Q)} X \rightarrow X_i$ of principal morphisms (called
+\emph{projections}) for every $i \in \dom X$.
+
+We will denote particular projections as $\pi^X_i$.
+
+\begin{defn}
+  If $\pi$ is defined at $\lambda
+  j \in n : \Src F_j$ and $\lambda j \in n : \Dst F_j$, then
+  \[ \bigodot^{\text{proj}}_{\sqcap} F = \bigsqcap_{i \in \dom F} ((\pi^{\Dst \circ
+   F_{}}_i)^{\dagger} \circ F_i \circ \pi^{\Src \circ F}_i) . \]
+\end{defn}
+
+If $F_i:Y\to X_i$ for all~$i$ for some object~$Y$:
+\[
+  \prod^{\text{proj}}_{\sqcap} F = \bigsqcap_{i \in \dom F} ((\pi^{\Dst\circ F}_i)^{\dagger} \circ F_i) .
+\]
+
+If $F_i:X_i\to Y$ for all~$i$ for some object~$Y$:
+\[
+  \coprod^{\text{proj}}_{\sqcup} F = \bigsqcup_{i \in \dom F} (F_i \circ \pi^{\Src\circ F}_i) .
+\]
+
+\begin{rem}
+  \begin{align*}
+  (\pi^{\Dst \circ
+   F_{}}_i)^{\dagger} \circ F_i \circ \pi^{\Src \circ F}_i \in \Hom \left(
+  \prod^{(Q)}_{j \in n} \Src F_j , \prod^{(Q)}_{j \in n} \Dst F_j
+  \right);\\
+  (\pi^{\Dst \circ
+   F_{}}_i)^{\dagger} \circ F_i \in \Hom \left(
+  Y , \prod^{(Q)}_{j \in n} \Dst F_j
+  \right);\\
+F_i \circ \pi^{\Src \circ F}_i \in \Hom \left(
+  \prod^{(Q)}_{j \in n} \Src F_j , Y \right).
+  \end{align*}
+  are properly defined and have the same sources and destination
+  (whenever $i \in \dom F$ is), thus the meet in the formulas is
+  properly defined.
+\end{rem}
+
+\begin{rem}
+  Thus, for example,
+\begin{multline*}
+  F_0 \odot^{\text{proj}}_{\sqcap} F_1 = ((\pi^{(\Dst F_0 , \Dst
+  F_1)}_0)^{\dagger} \circ F_0 \circ \pi^{(\Src F_0 , \Src
+  F_1)}_0) \sqcap\\ ((\pi^{(\Dst F_0 , \Dst F_1)}_1)^{\dagger}
+  \circ F_1 \circ \pi^{(\Src F_0 , \Src F_1)}_1)
+\end{multline*}
+  that is product is defined by a pure algebraic formula.
+\end{rem}
+
+\begin{lem}
+$F\mapsto\bigsqcup_{i\in\dom F}\phi(F_i)$ for ordinal variadic~$F$ is infinitely
+associative for any function~$\phi$ defined on all values~$F_i$.
+\end{lem}
+
+\begin{proof}
+I will denote $t(F)=\bigsqcup_{i\in\dom F}\phi(F_i)$. We need
+to prove:
+\begin{widedisorder}
+\item[$t(t\circ S)=t(\concat S)$]
+$t(\concat S)=
+\bigsqcup_{i\in\dom(\concat S)}\phi((\concat S)_i)=
+\bigsqcup_{i\in\dom(\uncurry(S))}\phi((\uncurry(S))_i)$.
+
+$t(t\circ S)=
+\bigsqcup_{i\in\dom S}\phi(tS_i)=
+\bigsqcup_{i\in\dom S}\bigsqcup_{j\in\dom F}\phi((S_i)_j)$.
+
+So, obviously $t(t\circ S)=t(\concat S)$.
+
+\item[$t(\llbracket x\rrbracket)=x$] Obvious.
+\end{widedisorder}
+\end{proof}
+
+\begin{cor}
+All three above defined products are infinitely associative
+for ordinal variadic families~$F$.
+\end{cor}
+
+\begin{proof}
+An obvious consequence taking into account duality.
+\end{proof}
+
+\begin{prop}
+  $\bigodot^{\text{proj}}_{\sqcap} F = \max \setcond{ \Phi \in \Hom \left( \prod^{(Q)}_{j \in
+  n} \Src F_j , \prod^{(Q)}_{j \in n} \Dst F_j \right)
+  }{ \forall i \in n : \Phi \sqsubseteq (\pi^{\Dst\circ F}_i)^{\dagger} \circ F_i \circ \pi^{\Src\circ F}_i }$.
+\end{prop}
+
+\begin{proof}
+  By definition of meet on a complete lattice.
+\end{proof}
+
+\begin{thm}
+  Let $\pi^X_i$ be metamonovalued morphisms. Let~$I$ be an index set. If $S \in \subsets \prod_{i\in I}\Hom(A_i, B_i)$ for some objects $A_i$, $B_i$ where $i\in I$ then
+  \begin{gather*}
+    \bigsqcap_{f\in S} \bigodot^{\operatorname{proj}}_{\sqcap}f =
+    \bigodot_{i\in I}\bigsqcap_{f\in S}f_i=
+    \bigodot_{i\in I}\bigsqcap\Pr_i S;\\
+    \bigsqcap_{f\in S} \prod^{\operatorname{proj}}_{\sqcap} f =
+    \prod_{i\in I}\bigsqcap_{f\in S}f_i=
+    \prod_{i\in I}\bigsqcap\Pr_i S;\\
+    \bigsqcap_{f\in S} \coprod^{\operatorname{proj}}_{\sqcap} f =
+    \coprod_{i\in I}\bigsqcap_{f\in S}f_i=
+    \coprod_{i\in I}\bigsqcap\Pr_i S.
+  \end{gather*}
+\end{thm}
+
+\begin{proof}
+Let us consider for example the first formula (two others
+are similar):
+  \begin{align*}
+  \bigsqcap_{f\in S} \bigodot^{\operatorname{proj}}_{\sqcap} & = \\
+  \bigsqcap_{f\in S} \bigsqcap_{i\in I}((\pi^{\Dst\circ f_i}_i)^{\dagger} \circ f_i \circ \pi^{\Src\circ f_i}_i) & = \\
+  \bigsqcap_{i\in I}\bigsqcap_{f\in S}((\pi^{\Dst\circ f_i}_i)^{\dagger} \circ f_i \circ \pi^{\Src\circ f_i}_i) & = \\
+  \bigsqcap_{i\in I}((\pi^{\Dst\circ f_i}_i)^{\dagger} \circ \bigsqcap_{f\in S}f_i \circ \pi^{\Src\circ f_i}_i) & = \\
+  \bigodot_{i\in I}\bigsqcap_{f\in S}f_i & = \\
+  \bigodot_{i\in I}\bigsqcap\Pr_i S.
+  \end{align*}
+\end{proof}
+
+\begin{cor}
+~
+\begin{enumerate}
+\item
+  $(a_0 \odot^{\operatorname{proj}}_{\sqcap} b_0) \sqcap (a_1 \odot^{\operatorname{proj}}_{\sqcap} b_1) = (a_0 \sqcap a_1)
+  \odot^{\operatorname{proj}}_{\sqcap} (b_0 \sqcap b_1)$;
+\item
+  $(a_0 \times^{\operatorname{proj}}_{\sqcap} b_0) \sqcap (a_1 \times^{\operatorname{proj}}_{\sqcap} b_1) = (a_0 \sqcap a_1)
+\times^{\operatorname{proj}}_{\sqcap} (b_0 \sqcap b_1)$;
+\item
+  $(a_0 \amalg^{\operatorname{proj}}_{\sqcap} b_0) \sqcap (a_1 \amalg^{\operatorname{proj}}_{\sqcap} b_1) = (a_0 \sqcap a_1)
+  \amalg^{\operatorname{proj}}_{\sqcap} (b_0 \sqcap b_1)$;
+\end{enumerate}
+\end{cor}
+
+\subsection{Product for endomorphisms}
+
+Let $F$ is an indexed family of endomorphisms of $\mathcal{C}$.
+
+I will denote $\Ob f$ the object (source and destination) of an
+endomorphism $f$.
+
+Let also $\pi^X_i$ be a monovalued entirely defined morphism (for each $i \in
+\dom F$).
+
+Then
+\begin{gather*}
+\bigodot^{\text{proj}}_{\sqcap} F = \bigsqcap_{i \in \dom F} ((\pi^{\lambda j \in n :
+\Ob F_j}_i)^{\dagger} \circ F_i \circ \pi^{\lambda j \in n : \Ob
+F_j}_i);\\
+\bigodot^{\text{proj}}_{\sqcup} F = \bigsqcup_{i \in \dom F} ((\pi^{\lambda j \in n :
+\Ob F_j}_i)^{\dagger} \circ F_i \circ \pi^{\lambda j \in n : \Ob
+F_j}_i)
+\end{gather*}
+(if $\pi$ is defined at $\lambda j \in n : \Ob F_j$).
+
+Abbreviate $\pi_i = \pi^{\lambda j \in n : \Ob F_j}_i$.
+
+So
+\begin{gather*}
+\bigodot^{\text{proj}}_{\sqcap} F = \bigsqcap_{i \in \dom F} ((\pi_i)^{\dagger} \circ
+F_i \circ \pi_i);\\
+\bigodot^{\text{proj}}_{\sqcup} F = \bigsqcup_{i \in \dom F} ((\pi_i)^{\dagger} \circ
+F_i \circ \pi_i).
+\end{gather*}
+
+$\bigodot^{\text{proj}}_{\sqcap} F = \max \setcond{ \Phi \in \End \left( \prod^{(Q)}_{j \in n}
+\Ob F_j \right) }{ \forall i \in n : \Phi
+\sqsubseteq (\pi_i)^{\dagger} \circ F_i \circ \pi_i }$.
+
+$\bigodot^{\text{proj}}_{\sqcup} F = \min \setcond{ \Phi \in \End \left( \prod^{(Q)}_{j \in n}
+\Ob F_j \right) }{ \forall i \in n : \Phi
+\sqsupseteq (\pi_i)^{\dagger} \circ F_i \circ \pi_i }$.
+
+Taking into account that $\pi_i$ is a monovalued entirely defined morphism, we
+get:
+
+\begin{obvious}
+$\bigodot^{\text{proj}}_{\sqcap} F = \max \setcond{ \Phi \in \End \left( \prod^{(Q)}_{j \in
+n} \Ob F_j \right) }{ \forall i \in n : \pi_i
+\in \mathrm{C} (\Phi , F_i) }$.
+\end{obvious}
+
+\begin{obvious}
+$\bigodot^{\text{proj}}_{\sqcup} F = \min \setcond{ \Phi \in \End \left( \prod^{(Q)}_{j \in
+n} \Ob F_j \right) }{ \forall i \in n : \pi_i
+\in \mathrm{C}_{\ast} (\Phi , F_i) }$.
+\end{obvious}
+
+\begin{rem}
+  The above formulas may allow to define the product for non-dagger categories
+  (but only for endomorphisms). In this writing I don't introduce a notation
+  for this, however.
+\end{rem}
+
+\begin{cor}
+  $\pi_i \in \mathrm{C} \left( \bigodot^{\text{proj}}_{\sqcap} F , F_i \right)$ and
+  $\pi_i \in \mathrm{C}_{\ast} \left( \bigodot^{\text{proj}}_{\sqcup} F , F_i \right)$
+  for every $i \in \dom F$.
+\end{cor}
+
+\subsection{Category of continuous morphisms}
+
+\begin{defn}
+  The category $\cont (\mathcal{C})$ is defined as follows:
+  \begin{itemize}
+    \item Objects are endomorphisms of the category $\mathcal{C}$.
+    
+    \item Morphisms are triples $(f , a , b)$ where $a$ and $b$ are objects
+    and $f : \Ob a \rightarrow \Ob b$ is an entirely defined
+    monovalue principal morphism of the category $\mathcal{C}$ such that $f
+    \in \mathrm{C} (a , b)$ (in other words, $f \circ a \sqsubseteq b \circ
+    f$).
+    
+    \item Composition of morphisms is defined by the formula $(g , b , c)
+    \circ (f , a , b) = (g \circ f , a , c)$.
+    
+    \item Identity morphisms are $(a , a , 1^{\mathcal{C}}_a)$.
+  \end{itemize}
+\end{defn}
+
+It is really a category:
+
+\begin{proof}
+  We need to prove that: composition of morphisms is a morphism, composition
+  is associative, and identity morphisms can be canceled on the left and on
+  the right.
+  
+  That composition of morphisms is a morphism by properties of generalized
+  continuity.
+  
+  That composition is associative is obvious.
+  
+  That identity morphisms can be canceled on the left and on the right is
+  obvious.
+\end{proof}
+
+\begin{rem}
+  The ``physical'' meaning of this category is:
+  \begin{itemize}
+    \item Objects (endomorphisms of $\mathcal{C}$) are spaces.
+    
+    \item Morphisms are continuous functions between spaces.
+    
+    \item $f \circ a \sqsubseteq b \circ f$ intuitively means that $f$
+    combined with an infinitely small is less than infinitely small combined
+    with $f$ (that is $f$ is continuous).
+  \end{itemize}
+\end{rem}
+
+\begin{defn}
+  $\pi^{\cont (\mathcal{C})}_i = \left( \bigodot^{\text{proj}}_{\sqcap} F , F_i ,
+  \pi_i \right)$.
+\end{defn}
+
+\begin{prop}
+  $\pi_i$ are continuous, that is $\pi^{\cont}
+  (\mathcal{C})_i$ are morphisms.
+\end{prop}
+
+\begin{proof}
+  We need to prove $\pi_i \in \mathrm{C} \left( \bigodot^{\text{proj}}_{\sqcap} F , F_i \right)$
+  but that was proved above.
+\end{proof}
+
+Let further $\mathcal{C}$ have sets as objects and $\prod^{(Q)}X=\prod X$ for an indexed family~$X$ of sets and $\pi_i = \Pr_i$ (for $i \in \dom F$).
+
+\begin{lem}
+  $f \in \Hom_{\cont (\mathcal{C})} \left( Y ,
+  \bigodot^{\text{proj}}_{\sqcap} F \right)$ is continuous iff all $\pi_i \circ f$ are continuous.
+\end{lem}
+
+\begin{proof}
+  ~
+  \begin{description}
+    \item[$\Rightarrow$] Let $f \in \Hom_{\cont
+    (\mathcal{C})} \left( Y , \bigodot^{\text{proj}}_{\sqcap} F \right)$. Then $f \circ Y
+    \sqsubseteq \left( \bigodot^{\text{proj}}_{\sqcap} F \right) \circ f$; $\pi_i \circ f \circ Y
+    \sqsubseteq \pi_i \circ \left( \bigodot^{\text{proj}}_{\sqcap} F \right) \circ f$; $\pi_i
+    \circ f \circ Y \sqsubseteq \left( \bigodot^{\text{proj}}_{\sqcap} F \right) \circ \pi_i \circ
+    f$. Thus $\pi_i \circ f$ is continuous.
+    
+    \item[$\Leftarrow$] Let all $\pi_i \circ f$ be continuous. Then
+    $\pi^{\cont (\mathcal{C})}_i \circ f \in
+    \Hom_{\cont (\mathcal{C})} (Y , F_i)$;
+    $\pi^{\cont (\mathcal{C})}_i \circ f \circ Y \sqsubseteq
+    F_i \circ \pi^{\cont (\mathcal{C})}_i \circ f$. We need
+    to prove $Y \sqsubseteq f^{\dagger} \circ \left( \bigodot^{\text{proj}}_{\sqcap} F \right)
+    \circ f$ that is
+    \[ Y \sqsubseteq f^{\dagger} \circ \bigsqcap_{i \in n} ((\pi_i)^{\dagger}
+       \circ F_i \circ \pi_i) \circ f \]
+    for what is enough (because $f$ is metamonovalued)
+    \[ Y \sqsubseteq \bigsqcap_{i \in n} (f^{\dagger} \circ (\pi_i)^{\dagger}
+       \circ F_i \circ \pi_i \circ f) \]
+    what follows from $Y \sqsubseteq \bigsqcap_{i \in n} (f^{\dagger} \circ
+    (\pi_i)^{\dagger} \circ \pi_i \circ f \circ Y)$ what is obvious.
+  \end{description}
+\end{proof}
+
+\begin{thm}\label{cont-pr-pr}
+$\prod^{\text{proj}}_{\sqcap}$ together with $\pi$ is a categorical product in the category $\cont (\mathcal{C})$.
+\end{thm}
+
+\begin{proof}
+Check
+\url{http://math.stackexchange.com/questions/102632/how-to-check-whether-it-is-a-direct-product/102677\#102677}
+
+I will denote $(\prod f)x=\prod_{i\in\dom f}f_i x$ for an
+indexed family~$f$ of functions.
+
+We need to prove:
+\begin{enumerate}
+\item $\pi_k\circ\prod f=f_k$;
+\item $\prod_{i\in\dom f}(\pi_i\circ f)=f$.
+\end{enumerate}
+But it follows from the fact that $\pi_i=\Pr_i$.
+\end{proof}
+
+\section{On duality}
+
+We will consider duality where both the category $\mathcal{C}$ and orders on
+Hom-sets are replaced with their dual. I will denote $A
+\xleftrightarrow{\dual} B$ when two formulas $A$ and $B$ are dual with
+this duality.
+
+\begin{prop}
+  $f \in \mathrm{C} (\mu, \nu) \xleftrightarrow{\dual} f^{\dagger}
+  \in \mathrm{C} (\nu^{\dagger} , \mu^{\dagger})$.
+\end{prop}
+
+\begin{proof}
+  $f \in \mathrm{C} (\mu, \nu) \Leftrightarrow f \circ \mu
+  \sqsubseteq \nu \circ f \xleftrightarrow{\dual} \mu^{\dagger}
+  \circ f^{\dagger} \sqsupseteq f^{\dagger} \circ^{\dagger} \nu^{- 1}
+  \Leftrightarrow f^{\dagger} \in \mathrm{C} (\nu^{\dagger} ,
+  \mu^{\dagger})$.
+\end{proof}
+
+$f \text{ is entirely defined} \Leftrightarrow f^{\dagger} \circ f \sqsupseteq
+1_{\Src f} \xleftrightarrow{\dual} f^{\dagger} \circ f \sqsubseteq
+1_{\Src f} \Leftrightarrow f \text{ is injective} \Leftrightarrow
+f^{\dagger} \text{ is monovalued}$.
+
+$f \text{ is monovalued} \Leftrightarrow f \circ f^{\dagger} \sqsubseteq
+1_{\Dst f} \xleftrightarrow{\dual} f \circ f^{\dagger} \sqsupseteq
+1_{\Dst f} \Leftrightarrow f \text{ is surjective} \Leftrightarrow
+f^{\dagger} \text{ is entirely defined}$.
+
+\section{Dual products}
+
+The below is the dual of the above, proofs are omitted as they are dual.
+
+Let $\coprod^{(Q)}X$ be an object for each indexed family~$X$ of objects.
+
+I will denote \emph{coprincipal} morphisms~$f^{\dagger}$ where $f$~is principal. (Usually there is no distinction between
+principal and coprincipal.)
+
+Let $\iota$ be a partial function mapping elements $X\in\dom\iota$ (which consist of small indexed families of objects of~$\mathcal{C}$) to indexed families $X_i\to\coprod^{(Q)}X$ of coprincipal morphisms (called \emph{injections}) for every $i\in\dom X$.
+
+We will denote particular morphisms as $\iota_i^X$.
+
+If (but we won't assume this below) $\iota_i =
+(\pi_i)^{\dagger}$. We have the above equivalent to $\pi_i$ being principal.
+
+We will define $\bigodot^{\operatorname{inj}}$, $\prod^{\operatorname{inj}}$, $\coprod^{\operatorname{inj}}$
+by analogy with $\operatorname{proj}$ counterparts replacing~$\pi$ by~$\iota^{\dagger}$.
+
+We will also define $\bigodot^{\operatorname{proj}}_{\sqcup}$, $\bigodot^{\operatorname{inj}}_{\sqcup}$, etc.\ by replacing~$\bigsqcap$ by~$\bigsqcup$.
+
+\subsection{Dual products for endomorphisms}
+
+\begin{prop}
+  $\bigodot^{\operatorname{inj}}_{\sqcup} F = \min \setcond{ \Phi \in \End \left( \coprod^{(Q)}_{j
+  \in n} \Ob F_j \right) }{ \forall i \in n :
+  \Phi \sqsupseteq \iota^{\lambda j \in n : \Src F_j}_i \circ
+  F_i^{\dagger} \circ (\iota^{\lambda j \in n : \Dst F_j}_i)^{\dagger} }$.
+\end{prop}
+
+\begin{proof}
+  By duality.
+\end{proof}
+
+Let $F$ be an indexed family of endomorphisms of $\mathcal{C}$.
+
+\begin{defn}
+  $\bigodot^{\operatorname{inj}}_{\sqcup} F = \bigsqcup_{i \in \dom F} (\iota^{\lambda j \in n :
+  \Ob F_j}_i \circ F_i^{\dagger} \circ (\iota^{\lambda j \in n :
+  \Ob F_j}_i)^{\dagger})$.
+\end{defn}
+
+Abbreviate $\iota_i = \iota^{\lambda j \in n : \Ob F_j}_i$.
+
+So $\bigodot^{\operatorname{inj}}_{\sqcup} F = \bigsqcup_{i \in \dom F} (\iota_i \circ F_i^{\dagger}
+\circ (\iota_i)^{\dagger})$.
+
+$\bigodot^{\operatorname{inj}}_{\sqcup} F = \min \setcond{ \Phi \in \End \left( \coprod^{(Q)}_{j \in n}
+\Ob F_j \right) }{ \forall i \in n : \Phi
+\sqsupseteq \iota_i \circ F_i^{\dagger} \circ (\iota_i)^{\dagger} }$.
+
+Taking into account that $\iota_i$ is a monovalued entirely defined morphism,
+we get:
+
+\begin{obvious}
+$\coprod^{(L)} = \min \setcond{ \Phi \in \End \left( \coprod^{(Q)}_{j \in
+n} \Ob F_j \right) }{ \forall i \in n : \iota_i
+\in \mathrm{C} (F_i^{\dagger} , \Phi) }$.{\hspace*{\fill}}{\medskip}
+\end{obvious}
+
+\begin{cor}
+  $\iota_i \in \mathrm{C} \left( F_i , \coprod^{(L)} F \right)$ for every $i
+  \in \dom F$.
+\end{cor}
+
+\begin{rem}
+The last two theorems don't require that our category is dagger. I omit the proof.
+\end{rem}
+
+\subsection{Category of continuous morphisms}
+
+Let $\iota_i$ be canonical injections.
+
+\begin{defn}
+$\iota^{\cont(\mathcal{C})}_i = \left(F_i,\bigodot^{\operatorname{inj}}_{\sqcup}F,\iota_i\right)$.
+\end{defn}
+
+\begin{obvious}
+$\iota_i$ are continuous that is $\iota^{\cont(\mathcal{C})}_i$ are morphisms.
+\end{obvious}
+
+\begin{thm}
+$\coprod^{\operatorname{inj}}_{\sqcup}$ together with $\iota$ is a categorical coproduct in the category~$\cont(\mathcal{C})$.
+\end{thm}
+
+\begin{proof}
+Dual to theorem~\ref{cont-pr-pr}.
+\end{proof}
+
+\section{Applying this to the theory of funcoids and reloids}
+
+\subsection{Funcoids}
+
+\begin{defn}
+  $\mathbf{Fcd} \eqdef \cont \mathsf{FCD}$.
+\end{defn}
+
+Let $F$ be a family of endofuncoids.
+
+\subsection{Reloids}
+
+\begin{defn}
+  $\mathbf{Rld} \eqdef \cont \mathsf{RLD}$.
+\end{defn}
+
+Let $F$ be a family of endoreloids.
+
+It is trivial?? that for uniform spaces infimum product of reloids coincides
+with product uniformilty.
+
+\section{Initial and terminal objects}
+
+\subsection{Of category~$\mathbf{Fcd}$}
+
+Initial object of $\mathbf{Fcd}$ is the endofuncoid
+$\bot^{\mathsf{FCD} (\emptyset , \emptyset)}$. It is
+initial because it has precisely one morphism $o$ (the empty set considered as
+a function) to any object $Y$. $o$ is a morphism because $o \circ
+\bot^{\mathsf{FCD} (\emptyset , \emptyset)} \sqsubseteq Y
+\circ o$.
+
+\begin{prop}
+  Terminal objects of $\mathbf{Fcd}$ are exactly
+  $\uparrow^{\mathscr{F}} \{ \ast \} \times^{\mathsf{FCD}}
+  \uparrow^{\mathscr{F}} \{ \ast \} = \uparrow^{\mathsf{FCD}} \{ (\ast
+  , \ast) \}$ where $\ast$ is an arbitrary point.
+\end{prop}
+
+\begin{proof}
+  In order for a function $f : X \rightarrow \uparrow^{\mathsf{FCD}} \{
+  (\ast , \ast) \}$ be a morphism, it is required exactly $f \circ X
+  \sqsubseteq \uparrow^{\mathsf{FCD}} \{ (\ast , \ast) \} \circ f$
+  
+  $f \circ X \sqsubseteq (f^{- 1} \circ \uparrow^{\mathsf{FCD}} \{
+  (\ast , \ast) \})^{- 1}$; $f \circ X \sqsubseteq (\{ \ast \}
+  \times^{\mathsf{FCD}} \langle f^{- 1} \rangle \{ \ast \})^{- 1}$; $f
+  \circ X \sqsubseteq \langle f^{- 1} \rangle \{ \ast \}
+  \times^{\mathsf{FCD}} \{ \ast \}$ what true exactly when $f$ is a
+  constant function with the value $\ast$.
+\end{proof}
+
+If $n = \emptyset$ then; $\bigodot^{\text{proj}}_{\sqcap} \emptyset = \prod^{\text{proj}}_{\sqcap} \emptyset = \coprod^{\text{proj}}_{\sqcap} \emptyset = \max
+\mathsf{FCD} (\{\emptyset\}, \{\emptyset\}) = \uparrow^{\mathscr{F}} \{ \emptyset \}
+\times^{\mathsf{FCD}} \uparrow^{\mathscr{F}} \{ \emptyset \} =
+\uparrow^{\mathsf{FCD}} \{ (\emptyset , \emptyset) \}$.
+
+\subsection{Of category~$\mathbf{Rld}$}
+
+Initial object of $\mathbf{Rld}$ is the endofuncoid
+$\bot^{\mathsf{RLD} (\emptyset , \emptyset)}$. It is
+initial because it has precisely one morphism $o$ (the empty set considered as
+a function) to any object $Y$. $o$ is a morphism because $o \circ
+\bot^{\mathsf{RLD} (\emptyset , \emptyset)} \emptyset \sqsubseteq Y
+\circ o$.
+
+\begin{prop}
+  Terminal objects of $\mathbf{Rld}$ are exactly
+  $\uparrow^{\mathscr{F}} \{ \ast \} \times^{\mathsf{RLD}}
+  \uparrow^{\mathscr{F}} \{ \ast \} = \uparrow^{\mathsf{RLD}} \{ (\ast
+  , \ast) \}$ where $\ast$ is an arbitrary point.
+\end{prop}
+
+\begin{proof}
+  In order for a function $f : X \rightarrow \uparrow^{\mathsf{RLD}} \{
+  (\ast , \ast) \}$ be a morphism, it is required exactly $f \circ X
+  \sqsubseteq \uparrow^{\mathsf{RLD}} \{ (\ast , \ast) \} \circ f$
+  
+  $f \circ X \sqsubseteq (f^{- 1} \circ \uparrow^{\mathsf{RLD}} \{
+  (\ast , \ast) \})^{- 1}$; $f \circ X \sqsubseteq (\{ \ast \}
+  \times^{\mathsf{RLD}} \langle f^{- 1} \rangle \{ \ast \})^{- 1}$; $f
+  \circ X \sqsubseteq \langle f^{- 1} \rangle \{ \ast \}
+  \times^{\mathsf{RLD}} \{ \ast \}$ what true exactly when $f$ is a
+  constant function with the value $\ast$.
+\end{proof}
+
+If $n = \emptyset$ then; $\bigodot^{\text{proj}}_{\sqcap} \emptyset = \prod^{\text{proj}}_{\sqcap} \emptyset = \coprod^{\text{proj}}_{\sqcap} \emptyset = \max
+\mathsf{RLD} (\{\emptyset\}, \{\emptyset\}) = \uparrow^{\mathscr{F}} \{ \emptyset \}
+\times^{\mathsf{RLD}} \uparrow^{\mathscr{F}} \{ \emptyset \} =
+\uparrow^{\mathsf{RLD}} \{ (\emptyset , \emptyset) \}$.
+
+\section{Canonical product and subatomic product}
+
+\fxwarning{Confusion between filters on products and multireloids.}
+
+\begin{prop}
+  $\Pr^{\mathsf{RLD}}_i |_{\mathfrak{F} (Z)} = \langle \pi_i \rangle$
+  for every index $i$ of a cartesian product $Z$.
+\end{prop}
+
+\begin{proof}
+  If $\mathcal{X} \in \mathfrak{F} (Z)$ then $(\Pr^{\mathsf{RLD}}_i
+  |_{\mathfrak{F} (Z)}) \mathcal{X} = \Pr^{\mathsf{RLD}}_i  \mathcal{X}
+  = \bigsqcap^{\mathscr{F}} \rsupfun{\Pr_i} \mathcal{X} =
+  \bigsqcap \langle \pi_i \rangle \up \mathcal{X} = \langle \pi_i
+  \rangle \mathcal{X}$.
+\end{proof}
+
+\begin{prop}
+  $\prod^{(A)} F = \bigsqcap_{i \in n} \left( \left( \pi^{\mathsf{FCD}
+  \left( \prod_{i \in n} \Dst F \right)}_i \right)^{- 1} \circ F_i \circ
+  \pi^{\mathsf{FCD} \left( \prod_{i \in n} \Src F \right)}_i
+  \right)$.
+\end{prop}
+
+\begin{proof}
+  $a \mathrel{\left[ \prod^{(A)} F \right]} b \Leftrightarrow \forall i \in
+  \dom F : \Pr^{\mathsf{RLD}}_i a \mathrel{[F_i]}
+  \Pr^{\mathsf{RLD}}_i b \Leftrightarrow \forall i \in \dom F :
+  \left\langle \pi^{\mathsf{FCD} \left( \prod_{i \in n}
+  \Dst F \right)}_i \right\rangle a \mathrel{[F_i]}
+  \left\langle \pi^{\mathsf{FCD} \left( \prod_{i \in n} \Src F
+  \right)}_i \right\rangle b \Leftrightarrow \forall i \in \dom F : a
+  \mathrel{\left[ \left( \pi^{\mathsf{FCD} \left( \prod_{i \in n}
+  \Dst F \right)}_i \right)^{- 1} \circ F_i \circ
+  \pi^{\mathsf{FCD} \left( \prod_{i \in n} \Src F \right)}_i
+  \right]} b \Leftrightarrow a \mathrel{\left[ \bigsqcap_{i \in n} \left(
+  \left( \pi^{\mathsf{FCD} \left( \prod_{i \in n} \Dst F
+  \right)}_i \right)^{- 1} \circ F_i \circ \pi^{\mathsf{FCD} \left(
+  \prod_{i \in n} \Src F \right)}_i \right) \right]} b$ for ultrafilters
+  $a$ and $b$.
+\end{proof}
+
+\begin{cor}
+  $\bigodot^{\text{proj}}_{\sqcap} F = \prod^{(A)} F$ is $F$ is a small indexed family of
+  funcoids.
+\end{cor}
+
+\section{Further plans}
+
+Coordinate-wise continuity.
+
+\section{Cartesian closedness}
+
+We are not only to prove (or maybe disprove) that our categories are cartesian closed, but also to find (if any) explicit formulas for exponential transpose and evaluation.
+
+''Definition'' A category is //cartesian closed// iff:
+\begin{enumerate}
+\item It has finite products.
+\item For each objects $A$, $B$ is given an object $\operatorname{HOM} ( A , B)$ (//exponentiation//) and a morphism $\varepsilon_{A, B} : \operatorname{HOM} ( A , B) \times A \rightarrow B$.
+\item For each morphism $f : Z \times A \rightarrow B$ there is given a morphism (//exponential transpose//) $\sim f : Z \rightarrow \operatorname{HOM} ( A , B)$.
+\item $\varepsilon_{B,C} \circ ( \sim f \times 1_A) = f$ for $f : A \rightarrow B \times C$.
+\item $\sim ( \varepsilon_{B,C} \circ ( g \times 1_A)) = g$ for $g : A \rightarrow \operatorname{HOM} ( B , C)$.
+\end{enumerate}
+
+We will also denote $f\mapsto (-f)$ the reverse of the bijection $f\mapsto (\sim f)$.
+
+Our purpose is to prove (or disprove) that categories $\mathbf{Dig}$, $\mathbf{Fcd}$, and $\mathbf{Rld}$ are cartesian closed. Note that they have finite (and even infinite) products is already proved.
+
+Alternative way to prove:
+you can prove that the functor $-\times B$ is left adjoint to the exponentiation $-^B$ where the counit is given by the evaluation map.
+
+\subsection{Definitions}
+
+Categories $\mathbf{Dig}$, $\mathbf{Fcd}$, and $\mathbf{Rld}$ are respectively categories of:
+\begin{enumerate}
+\item discretely continuous maps between digraphs;
+\item (proximally) continuous maps between endofuncoids;
+\item (uniformly) continuous maps between endoreloids.
+\end{enumerate}
+
+''Definition'' //Digraph// is an endomorphism of the category $\mathbf{Rel}$.
+
+For a digraph $A$ we denote $\operatorname{Ob} A$ the set of vertexes or $A$ and $\operatorname{GR} A$ the set of edges or $A$.
+
+''Definition'' Category $\mathbf{Dig}$ of digraphs is the category whose objects are digraphs and morphisms are discretely continuous maps between digraphs. That is morphisms from a digraph $\mu$ to a digraph $\nu$ are functions (or more precisely morphisms of $\mathbf{Set}$) $f$ such that $f \circ \mu \sqsubseteq \nu \circ f$ (or equivalently $\mu \sqsubseteq f^{- 1} \circ \nu \circ f$ or equivalently $f \circ \mu \circ f^{- 1} \sqsubseteq \nu$).
+
+''Remark'' Category of digraphs is sometimes defined in an other (non equivalent) way, allowing multiple edges between two given vertices.
+
+\subsection{Conjectures}
+
+\begin{conjecture}
+  The categories $\mathbf{Fcd}$ and $\mathbf{Rld}$ are
+  cartesian closed (actually two conjectures).
+\end{conjecture}
+
+\url{http://mathoverflow.net/questions/141615/how-to-prove-that-there-are-no-exponential-object-in-a-category}
+suggests to investigate colimits to prove that there are no exponential
+object.
+
+Our purpose is to prove (or disprove) that categories $\mathbf{Dig}$, $\mathbf{Fcd}$, and $\mathbf{Rld}$ are cartesian closed. Note that they have finite (and even infinite) products is already proved.
+
+Alternative way to prove:
+you can prove that the functor $-\times B$ is left adjoint to the exponentiation $-^B$ where the counit is given by the evaluation map.
+
+See \url{http://www.springer.com/us/book/9780387977102} for another way to prove Cartesian closedness.
+
+\subsection{Category Dig is cartesian closed}
+
+Category of digraphs is the simplest of our three categories and it is easy to demonstrate that it is cartesian closed. I demonstrate cartesian closedness of $\mathbf{Dig}$ mainly with the purpose to show a pattern similarly to which we may probably demonstrate our two other categories are cartesian closed.
+
+Let $G$ and $H$ be digraphs:
+\begin{itemize}
+\item $\operatorname{Ob} \operatorname{HOM} ( G , H) = ( \operatorname{Ob} H)^{\operatorname{Ob} G}$;
+\item $( f , g) \in \operatorname{GR} \operatorname{HOM} ( G , H) \Leftrightarrow \forall ( v , w) \in \operatorname{GR} G : ( f ( v) , g ( w)) \in \operatorname{GR} H$ for every $f, g \in \operatorname{Ob} \operatorname{HOM} ( G , H) = ( \operatorname{Ob} H)^{\operatorname{Ob} G}$;
+\end{itemize}
+
+$\operatorname{GR} 1_{\operatorname{HOM} ( B , C)} = \operatorname{id}_{\operatorname{Ob} \operatorname{HOM} ( B , C)} = \operatorname{id}_{( \operatorname{Ob} H)^{\operatorname{Ob} G}}$
+
+Equivalently
+
+$( f , g) \in \operatorname{GR} \operatorname{HOM} ( G , H) \Leftrightarrow \forall ( v , w) \in \operatorname{GR} G : g \circ \{ ( v , w) \} \circ f^{- 1} \subseteq \operatorname{GR} H$
+
+$( f , g) \in \operatorname{GR} \operatorname{HOM} ( G , H) \Leftrightarrow g \circ ( \operatorname{GR} G) \circ f^{- 1} \subseteq \operatorname{GR} H$
+
+$( f , g) \in \operatorname{GR} \operatorname{HOM} ( G , H) \Leftrightarrow \langle f \times^{( C)} g \rangle \operatorname{GR} G \subseteq \operatorname{GR} H$
+
+The transposition (the isomorphism) is uncurrying.
+
+$\sim f = \lambda a \in Z \lambda y \in A : f ( a , y)$ that is $( \sim f) ( a) ( y) = f ( a , y)$.
+
+$( - f) ( a , y) = f ( a) ( y)$
+
+If $f : A \times B \rightarrow C$ then $\sim f : A \rightarrow \operatorname{HOM} ( B , C)$
+
+''Proposition'' Transposition and its inverse are morphisms of $\mathbf{Dig}$.
+
+''Proof'' It follows from the equivalence $\sim f : A \rightarrow \operatorname{HOM} ( B , C) \Leftrightarrow \forall x, y : ( x A y \Rightarrow ( \sim f) x ( \operatorname{HOM} ( B , C))  ( \sim f) y) \Leftrightarrow \\ \forall x, y : ( x A y \Rightarrow \forall ( v , w) \in B : ( ( \sim f) x v , ( \sim f) y w) \in C) \Leftrightarrow \\ \forall x, y, v, w : ( x A y \wedge v B w \Rightarrow ( ( \sim f) x v , ( \sim f) y w) \in C) \Leftrightarrow \\ \forall x, y, v, w : ( ( x , v)  ( A \times B)  ( y , w) \Rightarrow ( f ( x , v) , f ( y , w)) \in C) \Leftrightarrow f : A \times B \rightarrow C$.
+
+Evaluation $\varepsilon : \operatorname{HOM} ( G , H) \times G \rightarrow H$ is defined by the formula:
+
+Then evaluation is $\varepsilon_{B, C} = \mathop{\sim} 1_{\operatorname{HOM}(B,C)}$.
+
+So $\varepsilon_{B, C} ( p , q) = ( \mathop{\sim} 1_{\operatorname{HOM}(B,C)}) ( p , q) = 1_{\operatorname{HOM}(B,C)} ( p) ( q) = p ( q)$.
+
+''Proposition'' Evaluation is a morphism of $\mathbf{Dig}$.
+
+''Proof'' Because $\varepsilon_{B, C} ( p , q) = \mathop{\sim} 1_{\operatorname{HOM}(B,C)}$.
+
+It remains to prove:
+\begin{itemize}
+\item $\varepsilon_{B, C} \circ ( \sim f \times 1_{A}) = f$ for $f : A \rightarrow B \times C$;
+\item $\sim ( \varepsilon_{B, C} \circ ( g \times 1_{A})) = g$ for $g : A \rightarrow \operatorname{HOM} ( B , C)$.
+\end{itemize}
+
+''Proof'' $\varepsilon_{B, C} ( \sim f \times 1_{A}) ( a , p) = \varepsilon_{B, C} ( ( \sim f) a , p) = ( \sim f) a p = f ( a , p)$. So $\varepsilon_{B, C} \circ ( \sim f \times 1_{A}) = f$.
+
+  $(\sim ( \varepsilon_{B, C} \circ ( g \times 1_{A}))) ( p) ( q) = ( \varepsilon_{B, C} \circ ( g \times 1_{A})) ( p , q) = \varepsilon_{B, C} ( g \times 1_{A}) ( p , q) = \varepsilon_{B, C} ( g p , q) = g ( p) ( q)$. So $\sim ( \varepsilon_{B, C} \circ ( g \times 1_{A})) = g$.
+
+\subsection{New attempt}
+
+We will take $\times^{(C)}$ as the product?? in the category $\mathbf{Fcd}$
+
+\begin{prop}
+$\rsupfun{\bigcup\rsupfun{\curry f}X}Y=
+\rsupfun{f}(X\times Y)$
+[Is the left part always defined?]
+\end{prop}
+
+\begin{proof}
+$\rsupfun{\bigcup\rsupfun{\curry f}X}Y=\setcond{\rsupfun{\bigcup\rsupfun{\curry f}X}\{y\}}{y\in Y}=
+\setcond{\rsupfun{\bigcup\left(\bigcup_{x\in X}(\curry f)x\right)}\{y\}}{y\in Y}=
+\setcond{\bigcup\rsupfun{\bigcup_{x\in X}(\curry f)x}\{y\}}{y\in Y}=
+\setcond{\bigcup\bigcup_{x\in X}\rsupfun{(\curry f)x)}\{y\}}{y\in Y}=
+\setcond{\bigcup_{x\in X}(\curry f)x)y}{y\in Y}=
+\setcond{((\curry f)x)y}{x\in X,y\in Y}$.
+
+$\rsupfun{f}(X\times Y)=\setcond{f(x,y)}{x\in X,y\in Y}$.
+
+So the thesis.
+\end{proof}
+
+\begin{prop}
+$\supfun{\bigsqcup\supfun{\curry f}x}y =
+\supfun{f}(x\times^{\mathsf{RLD}}y)$.
+\end{prop}
+
+\begin{proof}
+$\supfun{\bigsqcup\supfun{\curry f}x}y =
+\bigsqcap_{Y\in\up y}\bigsqcup\supfun{\bigsqcup\supfun{\curry f}x}Y=
+\bigsqcap_{Y\in\up y}\bigsqcup\supfun{\bigsqcap_{X\in\up x}\bigsqcup\supfun{\curry f}X}Y=
+\bigsqcap_{Y\in\up y}\bigsqcap_{X\in\up x}\bigsqcup\supfun{\bigsqcup\supfun{\curry f}X}Y=
+\bigsqcap_{Y\in\up y}\bigsqcap_{X\in\up x}\bigcup\rsupfun{\bigcup\rsupfun{\curry f}X}Y=
+\bigsqcap_{Y\in\up y}\bigsqcap_{X\in\up x}\supfun{f}(X\times Y)$.
+By properties of generalized filter bases
+$\bigsqcap_{Y\in\up y}\bigsqcap_{X\in\up x}\supfun{f}(X\times Y)=\supfun{f}(x\times^{\mathsf{RLD}} y)$
+\end{proof}
+
+Let $G$ and $H$ be endofuncoids. By definition:
+\begin{itemize}
+\item $\operatorname{Ob} \operatorname{HOM} ( G , H) = ( \operatorname{Ob} H)^{\operatorname{Ob} G}$;
+\item $( f , g) \in \operatorname{GR} \operatorname{HOM} ( G , H) \Leftrightarrow \forall v,w\in\atoms^{\mathscr{F}}\Ob G : \supfun{f}v \times^{\mathsf{FCD}} \supfun{g}w \sqsubseteq H$ for every $f, g \in \operatorname{Ob} \operatorname{HOM} ( G , H) = ( \operatorname{Ob} H)^{\operatorname{Ob} G}$;
+\end{itemize}
+
+$\operatorname{GR} 1_{\operatorname{HOM} ( B , C)} = \operatorname{id}_{\operatorname{Ob} \operatorname{HOM} ( B , C)} = \operatorname{id}_{( \operatorname{Ob} H)^{\operatorname{Ob} G}}$
+
+Equivalently
+
+$( f , g) \in \operatorname{GR} \operatorname{HOM} ( A , B) \Leftrightarrow \forall v,w\in\atoms^{\mathscr{F}}\Ob A : g \circ (v \times^{\mathsf{FCD}} w) \circ f^{- 1} \sqsubseteq \operatorname{GR} B$
+
+$( f , g) \in \operatorname{GR} \operatorname{HOM} ( A , B) \Leftrightarrow g \circ A \circ f^{- 1} \sqsubseteq B$
+
+$( f , g) \in \operatorname{GR} \operatorname{HOM} ( A , B) \Leftrightarrow \langle f \times^{( C)} g \rangle A \sqsubseteq B$
+
+\begin{lem}
+$F\suprel{\operatorname{HOM}(A,B)}G \Leftrightarrow G\circ A\circ F^{-1}\sqsubseteq B$ for sets $F$,~$G$ of functions.
+\end{lem}
+
+\begin{proof}
+$F\suprel{\operatorname{HOM}(A,B)}G \Leftrightarrow
+\exists f\in F,g\in G:(f,g)\in\operatorname{HOM}(A,B)\Leftrightarrow
+\exists f\in F,g\in G:g\circ A\circ f^{-1}\sqsubseteq B\Leftrightarrow
+G\circ A\circ F^{-1}\sqsubseteq B$.
+\end{proof}
+
+\begin{prop}
+$\mathcal{F}\suprel{\operatorname{HOM}(A,B)}\mathcal{G} \Leftrightarrow \mathcal{G}\circ A\circ \mathcal{F}^{-1}\sqsubseteq B$.
+\end{prop}
+
+\begin{proof}
+$\mathcal{F}\suprel{\operatorname{HOM}(A,B)}\mathcal{G} \Leftrightarrow
+\forall F\in\up\mathcal{F},G\in\up\mathcal{G}:F\suprel{\operatorname{HOM}(A,B)}G
+\Leftrightarrow
+\forall F\in\up\mathcal{F},G\in\up\mathcal{G}:G\circ A\circ F^{-1}\sqsubseteq B$ what by properties of generalized filter
+bases is equivalent to $\mathcal{G}\circ A\circ \mathcal{F}^{-1}\sqsubseteq B$.
+\end{proof}
+
+Let $\sim f=\bigsqcup\circ\supfun{\curry f}$. Here we consider $\bigsqcup\circ\supfun{\curry f}$ as a principal funcoid that is binary relation:
+
+\begin{prop}
+$\bigsqcup\circ\supfun{\curry f}$ is a complete and co-complete pointfree funcoid.
+\end{prop}
+
+\begin{proof}
+It is obviously a pointfree funcoid.
+
+Let~$X$ be a principal filter.
+$\bigsqcup\supfun{\curry f}X$ is obviously principal.
+So, it's co-complete.
+
+And it is obviously complete.
+\end{proof}
+
+\begin{obvious}
+$\supfun{\supfun{\sim f}x}y = \supfun{f}(x\times^{\mathsf{RLD}}y)$.
+\end{obvious}
+
+Let $f\in\Hom(A\times B,C)$ that is $f\in Z^{A\times B}$. Then
+$\curry f\in (C^B)^A$, $\supfun{\curry f}X\in\subsets(C^B)$,
+$\bigsqcup\supfun{\curry f}X\in C^B$.
+Thus $\sim f\in (\mathsf{FCD}(B,C))^{\mathscr{F}(A)}$.
+
+If $f : A \times B \rightarrow C$ then $\sim f : \mathscr{F}(A) \rightarrow \operatorname{HOM} ( B , C)$
+
+\fxwarning{Rewrite below:}
+
+\begin{prop}
+Transposition and its inverse are morphisms of $\mathbf{Fcd}$.
+\end{prop}
+
+\begin{proof}
+It follows from the equivalence $\sim f : A \rightarrow \operatorname{HOM} ( B , C) \Leftrightarrow \forall x,y\in\atoms^{\mathscr{F}}\Ob A : ( x\suprel{A}y \Rightarrow \supfun{\sim f} x \suprel{\operatorname{HOM}(B,C)} \supfun{\sim f} y) \Leftrightarrow \\
+\forall x,y\in\atoms^{\mathscr{F}}\Ob A : (x\suprel{A}y \Rightarrow (\supfun{\sim f}y)\circ B\circ(\supfun{\sim f}x)^{-1} \sqsubseteq C) \Leftrightarrow \\
+\forall x,y\in\atoms^{\mathscr{F}}\Ob A : (x\suprel{A}y \Rightarrow \forall p,q\in\atoms^{\mathscr{F}}\Ob B : (
+p\times^{\mathsf{FCD}}q\sqsubseteq B \Rightarrow
+(\supfun{\sim f}y)\circ(p\times^{\mathsf{FCD}}q)\circ(\supfun{\sim f}x)^{-1} \sqsubseteq C) \Leftrightarrow \\
+\forall x,y\in\atoms^{\mathscr{F}}\Ob A, p,q\in\atoms^{\mathscr{F}}\Ob B:
+(x\suprel{A}y\land p\suprel{B}q \Rightarrow (\supfun{\sim f}y)\circ(p\times^{\mathsf{FCD}}q)\circ(\supfun{\sim f}x)^{-1} \sqsubseteq C) \Leftrightarrow \\
+\forall x,y\in\atoms^{\mathscr{F}}\Ob A, p,q\in\atoms^{\mathscr{F}}\Ob B:
+(x\suprel{A}y\land p\suprel{B}q \Rightarrow \supfun{\supfun{\sim f}x}p\times^{\mathsf{FCD}}\supfun{\supfun{\sim f}y}q \sqsubseteq C) \Leftrightarrow \\
+\forall x,y\in\atoms^{\mathscr{F}}\Ob A, p,q\in\atoms^{\mathscr{F}}\Ob B:
+(x\times^{\mathsf{RLD}}p\suprel{A\times^{(C)}B}y\times^{\mathsf{RLD}}q \Rightarrow \supfun{f}(x\times^{\mathsf{RLD}}p)\times^{\mathsf{FCD}}\supfun{f}(y\times^{\mathsf{RLD}}q) \sqsubseteq C) %\Leftrightarrow \\
+\forall x,y\in\atoms^{\mathscr{F}}\Ob A, p,q\in\atoms^{\mathscr{F}}\Ob B:
+((x\times^{\mathsf{RLD}}p)\times^{\mathsf{FCD}}(y\times^{\mathsf{RLD}}q)\sqsubseteq A\times^{(C)}B \Rightarrow f\circ((x\times^{\mathsf{RLD}}p)\times^{\mathsf{FCD}}(y\times^{\mathsf{RLD}}q))\circ f^{-1} \sqsubseteq C)
+\Leftarrow \\
+\forall t,s\in\atoms(\Ob A\times^{\mathsf{RLD}}\Ob B):
+(t\times^{\mathsf{FCD}}s\sqsubseteq A\times^{(C)}B \Rightarrow f\circ(t\times^{\mathsf{FCD}}s)\circ f^{-1} \sqsubseteq C)
+\Leftrightarrow \\
+f\circ(A\times^{(C)}B)\circ f^{-1} \sqsubseteq C) \Leftrightarrow
+f : A\times^{(C)}B \rightarrow C
+$
+
+But:
+
+$f : A\times^{(C)}B \rightarrow C \Leftrightarrow f\circ(A\times^{(C)}B)\circ f^{-1} \sqsubseteq C \Leftrightarrow??
+\supfun{f}A\times^{\mathsf{FCD}}\supfun{f}B\sqsubseteq C
+\Rightarrow
+\forall x,y\in\atoms^{\mathscr{F}}\Ob A, p,q\in\atoms^{\mathscr{F}}\Ob B:(x\times^{\mathsf{RLD}}p\sqsubseteq A\land y\times^{\mathsf{RLD}}q\sqsubseteq B \Rightarrow
+\supfun{f}(x\times^{\mathsf{RLD}}p)\times^{\mathsf{FCD}}
+\supfun{f}(y\times^{\mathsf{RLD}}q) \sqsubseteq C) \Leftrightarrow
+\forall x,y\in\atoms^{\mathscr{F}}\Ob A, p,q\in\atoms^{\mathscr{F}}\Ob B:((x\times^{\mathsf{RLD}}p)\times^{\mathsf{FCD}}(y\times^{\mathsf{RLD}}q)\sqsubseteq A\times^{(C)}B \Rightarrow
+\supfun{f}(x\times^{\mathsf{RLD}}p)\times^{\mathsf{FCD}}
+\supfun{f}(y\times^{\mathsf{RLD}}q) \sqsubseteq C)$.
+
+Thus the thesis follows.
+\end{proof}
+
+Evaluation $\varepsilon : \operatorname{HOM} ( G , H) \times G \rightarrow H$ is defined by the formula:
+
+Then evaluation is $\varepsilon_{B, C} = \mathop{\sim} 1_{\operatorname{HOM}(B,C)}$.
+
+So $\varepsilon_{B, C} ( p , q) = ( \mathop{\sim} 1_{\operatorname{HOM}(B,C)}) ( p , q) = 1_{\operatorname{HOM}(B,C)} ( p) ( q) = p ( q)$.
+
+''Proposition'' Evaluation is a morphism of $\mathbf{Dig}$.
+
+''Proof'' Because $\varepsilon_{B, C} ( p , q) = \mathop{\sim} 1_{\operatorname{HOM}(B,C)}$.
+
+It remains to prove:
+\begin{itemize}
+\item $\varepsilon_{B, C} \circ ( \sim f \times 1_{A}) = f$ for $f : A \rightarrow B \times C$;
+\item $\sim ( \varepsilon_{B, C} \circ ( g \times 1_{A})) = g$ for $g : A \rightarrow \operatorname{HOM} ( B , C)$.
+\end{itemize}
+
+''Proof'' $\varepsilon_{B, C} ( \sim f \times 1_{A}) ( a , p) = \varepsilon_{B, C} ( ( \sim f) a , p) = ( \sim f) a p = f ( a , p)$. So $\varepsilon_{B, C} \circ ( \sim f \times 1_{A}) = f$.
+
+  $(\sim ( \varepsilon_{B, C} \circ ( g \times 1_{A}))) ( p) ( q) = ( \varepsilon_{B, C} \circ ( g \times 1_{A})) ( p , q) = \varepsilon_{B, C} ( g \times 1_{A}) ( p , q) = \varepsilon_{B, C} ( g p , q) = g ( p) ( q)$. So $\sim ( \varepsilon_{B, C} \circ ( g \times 1_{A})) = g$.
+
+\subsection{By analogy with the proof that Dig is cartesian closed}
+
+The most obvious way for proof attempt that $\mathbf{Fcd}$ is cartesian closed is an analogy with the proof that
+$\mathbf{Dig}$ is cartesian closed.
+
+Consider the long formula above. The proof would arise if we replace $x$ and $y$ in this formula with filters and operations and relations on set element with operations and relations on filters.
+
+This proof could be simplified in either of two ways:
+\begin{itemize}
+\item replace $x$ and $y$ with ultrafilters, see [[Proof for Fcd using ultrafilters]];
+\item replace $x$ and $y$ with sets (principal filter), see [[Proof for Fcd using sets]].
+\end{itemize}
+
+This is not quite easy however, because we need to calculate uncurrying for a entirely defined monovalued principal funcoid (what is essentially the same as a function of a $\mathbf{Set}$-morphisms) taking either ultrafilters or principal filters as arguments. Such (generalized) uncurrying is not quite easy.
+
+To sum what we need to prove:
+\begin{itemize}
+\item Transposition is a morphism.
+\item Evaluation is a morphism.
+\item $\varepsilon_{B,C} \circ ( \sim f \times 1_A) = f$ for $f : A \rightarrow B \times C$.
+\item $\sim ( \varepsilon_{B,C} \circ ( g \times 1_A)) = g$ for $g : A \rightarrow \operatorname{HOM} ( B , C)$.
+\end{itemize}
+
+\subsection{Attempt to describe exponentials in Fcd}
+
+\begin{itemize}
+\item Exponential object $\operatorname{HOM}(A,B)$ is the following endofuncoid:
+\item\begin{itemize}
+\item Object $\operatorname{Ob}\operatorname{HOM}(A,B) = (\operatorname{Ob} B)^{\operatorname{Ob} A}$;
+\item Graph is $\operatorname{GR} \operatorname{HOM} ( A , B) = \uparrow^{\mathsf{FCD}} \setcond{ ( f , g) }{ f, g \in (\operatorname{Ob}B)^{\operatorname{Ob} A} \wedge \uparrow^{\mathsf{FCD}}g \circ A \circ \uparrow^{\mathsf{FCD}}f^{- 1} \sqsubseteq B }$.
+\end{itemize}
+\item Transposition is uncurrying.
+\item Evaluation is $\varepsilon_{A, B} x = \langle \dom x \rangle \im x$.
+\end{itemize}
+
+We need to prove that the above defined are really an exponential and an evaluation.
+
+Possible ways to prove that $\mathbf{Fcd}$ is cartesian closed follow:
+
+NEW IDEA: Instead take $\GR\operatorname{HOM}(A,B) =
+\uparrow^{\mathsf{FCD}}\setcond{(\dom p,\im p)}{
+p\in\End(B)^{\End(A)}\land\supfun{p}A\sqsubseteq B}$ (what's about other
+kinds of projections?)
+
+\subsection{Proof for Fcd using sets}
+
+Currying for sets is $\langle f \rangle ( X \times Y) = \bigcup \langle \langle \sim f \rangle X
+\rangle Y$ (as it's easy to prove). This simple formula gives hope, but...
+
+It does not work with sets because an analogy for sets of the last equality of the above mentioned long formula would be:
+
+$\forall X, Y, V, W \in \mathscr{P} \operatorname{Ob} A : \left( X \times V \mathrel{[
+A \times B]^{\ast}} Y \times W \Rightarrow \langle f \rangle ( X \times V)
+\mathrel{[ C]^{\ast}} \langle f \rangle ( Y \times W) \right) \Rightarrow \\ f : A
+\times B \rightarrow C$
+
+but this implication seems false.
+
+The most obvious way for proof attempt that $\mathbf{Fcd}$ is cartesian closed is an analogy with the proof that Dig is cartesian closed.
+
+Use the exponential object, transposition, and evaluation as defined in [[this page|Is category Fcd cartesian closed?]]
+
+\subsection{Reducing to the fact that Dig is cartesian closed}
+It is probably a simpler way to prove that $\mathbf{Fcd}$ is cartesian closed by embedding it into $\mathbf{Dig}$ (which is [[already known to be cartesian closed|Category Dig is cartesian closed]]).
+
+$\mathbf{Fcd}$ can be embedded into $\mathbf{Dig}$ by the formulas:
+\begin{itemize}
+\item $A \mapsto \langle A \rangle$;
+\item $f \mapsto \langle f \rangle$.
+\end{itemize}
+
+That this really maps a morphism of $\mathbf{Fcd}$ into a morphism of $\mathbf{Dig}$ follows from the fact that $\langle g\circ f\rangle = \langle g\rangle\circ\langle f\rangle$.
+
+Obviously this embedding (denote it $T$) is an injective (both on objects and morphisms) functor.
+
+We will define:
+\begin{itemize}
+\item $\varepsilon^{\mathbf{Fcd}}_{A, B} = T^{-1} \varepsilon^{\mathbf{Dig}}_{T A, T B}$;
+\item $\sim^{\mathbf{Fcd}} f = T^{-1} \sim^{\mathbf{Dig}} T f$.
+\end{itemize}
+
+Due to functoriality and injectivity of $T$ it is enough to prove that above defined $\varepsilon^{\mathbf{Fcd}}_{A, B}$ and $\sim^{\mathbf{Fcd}} f$ exist and are morphisms of $\mathbf{Fcd}$.
+
+$\varepsilon^{\mathbf{Dig}}_{T A, T B} \ne T\varepsilon^{\mathbf{Fcd}}_{A, B}$ because $\varepsilon^{\mathbf{Dig}}_{T A, T B}$ accepts ordered pairs as the argument and $T \varepsilon^{\mathbf{Fcd}}_{A, B}$ accepts sets as the argument. So this is a dead end. Can the proof idea be salvaged?
+
+\section{Is category Rld cartesian closed?}
+
+We may attempt to prove that $\mathbf{Rld}$ is cartesian closed by embedding it into supposedly cartesian closed category $\mathbf{Fcd}$ by the function $\rho$:
+
+$\langle \rho f \rangle x = f \circ x \quad \text{and} \quad \langle \rho f^{- 1} \rangle y = f^{- 1} \circ y$.
+
+TODO: More to write on this topic.

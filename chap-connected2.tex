@@ -1,0 +1,504 @@
+\chapter{More on connectedness}
+
+\section{For topological spaces}
+
+\begin{prop}
+The following are pairwise equivalent:
+\begin{enumerate}
+ \item a topological space on a set~$U$ is connected.
+   \fxwarning{definition; can the topological definition be generalized
+   to filters?}
+ \item $U$ is connected regarding $f\sqcup f^{-1}$ if $f$ is the corresponding
+   complete funcoid.
+ \item $U$ is connected regarding $f\sqcup f^{-1}$ if $f$ is the corresponding
+   closure space.
+ \item $U$ is connected regarding $f\circ f^{-1}$ if $f$ is the corresponding
+   complete funcoid.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+??
+\end{proof}
+
+\begin{prop}
+  There are filters $\mathcal{A}$, $\mathcal{B}$, such that there are no
+  filters $\mathcal{X} \sqsubseteq \mathcal{A}$, $\mathcal{Y} \sqsubseteq
+  \mathcal{B}$ such that $\mathcal{X} \sqcup \mathcal{Y} = \mathcal{A} \sqcup
+  \mathcal{B}$ and $\mathcal{X} \asymp \mathcal{Y}$.
+\end{prop}
+
+\begin{proof}
+  \url{https://math.stackexchange.com/questions/2639206}
+
+  (It also follows that sometimes $Z (D a)$ is not a complete lattice, because
+  otherwise we could prove this theorem.)
+\end{proof}
+
+\begin{prop}
+  If $\mathcal{A}$, $\mathcal{B}$ are filters and $\mathcal{A} \sqcup
+  \mathcal{B} = U$ is principal filter, then there are sets $X \sqsubseteq
+  \mathcal{A}$, $Y \sqsubseteq \mathcal{B}$ such that $X \sqcup Y = U$ and $X
+  \asymp Y$.
+\end{prop}
+
+\begin{proof}
+  Take $X = \Cor \mathcal{A}$ and $Y' = \Cor \mathcal{B}$. Then $X
+  \sqcup Y' = U$ because of co-separability of $\mathfrak{F} (U)$. Take $Y = U
+  \setminus X$. Then $X \sqcup Y = U$ and $X \asymp Y$.
+\end{proof}
+
+\begin{prop}
+  A principal filter $A$ is connected regarding endofuncoid $\mu$ iff
+  \[ \forall X, Y \in \mathscr{P} (\Ob \mu) \setminus \{ \bot \} :
+     \left( X \sqcup Y = A \wedge X \asymp Y \Rightarrow X \mathrel{[\mu]} Y
+     \right) . \]
+\end{prop}
+
+\begin{proof}
+  Easily follows from ??.
+\end{proof}
+
+\begin{defn}
+  \emph{Connected component} of a filter regarding a funcoid or a reloid
+  is a maximal
+  connected subfilter of this filter.
+\end{defn}
+
+\begin{obvious}
+Subfilter of a connected filter is connected.
+\end{obvious}
+
+\begin{prop}
+  If $U$ is a principal filter, then it is connected regarding $\mu$ iff it is
+  connected regarding $S (\mu)$.
+  \fxnote{It should be presented as a corollary of a below theorem.}
+\end{prop}
+
+\begin{proof}
+  If $U$ is connected regarding $\mu$, it is connected regarding $S (\mu)$,
+  obviously.
+
+  Suppose $U$ is connected regarding $S (\mu)$. Then for $X, Y \in \mathscr{P}
+  (\Ob \mu) \setminus \{ \bot \}$ we have if $X \sqcup Y = U$ and $X
+  \asymp Y$, then $X \mathrel{[S (\mu)]} Y$. So $X \times Y \nasymp 1 \sqcup
+  \mu \sqcup \mu^2 \sqcup \ldots$ and thus by distributivity for principal
+  filter we have $X \times Y \nasymp \mu^n$ for some $n \geq ? ?$ that is $X
+  \mathrel{[\mu^n]} Y$ for some $n$ and thus there are atomic filters $p_0,
+  \ldots, p_n$ such that $p_0 \in \atoms^{\mathfrak{F}} X$, $p_n \in
+  \atoms^{\mathfrak{F}} Y$ and $p_i \mathrel{[\mu]} p_{i + 1}$. Thus
+  there is $k$ such that $p_k \mathrel{[\mu]} p_{k + 1}$ and $p_k \in
+  \atoms^{\mathfrak{F}} X$, $p_{k + 1} \in \atoms^{\mathfrak{F}}
+  Y$. Thus $X \mathrel{[\mu]} Y$. We have $U$ connected regarding $\mu$.
+\end{proof}
+
+Also for $S^{\ast}$
+
+\begin{example}
+  Connected components may not form a weak partition.
+\end{example}
+
+\begin{proof}
+  Consider funcoid $1^{\mathsf{FCD}(\mathbb{R})}\sqcup(\Delta \times^{\mathsf{FCD}} \Delta)$ on real line.
+  Then connected components are (prove!) non-zero singletons and $\Delta$. It
+  is not a weak partition.
+\end{proof}
+
+\begin{conjecture}
+If the set of connected components is finite, then it is
+a strong partition. Moreover the set of connected
+components is a tearing.
+\end{conjecture}
+
+Add more counter-examples (for non-principal filters).
+
+\begin{obvious}
+Improper filter $\bot^{\mathscr{F}}$ is connected regarding:
+\begin{enumerate}
+  \item every funcoid;
+  \item every reloid.
+\end{enumerate}{\hspace*{\fill}}{\medskip}
+\end{obvious}
+
+\begin{prop}
+  The only filter connected regarding
+  \begin{enumerate}
+    \item $\bot^{\mathsf{FCD} (A)}$;
+    \item $\bot^{\mathsf{RLD} (A)}$
+  \end{enumerate}
+  is the improper filter $\bot^{\mathscr{F}}$.
+\end{prop}
+
+\begin{proof}
+  ~
+  \begin{enumerate}
+    \item Let $\mathcal{A}$ be a filter. Take $\mathcal{X} = \mathcal{Y} =
+    \mathcal{A} \in \mathscr{F} (\Ob \mu) \setminus \{ \bot \}$. Then
+    $\mathcal{X} \sqcup \mathcal{Y} = \mathcal{A}$ but not $\mathcal{X}
+    \mathrel{[\mu]} \mathcal{Y}$.
+
+    \item $S^{\ast}_1 (\bot^{\mathsf{RLD} (A)}) = S_1
+    (\bot^{\mathsf{RLD} (A)}) = \bot^{\mathsf{RLD} (A)}$. Thus
+    the only connected filter is~$\bot^{\mathscr{F}}$.
+  \end{enumerate}
+\end{proof}
+
+\begin{prop}
+  Connected filters regarding
+  \begin{enumerate}
+    \item $1^{\mathsf{FCD} (A)}$;
+
+    \item $1^{\mathsf{RLD} (A)}$
+  \end{enumerate}
+  are exactly ultrafilters and the improper filter.
+\end{prop}
+
+\begin{proof}
+  1. That ultrafilters are connected follows from the fact that for every
+  non-least $\mathcal{X}$, $\mathcal{Y}$ such that $\mathcal{X} \sqcup
+  \mathcal{Y} = \mathcal{A}$ we have $\mathcal{X} = \mathcal{Y} = \mathcal{A}$
+  and thus $\mathcal{X} \mathrel{[1^{\mathsf{FCD} (A)}]} \mathcal{Y}$.
+  So ultrafilters are connected; so is improper filter too, because improper
+  filter is always connected.
+
+  It remains to prove that filters containing more than one distinct
+  ultrafilter are not connected. Really let distinct ultrafilters $a, b \in
+  \atoms \mathcal{A}$. Then not $a \mathrel{[1^{\mathsf{FCD}
+  (A)}]} b$. Thus $\mathcal{A}$ is not connected.
+
+  2. A filter $a$ is connected iff $S^{\ast}_1 (1^{\mathsf{RLD} (A)}
+  \sqcap (a \times^{\mathsf{RLD}} a)) \sqsupseteq a
+  \times^{\mathsf{RLD}} a$ that is iff $S^{\ast}_1
+  (\id^{\mathsf{RLD}}_a) \sqsupseteq a
+  \times^{\mathsf{RLD}} a$,
+
+  $\bigsqcap_{F \in \up \id^{\mathsf{RLD}}_a} S_1 (F)
+  \sqsupseteq a \times^{\mathsf{RLD}} a$ what by properties of
+  generalized filter bases is equivalent to $\bigsqcap_{A \in \up a} S_1
+  (\id_A) \sqsupseteq a \times^{\mathsf{RLD}} a$; $\bigsqcap_{A
+  \in \up a} \id_A \sqsupseteq a \times^{\mathsf{RLD}} a$;
+  $\id^{\mathsf{RLD}}_a \sqsupseteq a
+  \times^{\mathsf{RLD}} a$. This is true exactly for ultrafilters and
+  the improper filter.
+\end{proof}
+
+\begin{defn}
+  A \emph{path} regarding funcoid $\mu$ is a tuple $p_0, \ldots, p_n$ ($n
+  \in \mathbb{N}$) of atomic filters such that $p_i \mathrel{[\mu]} p_{i +
+  1}$ for every $i = 0, \ldots, n - 1$.
+
+  The number $n$ is called \emph{path length}.
+
+  A path is \emph{between} atomic filters $a$ and $b$ iff $p_0 = a$ and
+  $p_n = b$.
+\end{defn}
+
+\begin{example}
+  $\mu \sqsupseteq \id^{\mathsf{FCD}}_{\mathcal{A}}$ is not
+  necessary for a filter $\mathcal{A}$ to be connected regarding a funcoid
+  $\mu$. Moreover $\mu \sqsupseteq 1^{\mathsf{FCD}}$ is not necessary
+  for a filter $\top$ to be connected regarding a funcoid $\mu$.
+\end{example}
+
+\begin{proof}
+  For counterexample take $\mu = \top \setminus 1$.
+
+  $\langle \mu \rangle \{ x \} = \top \setminus \{ x \}$ (thus $\mu
+  \mathrel{\nsqsupseteq} 1^{\mathsf{FCD}}$) and $\langle \mu
+  \rangle a = \top$ for a nontrivial ultrafilter $a$.
+
+  Let $\mathcal{X}, \mathcal{Y} \in \mathscr{F} (\Ob \mu) \setminus \{
+  \bot \}$ and $\mathcal{X} \sqcup \mathcal{Y} = \top$. If $\mathcal{X}$ is a
+  trivial ultrafilter then $\langle \mu \rangle \mathcal{X} = \top \setminus
+  \{ x \}$ adn thus $\langle \mu \rangle \mathcal{X} \nasymp \mathcal{Y}$,
+  otherwise $\langle \mu \rangle \mathcal{X} \nasymp \mathcal{Y}$. So in any
+  case $\mathcal{X} \mathrel{[\mu]} \mathcal{Y}$. Funcoid $\mu$ is connected.
+\end{proof}
+
+\begin{prop}
+  If there is a nonzero-length path regarding $\mu$ in the filter
+  $\mathcal{A}$ between any two its atomic subfilters, then it is connected
+  regarding $\mu$.
+\end{prop}
+
+\begin{proof}
+  Let $\mathcal{X} \sqcup \mathcal{Y} = \mathcal{A}$, $\mathcal{X} \neq \bot$,
+  $\mathcal{Y} \neq \bot$. Let $p_0, \ldots, p_n$ ($n \geq 1$) be a path in
+  $\mathcal{A}$ and $p_0 \in \atoms \mathcal{X}$ and $p_n \in
+  \atoms \mathcal{Y}$. Then (take $k = \min \left\{ i \in \{ 0, \ldots,
+  n - 1 \} \hspace{1em} | \hspace{1em} p_{i + 1} \in \atoms \mathcal{Y}
+  \right\}$) there are $p_k, p_{k + 1}$ such that $p_k \in \atoms
+  \mathcal{X}$, $p_{k + 1} \in \atoms \mathcal{Y}$. But $p_k
+  \mathrel{[\mu]} p_{k + 1}$ by definition of path. Thus $\mathcal{X}
+  \mathrel{[\mu]} \mathcal{Y}$.
+\end{proof}
+
+\begin{prop}
+  If a filter $\mathcal{A}$ is connected regarding funcoid $\mu$ reflexive on
+  $\mathcal{A}$ then it is connected regarding every $\mu^n$ for $n \in
+  \mathbb{Z}_+$.
+\end{prop}
+
+\begin{proof}
+  Let $\mathcal{X} \sqcup \mathcal{Y} = \mathcal{A}$, $\mathcal{X} \neq \bot$,
+  $\mathcal{Y} \neq \bot$. We have $\langle \mu \rangle \mathcal{X} \nasymp
+  \mathcal{Y}$.
+
+  Then $\langle \mu \rangle \mathcal{X} \mathrel{\nsqsubseteq}
+  \mathcal{X}$; therefore by reflexivity $\langle \mu \rangle \mathcal{X}
+  \sqsupset \mathcal{X}$. Repeating this step we get $\langle \mu \rangle
+  \langle \mu \rangle \mathcal{X} \sqsupset \mathcal{X}$ that is $\langle
+  \mu^2 \rangle \mathcal{X} \sqsupset \mathcal{X}$, etc.
+
+  We have $\langle \mu^n \rangle \mathcal{X} \sqsupset \mathcal{X}$ and thus
+  $\langle \mu^n \rangle \mathcal{X} \nasymp \mathcal{Y}$ that is $\mathcal{X}
+  \mathrel{[\mu^n]} \mathcal{Y}$.
+\end{proof}
+
+\begin{example}
+  Connected funcoid without a path between given ultrafilters.
+\end{example}
+
+\begin{proof}
+  Consider $| \mathbb{R} |$. It is connected (prove!) but there is no
+  path (prove!) between two distinct singletons.
+\end{proof}
+
+\begin{thm}
+  If meet of two connected (regarding a funcoid) filters is non-least,
+  then their join is connected.
+\end{thm}
+
+\begin{proof}
+Let $\mathcal{A}$ and $\mathcal{B}$ be intersecting filters, both
+connected regarding an endofuncoid~$\mu$. Let $\mathcal{X}
+\sqcup \mathcal{Y} = \mathcal{A} \sqcup \mathcal{B}$ for proper filters
+$\mathcal{X}$, $\mathcal{Y}$. Then either $\mathcal{X}$ or $\mathcal{Y}$
+intersects $\mathcal{A} \sqcap \mathcal{B}$. Without loss of generality assume
+$\mathcal{X} \sqcap \mathcal{A} \sqcap \mathcal{B} \neq \bot$.
+Also $\mathcal{Y}$ intersects
+either $\mathcal{A}$ or $\mathcal{B}$. Without loss of generality assume
+$\mathcal{Y} \sqcap \mathcal{A} \neq \bot$.
+
+Note $\mathcal{X} \sqcap \mathcal{A} \neq \bot$.
+
+We have $(\mathcal{X} \sqcap \mathcal{A}) \sqcup (\mathcal{Y} \sqcap
+\mathcal{A}) = (\mathcal{X} \sqcup \mathcal{Y}) \sqcap \mathcal{A} =
+(\mathcal{A} \sqcup \mathcal{B}) \sqcap \mathcal{A} = \mathcal{A}$. So
+$\mathcal{X} \sqcap \mathcal{A} \mathrel{[\mu]} \mathcal{Y} \sqcap
+\mathcal{A}$ because $\mathcal{A}$ is connected, consequently $\mathcal{X}
+\mathrel{[\mu]} \mathcal{Y}$ that is $\mathcal{A} \sqcup \mathcal{B}$ is
+connected.
+\end{proof}
+
+\begin{thm}
+  If meet of two connected (regarding a reloid) filters is nonempty, then
+  their join is connected.
+\end{thm}
+
+\begin{proof}
+  Let $S^{\ast}_1 (\mu \sqcap (\mathcal{A} \times \mathcal{A})) = \mathcal{A}
+  \times \mathcal{A}$; $S^{\ast}_1 (\mu \sqcap (\mathcal{B} \times
+  \mathcal{B})) = \mathcal{B} \times \mathcal{B}$ for filters $\mathcal{A}
+  \nasymp \mathcal{B}$.
+
+  $S^{\ast}_1 (\mu \sqcap ((\mathcal{A} \sqcup \mathcal{B}) \times
+  (\mathcal{A} \sqcup \mathcal{B}))) = S^{\ast}_1 (\mu \sqcap ((\mathcal{A}
+  \times \mathcal{A}) \sqcup (\mathcal{B} \times \mathcal{B}) \sqcup
+  (\mathcal{A} \times \mathcal{B}) \sqcup (\mathcal{B} \times \mathcal{A})))
+  \sqsupseteq S^{\ast}_1 (\mu \sqcap (\mathcal{A} \times \mathcal{A})) \sqcup
+  S^{\ast}_1 (\mu \sqcap (\mathcal{B} \times \mathcal{B})) \sqsupseteq
+  (\mathcal{A} \times \mathcal{A}) \sqcup (\mathcal{B} \times \mathcal{B})$.
+
+  Let for example $x \in \atoms \mathcal{A}$. Then $\langle S^{\ast}_1
+  (\mu \sqcap ((\mathcal{A} \sqcup \mathcal{B}) \times (\mathcal{A} \sqcup
+  \mathcal{B}))) \rangle x \sqsupseteq \mathcal{A}$ and (taking into account
+  $\mathcal{A} \nasymp \mathcal{B}$):
+  \[ \langle \mu \sqcap ((\mathcal{A} \sqcup \mathcal{B}) \times (\mathcal{A}
+     \sqcup \mathcal{B})) \rangle \langle S^{\ast}_1 (\mu \sqcap ((\mathcal{A}
+     \sqcup \mathcal{B}) \times (\mathcal{A} \sqcup \mathcal{B}))) \rangle x
+     \sqsupseteq \mathcal{B} . \]
+  Thus $\langle S^{\ast}_1 (\mu \sqcap ((\mathcal{A} \sqcup \mathcal{B})
+  \times (\mathcal{A} \sqcup \mathcal{B}))) \rangle x \sqsupseteq \mathcal{A}$
+  and $\langle S^{\ast}_1 (\mu \sqcap ((\mathcal{A} \sqcup \mathcal{B}) \times
+  (\mathcal{A} \sqcup \mathcal{B}))) \rangle x \sqsupseteq \mathcal{B}$ for
+  every ultrafilter $x \in \atoms (\mathcal{A} \sqcup \mathcal{B})$,
+  that is $\langle S^{\ast}_1 (\mu \sqcap ((\mathcal{A} \sqcup \mathcal{B})
+  \times (\mathcal{A} \sqcup \mathcal{B}))) \rangle x \sqsupseteq \mathcal{A}
+  \sqcup \mathcal{B}$. So $S^{\ast}_1 (\mu \sqcap ((\mathcal{A} \sqcup
+  \mathcal{B}) \times (\mathcal{A} \sqcup \mathcal{B}))) \sqsupseteq
+  \mathcal{A} \sqcup \mathcal{B}$ that is $\mathcal{A} \sqcup \mathcal{B}$ is
+  connected.
+\end{proof}
+
+\begin{cor}
+  Distinct connected components (for both a funcoid or a reloid) don't
+  intersect.
+\end{cor}
+
+\begin{proof}
+  If connected components $\mathcal{A} \neq \mathcal{B}$ intersect, then
+  $\mathcal{A} \sqcup \mathcal{B}$ is a connected filter and either
+  $\mathcal{A} \sqcup \mathcal{B} \sqsupset \mathcal{A}$ or $\mathcal{A}
+  \sqcup \mathcal{B} \sqsupset \mathcal{B}$ what contradicts to the definition
+  of connected components.
+\end{proof}
+
+If we add the requirement $\mathcal{X} \asymp \mathcal{Y}$ to the definition
+of connected regarding funcoid, it is nonequivalent. Proof??: Consider
+connectedness of an ultrafilter.
+
+\begin{prop}
+  $S (\mu) = S_1 (\mu \sqcup 1)$ if $\mu$ is an endorelation, endofuncoid, or
+  endoreloid. \fxerror{for $S^{\ast}$, too.}
+\end{prop}
+
+\begin{proof}
+  By proved above $(\mu \sqcup 1)^n = 1 \sqcup \mu \sqcup \ldots \sqcup
+  \mu^n$.
+
+  Thus $S_1 (\mu \sqcup 1) = (1 \sqcup \mu) \sqcup (1 \sqcup \mu \sqcup \mu^2)
+  \sqcup \ldots = 1 \sqcup \mu \sqcup \mu^2 \sqcup \ldots = S (\mu)$.
+\end{proof}
+
+\fxnote{also algebraic properties of $S_1$ and $S^{\ast}_1$}
+
+\begin{thm}
+  \fxnote{Move this theorem in the book,}
+  $\mathcal{X} \mathrel{\left[ \bigsqcap S \right]} \mathcal{Y}
+  \Leftrightarrow \forall f \in S : \mathcal{X} \suprel{f} \mathcal{Y}$ if
+  $S$ is a generalized filter base.
+\end{thm}
+
+\begin{proof}
+  $\mathcal{X} \mathrel{\left[ \bigsqcap S \right]} \mathcal{Y}
+  \Leftrightarrow (\mathcal{X} \times^{\mathsf{FCD}} \mathcal{Y})
+  \sqcap \bigsqcap S \neq \bot \Leftrightarrow \bigsqcap_{f \in S} f \sqcap
+  (\mathcal{X} \times^{\mathsf{FCD}} \mathcal{Y}) \neq \bot
+  \Leftrightarrow \text{(by properties of generalized filter bases)}
+  \Leftrightarrow \forall f \in S : f \sqcap (\mathcal{X}
+  \times^{\mathsf{FCD}} \mathcal{Y}) \neq \bot \Leftrightarrow \forall
+  f \in S : \mathcal{X} \suprel{f} \mathcal{Y}$.
+\end{proof}
+
+\begin{thm}
+  The following are pairwise equivalent for a funcoid $\mu$ and filter
+  $\mathcal{A}$:
+  \begin{enumerate}
+    \item $\mathcal{A}$ is connected regarding funcoid $\mu$
+
+    \item $\mathcal{A}$ is connected regarding every funcoid in $\up
+    \mu$.
+
+    \item $\mathcal{A}$ is connected regarding every funcoid in
+    $\up^{\Gamma} \mu$.
+  \end{enumerate}
+\end{thm}
+
+\begin{proof}
+  TODO: ``Connectedness'' should be moved after ``Funcoids are filters'' to
+  use $\Gamma$ in this proof.
+
+  1$\Rightarrow$2$\Rightarrow$3. Obvious.
+
+  3$\Rightarrow$1. Let $\mathcal{X}, \mathcal{Y} \in \mathscr{F} (\Ob
+  \mu)$ and $\mathcal{X} \sqcup \mathcal{Y} = \mathcal{A}$. Then $\forall f
+  \in \up^{\Gamma} \mu : \mathcal{X} \suprel{f} \mathcal{Y}$.
+  Therefore by the theorem ?? $\mathcal{X} \mathrel{\left[ \bigsqcap
+  \up^{\Gamma} \mu \right]} \mathcal{Y}$ that is $\mathcal{X}
+  \mathrel{[\mu]} \mathcal{Y}$. So $\mathcal{A}$ is connected regarding $\mu$.
+\end{proof}
+
+\begin{conjecture}
+  For a $\mathbf{Rel}$-morphism $F$ and a filter $\mathcal{A}$ the
+  following are pairwise equivalent:
+  \begin{enumerate}
+    \item $\mathcal{A}$ is connected regarding $\uparrow^{\mathsf{FCD}}
+    F$.
+
+    \item $\mathcal{A}$ is connected regarding $\uparrow^{\mathsf{RLD}}
+    F$.
+
+    \item there is a $F$-path in $\mathcal{A}$ for every two
+    ultrafilters $a,b\in\atoms\mathcal{A}$.
+  \end{enumerate}
+\end{conjecture}
+
+Proposed counterexample against $\mathcal{A}$ is connected regarding
+$f$ iff it is connected regarding $\tofcd f$:
+$f = \mathcal{A}\times^{\mathsf{RLD}}_{F}\mathcal{A}$.
+First calculate
+$(\mathcal{B}\times^{\mathsf{RLD}}_{F}\mathcal{C})\circ
+(\mathcal{A}\times^{\mathsf{RLD}}_{F}\mathcal{B})$
+(and also for oblique product).
+
+Trying to calculate
+$(\mathcal{B}\times^{\mathsf{RLD}}_{F}\mathcal{C})\circ
+(\mathcal{A}\times^{\mathsf{RLD}}_{F}\mathcal{B})$:
+
+\begin{lem}
+  There are such filters $\mathcal{A}$, $\mathcal{B}$, $\mathcal{C}$ and
+  binary relation $h$ that
+  \[ h \sqsupseteq \mathcal{A} \times^{\mathsf{FCD}} \mathcal{C} \wedge
+     \neg \exists g \in \mathbf{Rel} : (g \sqsupseteq \mathcal{B}
+     \times^{\mathsf{FCD}} \mathcal{C} \wedge h \sqsupseteq g \circ
+     (\mathcal{A} \times^{\mathsf{FCD}} \mathcal{B})) . \]
+\end{lem}
+
+\begin{proof}
+  Take $\mathcal{A}$ a principal filter, $\mathcal{B}$ a trivial ultrafilter
+  and $h \sqsupseteq \mathcal{A} \times^{\mathsf{FCD}} \mathcal{C}$
+  such that $h \notin \up (\mathcal{A} \times^{\mathsf{RLD}}
+  \mathcal{C})$. (It exists because $\mathcal{A} \times^{\mathsf{RLD}}
+  \mathcal{C} \neq \mathcal{A} \times^{\mathsf{RLD}}_F \mathcal{C}$.
+
+  Suppose that $g \sqsupseteq \mathcal{B} \times^{\mathsf{FCD}}
+  \mathcal{C}$. Then there is $C \in \up \mathcal{C}$ such that $g
+  \sqsupseteq \mathcal{B} \times C$. Therefore $g \circ (\mathcal{A}
+  \times^{\mathsf{FCD}} \mathcal{B}) = \mathcal{A}
+  \times^{\mathsf{FCD}} \supfun{g} \mathcal{B} \sqsupseteq
+  \mathcal{A} \times^{\mathsf{FCD}} C = \mathcal{A} \times C$.)
+
+  But $h \notin \up (\mathcal{A} \times^{\mathsf{RLD}} C) =
+  \up (\mathcal{A} \times C)$. Thus $h \mathrel{\not{\sqsupseteq}} g
+  \circ (\mathcal{A} \times^{\mathsf{FCD}} \mathcal{B})$.
+\end{proof}
+
+\begin{cor}
+  There are such filters $\mathcal{A}$, $\mathcal{B}$, $\mathcal{C}$ and
+  binary relation $h$ that
+  \[ h \sqsupseteq \mathcal{A} \times^{\mathsf{FCD}} \mathcal{C} \wedge
+     \neg \exists f, g \in \mathbf{Rel} : (f \sqsupseteq \mathcal{A}
+     \times^{\mathsf{FCD}} \mathcal{B} \wedge g \sqsupseteq \mathcal{B}
+     \times^{\mathsf{FCD}} \mathcal{C} \wedge h \sqsupseteq g \circ f)
+     . \]
+\end{cor}
+
+\begin{prop}
+  $(\mathcal{B} \times^{\mathsf{RLD}}_F \mathcal{C}) \circ (\mathcal{A}
+  \times^{\mathsf{RLD}}_F \mathcal{B}) \neq \mathcal{A}
+  \times^{\mathsf{RLD}}_F \mathcal{C}$ for some proper filters
+  $\mathcal{A}$, $\mathcal{B}$, $\mathcal{C}$.
+\end{prop}
+
+\begin{proof}
+  \fxerror{The proof is erroneous.}
+
+  Take (lemma)
+  $h \in \up (\mathcal{A}\times^{\mathsf{FCD}} \mathcal{C})$
+  such that for every $f \in \up
+  (\mathcal{A} \times^{\mathsf{RLD}}_F \mathcal{C})$, $g \in \up
+  (\mathcal{B} \times^{\mathsf{RLD}}_F \mathcal{C})$ we have
+  $h \nsqsupseteq g \circ f$.
+
+  We have $h \in \up (\mathcal{A} \times^{\mathsf{RLD}}_F
+  \mathcal{C})$ and for every $f \in \up
+  (\mathcal{A} \times^{\mathsf{RLD}}_F \mathcal{C})$, $g \in \up
+  (\mathcal{B} \times^{\mathsf{RLD}}_F \mathcal{C})$ we have
+  [error] $h \nsqsupseteq g \circ f$.
+
+  Thus $\up
+  ((\mathcal{B} \times^{\mathsf{RLD}}_F \mathcal{C}) \circ (\mathcal{A}
+  \times^{\mathsf{RLD}}_F \mathcal{B})) \neq \up (\mathcal{A}
+  \times^{\mathsf{RLD}}_F \mathcal{C})$.
+\end{proof}

@@ -1,0 +1,805 @@
+\chapter{Applications of algebraic general topology}
+
+\section{``Hybrid'' objects}
+
+Algebraic general topology allows to construct ``hybrid'' objects of ``continuous'' (as topological spaces)
+and discrete (as graphs).
+
+Consider for example $D\sqcup T$ where $D$ is a digraph and $T$ is a topological space.
+
+The $n$-th power $(D\sqcup T)^n$ yields an expression with $2^n$ terms.
+So treating $D\sqcup T$ as one object (what becomes possible using algebraic general topology)
+rather than the join of two objects may have an exponential benefit for simplicity of formulas.
+
+\section{A way to construct directed topological spaces}
+
+\subsection{Some notation}
+
+I use~$\mathcal{E}$ and $\iota$ notations from {\tt volume-2.pdf}. \fxwarning{Reorder document fragments to describe it before use.}
+
+I remind that $f|_X = f\circ \id_X$ for binary relations, funcoids, and reloid.
+
+$f\parallel_X = f\circ(\mathcal{E}^X)^{-1}$.
+
+$f\square X = \id_X\circ f\circ\id_X^{-1}$.
+
+As proved in {\tt volume-2.pdf}, the following are bijections and moreover isomorphisms (for $R$ being either funcoids or reloids or binary relations):
+\begin{enumerate}
+\item $\setcond{(f|_X,f\parallel_X)}{f\in R}$;
+\item $\setcond{(f\square X,\iota_X f)}{f\in R}$.
+\end{enumerate}
+
+As easily follows from these isomorphisms and theorem~\bookref{rect-cont}:
+
+\begin{prop}
+For funcoids, reloids, and binary relations:
+\begin{enumerate}
+\item $f\in\continuous(\mu,\nu)\Rightarrow f\parallel_{A}\in\continuous(\iota_A\mu,\nu)$;
+\item $f\in\continuous'(\mu,\nu)\Rightarrow f\parallel_{A}\in\continuous'(\iota_A\mu,\nu)$;
+\item $f\in\continuous''(\mu,\nu)\Rightarrow f\parallel_{A}\in\continuous''(\iota_A\mu,\nu)$. 
+\end{enumerate}
+\end{prop}
+
+\subsection{Directed line and directed intervals}
+
+Let $\mathfrak{A}$ be a poset. We will denote $\overline{\mathfrak{A}}=\mathfrak{A}\cup\{-\infty,+\infty\}$ the poset
+with two added elements $-\infty$ and $+\infty$, such that $+\infty$ is strictly greater than every element of~$\mathfrak{A}$
+and $-\infty$ is strictly less.
+
+\fxnote{Generalize from~$\mathbb{R}$ to a wider class of posets.}
+
+\begin{defn}
+For an element~$a$ of a poset~$\mathfrak{A}$
+\begin{enumerate}
+\item $J_{\geq}(a) = \setcond{x\in\mathfrak{A}}{x\geq a}$;
+\item $J_{>}(a) = \setcond{x\in\mathfrak{A}}{x>a}$;
+\item $J_{\leq}(a) = \setcond{x\in\mathfrak{A}}{x\leq a}$;
+\item $J_{<}(a) = \setcond{x\in\mathfrak{A}}{x<a}$;
+\item $J_{\ne}(a) = \setcond{x\in\mathfrak{A}}{x\ne a}$.
+\end{enumerate}
+\end{defn}
+
+\begin{defn}
+Let $a$ be an element of a poset~$\mathfrak{A}$.
+\begin{enumerate}
+\item $\Delta(a) = \bigsqcap^{\mathscr{F}} \setcond{]x;y[}{x,y\in\overline{\mathfrak{A}}, x<a\land y>a}$;
+\item $\Delta_{\geq}(a) = \bigsqcap^{\mathscr{F}} \setcond{[a;y[}{y\in\overline{\mathfrak{A}}, y>a}$;
+\item $\Delta_{>}(a) = \bigsqcap^{\mathscr{F}} \setcond{]a;y[}{y\in\overline{\mathfrak{A}}, x<a\land y>a}$;
+\item $\Delta_{\leq}(a) = \bigsqcap^{\mathscr{F}} \setcond{]x;a]}{x\in\overline{\mathfrak{A}}, x<a}$;
+\item $\Delta_{<}(a) = \bigsqcap^{\mathscr{F}} \setcond{]x;a[}{x\in\overline{\mathfrak{A}}, x<a}$;
+\item $\Delta_{\ne}(a) = \Delta(a) \setminus \{a\}$.
+\end{enumerate}
+\end{defn}
+
+\begin{obvious}
+~
+\begin{enumerate}
+\item $\Delta_{\geq}(a) = \Delta(a)\sqcap^{\mathscr{F}} @J_{\geq}(a)$;
+\item $\Delta_{>}(a) = \Delta(a)\sqcap^{\mathscr{F}} @J_{>}(a)$;
+\item $\Delta_{\leq}(a) = \Delta(a)\sqcap^{\mathscr{F}} @J_{\leq}(a)$;
+\item $\Delta_{<}(a) = \Delta(a)\sqcap^{\mathscr{F}} @J_{<}(a)$;
+\item $\Delta_{\ne}(a) = \Delta(a)\sqcap^{\mathscr{F}} @J_{\ne}(a)$.
+\end{enumerate}
+\end{obvious}
+
+\begin{defn}
+~
+Given a partial order~$\mathfrak{A}$ and~$x\in\mathfrak{A}$, the following defines complete funcoids:
+\begin{enumerate}
+\item $\rsupfun{|\mathfrak{A}|}\{x\} = \Delta(x)$;
+\item $\rsupfun{|\mathfrak{A}|_{\geq}}\{x\} = \Delta_{\geq}(x)$;
+\item $\rsupfun{|\mathfrak{A}|_{>}}\{x\} = \Delta_{>}(x)$;
+\item $\rsupfun{|\mathfrak{A}|_{\leq}}\{x\} = \Delta_{\leq}(x)$;
+\item $\rsupfun{|\mathfrak{A}|_{<}}\{x\} = \Delta_{<}(x)$;
+\item $\rsupfun{|\mathfrak{A}|_{\ne}}\{x\} = \Delta_{\ne}(x)$.
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+The complete funcoid corresponding to the order topology\footnote{See Wikipedia for a definition of ``Order topology''.}
+is equal to $|\mathfrak{A}|$.
+\end{prop}
+
+\begin{proof}
+Because every open set is a finite union of open intervals, the complete funcoid~$f$ corresponding to the order topology
+is described by the formula: $\rsupfun{f}\{x\} = \bigsqcap^{\mathscr{F}}\setcond{]a;b[}{a,b\in\overline{\mathfrak{A}}, a<x\land b>x} =
+\Delta(x) = \rsupfun{|\mathfrak{A}|}\{x\}$. Thus $f=|\mathfrak{A}|$.
+\end{proof}
+
+\begin{xca}
+Show that $|\mathfrak{A}|_{\geq}$ (in general) is not the same as ``right order topology''\footnote{See Wikipedia}.
+\end{xca}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item $\rsupfun{|\mathfrak{A}|_{\geq}^{-1}}@X = @\setcond{a\in\mathfrak{A}}{\forall y\in\overline{\mathfrak{A}}:(y>a \Rightarrow X\cap[a;y[\ne\emptyset)}$;
+\item $\rsupfun{|\mathfrak{A}|_{>}^{-1}}@X = @\setcond{a\in\mathfrak{A}}{\forall y\in\overline{\mathfrak{A}}:(y>a \Rightarrow X\cap]a;y[\ne\emptyset)}$;
+\item $\rsupfun{|\mathfrak{A}|_{\leq}^{-1}}@X = @\setcond{a\in\mathfrak{A}}{\forall x\in\overline{\mathfrak{A}}:(x<a \Rightarrow X\cap]x;a]\ne\emptyset)}$;
+\item $\rsupfun{|\mathfrak{A}|_{<}^{-1}}@X = @\setcond{a\in\mathfrak{A}}{\forall x\in\overline{\mathfrak{A}}:(x<a \Rightarrow X\cap]x;a[\ne\emptyset)}$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+$a\in\rsupfun{|\mathfrak{A}|_{\geq}^{-1}}@X \Leftrightarrow
+@\{a\} \nasymp \rsupfun{|\mathfrak{A}|_{\geq}^{-1}}@X \Leftrightarrow
+\rsupfun{|\mathfrak{A}|_{\geq}}@\{a\} \nasymp @X \Leftrightarrow
+\Delta_{\geq}(a) \nasymp @X \Leftrightarrow
+\forall y\in\overline{\mathfrak{A}}:(y>a \Rightarrow X\cap[a;y[\ne\emptyset)$.
+
+$a\in\rsupfun{|\mathfrak{A}|_{>}^{-1}}@X \Leftrightarrow
+@\{a\} \nasymp \rsupfun{|\mathfrak{A}|_{>}^{-1}}@X \Leftrightarrow
+\rsupfun{|\mathfrak{A}|_{>}}@\{a\} \nasymp @X \Leftrightarrow
+\Delta_{>}(a) \nasymp @X \Leftrightarrow
+\forall y\in\overline{\mathfrak{A}}:(y>a \Rightarrow X\cap]a;y[\ne\emptyset)$.
+
+The rest follows from duality.
+\end{proof}
+
+\begin{rem}
+On trivial ultrafilters these obviously agree:
+\begin{enumerate}
+\item $\rsupfun{|\mathbb{R}|_{\geq}}\{x\} = \rsupfun{|\mathbb{R}| \sqcap \geq}\{x\}$;
+\item $\rsupfun{|\mathbb{R}|_{>}}\{x\} = \rsupfun{|\mathbb{R}| \sqcap >}\{x\}$;
+\item $\rsupfun{|\mathbb{R}|_{\leq}}\{x\} = \rsupfun{|\mathbb{R}| \sqcap \leq}\{x\}$;
+\item $\rsupfun{|\mathbb{R}|_{<}}\{x\} = \rsupfun{|\mathbb{R}| \sqcap <}\{x\}$.
+\end{enumerate}
+\end{rem}
+
+\begin{cor}
+~
+\begin{enumerate}
+\item $|\mathbb{R}|_{\geq} = \Compl(|\mathbb{R}| \sqcap \geq)$;
+\item $|\mathbb{R}|_{>} = \Compl(|\mathbb{R}| \sqcap >)$;
+\item $|\mathbb{R}|_{\leq} = \Compl(|\mathbb{R}| \sqcap \leq)$;
+\item $|\mathbb{R}|_{<} = \Compl(|\mathbb{R}| \sqcap <)$.
+\end{enumerate}
+\end{cor}
+
+\begin{obvious}
+~ \fxnote{also what is the values of $\setminus$ operation}
+\begin{enumerate}
+\item $|\mathbb{R}|_{\geq} = |\mathbb{R}|_{>} \sqcup 1$;
+\item $|\mathbb{R}|_{\leq} = |\mathbb{R}|_{<} \sqcup 1$.
+\end{enumerate}
+\end{obvious}
+
+\section{Some inequalities}
+
+\fxwarning{Define the ultrafilter ``at the left'' and ``at the right'' of a real number.
+Also define ``convergent ultrafilter''.}
+
+Denote $\Delta_{+ \infty} = \bigsqcap_{x \in \mathbb{R}}] x ; + \infty [$ and
+$\Delta_{- \infty} = \bigsqcap_{x \in \mathbb{R}}] - \infty ; x [$.
+
+The following proposition calculates $\langle \geq \rangle x$ and $\langle > \rangle x$ for all
+kinds of ultrafilters on $\mathbb{R}$:
+
+\begin{prop}
+~
+\begin{enumerate}
+\item\label{g-uf-v-triv} $\supfun{\geq} \{ \alpha \} = [\alpha ; + \infty [$ and
+  $\supfun{>} \{ \alpha \} = ]\alpha ; + \infty [$.
+\item\label{g-uf-v-right} $\supfun{\geq} x = \supfun{>} x = ] \alpha ; + \infty [$
+  for ultrafilter $x$ at the right of a number $\alpha$.
+\item\label{g-uf-v-left} $\supfun{\geq} x = \supfun{>} x = \Delta_{<} (\alpha) \sqcup [\alpha ; + \infty [=
+  \Delta_{\leq} (\alpha) \sqcup] \alpha ; + \infty [$ for ultrafilter $x$ at the left of a number $\alpha$.
+\item\label{g-uf-v-posinf} $\supfun{\geq} x = \supfun{>} x = \Delta_{+ \infty}$ for
+  ultrafilter $x$ at positive infinity.
+\item\label{g-uf-v-neginf} $\supfun{\geq} x = \supfun{>} x = \mathbb{R}$ for
+  ultrafilter $x$ at negative infinity.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+~
+\begin{widedisorder}
+\item[\ref{g-uf-v-triv}] Obvious.
+\item[\ref{g-uf-v-right}]
+  \begin{gather*}
+  \supfun{\geq} x = \bigsqcap^{\mathscr{F}}_{X \in \up x} \supfun{\geq} (X \sqcap] \alpha ; + \infty [) =
+  \bigsqcap^{\mathscr{F}}_{X \in \up x}] \alpha ; + \infty [=] \alpha ; + \infty [; \\
+  \supfun{>} x = \bigsqcap^{\mathscr{F}}_{X \in \up x} \supfun{>} (X \sqcap] \alpha ; + \infty [) =
+  \bigsqcap^{\mathscr{F}}_{X \in \up x}] \alpha ; + \infty [=] \alpha ; + \infty [.
+  \end{gather*}
+\item[\ref{g-uf-v-left}] $\Delta_{<} (\alpha) \sqcup [\alpha ; + \infty [=
+  \Delta_{\leq} (\alpha) \sqcup] \alpha ; + \infty [$ is obvious.
+  \[ \supfun{>} x = \bigsqcap^{\mathscr{F}}_{X \in \up x} \supfun{>} X \sqsupseteq \bigsqcap^{\mathscr{F}}_{X \in \up x} (\Delta_{<}
+  (\alpha) \sqcup] \alpha ; + \infty [) = \Delta_{<} (\alpha) \sqcup] \alpha ; +
+  \infty [ \]
+  but $\supfun{\geq} x \sqsubseteq \Delta_{<} (\alpha) \sqcup
+  [\alpha ; + \infty [$ is obvious. It remains to take into account that
+  $\supfun{>} x \sqsubseteq \supfun{\geq} x$.
+\item[\ref{g-uf-v-posinf}] $\supfun{\geq} x = \bigsqcap^{\mathscr{F}}_{X \in \up x} \supfun{\geq} X =
+  \bigsqcap^{\mathscr{F}}_{X \in \up x, \inf X \in X}
+  \supfun{\geq} (X \sqcap] \alpha ; + \infty [) =
+  \bigsqcap^{\mathscr{F}}_{X \in \up x} [\inf X ; + \infty [=
+  \bigsqcap^{\mathscr{F}}_{x > \alpha} [x ; + \infty [= \Delta_{+ \infty}$;
+  $\supfun{>} x = \bigsqcap^{\mathscr{F}}_{X \in \up x} \supfun{>} X =
+  \bigsqcap^{\mathscr{F}}_{X \in \up x, \inf X \in X}
+  \supfun{>} (X \sqcap] \alpha ; + \infty [) =
+  \bigsqcap^{\mathscr{F}}_{X \in \up x} ]\inf X ; + \infty [=
+  \bigsqcap^{\mathscr{F}}_{x > \alpha} [x ; + \infty [= \Delta_{+ \infty}$.
+\item[\ref{g-uf-v-neginf}] $\supfun{\geq} x \sqsupseteq \supfun{>} x =
+  \bigsqcap^{\mathscr{F}}_{X \in \up x} \supfun{>} X$ but $\supfun{>} X =] - \infty ; + \infty [$ for $X \in \up x$
+  because $X$ has arbitrarily small elements.
+\end{widedisorder}
+\end{proof}
+
+\begin{lem}
+$\langle \lvert \mathbb{R} \rvert \rangle x \sqsubseteq \supfun{>} x = \supfun{\geq} x$ for every nontrivial ultrafilter $x$.
+\end{lem}
+
+\begin{proof}
+$\supfun{>} x = \supfun{\geq} x$ follows from the previous proposition.
+
+$\supfun{\lvert \mathbb{R} \rvert } x = \bigsqcap_{X \in \up x} \supfun{\lvert \mathbb{R} \rvert } X =
+\bigsqcap_{X \in \up x} \bigsqcup_{y \in X} \Delta (y)$.
+
+Consider cases:
+
+\begin{description}
+  \item[$x$ is an ultrafilter at the right of some number $\alpha$] \hfill \\ $\langle
+  | \mathbb{R} | \rangle x = \bigsqcap_{X \in \up x} \bigsqcup_{y \in
+  X \sqcap] \alpha ; + \infty [} \Delta (y) \sqsubseteq] \alpha ; + \infty
+  [= \langle \geq \rangle x$ because $\bigsqcup_{y \in X \sqcap] \alpha ; +
+  \infty [} \Delta (y) \sqsubseteq] \alpha ; + \infty [$.
+  
+  \item[$x$
+  is an ultrafilter at the left of some number $\alpha$] \hfill \\ $\langle |
+  \mathbb{R} | \rangle x \sqsubseteq \Delta (\alpha)$ is obvious. But
+  $\langle \geq \rangle x \sqsupseteq \Delta (\alpha)$.
+  
+  \item[$x$ is an ultrafilter at positive infinity] \hfill \\ $\langle | \mathbb{R} |
+  \rangle x \sqsubseteq \Delta_{+ \infty}$ is obvious. But $\langle \geq
+  \rangle x = \Delta_{+ \infty}$.
+  
+  \item[$x$ is an ultrafilter at negative infinity] \hfill \\ Because $\langle \geq
+  \rangle x =\mathbb{R}$.
+\end{description}
+\end{proof}
+
+\begin{cor}
+$\supfun{ | \mathbb{R} | \sqcap \geq } x = \supfun{ | \mathbb{R} |
+} x$ for every nontrivial ultrafilter $x$.
+\end{cor}
+
+\begin{proof}
+$\supfun{ | \mathbb{R} | \sqcap \geq } x = \supfun{ | \mathbb{R} | } \sqcap \supfun{\geq} x =
+\supfun{ | \mathbb{R} | } x$.
+\end{proof}
+
+So $\supfun{ | \mathbb{R} | \sqcap \geq }$ and $\supfun{ | \mathbb{R} | }$ agree on all ultrafilters except trivial ones.
+
+\begin{prop}
+$| \mathbb{R} |_{>} \sqcap > = | \mathbb{R} |_{>} \sqcap \geq = | \mathbb{R} |_{>}$.
+\end{prop}
+
+\begin{proof}
+$| \mathbb{R} |_{>} \sqsubseteq \mathord{>}$ because $\rsupfun{| \mathbb{R} |_{>}} x \sqsubseteq \rsupfun{>} x$ and
+$| \mathbb{R} |_{>}$ is a complete funcoid.
+\end{proof}
+
+\begin{lem}
+$\supfun{ | \mathbb{R} |_{>} } x \sqsubset \supfun{ | \mathbb{R} |_{\geq} } x$ for a nontrivial ultrafilter~$x$.
+\end{lem}
+
+\begin{proof}
+It enough to prove $\supfun{ | \mathbb{R} |_{>} } x \ne \supfun{| \mathbb{R} |_{\geq} } x$.
+
+Take $x$ be an ultrafilter with limit point~$0$ on $\im z$ where $z$ is the sequence $n\mapsto \frac{1}{n}$.
+
+\[ \supfun{ | \mathbb{R} |_{>} } x \sqsubseteq \rsupfun{ | \mathbb{R} |_{>} } \im z =
+\bigsqcup_{n\in\im z} \Delta_{>}\left(\frac{1}{n}\right) \sqsubseteq
+\bigsqcup_{n\in\im z} \left]\frac{1}{n};\frac{1}{n-1}-\frac{1}{n}\right[ \asymp \im z. \]
+Thus $\supfun{ | \mathbb{R} |_{>} } x \asymp \im z$. But
+$\supfun{ | \mathbb{R} |_{\geq} } x \sqsubseteq \supfun{=} x \nasymp \im z$.
+\end{proof}
+
+\begin{cor}
+$| \mathbb{R} |_{>} \sqsubset | \mathbb{R} |_{\geq}$.
+\end{cor}
+
+\begin{prop}
+$| \mathbb{R} |_{>} \sqsubset | \mathbb{R} |_{\geq} \sqcap >$.
+\end{prop}
+
+\begin{proof}
+It's enough to prove $| \mathbb{R} |_{>} \neq | \mathbb{R} |_{\geq} \sqcap >$.
+
+Really, $\supfun{ | \mathbb{R} |_{\geq} \sqcap > } x = \supfun{ | \mathbb{R}
+|_{\geq} } x \neq \supfun{ | \mathbb{R} |_{>} } x$ (lemma).
+\end{proof}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item\label{comp-ord-ge} $| \mathbb{R} |_{\geq} \circ | \mathbb{R} |_{\geq} = | \mathbb{R} |_{\geq}$;
+\item\label{comp-ord-gt} $| \mathbb{R} |_{>} \circ | \mathbb{R} |_{>} = | \mathbb{R} |_{>}$;
+\item $| \mathbb{R} |_{\geq} \circ | \mathbb{R} |_{>} = | \mathbb{R} |_{>}$;
+\item $| \mathbb{R} |_{>} \circ | \mathbb{R} |_{\geq} = | \mathbb{R} |_{>}$.
+\end{enumerate}  
+\end{prop}
+
+\begin{proof}
+??
+\end{proof}
+
+\begin{conjecture}
+~
+\begin{enumerate}
+\item $(|\mathbb{R}| \sqcap {\geq}) \circ (|\mathbb{R}| \sqcap {\geq}) = |\mathbb{R}| \sqcap {\geq}$.
+\item $(|\mathbb{R}| \sqcap {>}) \circ (|\mathbb{R}| \sqcap {>}) = |\mathbb{R}| \sqcap {>}$.
+\end{enumerate}
+\end{conjecture}
+
+\section{Continuity}
+
+I will say that a property holds on a filter~$\mathcal{A}$ iff there is $A\in\up\mathcal{A}$ on which the property holds.
+
+\fxnote{$f\in\continuous(A,B)\land f\in\continuous(\iota_A|\mathbb{R}|_{\geq},\iota_B|\mathbb{R}|_{\geq}) \Leftrightarrow
+(f,f)\in\continuous((A,\iota_A|\mathbb{R}|_{\geq}),(B,\iota_B|\mathbb{R}|_{\geq}))$}
+
+\begin{lem}
+Let function~$f:A\rightarrow B$ where
+$A,B\in\subsets\mathbb{R}$ and $\iota_A|\mathbb{R}|$~is connected.
+\begin{enumerate}
+\item $f$ is monotone and $f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)$ iff
+$f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)\cap\continuous(\iota_{A}|\mathbb{R}|_{\geq},\iota_{B}|\mathbb{R}|_{\geq})$ iff
+$f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)\cap\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{\geq})$ iff
+$f\in\continuous(\iota_{A}|\mathbb{R}|_{\geq},\iota_{B}|\mathbb{R}|_{\geq})\cap
+\continuous(\iota_{A}|\mathbb{R}|_{\leq},\iota_{B}|\mathbb{R}|_{\leq})$.
+\item $f$ is strictly monotone and $f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)$ iff
+$f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)\cap\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{>})$ iff
+$f\in\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{>})\cap
+\continuous(\iota_{A}|\mathbb{R}|_{<},\iota_{B}|\mathbb{R}|_{<})$.
+\end{enumerate}
+\fxnote{Generalize for arbitrary posets.}
+\fxnote{Generalize for $f$ being a funcoid.}
+\fxnote{Can add more conditions with~$<$.}
+\end{lem}
+
+\begin{proof}
+Because $f$ is continuous, we have $\rsupfun{f\circ\iota_{A}|\mathbb{R}|}\{x\} \sqsubseteq \rsupfun{\iota_{B}|\mathbb{R}|\circ f}\{x\}$
+that is $\rsupfun{f}(A\sqcap\Delta(x)) \sqsubseteq B\sqcap\Delta(f(x))$ for every~$x\in A$.
+
+If $f$ is monotone, we have $\rsupfun{f} \Delta_{\geq}(x) \sqsubseteq [f(x);\infty[$.
+Thus $\rsupfun{f} (A\sqcap\Delta_{\geq}(x)) \sqsubseteq B\sqcap\Delta_{\geq}(f(x))$, that is
+$\rsupfun{f\circ \iota_{A}|\mathbb{R}|_{\geq}}\{x\} \sqsubseteq \rsupfun{\iota_{B}|\mathbb{R}|_{\geq}\circ f}\{x\}$, thus
+$f\in\continuous(\iota_{A}|\mathbb{R}|_{\geq},\iota_{B}|\mathbb{R}|_{\geq})$.
+
+If $f$ is strictly monotone, we have $\rsupfun{f} \Delta_{>}(x) \sqsubseteq ]f(x);\infty[$.
+Thus $\rsupfun{f} \Delta_{>}(x) \sqsubseteq \Delta_{>}(f(x))$, that is
+$\rsupfun{f\circ \iota_{A}|\mathbb{R}|_{>}}\{x\} \sqsubseteq \rsupfun{\iota_{B}|\mathbb{R}|_{>}\circ f}\{x\}$, thus
+$f\in\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{>})$.
+
+Let now $f\in\continuous(\iota_{A}|\mathbb{R}|_{\geq},\iota_{B}|\mathbb{R}|_{\geq})$.
+
+Take any~$a\in {A}$ and let $c=\sup\setcond{b\in {B}}{b\geq a, \forall x\in[a;b[: f(x)\geq f(a)}$ (makes sense because $A$~is connected).
+It's enough to prove that $c$ is the right endpoint (finite or infinite) of~${A}$.
+
+Indeed by continuity $f(a)\leq f(c)$ and if $c$ is not already the right endpoint of~${A}$, then
+there is $b'>c$ such that $\forall x\in[c;b'[: f(x)\geq f(c)$ (makes sense because $A$~is connected).
+So we have $\forall x\in[a;b'[: f(x)\geq f(c)$ what contradicts to the above.
+
+So $f$ is monotone on the entire~${A}$.
+
+$f\in\continuous(\iota_{A}|\mathbb{R}|_{\geq},\iota_{B}|\mathbb{R}|_{\geq}) \Rightarrow f\in\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{\geq})$ is obvious. Reversely
+$f\in\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{\geq}) \Leftrightarrow
+f\circ \iota_{A}|\mathbb{R}|_{>} \sqsubseteq \iota_{B}|\mathbb{R}|_{\geq}\circ f \Leftrightarrow
+\forall x\in A: \supfun{f}\rsupfun{\iota_{A}|\mathbb{R}|_{>}}\{x\} \sqsubseteq \rsupfun{\iota_{B}|\mathbb{R}|_{\geq}}\rsupfun{f}\{x\} \Leftrightarrow
+\forall x\in A: \supfun{f}(A\sqcap\Delta_{>}(x)) \sqsubseteq B\sqcap\Delta_{\geq}f(x) \Leftrightarrow
+\forall x\in A: \supfun{f}(A\sqcap\Delta_{>}(x)) \sqcup \{f(x)\} \sqsubseteq B\sqcap\Delta_{\geq}f(x) \Leftrightarrow
+\forall x\in A: \supfun{f}((A\sqcap\Delta_{>}(x)) \sqcup \{x\}) \sqsubseteq B\sqcap\Delta_{\geq}f(x) \Leftrightarrow
+\forall x\in A: \supfun{f}(A\sqcap\Delta_{\geq}(x)) \sqsubseteq B\sqcap\Delta_{\geq}f(x) \Leftrightarrow
+\forall x\in A: \supfun{f}\rsupfun{\iota_{A}|\mathbb{R}|_{\geq}}\{x\} \sqsubseteq \rsupfun{\iota_{B}|\mathbb{R}|_{\geq}}\rsupfun{f}\{x\} \Leftrightarrow
+f\circ \iota_{A}|\mathbb{R}|_{\geq} \sqsubseteq \iota_{B}|\mathbb{R}|_{\geq}\circ f \Leftrightarrow
+f\in\continuous(\iota_{A}|\mathbb{R}|_{\geq},\iota_{B}|\mathbb{R}|_{\geq})$.
+
+Let $f\in\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{>})$. Then $f\in\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{\geq})$ and thus it is monotone.
+We need to prove that $f$ is strictly monotone.
+Suppose the contrary. Then there is a nonempty interval $[p;q]\subseteq {A}$ such that $f$ is constant on this interval.
+But this is impossible because $f\in\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{>})$.
+
+Prove that $f\in\continuous(\iota_{A}|\mathbb{R}|_{\geq},\iota_{B}|\mathbb{R}|_{\geq})\cap
+\continuous(\iota_{A}|\mathbb{R}|_{\leq},\iota_{B}|\mathbb{R}|_{\leq})$ implies
+$f\in\continuous({A},{B})$. Really, it implies
+$\supfun{f}(A\sqcap\Delta_{\leq}(x))\sqsubseteq B\sqcap\Delta_{\leq}(fx)$ and $\supfun{f}(A\sqcap\Delta_{\geq}(x))\sqsubseteq B\sqcap\Delta_{\geq}(fx)$
+thus $\supfun{f}(A\sqcap\Delta(x)) = \supfun{f}(A\sqcap(\Delta_{\leq}(x)\sqcup\{x\}\sqcup\Delta_{\geq}(x))) \sqsubseteq
+B\sqcap(\Delta_{\leq}f(x)\sqcup\{f(x)\}\sqcup\Delta_{\geq}f(x)) =
+B\sqcap\Delta(f(x))$.
+
+Prove that $f\in\continuous(\iota_{A}|\mathbb{R}|_{>},\iota_{B}|\mathbb{R}|_{>})\cap
+\continuous(\iota_{A}|\mathbb{R}|_{<},\iota_{B}|\mathbb{R}|_{<})$
+$f\in\continuous({A},{B})$. Really, it implies
+$\supfun{f}(A\sqcap\Delta_{<}(x))\sqsubseteq B\sqcap\Delta_{<}(fx)$ and $\supfun{f}(A\sqcap\Delta_{>}(x))\sqsubseteq B\sqcap\Delta_{>}(fx)$
+thus $\supfun{f}(A\sqcap\Delta(x)) = \supfun{f}(A\sqcap(\Delta_{<}(x)\sqcup\{x\}\sqcup\Delta_{>}(x))) \sqsubseteq
+B\sqcap(\Delta_{<}f(x)\sqcup\{f(x)\}\sqcup\Delta_{>}f(x)) = B\sqcap\Delta(f(x))$.
+\end{proof}
+
+\begin{thm}
+\fxwarning{Counterexample: \url{https://math.stackexchange.com/a/3702872/4876}}
+Let function~$f:A\rightarrow B$ where $A,B\in\subsets\mathbb{R}$.
+\begin{enumerate}
+\item $f$ is locally monotone and $f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)$ iff
+$f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)\cap\continuous(\iota_A|\mathbb{R}|_{\geq},\iota_B|\mathbb{R}|_{\geq})$ iff
+$f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)\cap\continuous(\iota_A|\mathbb{R}|_{>},\iota_B|\mathbb{R}|_{\geq})$ iff
+$f\in\continuous(\iota_A|\mathbb{R}|_{\geq},\iota_B|\mathbb{R}|_{\geq})\cap
+\continuous(\iota_A|\mathbb{R}|_{\leq},\iota_B|\mathbb{R}|_{\leq})$.
+\item $f$ is locally strictly monotone and $f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)$ iff
+$f\in\continuous(\iota_A|\mathbb{R}|,\iota_B|\mathbb{R}|)\cap\continuous(\iota_A|\mathbb{R}|_{>},\iota_B|\mathbb{R}|_{>})$ iff
+$f\in\continuous(\iota_A|\mathbb{R}|_{>},\iota_B|\mathbb{R}|_{>})\cap
+\continuous(\iota_A|\mathbb{R}|_{<},\iota_B|\mathbb{R}|_{<})$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+By the lemma it is (strictly) monotone on each connected component.
+\fxerror{It is not enough if for example $A=\mathbb{Q}$.}
+\end{proof}
+
+See also related math.SE questions:
+\begin{enumerate}
+\item \url{http://math.stackexchange.com/q/1473668/4876}
+\item \url{http://math.stackexchange.com/a/1872906/4876}
+\item \url{http://math.stackexchange.com/q/1875975/4876}
+\end{enumerate}
+
+\subsection{Directed topological spaces}
+
+Directed topological spaces are defined at\\
+\url{http://ncatlab.org/nlab/show/directed+topological+space}
+
+\begin{defn}
+A \emph{directed topological space} (or \emph{d-space} for short) is a pair $(X,d)$ of a topological space~$X$ and
+a set $d\subseteq\continuous([0;1],X)$ (called \emph{directed paths} or \emph{d-paths}) of paths in~$X$ such that
+\begin{enumerate}
+\item (constant paths) every constant map $[0;1]\to X$ is directed;
+\item (reparameterization) $d$ is closed under composition with increasing continuous maps $[0;1]\to [0;1]$;
+\item (concatenation) $d$ is closed under path-concatenation: if the d-paths $a$, $b$ are consecutive in $X$ ($a(1)=b(0)$), then their ordinary concatenation $a+b$ is also a d-path
+\begin{gather*}
+(a+b)(t) = a(2t),\,\text{if}\, 0\le t\le \frac{1}{2}, \\
+(a+b)(t) = b(2t-1),\,\text{if}\, \frac{1}{2}\le t\le 1.
+\end{gather*}
+\end{enumerate}
+\end{defn}
+
+I propose a new way to construct a directed topological space. My way is more geometric/topological as it does not involve dealing with particular paths.
+
+\begin{defn}
+Let $ T$ be the complete endofuncoid corresponding to a topological space
+and $\nu\sqsubseteq T$ be its ``subfuncoid''. The $\mathrm{d}$-space $\operatorname{(dir)}(T,\nu)$ induced by the pair $(T,\nu)$
+consists of~$ T$ and paths $f\in\continuous([0;1], T) \cap \continuous(|[0;1]|_{\geq}, \nu)$
+such that $f(0)=f(1)$.
+\end{defn}
+
+\begin{prop}
+It is really a $\mathrm{d}$-space.
+\end{prop}
+
+\begin{proof}
+Every $\mathrm{d}$-path is continuous.
+
+Constant path are $\mathrm{d}$-paths because $\nu$ is reflexive.
+
+Every reparameterization is a $\mathrm{d}$-path because they are $\continuous(|[0;1]|_{\geq}, \nu)$ and we can apply the theorem about
+composition of continuous functions.
+
+Every concatenation is a $\mathrm{d}$-path. Denote
+$f_0 = \mylambda{t}{[0;\frac{1}{2}]}{a(2t)}$ and $f_1 = \mylambda{t}{[\frac{1}{2};1]}{b(2t-1)}$.
+Obviously $f_0,f_1 \in \continuous([0;1],\mu) \cap \continuous(|[0;1]|_{\geq}, \nu)$.
+Then we conclude that $a+b = f_1\sqcup f_1$ is in $f_0,f_1 \in \continuous([0;1],\mu) \cap \continuous(|[0;1]|_{\geq}, \nu)$
+using the fact that the operation $\circ$ is distributive over $\sqcup$.
+\end{proof}
+
+Below we show that not every $\mathrm{d}$-space is induced by a pair of an endofuncoid and its subfuncoid.
+But are $\mathrm{d}$-spaces not represented this way good anything except counterexamples?
+
+Let now we have a $\mathrm{d}$-space $(X,d)$. Define funcoid~$\nu$ corresponding to the $\mathrm{d}$-space by the formula
+$\nu = \bigsqcup_{a\in d}(a\circ |\mathbb{R}|_{\geq}\circ a^{-1})$.
+
+\begin{example}
+The two directed topological spaces, constructed from a fixed topological space and two different reflexive funcoids,
+are the same.
+\end{example}
+
+\begin{proof}
+Consider the indiscrete topology~$T$ on $\mathbb{R}$ and the funcoids~$1^{\mathsf{FCD}(\mathbb{R},\mathbb{R})}$
+and $1^{\mathsf{FCD}(\mathbb{R},\mathbb{R})}\sqcup(\{0\}\times^{\mathsf{FCD}} \Delta_{\geq})$.
+The only $\mathrm{d}$-paths in both these settings are constant functions.
+\end{proof}
+
+\begin{example}
+A $\mathrm{d}$-space is not determined by the induced funcoid.
+\end{example}
+
+\begin{proof}
+The following a $\mathrm{d}$-space induces the same funcoid as the $\mathrm{d}$-space of all paths on the plane.
+
+Consider a plane $\mathbb{R}^2$ with the usual topology. Let $\mathrm{d}$-paths be paths lying inside a polygonal chain (in the plane).
+\end{proof}
+
+\begin{conjecture}
+A $\mathrm{d}$-path~$a$ is determined by the funcoids (where $x$ spans $[0;1]$)
+\[ (\mylambda{t}{\mathbb{R}}{a(x+t)})|_{\Delta(0)}. \]
+\end{conjecture}
+
+\section{A way to construct directed topological spaces}
+
+I propose a new way to construct a directed topological space. My way is more geometric/topological as it does not involve dealing with particular paths.
+
+\begin{conjecture}
+Every directed topological space can be constructed in the below described way.
+\end{conjecture}
+
+Consider topological space $T$ and its subfuncoid $F$ (that is $F$ is a funcoid which is less that $T$ in the order of funcoids).
+Note that in our consideration $F$ is an endofuncoid (its source and destination are the same).
+
+Then a directed path from point $A$ to point $B$ is defined as a continuous function $f$ from $[0;1]$ to $F$ such that $f(0)=A$ and $f(1)=B$.
+\fxwarning{Specify whether the interval $[0;1]$ is treated as a proximity, pretopology, or preclosure.}
+
+Because $F$ is less that $T$, we have that every directed path is a path.
+
+\begin{conjecture}
+The two directed topological spaces, constructed from a fixed topological space and two different funcoids,
+are different.
+\end{conjecture}
+
+For a counter-example of (which of the two?) the conjecture consider funcoid $T\sqcap(\mathbb{Q}\times^{\mathsf{FCD}}\mathbb{Q})$
+where $T$ is the usual topology on real line.We need to consider stability of existence and uniqueness of a path under transformations of our funcoid and
+under transformations of the vector field. Can this be a step to solve Navier-Stokes existence and smoothness problems?
+
+\section{Integral curves}
+
+We will consider paths in a normed vector space~$V$.
+
+\begin{defn}
+Let $D$ be a connected subset of~$\mathbb{R}$. A \emph{path} is a function $D\rightarrow V$.
+\end{defn}
+
+Let $d$ be a vector field in a normed vector space~$V$.
+
+\begin{defn}
+\emph{Integral curve} of a vector field~$d$ is a differentiable function $f:D\rightarrow V$ such that $f'(t)=d(f(t))$ for every $t\in D$.
+\end{defn}
+
+\begin{defn}
+The definition of \emph{right side integral curve} is the above definition with right derivative of~$f$ instead of derivative~$f'$.
+\emph{Left side integral curve} is defined similarly.
+\end{defn}
+
+\subsection{Path reparameterization}
+
+$C^1$~is a function which has continuous derivative on every point of the domain.
+
+By $D^1$ I will denote a $C^1$ function whose derivative is either nonzero at every point or is zero everywhere.
+
+\begin{defn}
+A \emph{reparameterization} of a $C^1$ path is a bijective $C^1$ function $\phi:D\rightarrow D$ such that
+$\phi'(t)>0$. A curve $f_2$ is called a reparametrized curve $f_1$ if there is a reparameterization~$\phi$ such that
+$f_2=f_1\circ\phi$.
+\end{defn}
+
+It is well known that this defines an equivalence relation of functions.
+
+\begin{prop}
+Reparameterization of $D^1$ function is $D^1$.
+\end{prop}
+
+\begin{proof}
+If the function has zero derivative, it is obvious.
+
+Let $f_1$ has everywhere nonzero derivative. Then $f_2'(t) = f_1'(\phi(t))\phi'(t)$ what is trivially nonzero.
+\end{proof}
+
+\begin{defn}
+Vectors~$p$ and~$q$ have the \emph{same direction} ($p\upuparrows q$) iff there exists a strictly positive real~$c$ such that $p=cq$.
+\end{defn}
+
+\begin{obvious}
+Being same direction is an equivalence relation.
+\end{obvious}
+
+\begin{obvious}
+The only vector with the same direction as the zero vector is zero vector.
+\end{obvious}
+
+\begin{thm}
+A $D^1$ function~$y$ is some reparameterization of a $D^1$ integral curve~$x$ of a continuous vector field~$d$ iff
+$y'(t)\upuparrows d(y(t))$ that is vectors~$y'(t)$ and $d(y(t))$ have the same direction (for every $t$).
+\end{thm}
+
+\begin{proof}
+If $y$ is a reparameterization of~$x$, then $y(t)=x(\phi(t))$. Thus $y'(t)=x'(\phi(t))\phi'(t)=d(x(\phi(t)))\phi'(t)=d(y(t))\phi'(t)$.
+So $y'(t)\upuparrows d(y(t))$ because $\phi'(t)>0$.
+
+Let now $x'(t)\upuparrows d(x(t))$ that is that is there is a strictly positive function $c(t)$ such that
+$x'(t) = c(t) d(x(t))$.
+
+If $x'(t)$ is zero everywhere, then $d(x(t))=0$ and thus $x'(t)=d(x(t))$ that is $x$ is an Integral curve.
+Note that $y$ is a reparameterization of itself.
+
+We can assume that $x'(t)\ne 0$ everywhere. Then $F(x(t))\ne 0$. We have
+that $c(t) = \frac{||x'(t)||}{||d(x(t))||}$ is a continuous function. \fxnote{Does it work for non-normed spaces?}
+
+Let $y(u(t)) = x(t)$, where \[ u(t)=\int_0^t c(s)ds, \]
+which is defined and finite because $c$ is continuous and monotone (thus having inverse defined on its image)
+because $c$ is positive.
+
+Then
+\begin{align*}
+y'(u(t)) u'(t) &= x'(t) \\
+&= c(t) d(x(t)) \text{, so}\\
+y'(u(t)) c(t) &= c(t) d(y(u(t))) \\
+y'(u(t))  &=  d(y(u(t)))
+\end{align*}
+and letting $s=u(t)$ we have $y'(s)=d(y(s))$ for a reparameterization~$y$ of~$x$.
+\end{proof}
+
+\subsection{Vector space with additional coordinate}
+
+Consider the normed vector space with additional coordinate~$t$.
+
+Our vector field~$d(t)$ induces vector field~$\hat{d}(t,v)=(1,d(v))$ in this space. Also $\hat{f}(t)=(t,f(t))$.
+
+\begin{prop}
+Let $f$ be a $D^1$ function. $f$ is an integral curve of~$d$ iff $\hat{f}$ is a reparametrized integral curve of~$\hat{d}$.
+\end{prop}
+
+\begin{proof}
+First note that $\hat{f}$ always has a nonzero derivative.
+$\hat{f}'(t)\upuparrows \hat{d}(\hat{f}(t)) \Leftrightarrow (1,f'(t))\upuparrows (1,d(f(t))) \Leftrightarrow
+f'(t)=d(f(t))$.
+\end{proof}
+
+Thus we have reduced (for $D^1$ paths) being an integral curve to being a reparametrized integral curve.
+We will also describe being a reparametrized integral curve topologically (through funcoids).
+
+\subsection{Topological description of $C^1$ curves}
+
+Explicitly construct this funcoid as follows:
+
+$R(d,\phi) = \setcond{v\in V}{\widehat{vd}<\phi, v\ne 0}$ for $d\ne 0$ and $R(0,\phi) = \{0\}$,
+where $\widehat{ab}$ is the angle between the vectors $a$ and $b$,
+for a direction~$d$ and an angle~$\phi$.
+
+\begin{defn}
+$W(d) = \bigsqcap^{\mathsf{RLD}}\setcond{R(d,\phi)}{\phi\in\mathbb{R},\phi>0} \sqcap \bigsqcap^{\mathsf{RLD}}_{r>0}B_r(0)$.
+\fxnote{This is defined for infinite dimensional case.}
+\fxnote{Consider also $\mathsf{FCD}$ instead of $\mathsf{RLD}$.}
+\end{defn}
+
+\begin{prop}
+For finite dimensional case~$\mathbb{R}^n$ we have
+$W(d) = \bigsqcap^{\mathsf{RLD}}\setcond{R(d,\phi)}{\phi\in\mathbb{R},\phi>0} \sqcap \Delta^{(\mathsf{RLD})n}$
+where \[ \Delta^{(\mathsf{RLD})n} = \underbrace{\Delta\times^{\mathsf{RLD}}\dots\times^{\mathsf{RLD}}\Delta}_{n\text{ times}}. \]
+\end{prop}
+
+\begin{proof}
+??
+\end{proof}
+
+Finally our funcoids are the complete funcoids~$Q_+$ and~$Q_-$ described by the formulas
+\[
+\rsupfun{Q_+}@\{p\} = \supfun{p+} W(d(p)) \quad\text{and}\quad \rsupfun{Q_-}@\{p\} = \supfun{p+} W(-d(p)).
+\]
+Here $\Delta$ is taken from the ``counter-examples'' section.
+
+In other words,
+\[
+Q_+ = \bigsqcup_{p\in\mathbb{R}} (@\{p\}\times^{\mathsf{FCD}}\supfun{p+}{W(d(p))});
+\quad
+Q_- = \bigsqcup_{p\in\mathbb{R}} (@\{p\}\times^{\mathsf{FCD}}\supfun{p+}{W(-d(p))}).
+\]
+
+That is $\rsupfun{Q_+}@\{p\}$ and $\rsupfun{Q_-}@\{p\}$ are something like infinitely small spherical sectors
+(with infinitely small aperture and infinitely small radius).
+
+\fxnote{Describe the co-complete funcoids reverse to these complete funcoids.}
+
+\begin{thm}
+A $D^1$ curve~$f$ is an reparametrized integral curve for a direction field~$d$ iff
+$f\in\continuous(\iota_D|\mathbb{R}|_{>},Q_+)\cap\continuous(\iota_D|\mathbb{R}|_{<},Q_-)$.
+\end{thm}
+
+\begin{proof}
+Equivalently transform $f\in\continuous(\iota_D|\mathbb{R}|,Q_+)$; $f\circ \iota_D|\mathbb{R}|\sqsubseteq Q_+\circ f$;
+$\rsupfun{f\circ \iota_D|\mathbb{R}|}@\{t\}\sqsubseteq \rsupfun{Q_+\circ f}@\{t\}$;
+$\rsupfun{f}\Delta_{>}(t)\sqcap D\sqsubseteq \rsupfun{Q_+}f(t)$;
+$\rsupfun{f}\Delta_{>}(t)\sqsubseteq \rsupfun{Q_+}f(t)$;
+$\rsupfun{f}\Delta_{>}(t)\sqsubseteq f(t)+W(D(f(t)))$;
+$\rsupfun{f}\Delta_{>}(t)-f(t)\sqsubseteq W(D(f(t)))$;
+\[ \forall r>0, \phi>0 \exists\delta>0: \rsupfun{f}(]t;t+\delta[)-f(t)\subseteq R(d(f(t)),\phi) \cap B_r(f(t)); \]
+\[ \forall r>0, \phi>0 \exists\delta>0 \forall 0<\gamma<\delta: \rsupfun{f}(]t;t+\gamma[)-f(t)\subseteq R(d(f(t)),\phi) \cap B_r(f(t)); \]
+\[ \forall r>0, \phi>0 \exists\delta>0 \forall 0<\gamma<\delta: \frac{\rsupfun{f}(]t;t+\gamma[)-f(t)}{\gamma}\subseteq R(d(f(t)),\phi) \cap B_{r/\delta}(f(t)); \]
+\[ \forall r>0, \phi>0 \exists\delta>0: \partial_+ f(t)\subseteq R(d(f(t)),\phi) \cap B_{r/\delta}(f(t)); \]
+\[ \forall r>0, \phi>0: \partial_+ f(t)\subseteq R(d(f(t)),\phi); \]
+\[ \partial_+ f(t) \upuparrows d(f(t)) \]
+where $\partial_+$ is the right derivative.
+
+In the same way we derive that $\continuous(|\mathbb{R}|_{<},Q_-)\Leftrightarrow \partial_- f(t) \upuparrows d(f(t))$.
+
+Thus $f'(t) \upuparrows d(f(t))$ iff $f\in\continuous(|\mathbb{R}|_{>},Q_+)\cap\continuous(|\mathbb{R}|_{<},Q_-)$.
+\end{proof}
+
+\subsection{$C^n$ curves}
+
+We consider the differential equation $f'(t) = d(f(t))$.
+
+We can consider this equation in any topological vector
+space~$V$ (\url{https://en.wikipedia.org/wiki/Frechet_derivative}), see also
+\url{https://math.stackexchange.com/q/2977274/4876}.
+Note that I am not an expert in topological vector spaces
+and thus my naive generalizations may be wrong in details.
+
+$n$-th derivative $f^{(n)}(t)=d_n(f(t))$;
+$f^{(n+1)}(t)=d_n'(f(t))\circ f'(t)=d_n'(f(t))\circ d(f(t))$.
+So $d_{n+1}(y)=d_n'(y)\circ d(y)$.
+
+Given a point~$y\in V$
+define \[R^n(y) = \setcond{v\in V}{\widehat{vd_0(y)}<
+\frac{d_1}{1!}(y)|v|+\frac{d_2(y)}{2!}|v|^2+\dots+\frac{d_{n-1}(y)}{(n-1)!}|v|^{n-1}+O(|v|^n), v\ne 0}\] for $d_0(y)\ne 0$ and $R^n = \{0\}$ if $d_0(y)=0$.
+
+\begin{defn}
+$R^\infty(y) = R^0(y)\sqcap R^1(y)\sqcap R^2(y)\sqcap\dots$.
+\end{defn}
+
+\fxerror{It does not work:
+\url{https://math.stackexchange.com/a/2978532/4876}.}
+
+\begin{defn}
+$W^n(y) = R^n(y) \sqcap \bigsqcap^{\mathsf{RLD}}_{r>0}B_r(0)$;
+$W^\infty(y) = R^\infty(y) \sqcap \bigsqcap^{\mathsf{RLD}}_{r>0}B_r(0)$.
+\end{defn}
+
+Finally our funcoids are the complete funcoids~$Q_+^n$ and~$Q_-^n$ described by the formulas
+\[
+\rsupfun{Q_+^n}@\{p\} = \supfun{p+} W^n(p) \quad\text{and}\quad \rsupfun{Q_-^n}@\{p\} = \supfun{p+} {W^-}^n(p)
+\]
+where $W^-$ is $W$ for the reverse vector field~$-d(y)$.
+
+\fxnote{Related questions:
+\url{http://math.stackexchange.com/q/1884856/4876}
+\url{http://math.stackexchange.com/q/107460/4876}
+\url{http://mathoverflow.net/q/88501}}
+
+\begin{lem}
+Let for every $x$ in the domain of the path for small $t > 0$ we have $f (x + t) \in R^n (F (f (x)))$ and $f (x - t) \in R^n (- F (f (x)))$.
+Then $f$ is $C^n$ smooth.
+\end{lem}
+
+\begin{proof}
+\fxerror{Not yet proved!}\\
+See also \url{http://math.stackexchange.com/q/1884930/4876}.
+\end{proof}
+
+\begin{conjecture}
+A path~$f$ is conforming to the above differentiable
+equation and $C^n$ (where~$n$ is natural or infinite) smooth iff $f\in\continuous(\iota_D|\mathbb{R}|_{>},Q_+^n)\cap\continuous(\iota_D|\mathbb{R}|_{<},Q_-^n)$.
+\end{conjecture}
+
+\begin{proof}
+Reverse implication follows from the lemma.
+
+Let now a path~$f$ is $C^n$. Then
+\[
+f(x+t) = \sum_{i=0}^n f^{(i)}(x)\frac{t^i}{i!} + o(t^i) =
+f(x)+f'(x)t + \sum_{i=2}^n f^{(i)}(x)\frac{t^i}{i!} + o(t^i)
+\]
+\end{proof}
+
+\subsection{Plural funcoids}
+
+Take $I_+$ and $Q_+$ as described above in forward direction and $I_-$ and $Q_-$ in backward direction. Then
+\[ f\in\continuous(I_+,Q_+)\land f\in\continuous(I_-,Q_-) \Leftrightarrow f\times f\in\continuous(I_+\times^{(A)}I_-,Q_+\times^{(A)}Q_-)? \]
+
+To describe the above we can introduce new term \emph{plural funcoids}. This is simply a map
+from an index set to funcoids. Composition is defined component-wise. Order is defined as product order.
+Well, do we need this? Isn't it the same as infimum product of funcoids?
+
+\subsection{Multiple allowed directions per point}
+
+\[ \rsupfun{Q}@\{p\} = \bigsqcup_{d\in d(p)} \supfun{p+} W(d). \]
+
+It seems (check!) that solutions not only of differential equations but also of difference equations can be
+expressed as paths in funcoids.

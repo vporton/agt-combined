@@ -1,0 +1,193 @@
+\chapter{Equalizers and co-Equalizers in Certain Categories}
+
+It is a rough draft. Errors are possible.
+
+\fxwarning{Change notation $\prod$ $\rightarrow$ $\prod^{(L)}$.}
+
+\section{Equalizers}
+
+Categories $\cont (\mathcal{C})$ are defined above.
+
+I will denote $W$ the forgetful functor from $\cont
+(\mathcal{C})$ to $\mathcal{C}$.
+
+In the definition of the category $\cont (\mathcal{C})$ take
+values of $\uparrow$ as principal morphisms. \fxwarning{Wording.}
+
+\begin{lem}
+  Let $f : X \rightarrow Y$ be a morphism of the category
+  $\cont (\mathcal{C})$ where $\mathcal{C}$ is a concrete
+  category (so $W f = \uparrow \varphi$ for a $\mathbf{Rel}$-morphism
+  $\varphi$ because $f$ is principal) and $\im \varphi = A \subseteq
+  \Ob Y$. Factor it $\varphi = \mathcal{E}^{\Ob Y} \circ u$
+  where $u : \Ob X \rightarrow A$ using properties of
+  $\mathbf{Set}$. Then $u$ is a morphism of $\cont
+  (\mathcal{C})$ (that is a continuous function $X \rightarrow \iota_A Y$).
+\end{lem}
+
+\begin{proof}
+  $(\mathcal{E}^{\Ob Y})^{- 1} \circ \varphi = (\mathcal{E}^{\Ob Y})^{- 1} \circ \mathcal{E}^{\Ob Y} \circ u$;
+  
+  $(\mathcal{E}_{\mathcal{C}}^{\Ob Y})^{- 1} \circ \uparrow \varphi
+  = (\mathcal{E}_{\mathcal{C}}^{\Ob Y})^{- 1} \circ \mathcal{E}_{\mathcal{C}}^{\Ob Y} \circ \uparrow u$;
+  
+  $(\mathcal{E}_{\mathcal{C}}^{\Ob Y})^{- 1} \circ \uparrow \varphi
+  = \uparrow u$;
+  
+  $X \sqsubseteq (\uparrow u)^{- 1} \circ \pi_A Y \circ \uparrow u
+  \Leftrightarrow X \sqsubseteq (\uparrow \varphi)^{- 1} \circ
+  \mathcal{E}_{\mathcal{C}}^{\Ob Y} \circ \pi_A Y \circ
+  (\mathcal{E}_{\mathcal{C}}^{\Ob Y})^{- 1} \circ \uparrow \varphi
+  \Leftrightarrow X \sqsubseteq (\uparrow \varphi)^{- 1} \circ
+  \mathcal{E}_{\mathcal{C}}^{\Ob Y} \circ
+  (\mathcal{E}_{\mathcal{C}}^{\Ob Y})^{- 1} \circ Y \circ
+  \mathcal{E}_{\mathcal{C}}^{\Ob Y} \circ
+  (\mathcal{E}_{\mathcal{C}}^{\Ob Y})^{- 1} \circ \uparrow \varphi
+  \Leftrightarrow X \sqsubseteq (\uparrow \varphi)^{- 1} \circ Y \circ
+  \uparrow \varphi \Leftrightarrow X \sqsubseteq (W f)^{- 1} \circ Y \circ W
+  f$ what is true by definition of continuity.
+\end{proof}
+
+Equational definition of equalizers:
+
+\url{http://nforum.mathforge.org/comments.php?DiscussionID=5328/}
+
+\begin{thm}
+  The following is an equalizer of parallel morphisms $f, g : A \rightarrow B$
+  of category $\cont (\mathcal{C})$:
+  \begin{itemize}
+    \item the object $X = \iota_{\setcond{ x \in \Ob A }{
+    f x = g x }} A$;
+    
+    \item the morphism $\mathcal{E}^{\Ob X, \Ob A}$ considered
+    as a morphism $X \rightarrow A$.
+  \end{itemize}
+\end{thm}
+
+\begin{proof}
+  Denote $e = \mathcal{E}^{\Ob X, \Ob A}$.
+  
+  Let $f \circ z = g \circ z$ for some morphism $z$.
+  
+  Let's prove $e \circ u = z$ for some $u : \Src z \rightarrow X$.
+  Really, as a morphism of $\mathbf{Set}$ it exists and is unique.
+  
+  Consider $z$ as as a generalized element.
+  
+  $f (z) = g (z)$. So $z \in X$ (that is $\Dst z \in X$). Thus $z = e
+  \circ u$ for some $u$ (by properties of $\mathbf{Set}$). The
+  generalized element $u$ is a $\cont (\mathcal{C})$-morphism
+  because of the lemma above. It is unique by properties of
+  $\mathbf{Set}$.
+\end{proof}
+
+We can (over)simplify the above theorem by the obvious below:
+
+\begin{obvious}
+$\setcond{ x \in \Ob A }{ f x = g x } = \dom (f \cap g)$.
+\end{obvious}
+
+\section{Co-equalizers}
+
+\url{http://math.stackexchange.com/questions/539717/how-to-construct-co-equalizers-in-mathbftop}	
+
+Let $\sim$ be an equivalence relation. Let's denote $\pi$ its canonical
+projection.
+
+\begin{defn}
+  $f / \sim = \uparrow \pi \circ f \circ \uparrow \pi^{- 1}$ for every
+  morphism $f$.
+\end{defn}
+
+\begin{obvious}
+$\Ob (f / \sim) = (\Ob f) / r$.
+\end{obvious}
+
+\begin{obvious}
+$f / \sim = \langle \uparrow^{\mathsf{FCD}} \pi \times^{(C)}
+\uparrow^{\mathsf{FCD}} \pi \rangle f$ for every morphism
+$f$.
+\end{obvious}
+
+To define co-equalizers of morphisms $f$ and $g$ let $\sim$ be is the smallest
+equivalence relation such that $f x = g x$.
+
+\begin{lem}
+  Let $f : X \rightarrow Y$ be a morphism of the category
+  $\cont (\mathcal{C})$ where $\mathcal{C}$ is a concrete
+  category (so $W f = \uparrow \varphi$ for a $\mathbf{Rel}$-morphism
+  $\varphi$ because $f$ is principal) such that $\varphi$ respects $\sim$.
+  Factor it $\varphi = u \circ \pi$ where $u : \Ob (X / \sim)
+  \rightarrow \Ob Y$ using properties of $\mathbf{Set}$. Then
+  $u$ is a morphism of $\cont (\mathcal{C})$ (that is a
+  continuous function $X / \sim \rightarrow Y$).
+\end{lem}
+
+\begin{proof}
+  $f \circ X \circ f^{- 1} \sqsubseteq Y$; $\uparrow u \circ \uparrow \pi
+  \circ X \circ \uparrow \pi^{- 1} \circ \uparrow u^{- 1} \sqsubseteq Y$;
+  $\uparrow u \in \mathrm{C} (\uparrow \pi \circ X \circ \uparrow \pi^{- 1} ,
+  Y) = \mathrm{C} (X / \sim , Y)$.
+\end{proof}
+
+\begin{thm}
+  The following is a co-equalizer of parallel morphisms $f, g : A \rightarrow
+  B$ of category $\cont (\mathcal{C})$:
+  \begin{itemize}
+    \item the object $Y = f / \sim$;
+    
+    \item the morphism $\pi$ considered as a morphism $B \rightarrow Y$.
+  \end{itemize}
+\end{thm}
+
+\begin{proof}
+  Let $z \circ f = z \circ g$ for some morphism $z$.
+  
+  Let's prove $u \circ \pi = z$ for some $u : Y \rightarrow \Dst z$.
+  Really, as a morphism of $\mathbf{Set}$ it exists and is unique.
+  
+  $\Src z \in Y$. Thus $z = u \circ \pi$ for some $u$ (by properties of
+  $\mathbf{Set}$). The function $u$ is a $\cont
+  (\mathcal{C})$-morphism because of the lemma above. It is unique by
+  properties of $\mathbf{Set}$ ($\pi$ obviously respects equivalence
+  classes).
+\end{proof}
+
+\section{Rest}
+
+\begin{thm}
+  The categories $\cont (\mathcal{C})$ (for example in
+  $\mathbf{Fcd}$ and $\mathbf{Rld}$) are complete.
+  \fxwarning{Note that small complete category is a preorder!}
+\end{thm}
+
+\begin{proof}
+  They have products and equalizers.
+\end{proof}
+
+\begin{thm}
+  The categories $\cont (\mathcal{C})$ (for example in
+  $\mathbf{Fcd}$ and $\mathbf{Rld}$) are co-complete.
+\end{thm}
+
+\begin{proof}
+  They have co-products and co-equalizers.
+\end{proof}
+
+\begin{defn}
+  I call morphisms $f$ and $g$ of a category with embeddings
+  \emph{equivalent} ($f \sim g$) when there exist a morphism $p$ such that
+  $\Src p \sqsubseteq \Src f$, $\Src p \sqsubseteq
+  \Src g$, $\Dst p \sqsubseteq \Dst f$, $\Dst p
+  \sqsubseteq \Dst g$ and $\iota_{\Src f, \Dst f} p = f$ and
+  $\iota_{\Src g, \Dst g} p = g$.
+\end{defn}
+
+\begin{problem}
+  Find under which conditions:
+  \begin{enumerate}
+    \item Equivalence of morphisms is an equivalence relation.
+    
+    \item Equivalence of morphisms is a congruence for our category.
+  \end{enumerate}
+\end{problem}

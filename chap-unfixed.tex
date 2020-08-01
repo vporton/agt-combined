@@ -1,0 +1,2223 @@
+\chapter{Unfixed categories}
+
+\fxwarning{This is a draft not thoroughly checked for
+errors.}
+
+Unfixed categories like my other ideas is a great idea.
+However, previously I thought it is also great for studying
+funcoids and reloids, because unfixed funcoids is a
+generalization of funcoids, etc.
+
+Unfixed funcoids are not a so important generalization as I
+imagined, because there is a simpler and yet more general
+generalization of funcoids: Every $\Hom$-set of small funcoids
+can be embedded into $\mathsf{FCD}\left(\bigcup\mathscr{U},\bigcup\mathscr{U}\right)$ where $\mathscr{U}$ is the Grothendieck universe. Thus in principle it would be enough to study the semigroup $\mathsf{FCD}\left(\bigcup\mathscr{U},\bigcup\mathscr{U}\right)$ rather than all categories of funcoids.
+
+In this chapter I show how to embed one $\Hom$-set into another
+$\Hom$-set, so this chapter is indeed important. But the topic
+after which this chapter was titled, ``Unfixed categories'' is
+not so much important for our book.
+
+\section{Axiomatics for unfixed morphisms}
+
+\begin{defn}
+\label{unf-mor}
+\emph{Category with restricted identities} is defined
+axiomatically:
+
+\emph{Restricted identity}~$\id^{\mathcal{C}(A,B)}_X$
+and \emph{projection} $A\mapsto[A]$ are
+described by the axioms:
+\begin{enumerate}
+\item $\mathcal{C}$~is a category with the set of
+objects~$\mathfrak{Z}$;
+\item every $\Hom$-set $\mathcal{C}(A,B)$ is a lattice;
+\item $\mathfrak{Z}$~and~$\mathfrak{A}$~are lattices;
+\item $A\to[A]$ is a lattice embedding
+from $\mathfrak{Z}$ to $\mathfrak{A}$;
+\item $\id^{\mathcal{C}(A,B)}_X\in\Hom_{\mathcal{C}}(A,B)$
+whenever $\mathfrak{A}\ni X\sqsubseteq [A]\sqcap[B]$;
+\item $\id^{\mathcal{C}(A,A)}_{[A]} = 1^{\mathcal{C}}_A$;
+\item $\id^{\mathcal{C}(B,C)}_Y \circ \id^{\mathcal{C}(A,B)}_X = \id^{\mathcal{C}(A,C)}_{X\sqcap Y}$
+whenever $\mathfrak{A}\ni X\sqsubseteq [A]\sqcap[B]$
+and $\mathfrak{A}\ni Y\sqsubseteq [B]\sqcap[C]$;
+\item $\forall A\in\mathfrak{A}\exists B\in\mathfrak{Z}:
+A\sqsubseteq[B]$.
+\end{enumerate}
+
+For a \emph{partially ordered category with restricted identities} introduce additional axiom $X\sqsubseteq Y\Rightarrow
+\id^{\mathcal{C}(A,B)}_X\sqsubseteq\id^{\mathcal{C}(A,B)}_Y$.
+
+For \emph{dagger categories with restricted identities} introduce additional axiom
+$\left(\id^{\mathcal{C}(A,B)}_X\right)^\dagger =
+\id^{\mathcal{C}(B,A)}_X$.
+\end{defn}
+
+\begin{defn}
+I call a category with restricted identities
+\emph{injective} when the axiom $X\ne Y\Rightarrow
+\id^{\mathcal{C}(A,B)}_X\ne\id^{\mathcal{C}(A,B)}_Y$
+whenever $X,Y\sqsubseteq[A]\sqcap[B]$ holds.
+\end{defn}
+
+\begin{defn}
+Define $\mathcal{E}_{\mathcal{C}}^{A,B} =
+\id^{\mathcal{C}(A,B)}_{[A]\sqcap[B]}$.
+\end{defn}
+
+\begin{prop}\label{e-mono-epi}
+  ~  
+  \begin{enumerate}
+    \item If $[A]\sqsubseteq[B]$ then $\mathcal{E}_{\mathcal{C}}^{A,B}$ is a
+    monomorphism.
+    
+    \item If $[A]\sqsupseteq[B]$ then $\mathcal{E}_{\mathcal{C}}^{A,B}$ is an
+    epimorphism.
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+  We'll prove only the first as the second is dual.
+  
+  Let $\mathcal{E}_{\mathcal{C}}^{A,B} \circ f = \mathcal{E}_{\mathcal{C}}^{A,B} \circ g$. Then
+  $\mathcal{E}_{\mathcal{C}}^{B,A} \circ \mathcal{E}_{\mathcal{C}}^{A,B}
+  \circ f = \mathcal{E}_{\mathcal{C}}^{B,A} \circ \mathcal{E}_{\mathcal{C}}^{A,B} \circ g$;
+  $1^A \circ f = 1^A \circ g$; $f = g$.
+\end{proof}
+
+\begin{prop}
+  $\mathcal{E}_{\mathcal{C}}^{B,C} \circ \mathcal{E}_{\mathcal{C}}^{A,B} = \mathcal{E}_{\mathcal{C}}^{A,C}$
+  if $B \sqsupseteq A \sqcap C$ (for every sets $A$, $B$, $C$).
+\end{prop}
+
+\begin{proof}
+  $\mathcal{E}_{\mathcal{C}}^{B,C} \circ \mathcal{E}_{\mathcal{C}}^{A,B} = \mathcal{E}_{\mathcal{C}}^{A,C}$
+  is equivalent to:
+  
+  $\id^{\mathcal{C}(B,C)}_{B \sqcap C} \circ \id^{\mathcal{C}(A,B)}_{A \sqcap B} = \id^{\mathcal{C}(A,C)}_{A \sqcap C}$ what is obviously true.
+\end{proof}
+
+\begin{defn}
+$\id^{\mathcal{C}(A)}_X = \id^{\mathcal{C}(A,A)}_{[X]}$.
+\end{defn}
+
+\section{Rectangular embedding-restriction}
+
+\begin{defn}
+  $\iota_{B_0, B_1} f = \mathcal{E}_{\mathcal{C}}^{\Dst f,B_1} \circ f \circ
+  \mathcal{E}_{\mathcal{C}}^{B_0,\Src f}$ for $f \in
+  \Hom_{\mathcal{C}} (A_0 , A_1)$.
+\end{defn}
+
+For brevity $\iota_B f = \iota_{B, B} f$.
+
+\begin{obvious}
+$\iota_{B_0, B_1} f\sqsubseteq f$.
+\end{obvious}
+
+\begin{prop}
+  $\iota_{\Src f, \Dst f} f = f$.
+\end{prop}
+
+\begin{proof}
+~
+\begin{multline*}
+  \iota_{\Src f, \Dst f} f = \\\mathcal{E}_{\mathcal{C}}^{\Dst f,\Dst f} \circ f \circ \mathcal{E}_\mathcal{C}^{\Src f,\Src f} =\\
+  1_{\mathcal{C}}^{\Dst f} \circ f \circ 1_{\mathcal{C}}^{\Src f} = f.
+\end{multline*}
+\end{proof}
+
+\begin{prop}
+  The function $\iota_{B_0, B_1} |_{f \in \Hom_{\mathcal{C}} (A_0 ,
+  A_1)}$ is injective, provided that
+  $A_0\sqsubseteq B_0$ and $A_1\sqsubseteq B_1$.
+\end{prop}
+
+\begin{proof}
+  Because $\mathcal{E}_{\mathcal{C}}^{A_1,B_1}$ is a monomorphism and $\mathcal{E}_{\mathcal{C}}^{A_0,B_0}$ is an epimorphism.
+\end{proof}
+
+\begin{cor}\label{iota-emb}
+  The function $\iota_{B_0, B_1} |_{f \in \Hom_{\mathcal{C}} (A_0 ,
+  A_1)}$ is order embedding if $A_0 \sqsubseteq B_0 \wedge A_1 \sqsubseteq B_1$ for ordered categories
+  with restricted identities.
+\end{cor}
+
+\section{Image and domain}
+
+Let define that
+$\mathscr{S}\mathcal{A}=\setcond{K\in\mathfrak{Z}}{
+\exists X\in\mathcal{A}:X\subseteq K}$
+holds not only for filters but for any set~$\mathcal{A}$ of
+sets.
+
+\begin{obvious}
+$\mathscr{S}\mathcal{A}\supseteq\mathcal{A}$.
+\end{obvious}
+
+\begin{defn}
+~
+\begin{enumerate}
+\item $\operatorname{IM} f = \setcond{Y \in \mathfrak{Z}}{\mathcal{E}_{\mathcal{C}}^{Y, \Dst f} \circ \mathcal{E}_{\mathcal{C}}^{\Dst f,
+Y} \circ f = f}$;
+\item $\operatorname{DOM} f = \setcond{X \in \mathfrak{Z}}{f\circ\mathcal{E}_{\mathcal{C}}^{\Src f, X} \circ \mathcal{E}_{\mathcal{C}}^{X, \Src f} = f}$.
+\end{enumerate}
+\end{defn}
+
+\begin{obvious}
+~
+\begin{enumerate}
+\item $\operatorname{IM} f = \setcond{Y \in \mathfrak{Z}}{\id^{\mathcal{C}(\Dst f,\Dst f)}_{[Y]\sqcap[\Dst f]} \circ f = f} = \setcond{Y \in \mathfrak{Z}}{\id^{\mathcal{C}(\Dst f)}_{Y\sqcap\Dst f} \circ f = f}$;
+\item $\operatorname{DOM} f = \setcond{X \in \mathfrak{Z}}{f \circ \id^{\mathcal{C}(\Src f,\Src f)}_{[X]\sqcap[\Src f]} = f} = \setcond{X \in \mathfrak{Z}}{f \circ \id^{\mathcal{C}(\Src f,\Src f)}_{X\sqcap\Src f} = f}$.
+\end{enumerate}
+\end{obvious}
+
+\begin{defn}
+~
+\begin{enumerate}
+\item $\operatorname{Im} f = \setcond{Y\in\operatorname{IM} f}{Y\sqsubseteq\Dst f}$;
+\item $\operatorname{Dom} f = \setcond{X\in\operatorname{DOM} f}{X\sqsubseteq\Src f}$.
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item $\operatorname{IM} f = \mathscr{S}\operatorname{Im} f$;
+\item $\operatorname{DOM} f = \mathscr{S}\operatorname{Dom} f$;
+\item $\operatorname{Im} f = \rsupfun{\Dst f\cap}\operatorname{IM} f$;
+\item $\operatorname{Dom} f = \rsupfun{\Dst f\cap}\operatorname{DOM} f$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+$\operatorname{IM} f =
+\setcond{Y \in \mathfrak{Z}}{\id^{\mathcal{C}(\Dst f,\Dst f)}_{[Y]\sqcap[\Dst f]} \circ f = f}$.
+
+Suppose $Y\in\operatorname{IM}f$. Then take $Y'=Y\sqcap\Dst f$. We have $Y\sqsupseteq Y'$ and $Y'\in\operatorname{Im}f$. So $Y\in\mathscr{S}\operatorname{Im}f$. If $Y\in\mathscr{S}\operatorname{Im}f$ then $Y\in\operatorname{IM}f$ obviously.
+So $\operatorname{IM} f = \mathscr{S}\operatorname{Im} f$.
+
+$\rsupfun{\Dst f\cap}\operatorname{IM}f\subseteq
+\operatorname{Im}f$ is obvious. If
+$\operatorname{Im}f\subseteq\rsupfun{\Dst f\cap}\operatorname{IM}f$ is also obvious.
+
+The rest follows from symmetry.
+\end{proof}
+
+\begin{conjecture}
+$\operatorname{Im} f$ may be not a filter for an injective
+category with restricted morphisms.
+\end{conjecture}
+
+\begin{prop}
+$\operatorname{Dom}f =
+\setcond{X\in\mathfrak{Z}}{X\sqsubseteq\Src f,
+f\circ\id^{\mathcal{C}(\Dst f)}_X=f}$.
+\end{prop}
+
+\begin{proof}
+$\operatorname{Dom}f =
+\rsupfun{\Dst f\cap}
+\setcond{X \in \mathfrak{Z}}{f \circ \id^{\mathcal{C}(\Src f,\Src f)}_{[X]\sqcap[\Src f]} = f}=
+\setcond{X\in\mathfrak{Z}}{X\sqsubseteq\Src f,
+f\circ\id^{\mathcal{C}(\Dst f)}_X=f}$.
+\end{proof}
+
+\begin{prop}\label{dst-in-im}
+$\Dst f\in\operatorname{Im} f$; $\Src f\in\operatorname{Dom} f$ for every morphism~$f$ of a category with restricted
+identities.
+\end{prop}
+
+\begin{proof}
+Prove $\Dst f\in\operatorname{Im} f$ (the other is similar):
+We need to prove that $\mathcal{E}_{\mathcal{C}}^{\Dst f, \Dst f} \circ \mathcal{E}_{\mathcal{C}}^{\Dst f,
+\Dst f} \circ f = f$ what follows from
+$\mathcal{E}_{\mathcal{C}}^{\Dst f, \Dst f} \circ \mathcal{E}_{\mathcal{C}}^{\Dst f, \Dst f} = 1^{\Dst f}$.
+\end{proof}
+
+\begin{prop}
+$\operatorname{IM}f$, $\operatorname{Im}f$,
+$\operatorname{DOM}f$, $\operatorname{Dom}f$
+are upper sets.
+\end{prop}
+
+\begin{proof}
+For $\operatorname{Im}f$, $\operatorname{Dom}f$ it follows
+from the previous proposition.
+
+For $\operatorname{IM}f$, $\operatorname{DOM}f$ it follows
+from the thesis for
+$\operatorname{Im}f$, $\operatorname{Dom}f$.
+\end{proof}
+
+\begin{defn}
+~
+\begin{enumerate}
+\item An ordered category with restricted identities is
+\emph{with ordered image} iff $f\sqsubseteq g\Rightarrow
+\operatorname{IM}f\subseteq\operatorname{IM}g$.
+\item An ordered category with restricted identities is
+\emph{with ordered domain} iff $f\sqsubseteq g\Rightarrow
+\operatorname{DOM}f\subseteq\operatorname{DOM}g$.
+\item An ordered category with restricted identities is
+\emph{with ordered domain and image} iff it is both
+with ordered domain and with ordered image.
+\end{enumerate}
+\end{defn}
+
+\begin{obvious}
+~
+\begin{enumerate}
+\item An ordered category with restricted identities is
+with ordered image iff $f\sqsubseteq g\Rightarrow
+\operatorname{Im}f\subseteq\operatorname{Im}g$.
+\item An ordered category with restricted identities is
+with ordered domain iff $f\sqsubseteq g\Rightarrow
+\operatorname{Dom}f\subseteq\operatorname{Dom}g$.
+\item An ordered category with restricted identities is
+with ordered domain and image iff it is both
+with ordered domain and with ordered image.
+\end{enumerate}
+\end{obvious}
+
+\begin{obvious}
+~
+\begin{enumerate}
+\item For an ordered category~$\mathcal{C}$ with restricted identities
+to be with ordered image it's enough that
+$\id^{\mathcal{C}(\Dst f,\Dst f)}_{[X]}\circ f=f\land
+g\sqsubseteq f\Rightarrow
+\id^{\mathcal{C}(\Dst f,\Dst f)}_{[X]}\circ g=g$
+for every parallel morphisms~$f$ and $g$ and
+$\mathfrak{Z}\ni X\sqsubseteq\Dst f$.
+\item For an ordered category~$\mathcal{C}$ with restricted identities
+to be with ordered domain it's enough that
+$f\circ\id^{\mathcal{C}(\Src f,\Src f)}_{[X]}=f\land
+g\sqsubseteq f\Rightarrow
+g\circ\id^{\mathcal{C}(\Src f,\Src f)}_{[X]}=g$
+for every parallel morphisms~$f$ and $g$ and
+$\mathfrak{Z}\ni X\sqsubseteq\Src f$.
+\end{enumerate}
+\end{obvious}
+
+\begin{conjecture}
+There exists a category with restricted identities which
+is not with ordered image.
+\end{conjecture}
+
+\begin{obvious}
+For an ordered category with restricted identities with
+ordered domain and image we have
+$\iota_{\Src f,\Dst f}\iota_{A,B}f=f\land g\sqsubseteq f
+\Rightarrow
+\iota_{\Src f,\Dst f}\iota_{A,B}g=g$
+for parallel morphisms~$f$ and~$g$.
+\end{obvious}
+
+\begin{defn}
+~
+\begin{enumerate}
+\item $\underline{\im}f = \min\operatorname{Im} f$;
+\item $\underline{\dom}f = \min\operatorname{Dom} f$.
+\end{enumerate}
+\end{defn}
+
+\begin{note}
+It seems that $\underline{\im}$ and $\underline{\dom}$ are defined not for every
+category with restricted identities.
+\end{note}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item $\underline{\im}f = \min\operatorname{IM} f$;
+\item $\underline{\dom}f = \min\operatorname{DOM} f$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+It follows from $\operatorname{IM}f=\mathscr{S}\operatorname{Im}f$
+(and likewise for~$\underline{\dom}f$).
+\end{proof}
+
+\begin{thm}
+$\operatorname{DOM} (g \circ f) \supseteq \operatorname{DOM} f$, $\operatorname{IM} (g \circ f)
+\supseteq \operatorname{IM} g$, $\operatorname{Dom} (g \circ f) \supseteq \operatorname{Dom} f$,
+$\operatorname{Im} (g \circ f) \supseteq \operatorname{Im} g$.
+\end{thm}
+
+\begin{proof}
+$\mathcal{E}_{\mathcal{C}}^{Y, \operatorname{Dst} f} \circ
+\mathcal{E}_{\mathcal{C}}^{\operatorname{Dst} f, Y} \circ g \circ f = g \circ f
+\Leftarrow \mathcal{E}_{\mathcal{C}}^{Y, \operatorname{Dst} f} \circ
+\mathcal{E}_{\mathcal{C}}^{\operatorname{Dst} f, Y} \circ g = g$ and it implies
+$\operatorname{IM} (g \circ f) \supseteq \operatorname{IM} g$. The rest follows easily.
+\end{proof}
+
+\begin{cor}
+$\underline{\dom}(g \circ f) \sqsubseteq \underline{\dom}f$, $\underline{\im} (g \circ f)
+\sqsubseteq \underline{\im}g$ whenever $\underline{\dom}$/$\underline{\im}$ are defined.
+\end{cor}
+
+\section{Equivalent morphisms}
+
+\begin{prop}\label{two-iotas}
+  $\iota_{A, B} \iota_{X, Y} f = \iota_{A, B} f$ for every sets $A$, $B$, $X$,
+  $Y$ whenever $\operatorname{DOM} f$ and $\operatorname{IM} f$ are filters and $X \in
+  \operatorname{DOM} f$, $Y \in \operatorname{IM} f$.
+\end{prop}
+
+\begin{proof}
+~
+\begin{multline*}
+\iota_{A, B} f =\mathcal{E}_{\mathcal{C}}^{\Dst f, B} \circ f \circ
+  \mathcal{E}_{\mathcal{C}}^{A, \Src f} =\\ \text{(by definition of
+  $\operatorname{IM} f$ and $\operatorname{DOM} f$)} =\\\mathcal{E}_{\mathcal{C}}^{\Dst f,
+  B} \circ \mathcal{E}_{\mathcal{C}}^{Y, \Dst f} \circ
+  \mathcal{E}_{\mathcal{C}}^{\Dst f, Y} \circ f \circ
+  \mathcal{E}_{\mathcal{C}}^{X, \Src f} \circ
+  \mathcal{E}_{\mathcal{C}}^{\Src f, X} \circ
+  \mathcal{E}_{\mathcal{C}}^{A, \Src f} =\\\mathcal{E}_{\mathcal{C}}^{Y,
+  B} \circ \mathcal{E}_{\mathcal{C}}^{\Dst f, Y} \circ f \circ
+  \mathcal{E}_{\mathcal{C}}^{X, \Src f} \circ
+  \mathcal{E}_{\mathcal{C}}^{A, X} =\\ \iota_{A, B} \iota_{X, Y} f
+\end{multline*}
+  because
+\begin{multline*} \mathcal{E}^{\Dst f, B} \circ \mathcal{E}^{Y, \Dst f}
+  \circ \mathcal{E}^{\Dst f, Y} =\\ \id^{\mathcal{C}(\Dst f, B)}_{Y \sqcap
+  \Dst f \sqcap B} = \id^{\mathcal{C}(Y, B)}_{Y \sqcap B} \circ \id^{\mathcal{C}(\Dst f,Y)}_{Y \sqcap \Dst f} =\\ \mathcal{E}^{Y, B} \circ
+  \mathcal{E}^{\Dst f, Y}\end{multline*}
+and thus
+  $\mathcal{E}_{\mathcal{C}}^{\Dst f, B} \circ
+  \mathcal{E}_{\mathcal{C}}^{Y, \Dst f} \circ
+  \mathcal{E}_{\mathcal{C}}^{\Dst f, Y} =\mathcal{E}_{\mathcal{C}}^{Y,
+  B} \circ \mathcal{E}_{\mathcal{C}}^{\Dst f, Y}$ and similarly for
+  $\mathcal{E}_{\mathcal{C}}^{X, \Src f} \circ
+  \mathcal{E}_{\mathcal{C}}^{\Src f, X} \circ
+  \mathcal{E}_{\mathcal{C}}^{A, \Src f}$.
+\end{proof}
+
+\begin{defn}
+I call two morphisms $f\in\mathcal{C}(A_0,B_0)$ and
+$g\in\mathcal{C}(A_1,B_1)$
+of a category with restricted morphisms \emph{equivalent}
+(and denote $f\sim g$) when
+\[\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f=\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g.\]
+\end{defn}
+
+\begin{prop}
+$f\sim g$~iff $\iota_{A,B}f=\iota_{A,B}g$ for
+some~$A\in\operatorname{DOM}f\cap\operatorname{DOM}g$,~$B\in\operatorname{IM}f\cap\operatorname{IM}g$.
+\end{prop}
+
+\begin{proof}
+Both
+\[\iota_{A,B}f=\iota_{A,B}g\Rightarrow
+\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f=\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g\]
+and
+\[\iota_{A,B}f=\iota_{A,B}g\Leftarrow
+\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f=\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g\]
+follow from proposition~\ref{two-iotas}.
+\end{proof}
+
+\begin{thm}\label{uf-sim-cond}
+Let
+$f:A_0\to B_0$~and~$g:A_1\to B_1$
+(for a partially ordered category with restricted identities).
+The following are pairwise equivalent:
+\begin{enumerate}
+\item\label{uf-sim-cond-sim} $f\sim g$;
+\item\label{uf-sim-cond-eq} $\iota_{A_1,B_1}f=g$ and $\iota_{A_0,B_0}g=f$;
+\item\label{uf-sim-cond-sb} $\iota_{A_1,B_1}f\sqsupseteq g$ and $\iota_{A_0,B_0}g\sqsupseteq f$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+~
+\begin{description}
+\item[\ref{uf-sim-cond-sim}$\Rightarrow$\ref{uf-sim-cond-eq}]
+$\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f=\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g$;
+$\iota_{A_1,B_1}\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f=\iota_{A_1,B_1}\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g$;
+$\iota_{A_1,B_1}f=\iota_{A_1,B_1}g$;
+$\iota_{A_1,B_1}f=g$. $\iota_{A_0,B_0}g=f$ is similar.
+
+\item[\ref{uf-sim-cond-sb}$\Rightarrow$\ref{uf-sim-cond-sim}]
+Let $\iota_{A_1, B_1} f \sqsupseteq g$ and $\iota_{A_0, B_0} g \sqsupseteq f$.
+
+$\iota_{A_1, B_1} \iota_{A_0, B_0} g \sqsupseteq g$;
+
+$\mathcal{E}^{B_0, B_1} \circ \mathcal{E}^{B_1, B_0} \circ g \circ
+\mathcal{E}^{A_0, A_1} \circ \mathcal{E}^{A_1, A_0}\sqsupseteq g$;
+
+$\id^{\mathcal{C} (B_1, B_1)}_{[B_0]\sqcap[B_1]} \circ g \circ
+\id^{\mathcal{C} (A_1, A_1)}_{[A_0]\sqcap[A_1]} \sqsupseteq g$;
+$\id^{\mathcal{C} (B_1, B_1)}_{[B_0]\sqcap[B_1]} \circ g \sqsupseteq g$;
+$\id^{\mathcal{C} (B_1, B_1)}_{[B_0]\sqcap[B_1]} \circ g = g$;
+
+$\id^{\mathcal{C} (B_0 \sqcap B_1, B_1)}_{[B_0]\sqcap[B_1]} \circ
+\id^{\mathcal{C} (B_1, B_0 \sqcap B_1)}_{[B_0]\sqcap[B_1]} \circ g = g$;
+$\mathcal{E}^{B_0 \sqcap B_1, B_1} \circ \mathcal{E}^{B_1, B_0 \sqcap B_1}
+\circ g = g$. Thus $B_0 \sqcap B_1 \in \operatorname{Im} g$. Similarly $A_0 \sqcap A_1
+\in \operatorname{Dom} g$.
+
+So $\iota_{A_0 \sqcup A_1, B_0 \sqcup B_1} f = \iota_{A_0 \sqcup A_1, B_0
+\sqcup B_1} \iota_{A_0, B_0} g = \iota_{A_0 \sqcup A_1, B_0 \sqcup B_1} g$.
+
+\item[\ref{uf-sim-cond-eq}$\Rightarrow$\ref{uf-sim-cond-sb}]
+Obvious.
+\end{description}
+\end{proof}
+
+\begin{prop}
+Above defined equivalence of morphisms (for a small category)
+is an equivalence relation.
+\end{prop}
+
+\begin{proof}
+~
+\begin{description}
+\item[Reflexivity] Obvious.
+
+\item[Symmetry] Obvious.
+
+\item[Transitivity] Let $f\sim g$ and $g\sim h$ for
+$f:A_0\to B_0$, $g:A_1\to B_1$, $h:A_2\to B_2$.
+Then
+$\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f=\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g$ and
+$\iota_{A_1\sqcup A_2,B_1\sqcup B_2}g=\iota_{A_1\sqcup A_2,B_1\sqcup B_2}h$.
+
+Thus
+\[\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f=\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g\] and
+\[\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}\iota_{A_1\sqcup A_2,B_1\sqcup B_2}g=\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}\iota_{A_1\sqcup A_2,B_1\sqcup B_2}h\]
+that is (proposition~\ref{two-iotas})
+\[\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}f=\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}g\]
+and
+\[\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}g=\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}h.\]
+Combining,
+$\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}f=\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}h$ and thus
+\[\iota_{A_0\sqcup A_2,B_0\sqcup B_2}\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}f=\iota_{A_0\sqcup A_2,B_0\sqcup B_2}\iota_{A_0\sqcup A_1\sqcup A_2,B_0\sqcup B_1\sqcup B_2}h;\]
+(again proposition~\ref{two-iotas}) $\iota_{A_0\sqcup A_2,B_0\sqcup B_2}f=\iota_{A_0\sqcup A_2,B_0\sqcup B_2}h$
+that is $f\sim h$.
+\end{description}
+\end{proof}
+
+\begin{prop}
+$[f] = \setcond{\iota_{A,B}f}{
+A\in\operatorname{DOM}f,B\in\operatorname{IM}f}$.
+\end{prop}
+
+\begin{proof}
+If~$A\in\operatorname{DOM}f$,~$B\in\operatorname{IM}f$
+then
+\[\iota_{A\sqcup\Src f,B\sqcup\Dst f}\iota_{A,B}f =
+\iota_{A\sqcup\Src f,B\sqcup\Dst f}f.\] Thus
+$\iota_{A,B}f\sim f$ that is $\iota_{A,B}f\in[f]$.
+
+Let now $g\in[f]$ that is $f\sim g$;
+\[\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}f=
+\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}g.\]
+Take $A=\Src g$, $B=\Dst g$. We have
+\begin{gather*}
+\iota_{A,B}\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}f=
+\iota_{A,B}\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}g;\\
+\iota_{A,B}f=\iota_{A,B}g = g.
+\end{gather*}
+\end{proof}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item $\operatorname{IM} f = \setcond{Y \in \mathfrak{Z}}{
+  \mathcal{E}_{\mathcal{C}}^{\Dst f, Y} \circ f \sim f}$;
+\item $\operatorname{DOM} f = \setcond{X \in \mathfrak{Z}}{
+  f\circ\mathcal{E}_{\mathcal{C}}^{X, \Src f} \sim f}$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+~
+\begin{multline*}
+\mathcal{E}_{\mathcal{C}}^{\Dst f, Y} \circ f \sim f
+\Leftrightarrow
+\iota_{\Src f,Y\sqcup\Dst f}
+(\mathcal{E}_{\mathcal{C}}^{\Dst f, Y} \circ f) =
+\iota_{\Src f,Y\sqcup\Dst f}f \Leftrightarrow \\
+\mathcal{E}^{Y,Y\sqcup\Dst f}\circ\mathcal{E}^{\Dst f, Y} \circ f \circ \mathcal{E}^{\Src f,\Src f} =
+\mathcal{E}^{\Dst f,Y\sqcup\Dst f}\circ f\circ\mathcal{E}^{\Src f,\Src f} \Leftrightarrow \\
+\mathcal{E}^{Y,Y\sqcup\Dst f}\circ\mathcal{E}^{\Dst f, Y}\circ f=\mathcal{E}^{\Dst f,Y\sqcup\Dst f}\circ f
+\Leftrightarrow \text{(proposition~\ref{e-mono-epi})} \\ \Leftrightarrow
+\mathcal{E}^{Y\sqcup\Dst f,\Dst f}\circ \mathcal{E}^{Y,Y\sqcup\Dst f}\circ\mathcal{E}^{\Dst f, Y}\circ f=\mathcal{E}^{Y\sqcup\Dst f,\Dst f}\circ \mathcal{E}^{\Dst f,Y\sqcup\Dst f}\circ f \Leftrightarrow \\
+\mathcal{E}^{Y,\Dst f}\circ\mathcal{E}^{\Dst f,Y}\circ f = f.
+\end{multline*}
+From this our thesis follows obviously.
+\end{proof}
+
+\begin{prop}\label{iota-less}
+$\iota_{A_1,B_1}\iota_{A_0,B_0}f\sqsubseteq\iota_{A_1,B_1}f$.
+\end{prop}
+
+\begin{proof}
+\begin{multline*}
+\iota_{A_1,B_1}\iota_{A_0,B_0}f=\\
+\mathcal{E}^{B_0,B_1}\circ\mathcal{E}^{\Dst f,B_0}\circ f\circ
+\mathcal{E}^{A_0,\Src f}\circ\mathcal{E}^{A_1,A_0}=\\
+\id^{\mathcal{C}(B_0,B_1)}_{[B_0]\sqcap[B_1]}\circ\id^{\mathcal{C}(\Dst f,B_0)}_{[\Dst f]\sqcap[B_0]}
+\circ f\circ
+\id^{\mathcal{C}(A_0,\Src f)}_{[A_0]\sqcap[\Src f]}\circ
+\id^{\mathcal{C}(A_1,A_0)}_{[A_1]\sqcap[A_0]}=\\
+\id^{\mathcal{C}(\Dst f,B_1)}_{[\Dst f]\sqcap[B_0]\sqcap[B_1]}
+\circ f\circ
+\id^{\mathcal{C}(A_1,\Src f)}_{[A_0]\sqcap[A_1]\sqcap[\Src f]}
+\sqsubseteq\\
+\id^{\mathcal{C}(\Dst f,B_1)}_{[\Dst f]\sqcap[B_1]}
+\circ f\circ
+\id^{\mathcal{C}(A_1,\Src f)}_{[A_1]\sqcap[\Src f]}=\\
+\iota_{A_1,B_1}f.
+\end{multline*}
+\end{proof}
+
+\section{Binary product}
+
+\begin{defn}
+The category \emph{with binary product morphism}
+is a category with restricted identities and additional axioms
+\begin{enumerate}
+\item\label{binprod-cmp} $\id^{\mathcal{C}(B,B)}_Y\circ f\circ\id^{\mathcal{C}(A,A)}_X=f\sqcap(X\times_{A,B}Y)$
+(holding for every $A,B\in\mathfrak{Z}$,
+$\mathfrak{A}\ni X\sqsubseteq[A]$,
+$\mathfrak{A}\ni Y\sqsubseteq[B]$,
+$X\times_{A,B}Y\in\mathcal{C}(A,B)$
+and morphism~$f\in\mathcal{C}(A,B)$);
+\item\label{binprod-mv} $\iota_{A_1,B_1}(X\times_{A_0,B_0}Y)=
+X\times_{A_1,B_1}Y$ whenever
+$X\sqsubseteq[A_0]\sqcap[A_1]$ and $Y\sqsubseteq[B_0]\sqcap[B_1]$.
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+The second axiom is equivalent to the following axiom:
+\begin{enumerate}
+\item
+$f \sim X \times_{A_0, B_0} Y \Leftrightarrow f =
+X \times_{A_1, B_1} Y$
+whenever
+$X\sqsubseteq[A_0]\sqcap[A_1]$ and $Y\sqsubseteq[B_0]\sqcap[B_1]$, $f:A_1\to B_1$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+~
+\begin{widedisorder}
+\item[$\Leftarrow$] Obvious.
+
+\item[$\Rightarrow$]~
+$f \sim X \times_{A_0, B_0} Y \Leftarrow f =
+X \times_{A_1, B_1} Y$ because
+$\iota_{A_1,B_1}(X\times_{A_0,B_0}Y)=
+X\times_{A_1,B_1}Y$ and
+$\iota_{A_0,B_0}(X\times_{A_1,B_1}Y)=
+X\times_{A_0,B_0}Y$.
+
+Let's prove
+$f \sim X \times_{A_0, B_0} Y \Rightarrow f =
+X \times_{A_1, B_1} Y$.
+Really, if $f \sim X \times_{A_0, B_0} Y$ then
+$f = \iota_{A_1,B_1}f \sim \iota_{A_1,B_1}(X \times_{A_0, B_0} Y)=X \times_{A_1, B_1} Y$ and thus 
+$f=X \times_{A_1, B_1} Y$.
+\end{widedisorder}
+\end{proof}
+
+\begin{prop}
+$[A]\times_{A,B}[B]$ is the greatest morphism
+$\top^{\mathcal{C}(A,B)}:A\to B$.
+\end{prop}
+
+\begin{proof}
+It's enough to prove $f\sqcap([A]\times_{A,B}[B])=f$ for every
+$f:A\to B$. Really,
+$f\sqcap([A]\times_{A,B}[B])=
+\id^{\mathcal{C}(B,B)}_B\circ f\circ\id^{\mathcal{C}(A,A)}_A=
+1^B\circ f\circ 1^A=f$.
+\end{proof}
+
+\begin{prop}
+For every category with binary product morphism
+\[X\times_{A,B}Y=
+\id^{\mathcal{C}(B,B)}_Y\circ\top^{\mathcal{C}(A,B)}\circ
+\id^{\mathcal{C}(A,A)}_X\]
+\end{prop}
+
+\begin{proof}
+$X\times_{A,B}Y\sqsupseteq
+\id^{\mathcal{C}(B,B)}_Y\circ\top^{\mathcal{C}(A,B)}\circ\id^{\mathcal{C}(A,A)}_X$
+because
+$\id^{\mathcal{C}(B,B)}_Y\circ\top^{\mathcal{C}(A,B)}\circ\id^{\mathcal{C}(A,A)}_X=
+\top^{\mathcal{C}(A,B)}\sqcap(X\times_{A,B}Y)$.
+
+\begin{multline*}
+\id^{\mathcal{C}(B,B)}_Y\circ\top^{\mathcal{C}(A,B)}\circ\id^{\mathcal{C}(A,A)}_X\sqsupseteq\\
+\id^{\mathcal{C}(B,B)}_Y\circ(X\times_{A,B}Y)\circ
+\id^{\mathcal{C}(A,A)}_X=\\
+(X\times_{A,B}Y)\sqcap(X\times_{A,B}Y)=X\times_{A,B}Y.
+\end{multline*}
+\end{proof}
+
+\begin{prop}
+$\iota_{A,B}(f\sqcap g)=\iota_{A,B}f\sqcap\iota_{A,B}g$
+for every parallel morphisms~$f$ and~$g$ and objects~$A$
+and~$B$, whenever all $\mathcal{E}^{X,Y}$ are metamonovalued
+and metainjective.
+\end{prop}
+
+\begin{proof}
+\begin{multline*}
+\iota_{A,B}(f\sqcap g)=\\
+\mathcal{E}^{\Dst f,B}\circ(f\sqcap g)\circ
+\mathcal{E}^{A,\Src f}=\\
+(\mathcal{E}^{\Dst f,B}\circ f\circ\mathcal{E}^{A,\Src f})\sqcap
+(\mathcal{E}^{\Dst f,B}\circ g\circ\mathcal{E}^{A,\Src f})=\\
+\iota_{A,B}f\sqcap\iota_{A,B}g.
+\end{multline*}
+\end{proof}
+
+\begin{prop}
+$(X_0\times_{A,B}Y_0)\sqcap(X_1\times_{A,B}Y_1)=
+(X_0\sqcap X_1)\times_{A,B}(Y_0\sqcap Y_1)$.
+\end{prop}
+
+\begin{proof}
+$(X_0\times_{A,B}Y_0)\sqcap(X_1\times_{A,B}Y_1)=
+\id^{\mathcal{C}(B,B)}_{Y_1}\circ(X_0\times_{A,B}Y_0)\circ
+\id^{\mathcal{C}(A,A)}_{X_1}=
+\id^{\mathcal{C}(B,B)}_{Y_1}\circ
+\id^{\mathcal{C}(B,B)}_{Y_0}\circ
+\top^{\mathcal{C}(A,B)}\circ
+\id^{\mathcal{C}(A,A)}_{X_1}\circ
+\id^{\mathcal{C}(A,A)}_{X_0}=
+\id^{\mathcal{C}(B,B)}_{Y_0\sqcap Y_1}\circ
+\top^{\mathcal{C}(A,B)}\circ
+\id^{\mathcal{C}(A,A)}_{X_0\sqcap X_1}=
+(X_0\sqcap X_1)\times_{A,B}(Y_0\sqcap Y_1)$.
+\end{proof}
+
+\begin{prop}
+For a category with binary product morphism
+$\operatorname{Im}f$, $\operatorname{Dom}f$,
+$\operatorname{IM}f$, and $\operatorname{DOM}f$
+are filters.
+\end{prop}
+
+\begin{proof}
+That they are upper sets was proved above.
+
+To prove that $\operatorname{Im} f$ is a filter it remains
+to show $A, B \in \operatorname{Im} f \Leftrightarrow
+A \sqcap B \in \operatorname{Im} f$. Really,
+\[ A, B \in \operatorname{Im} f \Leftrightarrow \top \times A \sqsupseteq f \land \top
+\times B \sqsupseteq f \Rightarrow \top \times (A \sqcap B) \sqsupseteq f
+\Leftrightarrow A \sqcap B \in \operatorname{Im} f. \]
+
+$\operatorname{Dom} f$ is similar.
+
+The thesis for~$\operatorname{IM}f$,~$\operatorname{DOM}f$
+follows from above proved
+for~$\operatorname{Im}f$,~$\operatorname{Dom}f$.
+\end{proof}
+
+\begin{note}
+For example for below defined category of funcoids
+(with binary product morphism), these filters are filters
+on filters on sets not filters of sets and thus are not
+the same as~$\im$ and~$\dom$.
+\end{note}
+
+\section{Operations on the set of unfixed morphisms}
+
+\subsection{Semigroup of unfixed morphisms}
+
+\begin{prop}\label{iota-comp}
+  Let $f : A_0 \rightarrow A_1$ and $g : A_1 \rightarrow A_2$ and $A_1
+  \sqsubseteq B_1$. Then $\iota_{B_0, B_2} (g \circ f) = \iota_{B_1, B_2} g
+  \circ \iota_{B_0, B_1} f$.
+\end{prop}
+
+\begin{proof}
+\begin{multline*}
+  \iota_{B_0, B_2} (g \circ f) =\\ \mathcal{E}_{\mathcal{C}}^{A_2,B_2}
+  \circ g \circ f \circ \mathcal{E}_{\mathcal{C}}^{B_0,A_0} =\\ \mathcal{E}_{\mathcal{C}}^{A_2,B_2} \circ g \circ 1^{A_1} \circ f
+  \circ \mathcal{E}_{\mathcal{C}}^{B_0,A_0} =\\ \mathcal{E}_{\mathcal{C}}^{A_2,B_2} \circ g \circ \id^{\mathcal{C}(\Dst f,\Src g)}_{A_1} \circ f
+  \circ \mathcal{E}_{\mathcal{C}}^{B_0,A_0} =\\ \mathcal{E}_{\mathcal{C}}^{A_2,B_2} \circ g \circ \mathcal{E}^{B_1,A_1}
+  \circ \mathcal{E}^{A_1,B_1} \circ f \circ \mathcal{E}_{\mathcal{C}}^{B_0,A_0} =\\ \iota_{B_1, B_2} g \circ \iota_{B_0,
+  B_1} f.
+\end{multline*}
+\end{proof}
+
+\begin{defn}
+We will turn the category~$\mathcal{C}$ into a semigroup
+$\mathcal{C}/\mathord{\sim}$
+(\emph{the semigroup of unfixed morphisms})
+by taking the partition regarding the relation~$\sim$ and
+the formula for the composition $[g]\circ[f] = [g\circ f]$ whenever~$f$ and~$g$
+are composable morphisms.
+\end{defn}
+
+We need to prove that $[g]\circ[f]$ does not depend on
+choice of~$f$ and~$g$ (provided that~$f$ and~$g$
+are composable). We also need to prove that $[g]\circ[f]$
+is always defined for every morphisms (not necessarily
+composable)~$f$ and~$g$. That the resulting structure is
+a semigroup (that is,~$\circ$ is associative) is then
+obvious.
+
+\begin{proof}
+That $[g]\circ[f]$ is defined in at least one way for every
+morphisms~$f$ and~$g$ is simple to prove. Just consider the
+morphisms
+$f'=\iota_{\Src f,\Dst f\sqcup\Src g}f\sim f$ and
+$g'=\iota_{\Dst f\sqcup\Src g,\Dst g}g\sim g$.
+Then we can take $[g]\circ[f]=[g'\circ f']$.
+
+It remains to prove that $[g]\circ[f]$ does not depend on
+choice of~$f$ and~$g$. Really, take arbitrary composable
+pairs of morphisms $(f_0:A_0\to B_0,g_0:B_0\to C_0)$ and
+$(f_1:A_1\to B_1,g_1:B_1\to C_1)$ such that
+$f_0\sim f_1$ and $g_0\sim g_1$. It remains to prove that
+$g_0\circ f_0\sim g_1\circ f_1$.
+We have
+\begin{multline*}
+\iota_{B_0\sqcup B_1,C_0\sqcup C_1}g_0 \circ
+\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f_0
+= \text{(proposition~\ref{iota-comp})} = \\
+\mathcal{E}_{\mathcal{C}}^{C_0,C_0\sqcup C_1}\circ g_0 \circ
+f_0\circ\mathcal{E}_{\mathcal{C}}^{A_0\sqcup A_1,B_0} =
+\iota_{A_0\sqcup A_1,C_0\sqcup C_1}(g_0\circ f_0).
+\end{multline*}
+Similarly
+\[\iota_{B_0\sqcup B_1,C_0\sqcup C_1}g_1 \circ
+\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f_1 =
+\iota_{A_0\sqcup A_1,C_0\sqcup C_1}(g_1\circ f_1).\]
+
+But
+\[\iota_{B_0\sqcup B_1,C_0\sqcup C_1}g_0 \circ
+\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f_0 =
+\iota_{B_0\sqcup B_1,C_0\sqcup C_1}g_1 \circ
+\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f_1\]
+thus having
+$\iota_{A_0\sqcup A_1,C_0\sqcup C_1}(g_0\circ f_0) =
+\iota_{A_0\sqcup A_1,C_0\sqcup C_1}(g_1\circ f_1)$ and so
+$g_0\circ f_0\sim g_1\circ f_1$.
+\end{proof}
+
+\subsection{Restricted identities}
+
+\begin{defn}
+\emph{Restricted identity} for unfixed morphisms is
+defined as: $\id_X = [\id^{\mathcal{C}(A,B)}_X]$ for
+an $X\sqsubseteq[A]\sqcap[B]$.
+\end{defn}
+
+We need to prove that it does not depend on the choice
+of~$A$ and~$B$.
+
+\begin{proof}
+Let $\mathfrak{A}\ni X\sqsubseteq[A_0]\sqcap[B_0]$ and
+$\mathfrak{A}\ni X\sqsubseteq[A_1]\sqcap[B_1]$ for
+$A_0,B_0,A_1,B_1\in\mathfrak{Z}$. We need to prove
+$\id^{\mathcal{C}(A_0,B_0)}_X\sim
+\id^{\mathcal{C}(A_1,B_1)}_X$.
+
+Really,
+\begin{multline*}
+\iota_{A_1,B_1}\id^{\mathcal{C}(A_0,B_0)}_X =\\
+\mathcal{E}^{B_0,B_1}\circ\id^{\mathcal{C}(A_0,B_0)}_X
+\circ \mathcal{E}^{A_1,A_0} =\\
+\id^{\mathcal{C}(B_0,B_1)}_{[B_0]\sqcap[B_1]}\circ
+\id^{\mathcal{C}(A_0,B_0)}_X\circ
+\id^{\mathcal{C}(A_1,A_0)}_{[A_0]\sqcap[A_1]} =\\
+\id^{\mathcal{C}(A_1,B_1)}_{[A_0]\sqcap[A_1]\sqcap[B_0]\sqcap[B_1]\sqcap X} =\\
+\id^{\mathcal{C}(A_1,B_1)}_X.
+\end{multline*}
+Similarly
+$\iota_{A_0,B_0}\id^{\mathcal{C}(A_1,B_1)}_X =
+\id^{\mathcal{C}(A_0,B_0)}_X$.
+
+So $\id^{\mathcal{C}(A_0,B_0)}_X\sim
+\id^{\mathcal{C}(A_1,B_1)}_X$.
+\end{proof}
+
+\begin{prop}
+$\id_Y\circ\id_X=\id_{X\sqcap Y}$ for
+every~$X,Y\in\mathfrak{A}$.
+\end{prop}
+
+\begin{proof}
+Take arbitrary $\id^{\mathcal{C}(A,B_0)}_X\in\id_X$ and
+$\id^{\mathcal{C}(B_1,C)}_Y\in\id_Y$.
+
+Obviously,
+$\id^{\mathcal{C}(A,B_0\sqcup B_1)}_X\in\id_X$ and
+$\id^{\mathcal{C}(B_0\sqcup B_1,C)}_Y\in\id_Y$.
+Thus
+$\id_Y\circ\id_X=
+[\id^{\mathcal{C}(B_0\sqcup B_1,C)}_Y]\circ
+[\id^{\mathcal{C}(A,B_0\sqcup B_1)}_X]=
+[\id^{\mathcal{C}(A,C)}_{X\sqcap Y}]=
+\id_{X\sqcap Y}$.
+\end{proof}
+
+\subsection{Poset of unfixed morphisms}
+
+\begin{lem}
+$f\sqsubseteq g\Rightarrow
+\iota_{A,B}f\sqsubseteq\iota_{A,B}g$ for every
+morphisms~$f$ and~$g$ such that
+$\Src f=\Src g$ and $\Dst f=\Dst g$.
+\end{lem}
+
+\begin{proof}
+\begin{multline*}
+\iota_{A,B}f\sqsubseteq\iota_{A,B}g \Leftrightarrow\\
+\mathcal{E}^{\Dst f,B}\circ f\circ\mathcal{E}^{A,\Src f}
+\sqsubseteq
+\mathcal{E}^{\Dst g,B}\circ g\circ\mathcal{E}^{A,\Src g}
+\Leftrightarrow\\
+\id^{\mathcal{C}(\Dst f,B)}_{[B]\sqcap[\Dst f]}\circ f\circ\id^{\mathcal{C}(A,\Src f)}_{[A]\sqcap[\Src f]}
+\sqsubseteq
+\id^{\mathcal{C}(\Dst g,B)}_{[B]\sqcap[\Dst g]}\circ g\circ\id^{\mathcal{C}(A,\Src g)}_{[A]\sqcap[\Src g]}
+\Leftarrow\\ f\sqsubseteq g
+\end{multline*}
+because
+$\id^{\mathcal{C}(\Dst f,B)}_{[B]\sqcap[\Dst f]}=
+\id^{\mathcal{C}(\Dst g,B)}_{[B]\sqcap[\Dst g]}$ and
+$\id^{\mathcal{C}(A,\Src f)}_{[A]\sqcap[\Src f]}=
+\id^{\mathcal{C}(A,\Src g)}_{[A]\sqcap[\Src g]}$.
+\end{proof}
+
+\begin{cor}\label{unxif-org-cong}
+~
+\begin{enumerate}
+\item\label{unxif-org-cong-impl}
+$f_0\sqsubseteq g_0\land f_0\sim f_1\land g_0\sim g_1
+\Rightarrow f_1\sqsubseteq g_1$ whenever
+$\Src f_0=\Src g_0$ and $\Dst f_0=\Dst g_0$ and
+$\Src f_1=\Src g_1$ and $\Dst f_1=\Dst g_1$.
+\item\label{unxif-org-cong-eq}
+$f_0\sqsubseteq g_0\Leftrightarrow f_1\sqsubseteq g_1$ whenever
+$\Src f_0=\Src g_0$ and $\Dst f_0=\Dst g_0$ and
+$\Src f_1=\Src g_1$ and $\Dst f_1=\Dst g_1$ and
+$f_0\sim f_1\land g_0\sim g_1$.
+\end{enumerate}
+\end{cor}
+
+\begin{proof}
+~
+\begin{disorder}
+\item[\ref{unxif-org-cong-impl}] Because
+$f_1=\iota_{\Src f_1,\Dst f_1}f_0$ and
+$g_1=\iota_{\Src g_1,\Dst g_1}f_0$.
+\item[\ref{unxif-org-cong-eq}] A consequence of the
+previous.
+\end{disorder}
+\end{proof}
+
+The above corollary warrants validity of the following
+definition:
+
+\begin{defn}
+The order on the set of unfixed morphisms is defined
+by the formula
+$[f]\sqsubseteq[g]\Leftrightarrow f\sqsubseteq g$
+whenever $\Src f=\Src g\land\Dst f=\Dst g$.
+\end{defn}
+
+It is really an order:
+
+\begin{proof}
+~
+\begin{description}
+\item[Reflexivity] Obvious.
+\item[Transitivity] Obvious.
+\item[Antisymmetry] Let $[f]\sqsubseteq[g]$ and
+$[g]\sqsubseteq[f]$ and $\Src f=\Src g\land\Dst f=\Dst g$.
+Then $f\sqsubseteq g$ and $g\sqsubseteq f$ and thus
+$f=g$ so having $[f]=[g]$.
+\end{description}
+\end{proof}
+
+\begin{obvious}\label{unfix-mor-emb}
+$f\mapsto[f]$ is an order embedding from the set
+$\mathcal{C}(A,B)$ to unfixed morphisms, for every
+objects~$A$,~$B$.
+\end{obvious}
+
+\begin{prop}\label{cmpl-lat-par}
+If $S$ is a set of parallel morphisms of a partially ordered
+category with an equivalence relation respecting the order, then
+\begin{enumerate}
+\item\label{cmpl-lat-par-cap}
+$\bigsqcap_{X\in S}[X]$ exists and 
+$\bigsqcap_{X\in S}[X]=[\bigsqcap S]$;
+
+\item\label{cmpl-lat-par-cup}
+$\bigsqcup_{X\in S}[X]$ exists and 
+$\bigsqcup_{X\in S}[X]=[\bigsqcup S]$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+~
+\begin{widedisorder}
+\item[\ref{cmpl-lat-par-cap}]
+$[\bigsqcap S]\sqsubseteq[X]$ for every~$X\in S$ because
+$\bigsqcap S\sqsubseteq X$.
+
+Let now $L\sqsubseteq[X]$ for every~$X\in S$ for an
+equivalence class~$L$. Then $L\sqsubseteq[\bigsqcap S]$
+because $l\sqsubseteq\bigsqcap S$ for~$l\in L$ because
+$l\sqsubseteq X$ for every~$X\in S$.
+
+Thus $[\bigsqcap S]$ is the greatest lower bound of
+$\setcond{[X]}{X\in S}$.
+
+\item[\ref{cmpl-lat-par-cup}] By duality.
+\end{widedisorder}
+\end{proof}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item If every $\Hom$-set is a join-semilattice, then
+the poset of unfixed morphism is a join-semilattice.
+\item If every $\Hom$-set is a join-semilattice, then
+the poset of unfixed morphism is a meet-semilattice.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Let~$f$ and~$g$ be arbitrary morphisms.
+\begin{multline*}
+[f]\sqcup[g] =
+[\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}f]\sqcup
+[\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}g] = \\
+\text{(obvious~\ref{unfix-mor-emb})} =
+[\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}f\sqcup
+\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}g]
+\end{multline*}
+and
+\begin{multline*}
+[f]\sqcap[g] =
+[\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}f]\sqcap
+[\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}g] = \\
+\text{(obvious~\ref{unfix-mor-emb})} =
+[\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}f\sqcap
+\iota_{\Src f\sqcup\Src g,\Dst f\sqcup\Dst g}g].
+\end{multline*}
+\end{proof}
+
+\begin{cor}
+If every $\Hom$-set is a lattice, then
+the poset of unfixed morphisms is a lattice.
+\end{cor}
+
+\begin{thm}
+Meet of nonempty set of unfixed morphisms
+exists provided that the orders of $\Hom$-sets are
+posets, every nonempty subset of which has a meet, and
+our category is with ordered domain
+and image and that morphisms~$\mathcal{E}$ are metamonovalued
+and metainjective.
+\end{thm}
+
+\begin{proof}
+Let~$S$ be a nonempty set of unfixed morphisms. Take
+an arbitrary unfixed morphism~$f\in S$. Take an
+arbitrary $F\in f$. Let $A=\Src F$ and $B=\Dst F$.
+
+\begin{multline*}
+\bigsqcap S=\bigsqcap\rsupfun{f\sqcap}S=
+\bigsqcap\rsupfun{[F]\sqcap}S=
+\bigsqcap\setcond{[F]\sqcap[G]}{g\in S,G\in g}=\\
+\bigsqcap\setcond{[\iota_{A\sqcup\Src G,B\sqcup\Dst G}F\sqcap\iota_{A\sqcup\Src G,B\sqcup\Dst G}G]}{g\in S,G\in g}.
+\end{multline*}
+
+We will prove
+$\iota_{A\sqcup\Src G,B\sqcup\Dst G}F\sqcap\iota_{A\sqcup\Src G,B\sqcup\Dst G}G \sim F\sqcap\iota_{A,B}G$.
+
+$\iota_{A\sqcup\Src G,B\sqcup\Dst G}F\sqcap\iota_{A\sqcup\Src G,B\sqcup\Dst G}G\sqsubseteq
+\iota_{A\sqcup\Src G,B\sqcup\Dst G}F$ and
+$\iota_{A\sqcup\Src G,B\sqcup\Dst G}\iota_{A,B}\iota_{A\sqcup\Src G,B\sqcup\Dst G}F=
+\iota_{A\sqcup\Src G,B\sqcup\Dst G}F$, thus by
+being with ordered domain and image
+\begin{multline*}
+\iota_{A\sqcup\Src G,B\sqcup\Dst G}F\sqcap\iota_{A\sqcup\Src G,B\sqcup\Dst G}G = \\
+\iota_{A\sqcup\Src G,B\sqcup\Dst G}\iota_{A,B}(\iota_{A\sqcup\Src G,B\sqcup\Dst G}F\sqcap\iota_{A\sqcup\Src G,B\sqcup\Dst G}G) = \\
+\text{(by being metamonovalued and metainjective)} = \\
+\iota_{A\sqcup\Src G,B\sqcup\Dst G}(
+\iota_{A,B}\iota_{A\sqcup\Src G,B\sqcup\Dst G}F\sqcap
+\iota_{A,B}\iota_{A\sqcup\Src G,B\sqcup\Dst G}G) = \\
+\iota_{A\sqcup\Src G,B\sqcup\Dst G}(
+\iota_{A,B}F\sqcap\iota_{A,B}G) \sim
+\iota_{A,B}F\sqcap\iota_{A,B}G=
+F\sqcap\iota_{A,B}G.
+\end{multline*}
+
+Due the proved equivalence we have
+$\bigsqcap S=
+\bigsqcap\setcond{[F\sqcap\iota_{A,B}G]}{g\in S,G\in g}$.
+Now we can apply proposition~\ref{cmpl-lat-par}:
+$\bigsqcap S=
+\left[\bigsqcap\setcond{F\sqcap\iota_{A,B}G}{g\in S,G\in g}\right]$. We have provided an explicit formula
+for~$\bigsqcap S$.
+\end{proof}
+
+The poset of unfixed morphisms may be not a complete
+lattice even if every $\Hom$-set is a complete lattice.
+We will show this below for funcoids.
+
+\subsection{Domain and image of unfixed morphisms}
+
+\begin{prop}
+$\operatorname{IM}f=
+\setcond{Y\in\mathfrak{Z}}{\id_Y\circ[f]=[f]}$;
+$\operatorname{DOM}f=
+\setcond{X\in\mathfrak{Z}}{[f]\circ\id_X=[f]}$.
+\end{prop}
+
+\begin{proof}
+We will prove only the first, as the second is similar.
+\begin{multline*}
+\id_Y\circ[f]=[f]\Leftrightarrow\\
+\id^{\mathcal{C}(Y\sqcup\Dst f,Y\sqcup\Dst f)}_{Y}\circ
+\mathcal{E}^{\Dst f,Y\sqcup\Dst f}\circ f=
+\mathcal{E}^{\Dst f,Y\sqcup\Dst f}\circ f\Leftrightarrow\\
+\id^{\mathcal{C}(\Dst f,Y\sqcup\Dst f)}_{[Y]\sqcap[\Dst f]}
+\circ f=\mathcal{E}^{\Dst f,Y\sqcup\Dst f}
+\circ f\Leftrightarrow\\
+\mathcal{E}^{Y\sqcup\Dst f,\Dst f}
+\circ \id^{\mathcal{C}(\Dst f,Y\sqcup\Dst f)}_{[Y]\sqcap[\Dst f]}
+\circ f=f\Leftrightarrow\\
+\id^{\mathcal{C}(\Dst f,\Dst f)}_{[Y]\sqcap[\Dst f]}\circ f=f
+Y\in\operatorname{IM}f.
+\end{multline*}
+\end{proof}
+
+The above proposition allows to define:
+
+\begin{defn}
+$\operatorname{DOM}f=\operatorname{DOM}F$ and
+$\operatorname{IM}f=\operatorname{IM}F$
+for $F\in f$.
+\end{defn}
+
+\begin{defn}
+$\dom f=\min\operatorname{DOM}f$ and
+$\im f=\min\operatorname{IM}f$ for an unfixed morphism~$f$.
+\end{defn}
+
+\begin{note}
+$\dom f$ and $\im f$ are not always defined.
+\end{note}
+
+\subsection{Rectangular restriction}
+
+\begin{prop}
+$\iota_{A,B}f=\iota_{A,B}g$ if $f\sim g$.
+\end{prop}
+
+\begin{proof}
+Let $f\sim g$. Then $g=\iota_{\Src g,\Dst g}f$.
+So $\iota_{A,B}g=\iota_{A,B}\iota_{\Src g,\Dst g}f
+\sqsubseteq\text{(proposition~\ref{iota-less})}\sqsubseteq
+\iota_{A,B}f$. Similarly,
+$\iota_{A,B}f\sqsubseteq\iota_{A,B}g$. So
+$\iota_{A,B}f=\iota_{A,B}g$.
+\end{proof}
+
+The above proposition allows to define:
+
+\begin{defn}
+$\iota_{A,B}F=\iota_{A,B}f$ for
+an unfixed morphism~$F$ and arbitrary $f\in F$.
+\end{defn}
+
+\begin{defn}
+$F\square_{A,B}=[\iota_{A,B}F]$ for every unfixed
+morphism~$F$.
+\end{defn}
+
+\begin{prop}
+$F\square_{A,B}=\id_B\circ F\circ\id_A$ for every
+unfixed morphism~$F$ and objects~$A$ and~$B$.
+\end{prop}
+
+\begin{proof}
+Take $f\in F$.
+$F\square_{A,B}=[\iota_{A,B}F]=[\iota_{A,B}f]=
+[\mathcal{E}^{\Dst f,B}\circ f\circ\mathcal{E}^{A,\Src f}]=
+[\id^{\mathcal{C}(\Dst f,B)}_{B\sqcap\Dst f}\circ f\circ
+\id^{\mathcal{C}(A,\Src f)}_{A\sqcap\Src f}]=
+[\id^{\mathcal{C}(\Dst f,B)}_{B}\circ
+\id^{\mathcal{C}(\Dst f,\Dst f)}_{\Dst f}\circ
+f\circ
+\id^{\mathcal{C}(\Src f,\Src f)}_{\Src f}\circ
+\id^{\mathcal{C}(A,\Src f)}_{A}]=
+[\id^{\mathcal{C}(\Dst f,B)}_{B}\circ f\circ
+\id^{\mathcal{C}(A,\Src f)}_{A}]=
+[\id^{\mathcal{C}(\Dst f,B)}_{B}]\circ [f]\circ
+[\id^{\mathcal{C}(A,\Src f)}_{A}]=
+\id_B\circ F\circ\id_A$.
+\end{proof}
+
+\begin{prop}
+$f\square_{A_0,B_0}\square_{A_1,B_1}=
+f\square_{A_0\sqcap A_1,A_1\sqcap B_1}$.
+\end{prop}
+
+\begin{proof}
+From the previous
+$f\square_{A_0,B_0}\square_{A_1,B_1}=
+\id_{B_1}\circ\id_{B_0}\circ f\circ\id_{A_0}\circ\id_{A_1}=
+\id_{B_0\sqcap B_1}\circ f\circ\id_{A_0\sqcap A_1}=
+f\square_{A_0\sqcap A_1,A_1\sqcap B_1}$.
+\end{proof}
+
+\begin{defn}
+$f|_X=f\circ\id_X$ for every unfixed morphism~$f$ and
+$X\in\mathfrak{A}$.
+\end{defn}
+
+\begin{obvious}
+$(f|_X)|_Y=f_{X\sqcap Y}$.
+\end{obvious}
+
+\subsection{Algebraic properties of the lattice of unfixed
+morphisms}
+
+The following proposition allows to easily prove algebraic
+properties (cf. distributivity) of the poset of unfixed morphisms:
+
+\begin{thm}\label{unfix-fix-bij}
+The following are mutually inverse bijections:
+\begin{enumerate}
+\item\label{unfix-fix-bij-sd} Let~$A$ and~$B$ be objects. $f\mapsto[f]$ and $F\mapsto\iota_{A,B}F$
+are mutually inverse order isomorphisms between
+$\setcond{f\in\text{unfixed morphisms}}{A\in\operatorname{DOM}f,B\in\operatorname{IM}f}$
+and~$\mathcal{C}(A,B)$.
+If $A=B$ they are also semigroup isomorphisms.
+\item\label{unfix-fix-bij-d} Let~$T$ be an unfixed morphism. $f\mapsto[f]$ and $F\mapsto\iota_{\Src t,\Dst t}F$ are mutually inverse order isomorphisms
+between the lattice~$DT$ and $Dt$ whenever~$t\in T$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+We will prove that these functions are mutually inverse
+bijections. That they are order-preserving is obvious.
+\begin{widedisorder}
+\item[\ref{unfix-fix-bij-sd}]
+$\iota_{A,B}F\in\mathcal{C}(A,B)$ is obvious.
+
+We need to prove that
+$[f]\in\setcond{f\in\text{unfixed morphisms}}{A\in\operatorname{DOM}f,B\in\operatorname{IM}f}$.
+For this it's enough to prove
+$A\in\operatorname{DOM}[f]\land B\in\operatorname{IM}[f]$
+what is the same as
+$A\in\operatorname{DOM}f\land B\in\operatorname{IM}f$
+what follows from proposition~\ref{dst-in-im}.
+
+Because $f\mapsto[f]$ is an injection, it is
+enough\footnote{\url{https://math.stackexchange.com/a/3007051/4876}}
+to prove that 
+$\iota_{A,B}[f]=f$. Really, $\iota_{A,B}[f]=\iota_{A,B}f=f$.
+
+That they are semigroup isomorphisms follows from the
+already proved formula $[g\circ f]=[g]\circ[f]$.
+
+\item[\ref{unfix-fix-bij-d}]
+Because of the previous, it is enough to prove that
+$[f]\in DT\Leftrightarrow f\in Dt$. Really, it is equivalent
+to $[f]\sqsubseteq T\Leftrightarrow f\sqsubseteq t$
+what is obvious.
+\end{widedisorder}
+\end{proof}
+
+\begin{prop}
+If every $\Hom$-set is a distributive lattice, then
+the poset of unfixed morphisms is a distributive lattice.
+\end{prop}
+
+\begin{proof}
+It follows from the above isomorphism.
+\end{proof}
+
+\begin{prop}
+If every $\Hom$-set is a co-brouwerian lattice, then
+the poset of unfixed morphisms is a co-brouwerian lattice.
+\end{prop}
+
+\begin{proof}
+It follows from the above isomorphism and the definition
+of pseudodifference.
+\end{proof}
+
+\begin{prop}
+If every $\Hom$-set is a lattice with quasidifference, then
+the poset of unfixed morphisms is a lattice with
+quasidifference.
+\end{prop}
+
+\begin{proof}
+It follows from the above isomorphism and the definition
+of quasidifference.
+\end{proof}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item If every $\Hom$-set is an atomic lattice, then
+the poset of unfixed morphisms is an atomic lattice.
+\item If every $\Hom$-set is an atomistic lattice, then
+the poset of unfixed morphisms is an atomistic lattice.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+Follows from the above isomorphism.
+\end{proof}
+
+\subsection{Binary product morphism}
+
+\begin{defn}
+For a category~$\mathcal{C}$ with binary product morphism
+and $X,Y\in\mathfrak{A}$ define
+$X\times Y=[X\times_{A,B}Y]$ where
+$A\in\mathfrak{Z}$, $[A]\sqsupseteq X$,
+$B\in\mathfrak{Z}$, $[B]\sqsupseteq Y$.
+(Such~$A$ and~$B$ exist by an axiom of categories with
+restricted identities.)
+\end{defn}
+
+We need to prove validity of this definition:
+
+\begin{proof}
+Let
+$A_0\in\mathfrak{Z}$, $[A_0]\sqsupseteq X$,
+$B_0\in\mathfrak{Z}$, $[B_0]\sqsupseteq Y$,
+$A_1\in\mathfrak{Z}$, $[A_1]\sqsupseteq X$,
+$B_1\in\mathfrak{Z}$, $[B_1]\sqsupseteq Y$.
+We need to prove $X\times_{A_0,B_0}Y\sim X\times_{A_1,B_1}Y$,
+but it trivially follows from an axiom in the definition of
+category with binary product morphism.
+\end{proof}
+
+\begin{prop}
+$(X_0\times Y_0)\sqcap(X_1\times Y_1)=
+(X_0\sqcap X_1)\times(Y_0\sqcap Y_1)$ for every
+$X_0,X_1,Y_0,Y_1\in\mathfrak{A}$.
+\end{prop}
+
+\begin{proof}
+Take
+$A_0\in\mathfrak{Z}$, $[A_0]\sqsupseteq X_0$,
+$B_0\in\mathfrak{Z}$, $[B_0]\sqsupseteq Y_0$,
+$A_1\in\mathfrak{Z}$, $[A_1]\sqsupseteq X_1$,
+$B_1\in\mathfrak{Z}$, $[B_1]\sqsupseteq Y_1$.
+
+Then
+\begin{multline*}
+(X_0\times Y_0)\sqcap(X_1\times Y_1)=\\
+[X_0\times_{A_0\sqcup A_1,B_0\sqcup B_1}Y_0]\sqcap
+[X_1\times_{A_0\sqcup A_1,B_0\sqcup B_1}Y_1]=\\
+[(X_0\times_{A_0\sqcup A_1,B_0\sqcup B_1}Y_0)\sqcap
+(X_1\times_{A_0\sqcup A_1,B_0\sqcup B_1}Y_1)]=\\
+[(X_0\sqcap X_1)\times_{A_0\sqcup A_1,B_0\sqcup B_1}
+(Y_0\sqcap Y_1)]=\\
+(X_0\sqcap X_1)\times(Y_0\sqcap Y_1).
+\end{multline*}
+\end{proof}
+
+\begin{prop}
+$f\square_{A,B}=f\sqcap(A\times B)$.
+\end{prop}
+
+\begin{proof}
+Take $F\in f$. Let $F'=\iota_{A\sqcup\Src F,B\sqcup\Dst F}F$.
+We have $F'\in f$.
+\begin{multline*}
+f\square_{A,B}=[\iota_{A,B}F']=\\
+[\mathcal{E}^{B\sqcup\Dst F,B}\circ F'\circ
+\mathcal{E}^{A,A\sqcup\Src F}]=\\
+[\id^{\mathcal{C}(B\sqcup\Dst F,B)}_{[B]}\circ F'\circ
+\id^{\mathcal{C}(A,A\sqcup\Src F)}_{[A]}]=\\
+[\id^{\mathcal{C}(B\sqcup\Dst F,B)}_{[B]}]\circ [F']\circ
+[\id^{\mathcal{C}(A,A\sqcup\Src F)}_{[A]}]=\\
+[\id^{\mathcal{C}(B\sqcup\Dst F,B\sqcup\Dst F)}_{[B]}]\circ
+[F']\circ
+[\id^{\mathcal{C}(A\sqcup\Src F,A\sqcup\Src F)}_{[A]}]=\\
+[\id^{\mathcal{C}(B\sqcup\Dst F,B\sqcup\Dst F)}_{[B]}\circ
+F'\circ
+\id^{\mathcal{C}(A\sqcup\Src F,A\sqcup\Src F)}_{[A]}]=\\
+[F'\sqcap(A\times_{A\sqcup\Src F,B\sqcup\Dst F}B)]=\\
+[F']\sqcap[A\times_{A\sqcup\Src F,B\sqcup\Dst F}B]=
+f\sqcap(A\times B).
+\end{multline*}
+\end{proof}
+
+\section{Examples of categories with restricted identities}
+
+\subsection{\texorpdfstring{Category $\mathbf{Rel}$}{Category Rel}}
+
+Category $\mathbf{Rel}$ of relations between small sets
+can be considered as a category with restricted identities
+with $\mathfrak{Z}=\mathfrak{A}$ being the set of all
+small sets, projection being the identity function and
+restricted identity being the identity relation between the
+given sets.
+
+Moreover it is a category with binary product morphism
+with usual Cartesian product.
+
+Proofs of this are trivial.
+
+\subsection{\texorpdfstring{Category $\mathsf{FCD}$}{Category FCD}}
+
+Category $\mathsf{FCD}$
+can be considered as a category with restricted identities
+with $\mathfrak{Z}$ being the set of all
+small sets, $\mathfrak{A}$ is the set of unfixed filters,
+projection being the projection function for the
+equivalence classes of filters,
+restricted identity being defined by the formulas
+\begin{gather*}
+\supfun{\id_{\mathcal{F}^{\mathsf{FCD}(A,B)}}}\mathcal{X}=
+([\mathcal{X}]\sqcap\mathcal{F})\div B;
+\\
+\supfun{(\id_{\mathcal{F}^{\mathsf{FCD}(A,B)}})^{-1}}\mathcal{Y}=
+([\mathcal{Y}]\sqcap\mathcal{F})\div A
+\end{gather*}
+(whenever $\mathcal{F}\sqsubseteq[A]\sqcap[B]$).
+
+We need to prove that this really defines a funcoid.
+
+\begin{proof}
+\begin{multline*}
+\mathcal{Y}\nasymp
+\supfun{\id{_\mathcal{F}^{\mathsf{FCD}(A,B)}}}\mathcal{X}
+\Leftrightarrow\\
+\mathcal{Y}\nasymp([\mathcal{X}]\sqcap\mathcal{F})\div B
+\Leftrightarrow
+\mathcal{Y}\nasymp(\mathcal{X}\div B)\sqcap
+(\mathcal{F}\div B) \Leftrightarrow\\
+[\mathcal{Y}]\nasymp[\mathcal{X}]\sqcap\mathcal{F}.
+\end{multline*}
+Similarly
+$\supfun{(\id_{\mathcal{F}^{\mathsf{FCD}(A,B)})^{-1}}}\mathcal{Y}\Leftrightarrow
+[\mathcal{X}]\nasymp[\mathcal{Y}]\sqcap\mathcal{F}$.
+
+Thus
+$\mathcal{Y}\nasymp
+\supfun{\id_{\mathcal{F}^{\mathsf{FCD}(A,B)}}}\mathcal{X}
+\Leftrightarrow
+\mathcal{X}\nasymp
+\supfun{(\id_{\mathcal{F}^{\mathsf{FCD}(A,B)})^{-1}}}\mathcal{Y}$.
+\end{proof}
+
+We need to prove that the restricted identities
+conform to the axioms:
+
+\begin{proof}
+The first five \hyperref[unf-mor]{axioms} are obvious. Let's prove the
+remaining ones:
+
+$\id^{\mathsf{FCD}(A,A)}_{[A]} = 1^{\mathsf{FCD}}_A$
+because
+$\supfun{\id^{\mathsf{FCD}(A,A)}_{[A]}}\mathcal{X}=
+([\mathcal{X}]\sqcap[A])\div A=
+[\mathcal{X}]\div A=\mathcal{X}$.
+
+$\id^{\mathsf{FCD}(B,C)}_Y \circ \id^{\mathsf{FCD}(A,B)}_X = \id^{\mathsf{FCD}(A,C)}_{X\sqcap Y}$
+because
+$\supfun{\id^{\mathsf{FCD}(B,C)}_Y \circ
+\id^{\mathsf{FCD}(A,B)}_X}\mathcal{X}=
+\supfun{\id^{\mathsf{FCD}(B,C)}_Y}
+\supfun{\id^{\mathsf{FCD}(A,B)}_X}\mathcal{X}=
+\supfun{\id^{\mathsf{FCD}(B,C)}_Y}
+(([\mathcal{X}]\sqcap X)\div B)=
+([([\mathcal{X}]\sqcap X)\div B]\sqcap Y)\div C=
+(([\mathcal{X}]\sqcap X\sqcap Y)\div B)\div C=
+\text{(because $[\mathcal{X}]\sqcap X\sqcap Y\sqsubseteq[B]$)}=
+([\mathcal{X}]\sqcap X\sqcap Y)\div C=
+\supfun{\id^{\mathsf{FCD}(A,C)}_{X\sqcap Y}}\mathcal{X}$.
+
+$\forall A\in\mathfrak{A}\exists B\in\mathfrak{Z}:
+A\sqsubseteq[B]$ is obvious.
+\end{proof}
+
+\begin{prop}
+  $\mathcal{E}_{\mathsf{FCD}}^{A,B} = (A , B , \lambda \mathcal{X}
+  \in \mathfrak{F} (A) : \mathcal{X} \div B , \lambda \mathcal{Y} \in
+  \mathfrak{F} (B) : \mathcal{Y} \div A)$ for objects $A \subseteq B$ of
+  $\mathsf{FCD}$.
+\end{prop}
+
+\begin{proof}
+Take $\mathcal{F}=[A]\sqcap[B]$. Then
+$\mathcal{F}\sqsupseteq[\mathcal{X}]$ and
+$\mathcal{F}\sqsupseteq[\mathcal{Y}]$,
+thus
+$[\mathcal{X}]\sqcap\mathcal{F}=[\mathcal{X}]$ and
+$[\mathcal{Y}]\sqcap\mathcal{F}=[\mathcal{Y}]$.
+So, it follows from the above.
+\end{proof}
+
+\begin{prop}
+$\id^{\mathsf{FCD}(A,A)}_X=\id^{\mathsf{FCD}}_{X\div A}$
+whenever $A\in\mathfrak{Z}$ and
+$\mathfrak{A}\ni X\sqsubseteq[A]$.
+\end{prop}
+
+\begin{proof}
+$\supfun{\id^{\mathsf{FCD}(A,A)}_X}\mathcal{X}=
+([\mathcal{X}]\sqcap X)\div A=
+([\mathcal{X}]\div A)\sqcap(X\div A)=
+\mathcal{X}\sqcap(X\div A)=
+\supfun{\id^{\mathsf{FCD}}_{X\div A}}\mathcal{X}$
+(used bijections for unfixed filters)
+for every $\mathcal{X}\in\mathscr{F}(A)$.
+\end{proof}
+
+\begin{defn}
+Category~$\mathsf{FCD}$ can be considered as a category
+with binary product morphism with the binary product
+defined as:
+$\mathcal{X}\times_{A,B}\mathcal{Y}=
+(\mathcal{X}\div A)\times^{\mathsf{FCD}}(\mathcal{Y}\div B)$ for every unfixed filters~$\mathcal{X}$
+and~$\mathcal{Y}$.
+\end{defn}
+
+It is really a binary product morphism:
+
+\begin{proof}
+Need to prove the axioms:
+
+\begin{widedisorder}
+\item[\ref{binprod-cmp}]
+$f\sqcap(X\times_{A,B}Y)=
+f\sqcap((X\div A)\times^{\mathsf{FCD}}(Y\div B))=
+\id^{\mathsf{FCD}}_{Y\div B}\circ f\circ
+\id^{\mathsf{FCD}}_{X\div A}=
+\id^{\mathsf{FCD}(B,B)}_Y\circ f\circ\id^{\mathsf{FCD}(A,A)}_X$.
+
+\item[\ref{binprod-mv}] Let unfixed filters
+$X\sqsubseteq[A_0]\sqcap[A_1]$ and $Y\sqsubseteq[B_0]\sqcap[B_1]$.
+Then for $\mathcal{X}\in\mathscr{F}(A_1)$ we have
+$\supfun{\iota_{A_1,B_1}(X\times_{A_0,B_0}Y)}\mathcal{X}=
+\supfun{\mathcal{E}^{\mathsf{FCD}(B_0,B_1)}}
+\supfun{X\times_{A_0,B_0}Y}
+\supfun{\mathcal{E}^{\mathsf{FCD}(A_1,A_0)}}\mathcal{X}=
+(\supfun{X\times_{A_0,B_0}Y}
+(\mathcal{X}\div A_0))\div B_1=
+(\supfun{(X\div A_0)\times^{\mathsf{FCD}}
+(Y\div B_0)}(\mathcal{X}\div A_0))\div B_1$.
+
+On the other hand,
+$\supfun{X\times_{A_1,B_1}Y}\mathcal{X}=
+\supfun{(X\div A_1)\times^{\mathsf{FCD}}
+(Y\div B_1)}\mathcal{X}$
+
+If $[\mathcal{X}]\asymp X$ then (use isomorphisms)
+$\mathcal{X}\asymp X\div A_1$ and
+$\mathcal{X}\div A_0\asymp X\div A_0$. So
+$\supfun{\iota_{A_1,B_1}(X\times_{A_0,B_0}Y)}\mathcal{X}=
+\bot$ and
+$\supfun{X\times_{A_1,B_1}Y}\mathcal{X}=\bot$.
+
+If $[\mathcal{X}]\nasymp X$ then (use isomorphisms)
+$\mathcal{X}\nasymp X\div A_1$ and
+$\mathcal{X}\div A_0\nasymp X\div A_0$. So
+$\supfun{\iota_{A_1,B_1}(X\times_{A_0,B_0}Y)}\mathcal{X}=
+(Y\div B_0)\div B_1=Y\div B_1$ and
+$\supfun{X\times_{A_1,B_1}Y}\mathcal{X}=Y\div B_1$.
+
+So in all cases,
+$\supfun{\iota_{A_1,B_1}(X\times_{A_0,B_0}Y)}\mathcal{X}=
+\supfun{X\times_{A_1,B_1}Y}\mathcal{X}$.
+\end{widedisorder}
+\end{proof}
+
+\begin{lem}
+$\mathcal{X}\div A=(\mathcal{X}\sqcap[A])\div A$
+for every unfixed filter~$\mathcal{X}$ and small set~$A$.
+\end{lem}
+
+\begin{proof}
+$(\mathcal{X}\sqcap[A])\div A=
+(\mathcal{X}\div A)\sqcap([A]\div A)=
+(\mathcal{X}\div A)\sqcap\top^{\mathfrak{F}(A)}=
+\mathcal{X}\div A$.
+\end{proof}
+
+\begin{cor}
+There is a pointfree funcoid~$p$ such that
+$\supfun{p}\mathcal{X}=\mathcal{X}\div A$.
+\end{cor}
+
+\begin{proof}
+Let $q$ be the order embedding (see the diargram) from
+unfixed filters~$\mathcal{F}$ such that $A\in\mathcal{F}$
+to filters on~$A$.
+
+Then
+$\supfun{\mathcal{X}\div A}\mathcal{X}=
+\supfun{(\mathcal{X}\sqcap[A])\div A}\mathcal{X}=
+\supfun{q\circ\id^{\mathsf{pFCD}(\text{unfixed filters})}_{[A]}}\mathcal{X}$.
+\end{proof}
+
+Let~$f$ be a funcoid. Define pointfree
+funcoid~$\mathscr{S}f$ between unfixed filters as:
+
+\begin{defn}
+For every unfixed filters~$\mathcal{X}$
+and~$\mathcal{Y}$
+\[
+\supfun{\mathscr{S}f}\mathcal{X}=
+[\supfun{f}(\mathcal{X}\div\Src f)];\quad
+\supfun{(\mathscr{S}f)^{-1}}\mathcal{Y}=
+[\supfun{f^{-1}}(\mathcal{Y}\div\Dst f)].
+\]
+\end{defn}
+
+It is really a pointfree funcoid:
+
+\begin{proof}
+~
+For an unfixed filter~$\mathcal{Y}$ we have
+\begin{multline*}
+\mathcal{Y}\nasymp\supfun{\mathscr{S}f}\mathcal{X}
+\Leftrightarrow\\
+\mathcal{Y}\nasymp[\supfun{f}(\mathcal{X}\div\Src f)]
+\Leftrightarrow\\
+\mathcal{Y}\div\Dst f\nasymp\supfun{f}(\mathcal{X}\div\Src f)
+\Leftrightarrow\\
+\mathcal{X}\div\Src f\nasymp\supfun{f^{-1}}(\mathcal{Y}\div\Dst f)
+\Leftrightarrow\\
+\mathcal{X}\nasymp[\supfun{f^{-1}}(\mathcal{Y}\div\Dst f)]
+\Leftrightarrow\\
+\mathcal{X}\nasymp\supfun{(\mathscr{S}f)^{-1}}\mathcal{Y}.
+\end{multline*}
+\end{proof}
+
+\begin{defn}
+$\mathscr{S}F=\mathscr{S}f$ for an unfixed funcoid~$F$
+and~$f\in F$.
+\end{defn}
+
+We need to prove validity of the above definition:
+
+\begin{proof}
+Let $f,g\in F$, let $f:A_0\to B_0$, $g:A_1\to B_1$.
+Need to prove $\mathscr{S}f=\mathscr{S}g$.
+
+We have
+\[\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f=\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g.\]
+
+\begin{multline*}
+\supfun{\mathscr{S}\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f}\mathcal{X}=\\
+[\supfun{\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f}(\mathcal{X}\div(A_0\sqcup A_1)]=\\
+\left[\supfun{\mathcal{E}^{\mathsf{FCD}(B_0,B_0\sqcup B_1)}}\supfun{f}\supfun{\mathcal{E}^{\mathsf{FCD}(A_0\sqcup A_1,A_0}}(\mathcal{X}\div(A_0\sqcup A_1))\right]=\\
+[(\supfun{f}((\mathcal{X}\div(A_0\sqcup A_1))\div A_0))
+\div B_0]=\\
+[\supfun{f}(\mathcal{X}\div A_0)]=\\
+\supfun{\mathscr{S}f}\mathcal{X}.
+\end{multline*}
+
+Similarly
+$\supfun{\mathscr{S}\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g}\mathcal{X}=
+\supfun{\mathscr{S}g}\mathcal{X}$.
+
+So $\supfun{\mathscr{S}f}\mathcal{X}=
+\supfun{\mathscr{S}g}\mathcal{X}$.
+\end{proof}
+
+\begin{defn}
+So, we can define $\supfun{f}\mathcal{X}=\supfun{\mathscr{S}f}\mathcal{X}$ for every unfixed funcoid~$f$ and an unfixed filter~$\mathcal{X}$.
+\end{defn}
+
+\begin{prop}\label{s-fcd}
+~
+\begin{enumerate}
+\item\label{s-fcd-hom} $\mathscr{S}$ from a $\Hom$-set $\mathsf{FCD}(A,B)$
+is an order embedding.
+\item\label{s-fcd-fctr} $\mathscr{S}$ from the category~$\mathsf{FCD}$
+is a prefunctor.
+\item\label{s-fcd-unfix} $\mathscr{S}$ from unfixed funcoids is an order embedding and a prefunctor (=~semigroup homomorphism).
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+~
+\begin{widedisorder}
+\item[\ref{s-fcd-hom}]
+$(\supfun{\mathscr{S}f}\mathcal{X})\div\Dst f=
+\supfun{f}\mathcal{X}$.
+Thus for different~$f$ we have different
+$\mathcal{X}\mapsto\supfun{\mathscr{S}f}\mathcal{X}$.
+So it is an injection. That it is a monotone function
+is obvious.
+
+\item[\ref{s-fcd-fctr}]
+$\supfun{\mathscr{S}g\circ\mathscr{S}f}\mathcal{X}=
+\supfun{\mathscr{S}g}\supfun{\mathscr{S}f}\mathcal{X}=
+\supfun{\mathscr{S}g}[\supfun{f}(\mathcal{X}\div\Src f)]=
+[\supfun{g}([\supfun{f}(\mathcal{X}\div\Src f)]\div\Src g)]=
+[\supfun{g}(\supfun{f}(\mathcal{X}\div\Src f)\div\Src g)]=
+[\supfun{g}\supfun{f}(\mathcal{X}\div\Src f)]=
+[\supfun{g\circ f}(\mathcal{X}\div\Src f)]=
+\supfun{\mathscr{S}(g\circ f)}\mathcal{X}$ for every
+composable funcoids~$f$ and~$g$ and an unfixed
+filter~$\mathcal{X}$. Thus
+$\mathscr{S}g\circ\mathscr{S}f=\mathscr{S}(g\circ f)$.
+
+\item[\ref{s-fcd-unfix}]
+To prove that it is an order embedding, it is enough to show that $f\nsim g$ implies
+$\mathscr{S}f\ne\mathscr{S}g$
+(monotonicity is obvious).
+Let $f\nsim g$ that is
+$\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f\ne
+\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g$.
+Then there exist filter
+$\mathcal{X}\in\mathfrak{F}(A_0\sqcup A_1)$ such that
+$\supfun{\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f}\mathcal{X}\ne
+\supfun{\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g}\mathcal{X}$.
+
+Consequently, $\supfun{\mathscr{S}f}\mathcal{X}=
+\supfun{\mathscr{S}\iota_{A_0\sqcup A_1,B_0\sqcup B_1}f}\mathcal{X}\ne
+\supfun{\mathscr{S}\iota_{A_0\sqcup A_1,B_0\sqcup B_1}g}\mathcal{X}=
+\supfun{\mathscr{S}g}\mathcal{X}$.
+
+It remains to prove that
+$\mathscr{S}G\circ\mathscr{S}F=\mathscr{S}(G\circ F)$
+but it is equivalent to 
+$\mathscr{S}g\circ\mathscr{S}f=\mathscr{S}(g\circ f)$
+for arbitrarily taken~$f\in F$ and~$g\in G$, what
+is already proved above.
+\end{widedisorder}
+\end{proof}
+
+\begin{lem}
+For every meet-semilattice $a\nasymp b$ and
+$c\sqsupseteq b$ implies $a\sqcap c\nasymp b$.
+\end{lem}
+
+\begin{proof}
+Suppose $a\nasymp b$. Then there is a non-least~$x$
+such that $x\sqsubseteq a,b$. Thus $x\sqsubseteq c$,
+so $x\sqsubseteq a\sqcap c$. We have
+$a\sqcap c\nasymp b$.
+\end{proof}
+
+\begin{prop}\label{pfunf-prod}
+$\mathscr{S}(X\times Y)
+=X\times^{\mathsf{pFCD}(\mathfrak{F}(\mho))}Y$
+for every unfixed filters~$X$ and~$Y$.
+\end{prop}
+
+\begin{proof}
+$\mathscr{S}(X\times Y) = \mathscr{S}(X\times_{A,B}Y)$
+for arbitrary filters~$A$, and~$B$ such that
+$X\sqsubseteq[A]$ and $Y\sqsubseteq[B]$. So
+for every unfixed filter~$\mathcal{X}$ we have
+\begin{multline*}
+\supfun{\mathscr{S}(X\times Y)}\mathcal{X}=
+\supfun{\mathscr{S}(X\times_{A,B}Y)}\mathcal{X}=\\
+[\supfun{X\times_{A,B}Y}(\mathcal{X}\div A)]=
+[\supfun{(X\div A)\times^{\mathsf{FCD}}(Y\div B)}
+(\mathcal{X}\div A)].
+\end{multline*}
+
+Thus if $\mathcal{P}\nasymp X$ then
+(by the lemma)
+$\mathcal{P}\sqcap A\nasymp X$;
+$\mathcal{P}\div A\nasymp X\div A$;
+$\supfun{\mathscr{S}(X\times Y)}\mathcal{X}=
+[Y\div B]=Y$.
+
+if $\mathcal{P}\asymp X$ then
+$\mathcal{P}\sqcap A\asymp X$;
+$\mathcal{P}\div A\asymp X\div A$;
+$\supfun{\mathscr{S}(X\times Y)}\mathcal{X}=
+[\bot]=\bot$.
+
+So $\mathscr{S}(X\times Y)
+=X\times^{\mathsf{pFCD}(\mathfrak{F}(\mho))}Y$.
+\end{proof}
+
+\begin{prop}\label{pfunf-id}
+$\mathscr{S}\id_X=
+\id^{\mathsf{pFCD}(\mathfrak{F}(\mho))}_{X}$
+for every unfixed filter~$X$.
+\end{prop}
+
+\begin{proof}
+For every unfixed filter~$\mathcal{X}$ we
+for arbitrary filters~$A$ and~$B$ such that
+$X\sqsubseteq[A]\sqcap[B]$
+have
+\begin{multline*}
+\supfun{\mathscr{S}\id_X}\mathcal{X}=
+\supfun{\mathscr{S}[\id^{\mathsf{FCD}(A,B)}_X]}\mathcal{X}=
+\supfun{\mathscr{S}\id^{\mathsf{FCD}(A,B)}_X}
+\mathcal{X}=\\
+\left[\supfun{\id^{\mathsf{FCD}(A,B)}_X}
+(\mathcal{X}\div A)\right]=
+[([\mathcal{X}\div A]\sqcap X)\div B]=\\
+[(\mathcal{X}\sqcap X)\div B]=
+\mathcal{X}\sqcap X.
+\end{multline*}
+
+Thus $\mathscr{S}\id_X=
+\id^{\mathsf{pFCD}(\mathfrak{F}(\mho))}_{X}$.
+\end{proof}
+
+\subsection{\texorpdfstring{Category $\mathsf{RLD}$}{Category RLD}}
+
+\begin{defn}
+  $f \div D = (A, B, (\GR f) \div D)$ for every
+  reloid $f$ and a binary relation~$D$.
+\end{defn}
+
+Category $\mathsf{RLD}$
+can be considered as a category with restricted identities
+with $\mathfrak{Z}$ being the set of all
+small sets, $\mathfrak{A}$ is the set of unfixed filters,
+projection being the projection function for the
+equivalence classes of filters,
+restricted identity being defined by the formula
+\[\id^{\mathsf{RLD}(A,B)}_{\mathcal{F}} =
+\id^{\mathsf{RLD}}_{\mathcal{F}\div(A\cap B)}
+\div(A\times B).\]
+
+We need to prove that the restricted identities
+conform to the axioms:
+
+\begin{proof}
+The first five \hyperref[unf-mor]{axioms} are obvious. Let's prove the
+remaining ones:
+
+$\id^{\mathsf{RLD}(A,A)}_{[A]} =
+\id^{\mathsf{RLD}}_{[A]\div A}\div(A\times A) =
+\id^{\mathsf{RLD}}_A\div(A\times A) =
+1^{\mathsf{RLD}}_A$.
+
+\begin{multline*}
+\id^{\mathcal{C}(B,C)}_Y \circ \id^{\mathcal{C}(A,B)}_X =
+\bigsqcap_{x\in\up X,y\in\up Y}
+(\id^{\mathcal{C}(B,C)}_y \circ \id^{\mathcal{C}(A,B)}_x)=\\
+\bigsqcap_{x\in\up X,y\in\up Y}
+\id^{\mathcal{C}(A,B)}_{x\cap y}=
+\id^{\mathcal{C}(A,B)}_{X\sqcap Y}.
+\end{multline*}
+
+$\forall A\in\mathfrak{A}\exists B\in\mathfrak{Z}:
+A\sqsubseteq[B]$ is obvious.
+\end{proof}
+
+\begin{obvious}
+$\mathcal{E}_{\mathsf{RLD}}^{A,B} = \uparrow^{\mathsf{RLD} (A ,
+B)} \id_{A \cap B}$.
+\end{obvious}
+
+\begin{prop}
+$\mathsf{RLD}$ with
+$\mathcal{X}\times_{A,B}\mathcal{Y}=
+(\mathcal{X}\div A)\times^{\mathsf{RLD}}(\mathcal{X}\div B)$
+for every unfixed filters~$\mathcal{X}$
+and~$\mathcal{Y}$
+is a category with binary product morphism.
+\end{prop}
+
+\begin{proof}
+$\id^{\mathcal{C}(B,B)}_{\mathcal{Y}}\circ f\circ\id^{\mathcal{C}(A,A)}_{\mathcal{X}}=f\sqcap(\mathcal{X}\times_{A,B}\mathcal{Y})$
+because
+\begin{multline*}
+\id^{\mathcal{C}(B,B)}_{\mathcal{Y}}\circ f\circ\id^{\mathcal{C}(A,A)}_{\mathcal{X}}=\\
+(\id^{\mathsf{RLD}}_{\mathcal{Y}\div B}\div(B\times B))
+\circ f\circ
+(\id^{\mathsf{RLD}}_{\mathcal{X}\div A}\div(A\times A))=\\
+\id^{\mathsf{RLD}}_{\mathcal{Y}\div B}\circ f\circ
+\id^{\mathsf{RLD}}_{\mathcal{X}\div A}=\\
+f\sqcap((\mathcal{X}\div A)\times^{\mathsf{RLD}}(\mathcal{Y}\div B))=\\
+f\sqcap(\mathcal{\mathcal{X}}\times_{A,B}\mathcal{\mathcal{Y}}).
+\end{multline*}
+
+\begin{multline*}
+\iota_{A_1,B_1}
+(\mathcal{X}\times_{A_0,B_0}\mathcal{Y})=\\
+\mathcal{E}^{B_0,B_1}\circ
+(\mathcal{X}\times_{A_0,B_0}\mathcal{Y})\circ
+\mathcal{E}^{A_1,A_0}=\\
+\uparrow^{\mathsf{RLD}(B_0,B_1)}\id_{B_0\cap B_1}
+((\mathcal{X}\div B_0)\times(\mathcal{Y}\div A_0))
+\circ
+\uparrow^{\mathsf{RLD}(A_1,A_0)}\id_{A_0\cap A_1}=\\
+((\mathcal{X}\div B_0)\div B_1)\times((\mathcal{Y}\div A_0)\div A_1)=
+(\mathcal{X}\div B_1)\times(\mathcal{Y}\div A_1)=\\
+\mathcal{X}\times_{A_1,B_1}\mathcal{Y}.
+\end{multline*}
+\end{proof}
+
+\begin{proof}
+\begin{multline*}
+\iota_{A, B} f =\\ \mathcal{E}_{\mathsf{RLD}}^{\Dst f,B}
+\circ f \circ \mathcal{E}_{\mathsf{RLD}}^{A,\Src f} =\\
+\bigsqcap^{\mathsf{RLD}}_{F\in\up f}
+(\uparrow^{\mathbf{Rel}(\Dst f,B)}\id_{\Dst f\cap B}
+\circ F\circ
+\uparrow^{\mathbf{Rel}(A,\Src f)}\id_{A\cap\Src f})=\\
+\bigsqcap^{\mathsf{RLD}}_{F\in\up f}
+(\uparrow^{\mathbf{Rel}(A,B)}
+(\id_{\Dst f\cap B}\circ\GR F\circ\id_{\Dst f\cap B}))=\\
+\bigsqcap^{\mathsf{RLD}}_{F\in\up f}
+\uparrow^{\mathbf{Rel}(A,B)}(F\cap(A\times B))=\\
+f \div (A \times B).
+\end{multline*}
+\end{proof}
+
+\begin{prop}
+$\id^{\mathsf{RLD}(A,A)}_X=\id^{\mathsf{RLD}}_{X\div A}$
+whenever $A\in\mathfrak{Z}$ and
+$\mathfrak{A}\ni X\sqsubseteq[A]$.
+\end{prop}
+
+\begin{proof}
+$\id^{\mathsf{RLD}(A,A)}_X=
+\id^{\mathsf{RLD}}_{X\div(A\cap A)}\div(A\times A)=
+\id^{\mathsf{RLD}}_{X\div A}$.
+\end{proof}
+
+\begin{defn}
+Category~$\mathsf{RLD}$ can be considered as a category
+with binary product morphism with the binary product
+defined as:
+$\mathcal{X}\times_{A,B}\mathcal{Y}=
+(\mathcal{X}\div A)\times^{\mathsf{RLD}}(\mathcal{Y}\div B)$ for every unfixed filters~$\mathcal{X}$
+and~$\mathcal{Y}$.
+\end{defn}
+
+It is really a binary product morphism:
+
+\begin{proof}
+Need to prove the axioms:
+
+\begin{widedisorder}
+\item[\ref{binprod-cmp}]
+$f\sqcap(X\times_{A,B}Y)=
+f\sqcap((X\div A)\times^{\mathsf{RLD}}(Y\div B))=
+\id^{\mathsf{RLD}}_{Y\div B}\circ f\circ
+\id^{\mathsf{RLD}}_{X\div A}=
+\id^{\mathsf{RLD}(B,B)}_Y\circ f\circ\id^{\mathsf{RLD}(A,A)}_X$.
+
+\item[\ref{binprod-mv}]
+Let unfixed filters
+$X\sqsubseteq[A_0]\sqcap[A_1]$ and $Y\sqsubseteq[B_0]\sqcap[B_1]$.
+Then we have
+$\iota_{A_1,B_1}(X\times_{A_0,B_0}Y)=
+\mathcal{E}^{\mathcal{C}(B_0,B_1)}\circ
+(X\times_{A_0,B_0}Y)\circ
+\mathcal{E}^{\mathcal{C}(A_1,A_0)}=
+\uparrow^{\mathsf{RLD}(B_0,B_1)}\id_{B_0\cap B_1}\circ
+((X\div A_0)\times^{\mathsf{RLD}}(Y\div B_0))\circ
+\uparrow^{\mathsf{RLD}(A_1,A_0)}\id_{A_0\cap A_1}$.
+
+But
+$(X\div A_0)\times^{\mathsf{RLD}}(Y\div B_0)=
+\bigsqcap^{\mathsf{RLD}}_{
+x\in\up(X\div A_0),y\in\up(Y\div B_0)}
+(x\times y)=
+\text{(by the bijection)}=
+\bigsqcap^{\mathsf{RLD}}_{
+x\in\up X,y\in\up Y}
+((x\div A_0)\times (y\div B_0))$.
+
+Thus by definition of reloidal product
+$\iota_{A_1,B_1}(X\times_{A_0,B_0}Y)=
+\bigsqcap^{\mathsf{RLD}(A_1,B_1)}_{
+x\in\up X,y\in\up Y}
+(\id_{B_0\cap B_1}\circ((x\div A_0)\times (y\div B_0))\circ
+\id_{A_0\cap A_1})=
+\bigsqcap^{\mathsf{RLD}(A_1,B_1)}_{
+x\in\up X,y\in\up Y}
+((x\div A_0)\times (y\div B_0))=
+\bigsqcap^{\mathsf{RLD}(A_1,B_1)}_{
+x\in\up(X\div A_0),y\in\up(Y\div B_0)}(x\times y)=
+(X\div A_1)\times^{\mathsf{RLD}}(Y\div B_1)=
+X\times_{A_1,B_1}Y$.
+\end{widedisorder}
+\end{proof}
+
+\begin{defn}
+Reloid
+$\mathscr{S}f\in\End_{\mathsf{RLD}}(\text{small sets})$
+is defined by the formula
+$\GR\mathscr{S}f=\mathscr{S}\GR f$ for every
+reloid~$f$.
+\end{defn}
+
+\begin{defn}
+Reloid
+$\mathscr{S}f\in\End_{\mathsf{RLD}}(\text{small sets})$
+if defined by the formula
+$\mathscr{S}f=\mathscr{S}F$ for arbitrary~$F\in f$
+for every unfixed reloid~$f$.
+\end{defn}
+
+That the result does not depend on the choice of~$F$
+obviously follows from the corresponding result for
+filters.
+
+\begin{prop}\label{s-rld}
+~
+\begin{enumerate}
+\item\label{s-rld-hom} $\mathscr{S}$ from a $\Hom$-set $\mathsf{RLD}(A,B)$ to $\End_{\mathsf{RLD}}(\text{small sets})$
+is an order embedding.
+\item\label{s-rld-fctr} $\mathscr{S}$ from the category~$\mathsf{RLD}$ to $\End_{\mathsf{RLD}}(\text{small sets})$
+is a prefunctor.
+\item\label{s-rld-unfix} $\mathscr{S}$ from unfixed reloids is an order embedding and a prefunctor (=~semigroup homomorphism).
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+~
+\begin{widedisorder}
+\item[\ref{s-fcd-hom}] That it's monotone is obvious.
+That it is an injection follows from $\mathscr{S}$ for filters
+being an injection.
+
+\item[\ref{s-rld-fctr}]
+Let~$f$ and~$g$ be composable reloids.
+
+If $H\in\up\mathscr{S}(g\circ f)$ then
+$H\supseteq H'\in\up(g\circ f)$,
+$H'\supseteq G\circ F$ for some $H'$,
+$F\in\up f$ and $G\in\up g$. Consequently
+$F\in\GR\mathscr{S}f$, $G\in\GR\mathscr{S}g$. So
+$G\circ F\in\up(\mathscr{S}g\circ\mathscr{S}f)$
+and thus
+$\mathscr{S}(g\circ f)\sqsupseteq
+\mathscr{S}g\circ\mathscr{S}f$.
+
+Whenever $H\in\up(\mathscr{S}g\circ\mathscr{S}f)$,
+we have
+$H\supseteq G\circ F$ where $F\in\up\mathscr{S}f$,
+$G\in\up\mathscr{S}g$. Thus
+$F\supseteq F'\in\up f$, $G\supseteq G'\in\up g$;
+$H\supseteq G'\circ F'\in\up(g\circ f)$
+for some $F'$, $G'$ and so
+$H\in\up(\mathscr{S}(g\circ f))$. So
+$\mathscr{S}g\circ\mathscr{S}f\sqsupseteq
+\mathscr{S}(g\circ f)$.
+
+So
+$\mathscr{S}(g\circ f)=\mathscr{S}g\circ\mathscr{S}f$.
+
+\item[\ref{s-rld-unfix}]
+That it is a prefunctor easily follows from the above.
+
+Suppose~$f$,~$g$ are unfixed reloids and
+$\mathscr{S}f=\mathscr{S}g$.
+Let $F\in f$, $G\in g$ and thus
+$\mathscr{S}F=\mathscr{S}G$.
+It is enough to prove that $F\sim G$.
+
+Really, $\mathscr{S}F=\mathscr{S}G\Rightarrow
+\mathscr{S}\GR F=\mathscr{S}\GR G\Rightarrow
+\GR F\sim\GR G\Rightarrow
+\GR G=(\GR F)\div(\dom G\times\im G)\Leftrightarrow
+G=F\div(\dom G\times\im G)=
+\iota_{\dom G,\im G}F$.
+Similarly $F=\iota_{\dom F,\im F}G$.
+So $F\sim G$.
+\end{widedisorder}
+\end{proof}
+
+I yet failed to generalize propositions~\ref{pfunf-prod}
+and~\ref{pfunf-id}. The generalization may require first
+research pointfree reloids.
+
+\section{More results on restricted identities}
+
+In the next three propositions
+assume~$A\in\mathfrak{Z}$,~$\mathfrak{A}\ni X\sqsubseteq A$.
+
+\begin{prop}
+$\id^{\mathcal{\mathbf{Rel}}(A)}_X = \id^{\mathcal{\mathbf{Rel}}(A,A)}_{[X]}$.
+\end{prop}
+
+\begin{proof}
+$\id^{\mathcal{\mathbf{Rel}}(A,A)}_{[X]}=
+\id^{\mathcal{\mathbf{Rel}}(A,A)}_X=
+\id^{\mathcal{\mathbf{Rel}}(A)}_X$.
+\end{proof}
+
+\begin{prop}
+$\id^{\mathcal{\mathsf{FCD}}(A)}_X = \id^{\mathcal{\mathsf{FCD}}(A,A)}_{[X]}$.
+\end{prop}
+
+\begin{proof}
+$\supfun{\id^{\mathcal{\mathsf{FCD}}(A,A)}_{[X]}}\mathcal{X}=
+([\mathcal{X}]\sqcap[X])\div A=
+[\mathcal{X}\sqcap X])\div A=\mathcal{X}\sqcap X=
+\supfun{\id^{\mathcal{\mathsf{FCD}}(A)}_X}\mathcal{X}$
+for~$\mathfrak{A}\ni\mathcal{X}\sqsubseteq A$.
+\end{proof}
+
+\begin{prop}
+$\id^{\mathcal{\mathsf{RLD}}(A)}_X = \id^{\mathcal{\mathsf{RLD}}(A,A)}_{[X]}$.
+\end{prop}
+
+\begin{proof}
+$\id^{\mathcal{\mathsf{RLD}}(A,A)}_{[X]}=
+\id^{\mathsf{RLD}}_{[X]\div(A\cap A)}\div(A\times A)=
+\id^{\mathsf{RLD}}_X\div(A\times A)=\id^{\mathsf{RLD}(A)}_X$.
+\end{proof}
+
+\begin{prop}
+  $\setcond{ (\mathcal{A} \div A , \mathcal{A} \sqcap A) }{
+  \mathcal{A} \in \mathfrak{F} (U) }$ is a function and
+  moreover is an order isomorphism for a set $A \subseteq U$.
+\end{prop}
+
+\begin{proof}
+  $\mathcal{A} \div A$ and $\mathcal{A} \sqcap A$ are determined by each other
+  by the following formulas:
+  \[ \mathcal{A} \div A = (\mathcal{A} \sqcap A) \div A \quad
+     \text{and} \quad \mathcal{A} \sqcap A = (\mathcal{A} \div A) \div
+     \Base (\mathcal{A}) . \]
+  Prove the formulas: $(\mathcal{A} \sqcap A) \div A = \bigsqcap \setcond{
+  \uparrow^A (X \cap A) }{ X \in \mathcal{A} \sqcap A
+  } = \bigsqcap \setcond{ \uparrow^A (X \cap A) }{
+  X \in \mathcal{A} } = \mathcal{A} \div A$.
+  
+\begin{multline*}
+  (\mathcal{A} \div A) \div \Base (\mathcal{A}) =\\ \bigsqcap \setcond{
+  \uparrow^A (X \cap A) }{ X \in \mathcal{A} }
+  \div \Base (\mathcal{A}) =\\ \bigsqcap \setcond{ \uparrow^{\Base
+  (\mathcal{A})} (Y \cap \Base (\mathcal{A})) }{
+  Y \in \bigsqcap \setcond{ \uparrow^A (X \cap A) }{
+  X \in \mathcal{A} } } =\\ \text{(by properties of
+  filter bases)} =\\ \bigsqcap \setcond{ \uparrow^{\Base (\mathcal{A})} (X
+  \cap A \cap \Base (\mathcal{A})) }{ X \in
+  } =\\ \bigsqcap \setcond{ \uparrow^{\Base
+  (\mathcal{A})} (X \cap A) }{ X \in \mathcal{A}
+  } =\\ \mathcal{A} \sqcap A.
+\end{multline*}
+
+  That this defines a bijection, follows from $\mathcal{A} \div A \sim
+  \mathcal{A} \sqcap A$ what easily follows from the above formulas.
+\end{proof}
+
+\begin{prop}
+  $\setcond{ (\iota_{X, Y} f , \id^{\mathbf{Rel}(\Dst f)}_Y \circ f \circ
+  \id^{\mathbf{Rel}(\Src f)}_X) }{ f \in
+  \mathbf{Rel} (A , B) }$ is a function and moreover is an
+  (order and semigroup) isomorphism, for sets $X \subseteq \Src f$, $Y
+  \subseteq \Dst f$.
+\end{prop}
+
+\begin{proof}
+  $\iota_{X, Y} f = (X , Y , \GR f \cap (X \times Y))$;
+  $\id^{\mathbf{Rel}}_Y \circ f \circ
+  \id^{\mathbf{Rel}}_X = (\Src f , \Dst f ,
+  \GR f \cap (X \times Y))$. The isomorphism (both order and semigroup)
+  is evident.
+\end{proof}
+
+\begin{prop}
+  $\setcond{ (\iota_{X, Y} f , \id^{\mathsf{FCD}(\Dst f)}_Y
+  \circ f \circ \id^{\mathsf{FCD}(\Src f)}_X) }{
+  f \in \mathsf{FCD} (A , B) }$ is a function and moreover is an
+  (order and semigroup) isomorphism, for sets $X \subseteq \Src f$, $Y
+  \subseteq \Dst f$.
+\end{prop}
+
+\begin{proof}
+  From symmetry it follows that it's enough to prove that $\setcond{ \left(
+  \mathcal{E}^Y \circ f , \id^{\mathsf{FCD}}_Y \circ f \right)
+  }{ f \in \mathsf{FCD} (A , B) }$ is a
+  function and moreover is an (order and semigroup) isomorphism, for a set $Y
+  \subseteq \Dst f$.
+  
+  Really, $\setcond{ (\langle \mathcal{E}^Y \rangle x , \langle
+  \id^{\mathsf{FCD}}_Y \rangle x) }{ x
+  \in \Dst f } = \setcond{ (x \div Y , x \sqcap Y) }{
+  x \in \Dst f }$ is an order isomorphism by proved
+  above. This implies that $\setcond{ \left( \mathcal{E}^Y \circ f ,
+  \id^{\mathsf{FCD}}_Y \circ f \right) }{
+  f \in \mathsf{FCD} (A , B) }$ is an isomorphism
+  (both order and semigroup).
+\end{proof}
+
+\begin{prop}
+  $\setcond{ (\iota_{X, Y} f , \id^{\mathsf{RLD}(\Dst f)}_Y \circ f \circ
+  \id^{\mathsf{RLD}(\Src f)}_X) }{ f \in
+  \mathsf{RLD} (A , B) }$ is a function and moreover is an
+  (order and semigroup) isomorphism, for sets $X \subseteq \Src f$, $Y
+  \subseteq \Dst f$.
+\end{prop}
+
+\begin{proof}
+  $\iota_{X, Y} f = (X , Y , (\up f) \div (X \times Y))$;
+  $\id^{\mathsf{RLD}}_Y \circ f \circ
+  \id^{\mathsf{RLD}}_X = (\Src f , \Dst f ,
+  (\up f) \sqcap (X \times Y))$. They are order isomorphic by proved
+  above.
+  
+\begin{multline*}
+  \iota_{Y, Z} g \circ \iota_{X, Y} f =\\\mathcal{E}^{\Dst g,Z} \circ g \circ
+  \mathcal{E}^{Y,\Src g} \circ \mathcal{E}^{\Dst f,Y} \circ f \circ \mathcal{E}^{X,\Src f} =\\\mathcal{E}^{\Dst g,Z} \circ g \circ \id^{\mathsf{RLD}}_Y \circ
+  \id^{\mathsf{RLD}}_Y \circ f \circ \mathcal{E}^{X,\Src f}
+\end{multline*}
+  because $\mathcal{E}^{Y,\Src g} \circ \mathcal{E}^{\Dst f,Y} =
+  \id^{\mathbf{Rel}}_Y = \id^{\mathbf{Rel}}_Y
+  \circ \id^{\mathbf{Rel}}_Y$. Thus by proved above
+  \[ \setcond{ (\iota_{Y, Z} g \circ \iota_{X, Y} f ,
+     \id^{\mathsf{RLD}}_Z \circ g \circ
+     \id^{\mathsf{RLD}}_Y \circ \id^{\mathsf{RLD}}_Y
+     \circ f \circ \id^{\mathsf{RLD}}_X) }{
+     f \in \mathsf{RLD} (A , B) } \]
+  is a bijection.
+\end{proof}
+
+Can three last propositions be generalized into one?
+
+\begin{prop}\label{f-circcup-unfix}
+$f \circ (g \sqcup h) = f \circ g \sqcup f \circ h$
+for unfixed morphisms whenever the same formula
+holds for (composable) morpshisms.
+\end{prop}
+
+\begin{proof}
+$f \circ (g \sqcup h) = [\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst}
+	f} (f \circ (g \sqcup h))]$ because $\operatorname{dom} (f \circ (g \sqcup h))
+\sqsubseteq \operatorname{Src} g \sqcup \operatorname{Src} h$ and $\operatorname{im} (f \circ (g
+\sqcup h)) \sqsubseteq \operatorname{Dst} f$.
+
+So
+\begin{multline*}
+f \circ (g \sqcup h) =\\ [\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h,
+	\operatorname{Dst} f} f \circ \iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f}
+(g \sqcup h)] =\\ [\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} f
+\circ (\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} g \sqcup
+\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} h)] =\\
+[\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} f \circ
+\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} g \sqcup
+\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} f \circ
+\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} h] =\\
+[\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} (f \circ g) \sqcup
+\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} (f \circ h)] =\\
+[\iota_{\operatorname{Src} g \sqcup \operatorname{Src} h, \operatorname{Dst} f} (f \circ g \sqcup f
+\circ h)] =\\ f \circ g \sqcup f \circ h
+\end{multline*}
+because $\operatorname{dom} (f \circ g
+\sqcup f \circ h) \sqsubseteq \operatorname{Src} g \sqcup \operatorname{Src} h$ and
+$\operatorname{im} (f \circ g \sqcup f \circ h) \sqsubseteq \operatorname{Dst} f$.
+\end{proof}

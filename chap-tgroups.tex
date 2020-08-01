@@ -1,0 +1,526 @@
+\chapter{Funcoidal groups}
+
+\begin{rem}
+  \fxnote{Move this into the book.}
+  If $\mu$ and $\nu$ are cocomplete endofuncoids, then we can describe $f \in
+  \continuous (\mu,\nu)$ without using filters by the formulas:
+  \begin{enumerate}
+    \item $\rsupfun{f} \langle \mu \rangle^{\ast} X \sqsubseteq
+    \supfun{\nu}^{\ast} \rsupfun{f} X$ (for every set $X$
+    in $\subsets \Ob \mu$)
+    
+    \item $\langle \mu \rangle^{\ast} X \sqsubseteq \langle f^{- 1}
+    \rangle^{\ast} \supfun{\nu}^{\ast} \rsupfun{f} X$ (for
+    every set $X$ in $\subsets \Ob \mu$)
+    
+    \item $\rsupfun{f} \langle \mu \rangle^{\ast} \langle f^{- 1}
+    \rangle^{\ast} Y \sqsubseteq \supfun{\nu}^{\ast} Y$ (for every set
+    $Y$ in $\subsets \Ob \nu$)
+  \end{enumerate}
+\end{rem}
+
+Funcoidal groups are modeled after topological groups (see Wikipedia)
+and are their generalization.
+
+\begin{defn}
+  \emph{Funcoidal group} is a group $G$ together with endofuncoid $\mu$ on
+  $\Ob G$ such that
+  \begin{enumerate}
+    \item $(y \cdot) \in \mathrm{C} (\mu ; \mu)$ for every $y \in G$;
+    
+    \item $(\cdot x) \in \mathrm{C} (\mu ; \mu)$ for every $x \in G$;
+    
+    \item $(x \mapsto x^{- 1}) \in \mathrm{C} (\mu ; \mu)$ for every $x \in
+    G$.
+  \end{enumerate}
+\end{defn}
+
+\begin{prop}
+  $t \mapsto y \cdot t \cdot x$ and $t \mapsto y \cdot t^{- 1} \cdot x$ are
+  continuous functions.
+\end{prop}
+
+\begin{proof}
+  As composition of continuous functions.
+\end{proof}
+
+\begin{obvious}
+Composition of functions of the forms $t \mapsto y \cdot t \cdot x$ and $t
+\mapsto y \cdot t^{- 1} \cdot x$ are also a function of one of these
+forms.
+\end{obvious}
+
+What is the purpose of the following (yet unproved) proposition? I don't know, but it looks curious.
+
+\begin{prop}
+  Let $E$ be a composition of functions of a form
+  $\rsupfun{\mu}$, $\langle y \cdot
+  \rangle^{\ast}$, $\langle \cdot x \rangle^{\ast}$, $\langle^{- 1}
+  \rangle^{\ast}$ (where $x$ and $y$ vary arbitrarily)
+  such that $\mu$ is met in the composition at least once.
+  Let also either $\mu = \mu \circ \mu$ or $\mu$ is met exactly once in the product.
+  There are such elements $x_0$, $y_0$ that either
+  \begin{enumerate}
+  \item $(t \mapsto y_0 \cdot t \cdot x_0) \circ \langle \mu \rangle
+  \sqsubseteq E \sqsubseteq \langle \mu \rangle \circ (t \mapsto y_0 \cdot t
+  \cdot x_0)$;
+  
+  \item  $(t \mapsto y_0 \cdot t^{- 1} \cdot x_0) \circ \langle \mu \rangle
+  \sqsubseteq E \sqsubseteq \langle \mu \rangle \circ (t \mapsto y_0 \cdot
+  t^{- 1} \cdot x_0)$.
+  \end{enumerate}
+\end{prop}
+
+\begin{proof}
+  Using continuity a few times we prove that $E \sqsubseteq \langle \mu
+  \rangle^{\ast} \circ \ldots \circ \langle \mu \rangle^{\ast} \circ f_n \circ
+  \ldots \circ f_1$ where $f_i$ are functions of the forms $t \mapsto y \cdot
+  t \cdot x$ or $t \mapsto y \cdot t^{- 1} \cdot x$ for $n \in \mathbb{N}$.
+  But $\langle \mu \rangle^{\ast} \circ \ldots \circ \langle \mu
+  \rangle^{\ast} = \langle \mu \rangle^{\ast}$ by conditions and $f_n \circ
+  \ldots \circ f_1$ is of the form $t \mapsto y \cdot t \cdot x$ or $t \mapsto
+  y \cdot t^{- 1} \cdot x$ by above proposition. $E \sqsubseteq \langle \mu
+  \rangle \circ (t \mapsto y_0 \cdot t \cdot x_0)$ or $E \sqsubseteq \langle
+  \mu \rangle \circ (t \mapsto y_0 \cdot t^{- 1} \cdot x_0)$
+  
+  The second inequalty is similar. Note that $x_0$ and $y_0$ are the same for
+  the first and for the second item.
+\end{proof}
+
+$(G, \mu)$ vs $(G, \mu^{-1})$ are they isomorphic?
+
+\fxnote{We can also define reloidal groups.}
+
+\section{On ``Each regular paratopological group is completely regular'' article}
+
+In this chapter I attempt to rewrite the paper~\cite{2014arXiv1410.1504B} in more general setting of funcoids and reloids.
+I attempt to construct a ``royal road'' to finding proofs of statements of this paper and similar ones, what is
+important because we lose 60 years waiting for any proof.
+
+\subsection{Definition of normality}
+
+By definition (slightly generalizing the special case if $\mu$ is a
+quasi-uniform space from~\cite{2014arXiv1410.1504B})
+a pair of an endo-reloid~$\mu$ and a complete funcoid~$\nu$ (playing role of a generalization of a topological space)
+on a set $U$ is \emph{normal} when
+\[ \rsupfun{\nu^{-1}} A \sqsubseteq \rsupfun{
+{\nu^{-1}}^{\circ}} \rsupfun{\nu^{-1}} \rsupfun{F} A \] for every entourage $F \in
+\up \mu$ of $\mu$ and every set $A \subseteq U$.
+
+Note that this is \emph{not} the same as customary definition of normal topological spaces.
+
+\begin{thm}
+  An endoreloid $\mu$ is normal on endoreloid~$\nu$ iff
+  \[ \nu \circ \nu^{-1} \sqsubseteq
+  \nu^{-1} \circ (\mathsf{FCD}) \mu. \]
+\end{thm}
+
+\begin{proof}
+  Equivalently transforming the criterion of normality (which should hold for
+  all $F \in \up \mu$) using proposition~\ref{get-rid-interior}:
+
+  $\rsupfun{\nu}
+  \rsupfun{\nu^{-1}} A \sqsubseteq
+  \rsupfun{\nu^{-1}} \rsupfun{F} A$.
+
+  Also note
+  
+  $\bigsqcap^{\mathscr{F}}_{F \in \up \mu} \rsupfun{ \nu^{-1}
+  } \rsupfun{F} A = \text{(because funcoids preserve
+  filtered meets)} = \rsupfun{ \nu^{-1}
+  }  \bigsqcap^{\mathscr{F}}_{F \in \up \mu} \rsupfun{F} A =
+  \rsupfun{ \nu^{-1} }
+  \rsupfun{ (\mathsf{FCD}) \mu } A$.
+
+  Thus the above is equivalent to
+  $\rsupfun{\nu}
+  \rsupfun{\nu^{-1}} A \sqsubseteq
+  \rsupfun{ \nu^{-1} }
+  \rsupfun{ (\mathsf{FCD}) \mu } A$.
+
+  And this is in turn equivalent to
+  \[ \nu \circ \nu^{-1} \sqsubseteq
+  \nu^{-1} \circ (\mathsf{FCD}) \mu. \]
+\end{proof}
+
+\begin{defn}
+An endofuncoid~$\mu$ is \emph{normal} on endofuncoid~$\nu$ when $\nu \circ \nu^{-1} \sqsubseteq \nu^{-1} \circ \mu$.
+\fxwarning{No need for $\nu$ to be endomorphism.}
+\end{defn}
+
+\begin{obvious}\label{norm-fcd-rld}
+~
+\begin{enumerate}
+\item Endoreloid~$\mu$ is normal on endofuncoid~$\nu$ iff endofuncoid~$\tofcd\mu$ is normal on endofuncoid~$\nu$.
+\item Endofuncoid~$\mu$ is normal on endoreloid~$\nu$ iff endofuncoid~$\torldin\mu$ is normal on endofuncoid~$\nu$.
+\end{enumerate}
+\end{obvious}
+
+\begin{cor}
+If $\nu$ is a symmetric endofuncoid and $\mu\sqsupseteq \nu^{-1}$, then it is normal.
+\end{cor}
+
+\begin{cor} (generalization of proposition~1 in~\cite{2014arXiv1410.1504B})
+If $\nu$ is a symmetric endofuncoid and $\Compl\mu\sqsupseteq \nu^{-1}$, then it is normal.
+\end{cor}
+
+\begin{defn}
+A funcoid~$\nu$ is \emph{normally reloidazable} iff there exist a reloid~$\mu$ such that
+$(\mu,\nu)$ is normal and $\nu=\Compl\tofcd\mu$.
+\end{defn}
+
+\begin{defn}
+A funcoid~$\nu$ is \emph{normally quasi-uniformizable} iff there exist a quasi-uniform space (=~reflexive and transitive reloid)~$\mu$ such that
+$(\mu,\nu)$ is normal and $\nu=\Compl\tofcd\mu$.
+\end{defn}
+
+\begin{prop}
+A funcoid~$\nu$ is normally reloidazable iff there exist a funcoid~$\mu$ such that
+$\mu$ is normal on~$\nu$ and $\nu=\Compl\mu$.
+\end{prop}
+
+\begin{prop}
+A funcoid~$\nu$ is normally quasi-uniformizable iff there exist a quasi-proximity space (=~reflexive and transitive funcoid)~$\mu$ such that
+$\mu$ is normal on~$\nu$ and $\nu=\Compl\mu$.
+\end{prop}
+
+\begin{proof}
+Obvious~\ref{norm-fcd-rld} and the fact that~$\tofcd$ is an isomorphism between reflexive and transitive funcoids
+and reflexive and transitive reloids.
+\end{proof}
+
+In other words, it is normally reloidazable or normally quasi-uniformizable when
+\[ (\Compl\mu)\circ(\Compl\mu)^{-1}\sqsubseteq(\Compl\mu)^{-1}\circ\mu \]
+for suitable~$\mu$.
+
+\subsection{Urysohn's lemma and friends}
+
+For a detailed proof of Urysohn's lemma see also:\\
+\url{http://homepage.math.uiowa.edu/~jsimon/COURSES/M132Fall07/UrysohnLemma_v5.pdf}\\
+\url{https://proofwiki.org/wiki/Urysohn's_Lemma}\\
+\url{http://planetmath.org/proofofurysohnslemma}
+
+\url{https://en.wikipedia.org/wiki/Proximity_space} says that
+``The resulting topology is always completely regular. This can be proven by imitating the usual proofs of Urysohn's lemma, using the last property of proximal neighborhoods to create the infinite increasing chain used in proving the lemma.''
+
+Below follows an alternative proof of Urysohn lemma.
+\emph{The proof was based on a conjecture proved false, see example~\bookref{fcd-comp-ent}!}
+
+\begin{lem}
+  If $\supfun{\mu} \mathcal{A} \asymp \mathcal{B}$ for a complete
+  funcoid $\mu$ and $\mathcal{A}$, $\mathcal{B}$ are filters on relevant
+  sets, then there exists $U \in \up \mu$ such that $\supfun{U} \mathcal{A} \asymp \mathcal{B}$.
+\end{lem}
+
+\begin{proof}
+  Prove that $\setcond{ \supfun{U} \mathcal{A} }{
+  U \in \up \mu }$ is a filter base. That it
+  is nonempty is obvious.
+  
+  Let $\mathcal{X}, \mathcal{Y} \in \setcond{ \supfun{U} \mathcal{A}
+  }{ U \in \up \mu }$. Then
+  $\mathcal{X} = \supfun{U_{\mathcal{X}}} \mathcal{A}$, $Y = \supfun{
+  U_{\mathcal{Y}}} \supfun{A}$. Because $\mu$ is complete, we have
+  (proposition~\bookref{up-f-filt}) $U_{\mathcal{X}} \sqcap U_{\mathcal{Y}} \in \up
+  \mu$. Thus $\mathcal{X}, \mathcal{Y} \sqsupseteq \supfun{
+  U_{\mathcal{X}} \sqcap U_{\mathcal{Y}} } \mathcal{A} \in \setcond{
+  \supfun{U} \mathcal{A} }{ U \in \up \mu }$.
+  
+  Thus $\supfun{\mu} \mathcal{A} \asymp \mathcal{B}
+  \Leftrightarrow \mathcal{B} \sqcap \supfun{\mu} \mathcal{A} =
+  \bot \Leftrightarrow \exists U \in \up \mu: \mathcal{B} \sqcap
+  \supfun{U} \mathcal{A} = \bot \Leftrightarrow \exists U \in \up
+  \mu: \supfun{U} \mathcal{A} \asymp \mathcal{B}$.
+\end{proof}
+
+\begin{cor}\label{disj-mu}
+  If $\supfun{\mu} \mathcal{A} \asymp \supfun{\mu}
+  \mathcal{B}$ for a complete funcoid $\mu$ and $\mathcal{A}$,
+  $\mathcal{B}$ are filters on relevant sets, then there exists $U \in
+  \up \mu$ such that $\supfun{U} \mathcal{A} \asymp \supfun{U} \mathcal{B}$.
+\end{cor}
+
+\begin{proof}
+  Applying the lemma twice we can obtain $P, Q \in \up \mu$
+  such that $\supfun{P} \mathcal{A} \asymp \supfun{Q} \mathcal{B}$. But because
+  $\mu$ is complete, we have $U = P \sqcap Q \in \up \mu$,
+  while obviously $\supfun{U} \mathcal{A} \asymp \supfun{U} \mathcal{B}$.
+\end{proof}
+
+\begin{lem}
+  (assuming conjecture~\bookref{fcd-comp-ent}) For every $U \in \up \mu$ (where $\mu$ is a $T_4$ topological space) such that
+  $\neg \left( A \rsuprel{U \circ U^{- 1}} B \right)$ there is $W \in
+  \up \mu$ such that $U \circ U^{- 1} \sqsupseteq W \circ W^{- 1}
+  \circ W \circ W^{- 1}$. For it holds $\neg \left( A \rsuprel{W \circ W^{-
+  1}} B \right)$.
+  We can assume that $\rsupfun{W}X$ is open for every set~$X$.
+\end{lem}
+
+\begin{proof}
+  $U \circ U^{- 1} \in \up (\mu \circ \mu^{- 1}) \subseteq
+  \up (\mu \circ \mu^{- 1} \circ \mu \circ
+  \mu^{- 1})$ (normality used). Thus by the conjecture there exists $W
+  \in \up \mu$ such that $U \circ U^{- 1} \sqsupseteq W \circ W^{-
+  1} \circ W \circ W^{- 1}$. $W \circ W^{- 1} \sqsubseteq U \circ U^{- 1}$
+  thus $\neg \left( A \rsuprel{W \circ W^{- 1}} B \right)$.
+  
+  To prove that $\rsupfun{W}X$ is open for every set~$X$, replace every $\rsupfun{W}\{x\}$
+  with an open neighborhood $E\subseteq\rsupfun{W}X$ of $\rsupfun{\mu}\{x\}$
+  (and note that union of open sets is open).
+  This new $W$ holds all necessary properties.
+\end{proof}
+
+\begin{lem}
+  (assuming conjecture~\bookref{fcd-comp-ent}) For every $U \in \up \mu$ (where $\mu$ is a $T_4$ topological space) such that
+  $\neg \left( A \rsuprel{U \circ U^{- 1}} B \right)$ there is $W \in \up\mu$
+  such that $U \circ U^{- 1} \sqsupseteq \mu^{-1} \circ W \circ W^{-1}\circ W \circ W^{- 1}$.
+  For it holds $\neg \left( A \rsuprel{W \circ W^{-
+  1}} B \right)$.
+  We can assume that $\rsupfun{W}X$ is open for every set~$X$.
+\end{lem}
+
+\begin{proof}
+Applying the previous lemma twice, we have some open~$W\in\up\mu$ such that
+\[ U\circ U^{-1} \sqsupseteq W \circ W^{-1}\circ W \circ W^{- 1} \circ W \circ W^{-1}\circ W \circ W^{- 1} \]
+and $\neg \left( A \rsuprel{W \circ W^{-1}} B \right)$.
+From this easily follows that \[ U \circ U^{- 1} \sqsupseteq \mu^{-1} \circ W \circ W^{-1}\circ W \circ W^{- 1}. \]
+\end{proof}
+
+A modified proof of Urysohn's lemma follows. This proof is in part based on~\cite{2014arXiv1410.1504B}.
+(I attempt to find common generalization of Urysohn's lemma and results from~\cite{2014arXiv1410.1504B}).
+
+$\mathbb{Q}_2 \eqdef \setcond{ k/2^n }{k, n \in \mathbb{N}, 0 < k < 2^n }$.
+
+\begin{thm}
+Urysohn's lemma (see Wikipedia) for disjoint closed sets~$A$ and~$B$ and function~$f$ on a topological space~$\mu$
+(considered as complete funcoid).
+\end{thm}
+
+\begin{proof}
+(assuming conjecture~\bookref{fcd-comp-ent}) (used ProofWiki among other sources)
+
+Because $A$ and $B$ are disjoint closed sets, we
+have $\rsupfun{\mu} A \asymp \rsupfun{\mu} B$. Thus by the corollary~\ref{disj-mu} take $S_0 \in \up
+\mu$ and $\neg \left( A \rsuprel{S_0 \circ S_0^{- 1}} B
+\right)$.
+
+We have $\mu \circ \mu^{- 1} \circ \mu \circ \mu^{- 1}
+\sqsubseteq \mu \circ \mu^{- 1}$ that is $\up (\mu
+\circ \mu^{- 1} \circ \mu \circ \mu^{- 1}) \supseteq
+\up (\mu \circ \mu^{- 1})$.
+
+Let's prove by induction: There is a sequence $S$ of binary relations starting
+with $S_0$ such that $\neg \left( A \rsuprel{S_i \circ S_i^{- 1}} B
+\right)$ and $S_i \circ S_i^{- 1} \sqsupseteq \mu^{-1} \circ S_{i + 1} \circ S_{i + 1}^{- 1}
+\circ S_{i + 1} \circ S_{i + 1}^{- 1}$. It directly follows from the lemma
+(and uses the conjecture).
+
+Denote $U_i = S_{i + 1} \circ S_{i + 1}^{- 1}$. We have $U_i \sqsupseteq \mu^{-1} \circ U_{i +
+1} \circ U_{i + 1}$ and $\neg \left( A \rsuprel{U_i} B \right)$.
+
+By reflexivity of~$\mu$ we have $U_{i+1} \subseteq U_{i+1}\circ U_{i+1} \subseteq U_i$.
+
+Define fractional degree of $U$: $U^r \eqdef U_1^{r_1} \circ
+\ldots \circ U_{l_r}^{r_{l_r}}$ for every $r \in \mathbb{Q}_2$ where $r_1
+\ldots r_{l_r}$ is the binary expansion of $r$.
+
+Prove $U_r\subseteq U_0$. It is enough to prove
+$U_0 \supseteq U_1 \circ \ldots \circ U_{l_r}$. It follows from $U_2 \circ
+\ldots \circ U_{l_r} \subseteq U_1$, $U_3 \circ \ldots \circ U_{l_r} \subseteq
+U_2$, \dots, $U_{l_r} \subseteq U_{l_r - 1}$ what was shown above.
+
+Let's prove: For each $p,q\in\mathbb{Q}_2$ such that $p<q$ we have $\mu^{-1}\circ U^p\sqsubseteq U^q$.
+We can assume binary expansion of~$p$ and~$q$ be the same length~$c$ (add zeros at the end of the shorter one).
+Now it is enough to prove
+\[ U_k\circ U_{k+1}^{q_{k+1}}\circ\dots\circ U_c^{q_c}\sqsupseteq\mu^{-1}\circ U_{k+1}^{p_{k+1}}\circ U_{k+2}^{p_{k+2}}\circ\dots\circ U_c^{p_c}. \]
+But for this it's enough
+\[ U_k\sqsupseteq\mu^{-1}\circ U_{k+1}\circ U_{k+2}\circ\dots\circ U_c \]
+what can be easily proved by induction:
+If $k=c$ then it takes the form $U_k\sqsupseteq\mu^{-1}$
+what is obvious.
+Suppose it holds for~$k$. Then $U_{k-1}\sqsupseteq\mu^{-1}\circ U_k\circ U_k\sqsupseteq
+\mu^{-1}\circ U_k\circ \mu^{-1}\circ U_{k+1}\circ U_{k+2}\circ\dots\circ U_c\sqsupseteq
+\mu^{-1}\circ U_k\circ U_{k+1}\circ U_{k+2}\circ\dots\circ U_c$, that is it holds
+for all natural $k\leq c$.
+
+It is easy to prove that $\rsupfun{U^r}X$ is open for every set~$X$.
+
+We have $\rsupfun{\mu^{-1}}\rsupfun{U^p}X\sqsubseteq\rsupfun{U^q}X$.
+
+\[ f (z) \eqdef \inf \left( \{ 1 \} \cup \setcond{ q \in
+   \mathbb{Q}_2 }{ z \in \rsupfun{U^q}
+   A } \right). \]
+$f$ is properly defined because $\{ 1 \} \cup \setcond{ q \in \mathbb{Q}_2
+}{ z \in \rsupfun{U^q} A }$ is
+nonempty and bounded.
+
+If $z \in A$ then $z \in \rsupfun{U^q} A$ for every $q \in
+\mathbb{Q}_2$, thus $f (z) = 0$, because obviously $U^q \sqsupseteq 1$.
+
+If $z \in B$ then $z \notin \rsupfun{U^q} A$ for every $q \in
+\mathbb{Q}_2$, thus $f (z) = 1$, because $U^q \sqsubseteq U_0$.
+
+It remains to prove that $f$ is continuous.
+
+Let $D (x) = \{ 1 \} \cup \setcond{ q \in \mathbb{Q}_2 }{
+z \in \rsupfun{U^q} A }$.
+
+To show that f is continuous, we first prove two smaller results:
+
+(a) $x\in\rsupfun{\mu^{-1}}\rsupfun{U^r}A \Rightarrow f(x)\leq r$.
+
+We have $x\in\rsupfun{\mu^{-1}}\rsupfun{U^r}A \Rightarrow \forall s>r:x\in\rsupfun{U^s}A$,
+so $D(x)$ contains all rationals greater than $r$. Thus $f(x)\leq r$ by definition of~$f$.
+
+(b) $x\notin\rsupfun{U^r}A \Rightarrow f(x)\geq r$.
+
+We have $x\notin\rsupfun{U^r}A \Rightarrow \forall s<r:x\notin\rsupfun{U^s}A$.
+So $D(x)$ contains no rational less than $r$. Thus $f(x)\geq r$.
+
+Let $x_0\in S$ and let $]c;d[$ be an open real interval containing $f(x)$.
+We will find a neighborhood $T$ of $x_0$ such that $\rsupfun{f}T\subseteq]c;d[$.
+
+Choose $p,q\in\mathbb{Q}$ such that $c < p < f(x_0) < q < d$. Let $T=\rsupfun{U^q}A\setminus\rsupfun{\mu^{-1}}\rsupfun{U^p}A$.
+
+Then since $f(x_0)<q$, we have that (b) implies vacuously that $x\in\rsupfun{U^q}A$.
+
+Since $f(x_0)>p$, (a) implies $x_0\notin\rsupfun{U^p}A$.
+
+Hence $x_0\in T$. Then $T$ is a neighborhood of~$x_0$ because $T$ is open.
+
+Finally, let $x\in T$.
+
+Then $x\in\rsupfun{U^q}A\subseteq\rsupfun{\mu^{-1}}\rsupfun{U^q}A$. So $f(x)\leq q$ by~(a).
+
+Also $x\notin\rsupfun{\mu^{-1}}\rsupfun{U^p}A$, so $x\notin\rsupfun{U^p}A$ and $f(x)\geq p$ by~(b).
+
+Thus: $f(x)\in[p;q]\subseteq]c;d[$.
+
+Therefore $f$ is continuous.
+
+\begin{grayed}
+Claim A: $f (x) > q \Rightarrow x \notin \langle \mu^{- 1}
+\rangle^{\ast} \rsupfun{U^q} A$
+
+Claim B: $f (x) < q \Rightarrow x \in \rsupfun{U^q} A$
+
+Proof of claim A: If $f (x) > q$ then then there must be some gap between $q$
+and $D (x)$; in particular, there exists some $q'$ such that $q < q' < f (x)$.
+But $q' < f (x) \Rightarrow x \notin \rsupfun{U^q} A \Rightarrow x
+\notin \rsupfun{\mu^{- 1}} \rsupfun{U^q} A$ (using that $\rsupfun{U^r}X$ is open).
+
+Proof of claim B: If $f (x) < q$ then there exists $q' \in D (x)$ such that $f
+(x) < q' < q$, in which case $q \in D (x)$, so $x \in \langle U^q
+\rangle^{\ast} A$.
+
+To show that $f$ is continuous, it's enough to prove that preimages of $] a ;
+1]$ and $[0 ; a [$ are open.
+
+Suppose $f (x) \in] a ; 1]$. Pick some $q$ with $a < q < f (x)$. We claim that
+the open set $W = X \setminus \rsupfun{f^{- 1}} \langle U^q
+\rangle^{\ast} A$ is a neighborhood of $x$ that is mapped by $f$ into $] a ;
+1]$. First, by (A), $f (x) > q \Rightarrow x \in W$, so $W$ is a neighborhood
+of $x$. If $y$ is any point of $W$, then $f (y)$ must be $\geq q > a$;
+otherwise, if $f (y) < q$, then, by (B) $y \in \rsupfun{U^q} A
+\subseteq \rsupfun{f^{- 1}} \rsupfun{U^q} A$.
+
+Suppose $x \in f^{- 1} [0 ; b [$ that is $f (x) < b$ and pick $q$ such that $f
+(x) < q < b$. By (B) $x \in \rsupfun{U^q} A$. We claim that the
+neighborhood $\rsupfun{U^q} A$ is mapped by $f$ into $[0 ; b [$.
+Suppose $y$ is any point of $\rsupfun{U^q} A$. Then $q \in D
+(y)$, so $f (y) \leq q < b$.
+\end{grayed}
+\end{proof}
+
+\begin{thm}
+(from~\cite{2014arXiv1410.1504B})
+If $\mu$ is a normal quasi-uniformity on a topological space~$\nu$, then for any nonempty subset $A\in\Ob\nu$
+and entourage~$U\in\up\mu$ there exists a continuous function $f:\Ob\nu\rightarrow[0;1]$ such that
+$A\sqsubseteq\rsupfun{f^{-1}}\{0\}\sqsubseteq\rsupfun{f^{-1}}[0;1[\sqsubseteq\rsupfun{{\nu^{-1}}^\circ}\rsupfun{\nu^{-1}}\rsupfun{U}A$.
+\end{thm}
+
+\begin{proof}
+Choose inductively a sequence of entourages $(U_n)_{n = 0}^{\infty}$ such that
+$U_0 = U$ and $U_{n + 1} \circ U_{n + 1} \sqsubseteq U_n$.
+
+Denote $l_r = \max \setcond{ n \in \mathbb{N} }{ r_n = 1 }$.
+
+Define $U^r = U_{l_r}^{r_{l_r}} \circ \ldots \circ U_1^{r_1}$
+
+Prove $\rsupfun{\nu^{- 1}} \rsupfun{U^q} A
+\sqsubseteq \rsupfun{\nu^{- 1 \circ}} \rsupfun{\nu^{- 1}}
+\rsupfun{U^r} A$ for any $q < r$ in
+$\mathbb{Q}_2$. \fxnote{Can be easily rewritten with the formula $\rsupfun{\nu} \rsupfun{\nu^{- 1}} \rsupfun{U^q} A
+\sqsubseteq \rsupfun{\nu^{- 1}} \rsupfun{U^r} A$
+instead. It may extend to non-complete funcoids.}
+
+There is such $l$ that $0 = q_l < r_l = 1$ and $q_i = r_i$ for all $i < l$.
+
+It follows $l_q \neq l \leq l_r$.
+
+Consider variants:
+\begin{description}
+  \item[$l_q < l$] $\rsupfun{\nu^{- 1}} \rsupfun{U^q} A \sqsubseteq \rsupfun{\nu^{- 1}} \left\langle
+  U_{l_q} \circ \ldots \circ U_1^{q_1q_{l_q}} \right\rangle^{\ast} A = \rsupfun{\nu^{- 1}} \left\langle U_{l_q}^{r_{l_q}} \circ \ldots \circ
+  U_1^{r_1} \right\rangle^{\ast} A \sqsubseteq \langle \nu^{- 1}
+  \rangle^{\ast} \left\langle U_{l - 1}^{r_{l - 1}} \circ \ldots \circ
+  U_1^{r_1} \right\rangle^{\ast} A \sqsubseteq \langle \nu^{- 1 \circ}
+  \rangle^{\ast} \rsupfun{\nu^{- 1}} \langle U_l^{r_l} \circ U_{l
+  - 1}^{r_{l - 1}} \circ \ldots \circ U_1^{r_1} \rangle^{\ast} A = \langle
+  \nu^{- 1 \circ} \rangle^{\ast} \rsupfun{\nu^{- 1}} \langle U^r
+  \rangle^{\ast} A$ (use $U_l^{r_l} \in \up \tofcd
+  \mu$ by theorem 992).
+  
+  \item[$l < l_q$] Inclusions $U_k \circ U_k \sqsubseteq U_{k - 1}$ for $l < k
+  \leq l_q + 1$ guarantee that $U_{l_q + 1} \circ U_{l_q} \circ \ldots \circ
+  U_{l + 1} \sqsubseteq U_l$ and then $\rsupfun{\nu^{- 1}}
+  \rsupfun{U^q} A \sqsubseteq \rsupfun{\nu^{- 1}}
+  \left\langle U_{l_q}^{q_{l_q}} \circ \ldots \circ U_1^{q_1}
+  \right\rangle^{\ast} A \sqsubseteq \rsupfun{\nu^{- 1 \circ}}
+  \rsupfun{\nu^{- 1}} \left\langle U_{l_q + 1}^{q_{l_q + 1}}
+  \circ U_{l_q}^{q_{l_q}} \circ \ldots \circ U_1^{q_1} \right\rangle^{\ast} A
+  = \rsupfun{\nu^{- 1 \circ}} \rsupfun{\nu^{- 1}}
+  \left\langle U_{l_q + 1} \circ U_{l_q}^{q_{l_q}} \circ \ldots \circ U_l^0
+  \circ \ldots \circ U_1^{q_1} \right\rangle^{\ast} A \sqsubseteq \left\langle
+  \nu^{- 1 \circ} \right\rangle^{\ast} \rsupfun{\nu^{- 1}}
+  \langle U_l \circ U_{l - 1}^{q_{l - 1}} \circ \ldots \circ U_1^{q_1}
+  \rangle^{\ast} A \sqsubseteq \rsupfun{\nu^{- 1 \circ}} \langle
+  \nu^{- 1} \rangle^{\ast} \left\langle U_l^{r_l} \circ U_{l - 1}^{r_{l - 1}}
+  \circ \ldots \circ U_1^{r_1} \right\rangle^{\ast} A \sqsubseteq \langle
+  \nu^{- 1 \circ} \rangle^{\ast} \rsupfun{\nu^{- 1}} \left\langle
+  U_{l_r}^{r_{l_r}} \circ \ldots \circ U_1^{r_1} \right\rangle^{\ast} A =
+  \rsupfun{\nu^{- 1 \circ}} \rsupfun{\nu^{- 1}}
+  \langle U_r \rangle^{\ast} A$.
+\end{description}
+Define $f$ by the formula $f (z) = \inf \left( \{ 1 \} \cup \setcond{ q \in
+\mathbb{Q}_2 }{ z \in \langle \nu^{- 1}
+\rangle^{\ast} \rsupfun{U^q} A } \right)$.
+
+It is clear?? that $A \sqsubseteq \rsupfun{f^{- 1}} \{ 0 \}$ and
+$\rsupfun{f^{- 1}} [0 ; 1 [ \sqsubseteq
+\bigcup_{q \in \mathbb{Q}_2} \rsupfun{\nu^{- 1}} \langle U^q
+\rangle^{\ast} A = \bigcup_{r \in \mathbb{Q}_2} \langle \nu^{- 1 \circ}
+\rangle^{\ast} \rsupfun{\nu^{- 1}} \rsupfun{U^r} A
+\sqsubseteq \rsupfun{\nu^{- 1 \circ}} \langle \nu^{- 1}
+\rangle^{\ast} \langle U_0 \rangle^{\ast} A$.
+
+To prove that the map $f : X \rightarrow [0, 1]$ is continuous, it suffices to
+check that for every real number $a \in] 0 ; 1 [$ the sets $\langle f^{- 1}
+\rangle^{\ast} [0 ; a [$ and $\rsupfun{f^{- 1}}] a ; 1]$ are
+open. This follows from the equalitites
+
+$\rsupfun{f^{- 1}} [0 ; a [= \bigcup_{\mathbb{Q}_2 \ni q < a}
+\rsupfun{\nu^{- 1 \circ}} \rsupfun{\nu^{- 1}}
+\rsupfun{U^q} A$ and $\rsupfun{f^{- 1}}] a ; 1] =
+\bigcup_{\mathbb{Q}_2 \ni r > a} (X \setminus \langle \nu^{- 1}
+\rangle^{\ast} \rsupfun{U^r} A)$.
+\end{proof}
+
+How the formulas for normal ($T_4$) topological spaces and normal quasi-uniformities are related?
+Maybe this works: Replacing $\nu \rightarrow \mu \circ \mu^{- 1}$, $\mu
+\rightarrow 1$ makes $\nu \circ \nu^{- 1} \sqsubseteq \nu^{- 1} \circ
+\tofcd \mu \rightarrow \mu \circ \mu^{- 1}
+\circ \mu \circ \mu^{- 1} \sqsubseteq \mu \circ \mu^{-
+1}$.
+
+\url{https://www.researchgate.net/project/The-lattice-LG-of-group-topologies}

@@ -1,0 +1,509 @@
+\chapter{Systems of sides}
+
+Now we will consider a common generalization of (some of pointfree) funcoids and (some of) Galois connections.
+The main purpose of this is general theorem~\ref{neg-prod} below.
+
+First consider some properties of Galois connections:
+
+\section{More on Galois connections}
+
+Here I will denote $\supfun{f}$ the lower adjoint of a Galois connection~$f$. \fxnote{Switch to this notation in the book?}
+
+Let $\mathsf{GAL}$ be the category of Galois connections.
+\fxwarning{Need to decide whether use $\mathsf{GAL}(A,B)$ or $A\otimes B$.}
+
+I will denote $(f,g)^{-1}=(g,f)$ for a Galois connection~$(f,g)$.
+
+We will order Galois connections by the formula
+\[ f\sqsubseteq g \Leftrightarrow \supfun{f}\sqsubseteq\supfun{g} \Leftrightarrow \supfun{f^{-1}}\sqsupseteq\supfun{g^{-1}}. \]
+
+\begin{obvious}
+This defines a partial order on the set of Galois connections between any two (fixed) posets.
+\end{obvious}
+
+\begin{prop}\label{gal-fjoin-x}
+If $f$ and~$g$ are Galois connections (between a join-semilattice~$\mathfrak{A}$ and a meet-semilattice~$\mathfrak{B}$),
+then there exists a Galois connection~$f\sqcup g$
+determined by the formula~$\supfun{f\sqcup g}x = \supfun{f}x\sqcup\supfun{g}x$.
+\end{prop}
+
+\begin{proof}
+It is enough to prove that
+\[ (x\mapsto\supfun{f}x\sqcup\supfun{g}x, y\mapsto\supfun{f^{-1}}y\sqcap\supfun{g^{-1}}y) \]
+is a Galois connection that is that
+\[ \supfun{f}x\sqcup\supfun{g}x\sqsubseteq y\Leftrightarrow x\sqsubseteq\supfun{f^{-1}}y\sqcap\supfun{g^{-1}}y \] for all relevant~$x$ and~$y$.
+
+Really,
+\begin{multline*}
+\supfun{f}x\sqcup\supfun{g}x\sqsubseteq y \Leftrightarrow
+\supfun{f}x\sqsubseteq y\land\supfun{g}x\sqsubseteq y \Leftrightarrow \\
+x\sqsubseteq\supfun{f^{-1}}y\land x\sqsubseteq\supfun{g^{-1}}y \Leftrightarrow
+x\sqsubseteq\supfun{f^{-1}}y\sqcap\supfun{g^{-1}}y.
+\end{multline*}
+\end{proof}
+
+\fxnote{Describe infinite join of Galois connections.}
+
+\begin{prop}\label{a-bot}
+If $\mathfrak{A}$ is a poset with least element, then $\supfun{a}\bot=\bot$.
+\end{prop}
+
+\begin{proof}
+$\supfun{a}\bot\sqsubseteq y\Leftrightarrow \bot\sqsubseteq\supfun{a^{-1}}y\Leftrightarrow 1$.
+Thus $\supfun{a}\bot$ is the least element.
+\end{proof}
+
+\begin{prop}
+$(\mathfrak{A}\times\{\bot^\mathfrak{B}\}, \mathfrak{B}\times\{\top^\mathfrak{A}\})$ is the least Galois connection from
+a poset~$\mathfrak{A}$ with greatest element to a poset~$\mathfrak{B}$ with least element.
+\end{prop}
+
+\begin{proof}
+Let's prove that it is a Galois connection. We need to prove
+\[ (\mathfrak{A}\times\{\bot^\mathfrak{B}\})x\sqsubseteq y \Leftrightarrow x\sqsubseteq (\mathfrak{B}\times\{\top^\mathfrak{A}\})y. \]
+But this is trivially equivalent to $1\Leftrightarrow 1$. Thus it's a Galois connection.
+
+That it the least is obvious.
+\end{proof}
+
+\begin{cor}
+$\supfun{\bot}x=\bot$ for Galois connections from
+a poset~$\mathfrak{A}$ with greatest element to a poset~$\mathfrak{B}$ with least element.
+\fxwarning{Clarify.}
+\end{cor}
+
+\begin{thm}\label{gal-bound}
+If $\mathfrak{A}$ and $\mathfrak{B}$ are bounded posets, then $\mathsf{GAL}(\mathfrak{A}, \mathfrak{B})$ is bounded.
+\end{thm}
+
+\begin{proof}
+That $\mathsf{GAL} (\mathfrak{A}, \mathfrak{B})$ has least element was proved
+above. I will demonstrate that $(\alpha , \beta)$
+is the greatest element of $\mathsf{pFCD} (\mathfrak{A}, \mathfrak{B})$ for
+\[ \alpha X = \begin{cases}
+     \bot^{\mathfrak{B}} & \text{if } X = \bot^{\mathfrak{A}}\\
+     \top^{\mathfrak{B}} & \text{if } X \neq \bot^{\mathfrak{A}}
+   \end{cases} ; \quad
+   \beta Y = \begin{cases}
+     \top^{\mathfrak{A}} & \text{if } Y = \top^{\mathfrak{B}}\\
+     \bot^{\mathfrak{A}} & \text{if } Y \neq \top^{\mathfrak{B}}
+   \end{cases} . \]
+First prove $Y \sqsubseteq \alpha X \Leftrightarrow X \sqsubseteq \beta Y$.
+
+Really $\alpha X\sqsubseteq Y \Leftrightarrow X=\bot^{\mathfrak{A}}\lor Y=\top^{\mathfrak{B}} \Leftrightarrow X \sqsubseteq \beta Y$.
+
+That it is the greatest Galois connection between~$\mathfrak{A}$ and~$\mathfrak{B}$ easily follows from proposition~\ref{a-bot}.
+\end{proof}
+
+\begin{thm}\label{gal-id-ex}
+  For every brouwerian lattice $x \mapsto c \sqcap x$ is a lower adjoint.
+\end{thm}
+
+\begin{proof}
+  By dual of theorem~\bookref{cobrow-adj}.
+\end{proof}
+
+\begin{xca}
+  Describe the corresponding upper adjoint, especially for the special case of
+  boolean lattices.
+\end{xca}
+
+\section{Definition}
+
+\begin{defn}
+\emph{System of presides} is
+a functor $\Upsilon = (f\mapsto\supfun{f})$ from an ordered category
+to the category of functions between (small) bounded lattices,
+such that (for all relevant variables):
+\begin{enumerate}
+  \item Every Hom-set of~$\Src\Upsilon$ is a bounded join-semilattice.
+
+  \item $\supfun{a}\bot = \bot$.
+
+  \item $\supfun{a \sqcup b} X = \supfun{a} X \sqcup \supfun{b} X$ (equivalent to $\Upsilon$ to be a join-semilattice homomorphism,
+    if we order functions between small bounded lattices component-wise).
+\end{enumerate}
+I call morphisms of such categories \emph{sides}.\footnote{The idea for the name is that we consider one ``side''~$\supfun{f}$ of a funcoid instead of both sides~$\supfun{f}$ and~$\supfun{f^{-1}}$.}
+\end{defn}
+
+\begin{rem}
+We could generalize to functions between small join-semilattices with least elements instead of bounded lattices only, but this is not really necessary.
+\end{rem}
+
+\begin{defn}
+I will call objects of the source category of this functor simply \emph{objects of the presides}.
+\end{defn}
+
+\begin{defn}
+\emph{Bounded} system of presides is system of presides from an ordered category with bounded Hom-sets
+such that $X,Y\in\Ob\Src\Upsilon$ the following additional axioms hold for all suitable~$a$:
+\begin{enumerate}
+  \item $\supfun{\bot^{\Hom(X,Y)}} a = \bot$.
+
+  \item $\supfun{\top^{\Hom(X,Y)}} a = \top$ unless $a = \bot$
+\end{enumerate}
+\end{defn}
+
+\begin{defn}
+\emph{System of presides with identities} is a system of presides with
+a morphism $\id_a\in\Src\Upsilon$ for every object $\mathfrak{A}$ of~$\Src\Upsilon$ and $a\in\mathfrak{A}$
+and the following additional axioms:
+\begin{enumerate}
+  \item $\id_c \sqsubseteq 1_{\mathfrak{A}}$ for every $c \in \mathfrak{A}$
+    where $\mathfrak{A}$ is an object of~$\Src\Upsilon$.
+
+  \item $\supfun{\id_c} = (\lambda x \in \mathfrak{A}: x \sqcap c)$ for every $c \in \mathfrak{A}$
+    where $\mathfrak{A}$ is an object of~$\Src\Upsilon$
+\end{enumerate}
+\end{defn}
+
+\begin{defn}
+\emph{System of sides} is a system of presides which is both bounded and with identities.
+\end{defn}
+
+\begin{prop}
+$\supfun{1^{\Src\Upsilon}_\mathfrak{A}} a = a$ for every system of presides.
+\end{prop}
+
+\begin{proof}
+By properties of functors.
+\end{proof}
+
+\begin{defn}
+I call a system of \emph{monotone} presides a system of presides with additional axiom:
+\begin{enumerate}
+\item $\supfun{a}$ is monotone.
+\end{enumerate}
+\end{defn}
+
+\begin{defn}
+I call a system of \emph{distributive} presides a system of presides with additional axiom:
+\begin{enumerate}
+\item $\supfun{a}(X\sqcup Y) = \supfun{a}X\sqcup\supfun{a}Y$.
+\end{enumerate}
+\end{defn}
+
+\begin{obvious}
+Every distributive system of presides is monotone.
+\end{obvious}
+
+\begin{prop}
+$\supfun{a \sqcap b} X \sqsubseteq \supfun{a} X \sqcap \supfun{b} X$ for monotone systems of sides
+if Hom-sets are lattices.
+\end{prop}
+
+\begin{defn}
+A system of presides \emph{with correct identities} is a system of presides with identities with additional axiom:
+\begin{enumerate}
+\item $\id_b\circ\id_a = \id_{a\sqcap b}$.
+\end{enumerate}
+\end{defn}
+
+\begin{prop}
+Every faithful system of presides with identities is with correct identities.
+\end{prop}
+
+\begin{proof}
+$\supfun{\id_b\circ\id_a}x = (\supfun{\id_b}\circ\supfun{\id_a})x = \supfun{\id_b}\supfun{\id_a}x = b\sqcap a\sqcap x = \supfun{\id_{b\sqcap a}}x$.
+Thus by faithfulness $\id_b\circ\id_a = \id_{b\sqcap a} = \id_{a\sqcap b}$.
+\end{proof}
+
+\begin{defn}
+\emph{Restricting} a side~$f$ to an object~$X$ is defined by the formula $f|_X = f\circ\id_X$.
+\end{defn}
+
+\begin{defn}
+\emph{Image} of a preside is defined by the formula $\im f=\supfun{f}\top$.
+\end{defn}
+
+\begin{defn}
+Protofuncoids \emph{over} a set~$X$ of functors is a protofuncoid~$f$
+such that $\supfun{f}\in X\land\supfun{f^{-1}}\in X$.
+\end{defn}
+
+\section{Concrete examples of sides}
+
+\begin{obvious}
+The category~$\mathbf{Rel}$ with $\supfun{f}=\rsupfun{f}$ for $f\in\mathbf{Rel}$ and usual $\id_c$ defines a distributive system of sides with correct identities.
+\end{obvious}
+
+\subsection{Some subsides}
+
+\begin{defn}
+\emph{Full subsystem} of a system~$\Upsilon$ of presides is the functor~$\Upsilon$ restricted to a full subcategory of~$\Src\Upsilon$.
+\end{defn}
+
+\begin{obvious}
+Full subsystem of a system of presides is always a system of presides.
+\end{obvious}
+
+\begin{obvious}
+Full subsystem of a bounded system of presides is always a bounded subsystem of presides.
+\end{obvious}
+
+\begin{obvious}
+~
+\begin{enumerate}
+\item Full subsystem of a system of presides with identities is always with identities.
+\item Full subsystem of a system of presides with correct identities is always with correct identities.
+\end{enumerate}
+\end{obvious}
+
+\begin{obvious}
+Full subsystem of a distributive system of presides is always a distributive system of presides.
+\end{obvious}
+
+\begin{obvious}
+Full subsystem of a system of sides is always a system of sides.
+\end{obvious}
+
+\subsection{Funcoids and pointfree funcoids}
+
+\begin{prop}
+The category of pointfree funcoids between starrish join-semilattices with usual~$\supfun{f}$ defines a system of presides.
+\end{prop}
+
+\begin{proof}
+Theorem~\bookref{pf-fin-join}.
+\end{proof}
+
+\begin{prop}
+The category of pointfree funcoids between bounded starrish join-semilattices with usual~$\supfun{f}$ defines a system of
+bounded presides.
+\end{prop}
+
+\begin{proof}
+Take the proof of theorem~\bookref{pfcd-bound} into account.
+\end{proof}
+
+\begin{prop}
+The category of pointfree funcoids from a starrish join-semilattices to a separable starrish join-semilattices
+defines a distributive system of presides.
+\end{prop}
+
+\begin{proof}
+Theorem~\bookref{pf-dist-func}.
+\end{proof}
+
+\begin{prop}
+The category of pointfree funcoids between starrish lattices with usual~$\supfun{f}$ and usual $\id_c$ defines a system of presides with correct identities.
+\end{prop}
+
+\begin{proof}
+That it is with identities is obvious.
+
+That it is with correct identities is obvious.
+\end{proof}
+
+\begin{obvious}
+The category of pointfree funcoids between bounded starrish lattices with usual~$\supfun{f}$ and usual $\id_c$ defines a system of sides with correct identities.
+\end{obvious}
+
+\begin{prop}
+The category of funcoids with usual~$\supfun{f}$ and usual $\id_c$ defines a system of sides with correct identities.
+\end{prop}
+
+\begin{proof}
+Because it can be considered a full subsystem of
+the category of pointfree funcoids between bounded starrish lattices with usual~$\supfun{f}$.
+\end{proof}
+
+\subsection{Galois connections}
+
+\begin{prop}
+The category of Galois connections between (small) lattices with least elements together with usual~$\supfun{f}$
+defines a distributive system of presides.
+\end{prop}
+
+\begin{proof}
+Propositions~\ref{gal-fjoin-x} and~\ref{a-bot} for a system of presides.
+
+It is distributive because lower adjoints preserve all joins.
+\end{proof}
+
+\begin{prop}
+The category of Galois connections between (small) bounded lattices together with usual~$\supfun{f}$
+defines a bounded system of presides.
+\end{prop}
+
+\begin{proof}
+Theorem~\ref{gal-bound}.
+\end{proof}
+
+\begin{prop}
+The category of Galois connections between (small) Heyting lattices together with usual~$\supfun{f}$
+defines a system of sides with correct identities.
+\end{prop}
+
+\begin{proof}
+Theorem~\ref{gal-id-ex} ensures that they a system of sides with identities. The identities are correct due to faithfulness.
+\end{proof}
+
+\subsection{Reloids}
+
+\begin{prop}
+Reloids with the functor $f\mapsto\supfun{\tofcd f}$ and usual $\id_c$ form a system of sides with correct identities.
+\end{prop}
+
+\begin{proof}
+It is really a functor because
+$\supfun{\tofcd g}\circ\supfun{\tofcd f} = \supfun{\tofcd g\circ\tofcd f} = \supfun{\tofcd(g\circ f)}$
+for every composable reloids~$f$ and~$g$.
+
+$\supfun{a}\bot = \supfun{\tofcd a}\bot = \bot$;
+\begin{multline*}
+\supfun{a\sqcup b}X = \supfun{\tofcd(a\sqcup b)}X = \supfun{\tofcd a\sqcup\tofcd b)}X = \\
+\supfun{\tofcd a}X\sqcup\supfun{\tofcd b}X = \supfun{a}X\sqcup\supfun{b}X;
+\end{multline*}
+thus it is a system of presides.
+
+That this is a bounded system of presides follows from the formulas
+$\tofcd\bot^{\mathsf{RLD}(A,B)}=\bot$ and $\tofcd\top^{\mathsf{RLD}(A,B)}=\top$.
+
+It is with identities, because proposition~\bookref{fcd-id}.
+It is with correct identities by proposition~\bookref{rld-id-comp}.
+\end{proof}
+
+\fxnote{Also for pointfree reloids.}
+
+\fxnote{These examples works for (dagger) systems of sides with binary product.}
+
+\section{Product}
+
+\begin{defn}
+\emph{Binary product} of objects of presides with identities is defined by the formula $X\times Y=\id_Y\circ\top\circ\id_X$.
+\end{defn}
+
+\begin{defn}
+System of presides with identities is \emph{with correct binary product} when $f\sqcap(X\times Y) = \id_Y\circ f\circ\id_X$
+for every preside~$f$.
+\end{defn}
+
+\begin{prop}
+$\supfun{A\times B}X = \begin{cases}\bot&\text{ if }X\asymp A\\B&\text{ if }X\nasymp A\end{cases}$
+\end{prop}
+
+\begin{proof}
+~
+\begin{multline*}
+\supfun{A\times B}X = \supfun{\id_B\circ\top\circ\id_A}X =
+\supfun{\id_B}\supfun{\top}\supfun{\id_A}X = \\
+B\sqcap\supfun{\top}(X\sqcap A) =
+B\sqcap\begin{cases}\bot&\text{ if }X\asymp A\\\top&\text{ if }X\nasymp A\end{cases} =
+\begin{cases}\bot&\text{ if }X\asymp A\\B&\text{ if }X\nasymp A\end{cases}
+\end{multline*}
+\end{proof}
+
+\begin{defn}
+I will call a system of sides \emph{with correct meet} when
+\[ (X_0\times Y_0)\sqcap(X_1\times Y_1) = (X_0\sqcap X_1)\times(Y_0\sqcap Y_1). \]
+\end{defn}
+
+\begin{prop}
+Faithful systems of presides with identities are with correct meet.
+\end{prop}
+
+\begin{proof}
+$(X_0\times Y_0)\sqcap(X_1\times Y_1) = \id_{Y_1}\circ(X_0\times Y_0)\circ\id_{X_1}$.
+Thus
+\begin{multline*}
+\supfun{(X_0\times Y_0)\sqcap(X_1\times Y_1)} P = \supfun{\id_{Y_1}}\supfun{X_0\times Y_0}\supfun{\id_{X_1}} P = \\
+\supfun{\id_{Y_1}}\begin{cases}\bot&\text{ if }X_0\asymp\supfun{\id_{X_1}}P\\Y_0&\text{ if }X_0\nasymp\supfun{\id_{X_1}}P\end{cases} =
+\begin{cases}\bot&\text{ if }X_0\sqcap X_1\asymp P\\Y_0\sqcap Y_1&\text{ if }X_0\sqcap X_1\nasymp P\end{cases} = \\
+\supfun{(X_0\sqcap X_1)\times(Y_0\sqcap Y_1)} P.
+\end{multline*}
+So $(X_0\times Y_0)\sqcap(X_1\times Y_1) = (X_0\sqcap X_1)\times(Y_0\sqcap Y_1)$ follows by full faithfulness.
+\end{proof}
+
+\begin{prop}
+Systems of presides with correct identities are with correct meet.
+\end{prop}
+
+\begin{proof}
+$(X_0 \times Y_0) \sqcap (X_1 \times Y_1) = \id_{Y_1} \circ (X_0 \times
+Y_0) \circ \id_{X_1} = \id_{Y_1} \circ (\id_{Y_0} \circ \top
+\circ \id_{X_0}) \circ \id_{X_1} = \id_{Y_0 \sqcap Y_1}
+\circ \top \circ \id_{X_0 \sqcap X_1} = (X_0 \sqcap X_1) \times (Y_0
+\sqcap Y_1)$.
+\end{proof}
+
+For some sides holds the formula $f\circ(X\times Y) = X\times\supfun{f}Y$.
+I refrain to give a name for this property.
+
+\section{Negative results}
+
+The following negative result generalizes theorem~3.8 in~\cite{tprod-dist-lat}.
+
+\begin{thm}\label{neg-prod}
+  The element $1^{(\Src\Upsilon)(\mathfrak{A}, \mathfrak{A})}$ is not
+  complemented if $\mathfrak{A}$ is a non-atomic boolean lattice,
+  for every monotone system of sides.
+\end{thm}
+
+\begin{proof}
+  Let $T = 1^{(\Src\Upsilon)(\mathfrak{A}, \mathfrak{A})}$.
+  
+  Let's suppose $T \sqcup V = \top$ for $V \in (\Src\Upsilon) (\mathfrak{A},
+  \mathfrak{A})$ and prove $T \sqcap V \neq \bot$.
+  
+  Then $\supfun{T \sqcup V} a = \top$ for all $a \neq \bot$ and thus $\supfun{V}
+  a \sqcup a = \top$.
+  
+  Consequently $\supfun{V} a \sqsupseteq \neg a$ for all $a \neq \bot$.
+  
+  If $a$ isn't an atom, then there exists $b$ with $0 \sqsubset b \sqsubset a$
+  and hence $\supfun{V} a \sqsupseteq \supfun{V} b \sqsupseteq \neg b \sqsupset \neg a$;
+  thus $\supfun{V} a \sqsupset \neg a$.
+  
+  There is such $c\sqsubset\top$ that $a \sqsubseteq c$ for every atom $a$. (Really,
+  suppose some element $p \neq \bot$ has no atoms. Thus all atoms are in $\neg
+  p$.)
+  
+  For $a \nsqsubseteq c$ we have $\supfun{V} a \sqcap a \sqsupset \bot$
+  for all $a \sqsubseteq \neg c$ thus $\supfun{T \sqcap V} a \sqsupseteq
+  \supfun{V} a \sqcap a \sqsupset \bot$. Thus $\supfun{(T \sqcap V) \circ
+  \id_{\neg c}} a \sqsupset \bot$
+  
+  So $T \sqcap V \sqsupseteq (T \sqcap V) \circ \id_{\neg c} \sqsupset
+  \bot$. So $V$ is not a complement of $T$.
+\end{proof}
+
+\begin{cor}
+  $(\Src\Upsilon)(\mathfrak{A}, \mathfrak{A})$ is not boolean if $\mathfrak{A}$
+  is a non-atomic boolean lattice.
+\end{cor}
+
+\section{Dagger systems of sides}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item For a partially ordered dagger category, each of Hom-set of which has least element, we have $\bot^\dagger = \bot$.
+\item For a partially ordered dagger category, each of Hom-set of which has greatest element, we have $\top^\dagger = \top$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+$\forall f\in\Hom(A,B):\bot^\dagger\sqsubseteq f \Leftrightarrow
+\forall f\in\Hom(A,B):\bot\sqsubseteq f^\dagger \Leftrightarrow
+\forall f\in\Hom(A,B):\bot\sqsubseteq f \Leftrightarrow 1$. Thus $\bot^\dagger$ is the least.
+
+The other items is dual.
+\end{proof}
+
+\begin{defn}
+\emph{Dagger system of presides with identities} is system of presides with identities with category~$\Src\Upsilon$ being
+a partially ordered dagger category
+and $(\id_X)^\dagger = \id_X$ for every~$X$.
+\end{defn}
+
+\begin{prop}
+For a system of sides we have $(X\times Y)^\dagger = Y\times X$.
+\end{prop}
+
+\begin{proof}
+$(X\times Y)^\dagger = (\id_Y\circ\top\circ\id_X)^\dagger = \id_X^\dagger\circ\top^\dagger\circ\id_Y^\dagger =
+\id_X\circ\top\circ\id_Y = Y\times X$.
+\end{proof}
+
+\fxnote{Which properties of pointfree funcoids can be generalized for sides?}

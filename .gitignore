@@ -1,0 +1,19 @@
+*~
+*.pdf
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.idx
+*.log
+*.out
+*.toc
+*.ilg
+*.ind
+*.synctex
+*.backup
+# *.kilepr are modified too often to be managed by Git:
+*.kilepr
+.kile
+*.synctex.gz
+fontconfig

@@ -1,0 +1,148 @@
+\documentclass[a4paper,oneside,english,reqno]{amsbook}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\synctex=-1
+% \usepackage{color}
+\usepackage{babel}
+\usepackage{textcomp}
+\usepackage{mathrsfs}
+\usepackage{url}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\makeindex
+\usepackage[all]{xy}
+
+\usepackage{agt}
+\hypersetup{pdftitle={Algebraic General Topology. Volume 1},
+ pdfauthor={Victor Porton},
+ pdfsubject={general topology},
+ pdfkeywords={algebraic general topology,quasi-uniform spaces,generalizations of proximity spaces,generalizations of nearness spaces,generalizations of uniform spaces}}
+% \usepackage{forwardref}
+\numberwithin{section}{chapter}
+
+% with \usepackage it fails with new TeX versions,
+% without it fails with old ones. So I do neither.
+% \usepackage{chngcntr}
+% \counterwithout{figure}{chapter}
+
+% Eliminate hyperref warnings: http://tex.findincity.net/view/635399273629833626247444/hyperref-token-not-allowed-warning-possible-bug
+\pdfstringdefDisableCommands{%
+  \let\enspace\empty  % this causes the warning for \kern
+  \let\noindent\empty % this causes the warning for \indent
+}
+
+\AtEndDocument{\refstepcounter{thm}\label{finalthm}} % used in addons.tex
+
+% \everymath{\color{blue}}
+
+\begin{document}
+
+\title{Algebraic General Topology. Volume 1}
+
+
+\author{Victor Porton}
+
+
+\email{\href{mailto:mailto:porton@narod.ru}{porton@narod.ru}}
+
+
+\urladdr{\href{https://www.mathematics21.org}{https://www.mathematics21.org}}
+
+
+\date{\today}
+
+
+\thanks{\noun{Todd Trimble}, \noun{Andreas Blass}, \noun{Robert Martin
+Solovay}, \noun{Niels Diepeveen}, and others (mentioned below) have proved some theorems which are now in this book.}
+\begin{abstract}
+In this work I introduce and study in details the concepts of funcoids
+which generalize proximity spaces and reloids which generalize uniform
+spaces, and generalizations thereof. The concept of funcoid is generalized
+concept of proximity, the concept of reloid is cleared from superfluous
+details (generalized) concept of uniformity. 
+
+Also funcoids and reloids are generalizations of binary relations
+whose domains and ranges are filters (instead of sets). Also funcoids
+and reloids can be considered as a generalization of (oriented) graphs,
+this provides us with a common generalization of calculus and discrete
+mathematics.
+
+It is defined a generalization of limit for arbitrary (including discontinuous and multivalued) functions, what allows to define for example derivative of an arbitrary real function.
+
+The concept of continuity is defined by an algebraic formula (instead
+of old messy epsilon-delta notation) for arbitrary morphisms (including
+funcoids and reloids) of a partially ordered category. In one formula
+continuity, proximity continuity, and uniform continuity are generalized.
+
+Also I define connectedness for funcoids and reloids.
+
+Then I consider generalizations of funcoids: pointfree funcoids and
+generalization of pointfree funcoids: staroids and multifuncoids.
+Also I define several kinds of products of funcoids and other morphisms.
+
+Before going to topology, this book studies properties of co-brouwerian
+lattices and filters.
+\end{abstract}
+
+
+\keywords{algebraic general topology, quasi-uniform spaces, generalizations
+of proximity spaces, generalizations of nearness spaces, generalizations
+of uniform spaces}
+
+
+\subjclass[2010]{54J05, 54A05, 54D99, 54E05, 54E15, 54E17, 54E99}
+
+\maketitle
+
+\tableofcontents{}
+
+\part{Introductory chapters}
+\include{chap-intro}
+\include{chap-common}
+\include{chap-order-more}
+\include{chap-rel}
+\include{chap-filt}
+\include{chap-common-top}
+
+\part{Funcoids and reloids}
+\include{chap-funcoids}
+\include{chap-reloids}
+\include{chap-relationships}
+\include{chap-decomposition}
+\include{chap-continuity}
+\include{chap-connected}
+\include{chap-bound}
+\include{chap-filt-order}
+\include{chap-fcd-counter}
+\include{chap-funcoids-are-filters}
+\include{chap-cofinite}
+\include{chap-convergence}
+\include{chap-unfixed}
+
+\part{Pointfree funcoids and reloids}
+\include{chap-pf-funcoids}
+\include{chap-alt-bin}
+
+\part{Staroids and multifuncoids}
+\include{chap-disjoint}
+\include{chap-multi}
+
+\part{Postface}
+\include{chap-postface}
+\include{chap-prize}
+\include{chap-story}
+
+\include{appendixes}
+
+\printindex{}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+% TODO: move to the preamble
+\addtocounter{figure}{-1}
+\refstepcounter{figure}\label{LASTFIGURE}
+
+\end{document}
