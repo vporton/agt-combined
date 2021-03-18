@@ -1,10 +1,10 @@
 \chapter{Introduction}
 
-I defined \emph{funcoid} and based on this generalized \emph{limit of an arbitrary (even discontinuous) function} above in this book.
+I defined \emph{funcoid} and based on this generalized \emph{limit of an arbitrary (even discontinuous) function} in~\cite{volume-1-edition1}.
 
-In this part I consider generalized limits in more details.
+In this article I consider generalized limits in more details.
 
-This part is written in such a way that a reader could understand the main ideas on generalized limits without resorting to reading the rest of this book beforehand, but to follow the proofs you need read that first.
+This article is written in such a way that a reader could understand the main ideas on generalized limits without resorting to reading~\cite{volume-1-edition1} beforehand, but to follow the proofs you need read that first.
 
 Definition of generalized limit makes it obvious to define such things as derivative of an arbitrary function, integral of an arbitrary function, etc.
 
@@ -25,7 +25,7 @@ For an example, consider some real function~$f$ from $x$-axis to $y$-axis:
 \end{tikzpicture}
 \end{figure}
  
-Take it's infinitely small fragment (in our example, an infinitely small interval for~$x$ around zero; see the rest of the book for an explanation what is infinitely small):
+Take it's infinitely small fragment (in our example, an infinitely small interval for~$x$ around zero; see below for an explanation what is infinitely small):
 \begin{figure}[H]
 \begin{tikzpicture}
 \begin{axis}[grid=both,
@@ -95,8 +95,8 @@ Such sets one-to-one corresponds to the value of the limit of our function (at $
 
 So we have a formula for \emph{generalized limit}:
 \[ \lim_{x\to a} f(x) =
-\{ \nu \circ f|_{\Delta(a)} \circ r \mid r\in G \} \]
-where~$G$ is the group of all horizontal shifts of our space~$\mathbb{R}$, $f|_{\Delta(a)}$ is the function~$f$ of which we are taking limit restricted to the infinitely small interval~$\Delta(a)$ around the point~$a$, $\nu\circ{}$~is ``stretching'' our function graph into the infinitely thin ``strip'' by applying a topological operation to it.
+\{ \mathrm{X} \circ f|_{\Delta(a)} \circ r \mid r\in G \} \]
+where~$G$ is the group of all horizontal shifts of our space~$\mathbb{R}$, $f|_{\Delta(a)}$ is the function~$f$ of which we are taking limit restricted to the infinitely small interval~$\Delta(a)$ around the point~$a$, $\mathrm{X}\circ{}$~is ``stretching'' our function graph into the infinitely thin ``strip'' by applying a topological operation to it.
 
 What all this (especially ``infinitely small'') means? It is filters and ``funcoids'' (see below for the definition).
 
@@ -112,7 +112,7 @@ Hurrah! Now we can define derivative and integral of \emph{every} function.
 
 \chapter{Funcoids}
 
-I will reprise (without proofs) several equivalent definitions of funcoid from above in this book:
+I will reprise (without proofs) several equivalent definitions of funcoid from~\cite{volume-1-edition1}:
 
 Binary relation $\delta$ between two sets (source and destination of the funcoid), conforming to the axioms:
 
@@ -161,43 +161,211 @@ $(\alpha,\beta)^{-1} = (\beta,\alpha)$.
 
 Funcoids also form a poset which is a complete lattice.
 
-Funcoids are a generalization of both topological spaces and proximity spaces.
+Funcoids are a generalization of both topological spaces and proximity spaces (see~\cite{volume-1-edition1}).
 
-Also funcoids are (see above) a generalization of binary relations. (I will denote the funcoid corresponding (see above) to a binary relation~$f$ as~$\uparrow f$) This makes funcoids a common generalization for topologies/proximities and functions, so they are a convenient tool to study functions between spaces.
+Also funcoids are~(\cite{volume-1-edition1}) a generalization of binary relations. (I will denote the funcoid corresponding~(\cite{volume-1-edition1}) to a binary relation~$f$ as~$\uparrow f$) This makes funcoids a common generalization for topologies/proximities and functions, so they are a convenient tool to study functions between spaces.
 
-Another important for this part operation on funcoids is \emph{restricting} a funcoid to a filter (generalizing restricting a function to a set):~$f|_{\mathcal{X}}$ for a funcoid~$f$ and filter~$\mathcal{X}$.
+Another important for this article operation on funcoids is \emph{restricting} a funcoid to a filter (generalizing restricting a function to a set):~$f|_{\mathcal{X}}$ for a funcoid~$f$ and filter~$\mathcal{X}$.
 
-Above we also have a funcoid called \emph{funcoidal product} $\mathcal{X}\times^{\mathsf{FCD}}\mathcal{Y}$ of two filters~$\mathcal{X}$ and~$\mathcal{Y}$.
+In~\cite{volume-1-edition1} we also have a funcoid called \emph{funcoidal product} $\mathcal{X}\times^{\mathsf{FCD}}\mathcal{Y}$ of two filters~$\mathcal{X}$ and~$\mathcal{Y}$.
 
 \chapter{Limit for funcoids}
 
-It is easy (see above for details) to generalize topological limit for a funcoid: a funcoid~$f$ (e.g.\ a function) \emph{tends} to point~$a$ ($f\to a$) regarding a funcoid~$\nu$ (e.g.\ to a topological or proximity space) on a filter~$\mathcal{X}$ iff
-\[ \supfun{f}\mathcal{X} \sqsubseteq \supfun{\nu}\uparrow\{a\}. \]
-(Here~$\uparrow$ denotes a principal filter corresponding to a set.)
+The following is a straigthforward generalization of the well known concepts of adherent point of a set (more generally a cluster point of a filter), a limit point of a filter, a and limit of a function in a
+topological space.
 
-More generally we can define: a funcoid~$f$ tends to a filter~$\mathcal{A}$ ($f\to\mathcal{A}$) iff $\im f\sqsubseteq\mathcal{A}$ (here $\im f = \supfun{f}\top = \supfun{f}\uparrow U$ where $U$~is the greatest set in consideration.
+\begin{note}
+Due to an unfortunate choice of terminology, limit point of a filter is \emph{not} a generalization of a limit point of a set.
+Limit point for a set isn't a beautiful term and we won't use it (in this work), so by \emph{limit point} we will always mean a limit point of a filter.
+\end{note}
 
-Then: a funcoid~$f$ tends to point~$a$ regarding a funcoid~$\nu$ on a filter~$\mathcal{X}$ iff $f|_{\mathcal{X}}$ tends to~$\uparrow\{a\}$ regarding~$\nu$.
+So, generalizing the corresponding concepts for topological spaces:
+
+Let $d$ be a funcoid.
+
+\begin{defn}
+The set of \emph{adherent points} of~$\mathcal{A}$ is
+$\Cor\supfun{d^{-1}}\mathcal{A}$ or what is the same
+$\setcond{x}{\supfun{d}\{x\}\nasymp\mathcal{A}}$.
+\end{defn}
+
+\begin{prop}
+There exists a (unique) funcoid $\mathrm{A}$ such that
+$\supfun{\mathrm{A}}\mathcal{A}$ is exactly the set of adherent points of~$\mathcal{A}$.
+\end{prop}
+
+\begin{proof}
+Prove it directly or using that $\Cor$ is a component of a funcoid.
+\end{proof}
+
+\begin{defn}
+\emph{Limit point} of a filter~$\mathcal{A}$ on $\Dst\mathrm{X}$ is
+an~$x\in\Dst\mathcal{A}$ such that
+$\rsupfun{d}\{x\}\sqsupseteq\mathcal{A}$.
+\end{defn}
+
+\begin{prop}
+If $d$ is reflexive, then
+there exists a (unique) ``dual funcoid'' (a pointfree funcoid) $\mathrm{L}: \Ob d\to(\Ob d)^{\dual}$ such that
+$\supfun{\mathrm{L}}\mathcal{A}$ is exactly the set of limit points of~$\mathcal{A}$.
+\end{prop}
+
+\begin{proof}
+The set of limit points of the empty set is the maximal set.
+
+The set of limit points of $A\cup B$ (for sets~$A$,~$B$) is the
+set of points~$x$ such that $\supfun{d}\{x\}\sqsupseteq A\cup B$ that is $\supfun{d}\{x\}\sqsupseteq A$ and $\supfun{d}\{x\}\sqsupseteq B$ that is the intersection of
+the set of limit points of~$A$ and~$B$.
+
+Thus the set of limit points is a component of such a pointfree funcoid.
+\end{proof}
+
+\begin{prop}
+$\mathrm{L}$ and~$\mathrm{A}$ coincide on ultrafilters.
+\end{prop}
+
+\begin{proof}
+Because $\rsupfun{d}\{x\}\nasymp a\Leftrightarrow\rsupfun{d}\{x\}\sqsupseteq a$ for an ultrafilter~$a$.
+\end{proof}
+
+We have shown that concepts of both limit points and adherent points are essentially funcoids. In traditional general topology limit of a function is defined using limit points of a filter. We will generalize it to limit regarding an arbitrary funcoid (in place of the funcoid describing limit points). We will call this
+arbitrary funcoid \emph{the point funcoid} and denote it~$\mathrm{X}$.
+
+\begin{defn}
+\emph{Limit} of a funcoid~$f$ is
+the filter \[ \lim f=\im(\mathrm{X}\circ f). \]
+\end{defn}
+
+\begin{defn}
+\emph{Limit} of a funcoid~$f$ at a filter~$\mathcal{X}$ is
+the filter \[ \lim_{\mathcal{X}}f=\lim f|_{\mathcal{X}}=\supfun{\mathrm{X}\circ f}\mathcal{X}. \]
+\end{defn}
+
+\begin{rem}
+If $\mathrm{X}=\mathrm{L}$, then the limit is either an one-element or an empty set (``no limit'' in traditional topology).
+\end{rem}
+
+In~\cite{volume-1-edition1} limit for a funcoid~$f$ was defined this way: $f$~\emph{tends} to filter~$\mathcal{A}$ ($f\to \mathcal{A}$) regarding a funcoid~$\mathrm{X}$ on a filter~$\mathcal{X}$ iff
+\[ \im f \sqsubseteq \supfun{\mathrm{X}}\mathcal{A}. \]
 
 $\lim f$ is such a point that $f$~tends to $\lim f$.
 
-If $\nu$~is $T_2$-separable (see above), then there exists no more than one~$\lim f$.
+\begin{prop}
+That definition from~\cite{volume-1-edition1} coincides with
+our above definition, if $\mathrm{X}=\mathrm{L}$.
+\end{prop}
 
-So far, not much different than limits on topological spaces (but somehow more algebraic).
+\begin{proof}
+In this proof $\lim f$ will mean our definition, \emph{not} the definition from~\cite{volume-1-edition1}. We need to prove that
+$\lim f=\setcond{x}{\im f\sqsubseteq\rsupfun{\mathrm{X}}\{x\}}$.
+
+Really,
+\[
+\lim f=\im(\mathrm{L}\circ f) = 
+\supfun{\mathrm{L}}\im f =
+\setcond{x}{\rsupfun{\mathrm{X}}\{x\}\sqsupseteq\im f}.
+\]
+\end{proof}
+
+If $\mathrm{X}$~is Hausdorff ($T_2$-separable) (see~\cite{volume-1-edition1}), then there exists no more than one~$\lim f$.
+
+\chapter{Axiomatic generalized limit}
+
+Let~$\mathrm{X}$ be a (fixed) funcoid. For example, $\mathrm{X}=d$ where $d$~is
+some proximity or $d=\mathrm{A}$ or $d=\mathrm{L}$ (up to a duality).
+
+By definion $\lim_{\mathcal{X}}f = \supfun{\mathrm{X}\circ f}\mathcal{X}$ (for every funcoid~$f$).
+
+\begin{rem}
+If $\supfun{\mathrm{X}}y$ is an limit point (considered as an one-element set) of~$y$ and $f$~is a function, then the above
+defined~$\lim$ is the
+same as limit in traditional calculus and topology (except
+that it is an one-element set of points instead of a point).
+Empty set means ``no limit''.
+\end{rem}
+
+Let some group~$G$ (e.g. the group of all shifts on a vector
+space, to give an example) is fixed.
+
+\begin{defn}
+\emph{Axiomatic generalized limit} is a two-arguments function $(f,\mathcal{X})\mapsto\xlim_{\mathcal{X}}f$
+from the set $\funcoids(A,B)\times\mathscr{F}(A)$ to the set of functions defined on filters~$\mathcal{C}$ such that exists $r\in G$ such that $\mathcal{C}\sqsubseteq\supfun{r}\mathcal{X}$ by the formula:
+\[
+(\xlim_{\mathcal{X}}f)\mathcal{C} = \lim_{\supfun{r^{-1}}\mathcal{C}} f.
+\]
+\end{defn}
+
+\begin{rem}
+Its meaning is that $\lim_{\mathcal{C}} f$ can be restored from
+$\xlim_{\mathcal{X}}f$.
+\end{rem}
+
+\begin{prop}
+To describe an axiomatic generalized limit, it's enough to define
+it on ultrafilters.
+\end{prop}
+
+\begin{proof}
+Easily follows from the fact that a funcoid is described by its values on ultrafilters.
+\end{proof}
+
+Thus axiomatic generalized limit gives a detailed behavior of
+a function at a filter (its limit at every its atomic subfilter).
+
+\begin{obvious}
+$\xlim_{\mathcal{X}}f = \xlim_{\supfun{r}\mathcal{X}}(f\circ r^{-1})$ for every~$r\in G$.
+\end{obvious}
+
+\begin{thm}
+$\lim_{\mathcal{X}} f$ can be restored knowing $\xlim_{\mathcal{X}} f$.
+\end{thm}
+
+\begin{proof}
+\begin{multline*}
+\lim_{\mathcal{X}} f = \supfun{\mathrm{X}\circ f}\mathcal{X} =
+\bigsqcup_{x\in\atoms\mathcal{X}} \supfun{\mathrm{X}\circ f}x = \\
+\bigsqcup_{x\in\atoms\mathcal{X}} \lim x =
+(\xlim_{\mathcal{X}}f)x.
+\end{multline*}
+\end{proof}
+
+Let~$y$ be an arbitrary point of the space~$\Dst\mathrm{X}$. Consider
+the constant function~$f$ whose value is this~$y$.
+Then the first axiom above determines the $\xlim_{\mathcal{C}} f$
+for every filter~$\mathcal{C}$.
+
+I will denote $\xlim_{\mathcal{C}} f = \tau(y)$.
+
+\begin{rem}
+The above easily generalizes for~$y$ being a set of points.
+\end{rem}
+
+\begin{obvious}
+$\tau$~is an injection, if $\Src\mathrm{X}$ is a non-empty set and
+$\supfun{\mathrm{X}}$~is an injection on one-element sets.
+\end{obvious}
+
+\begin{cor}
+$\tau$~is an injection, if $\Src\mathrm{X}$ is a non-empty set and
+$\mathrm{X}=\mathrm{A}$ and $\mathrm{X}$~is Hausdorff.
+\end{cor}
+
+In other words, on Hausdorff topologies the set of singularities
+with non-empty domains is an extension of the set of points~$\Dst\mathrm{X}$ (up to a bijection).
 
 \chapter{Generalized limit}
 
 \section{The definition of generalized limit}
 
-Above generalized limit is defined like the formula:
+In~\cite{volume-1-edition1} generalized limit is defined like the formula:
 
 \begin{equation}\label{xlim1}
-\xlim f = \setcond{ \nu\circ f\circ \uparrow r}{r\in G}.
+\xlim f = \setcond{ \mathrm{X}\circ f\circ \uparrow r}{r\in G}.
 \end{equation}
 
 We suppose:
 
-Let $\mu$ and $\nu$ be endofuncoids (on sets~$\Ob\mu$,~$\Ob\nu$). Let $G$ be a transitive permutation
+Let $\mu$ and $\mathrm{X}$ be endofuncoids (on sets~$\Ob\mu$,~$\Ob\mathrm{X}$). Let $G$ be a transitive permutation
 group on $\Ob\mu$.
 
 We require that $\mu$ and every $r\in G$ commute, that is
@@ -205,34 +373,29 @@ We require that $\mu$ and every $r\in G$ commute, that is
 \mu\circ\uparrow r=\uparrow r\circ\mu.
 \end{equation}
 
-We require for every $y\in\Ob\nu$ 
+We require for every $y\in\Ob\mathrm{X}$ 
 \begin{equation}\label{lim-squares}
-\nu\sqsupseteq\supfun{\nu}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\}.
+\mathrm{X}\sqsupseteq\supfun{\mathrm{X}}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\}.
 \end{equation}
 
 \begin{prop}
-Formula (\ref{lim-squares}) follows from $\nu\sqsupseteq\nu\circ\nu^{-1}$.
+Formula (\ref{lim-squares}) follows from $\mathrm{X}\sqsupseteq\mathrm{X}\circ\mathrm{X}^{-1}$.
 \end{prop}
 
 \begin{proof}
-Let $\nu\sqsupseteq\nu\circ\nu^{-1}$. Then
+Let $\mathrm{X}\sqsupseteq\mathrm{X}\circ\mathrm{X}^{-1}$. Then
 \begin{align*}
-\supfun{\nu}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & =\\
-\nu\circ(\uparrow\{y\}\times^{\mathsf{FCD}}\uparrow\{y\})\circ\nu^{-1} & =\\
-\nu\circ\uparrow(\{y\}\times\{y\})\circ\nu^{-1} & \sqsubseteq\\
-\nu\circ 1\circ\nu^{-1} & =\\
-\nu\circ\nu^{-1} & \sqsubseteq\nu.
+\supfun{\mathrm{X}}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & =\\
+\mathrm{X}\circ(\uparrow\{y\}\times^{\mathsf{FCD}}\uparrow\{y\})\circ\mathrm{X}^{-1} & =\\
+\mathrm{X}\circ\uparrow(\{y\}\times\{y\})\circ\mathrm{X}^{-1} & \sqsubseteq\\
+\mathrm{X}\circ 1\circ\mathrm{X}^{-1} & =\\
+\mathrm{X}\circ\mathrm{X}^{-1} & \sqsubseteq\mathrm{X}.
 \end{align*}
 (Here~$1$ is the identity element of the semigroup of endofuncoids.)
 \end{proof}
 
-\begin{rem}
-The formula \eqref{lim-squares} usually works if $\nu$ is a proximity.
-It does not work if $\mu$ is a topology (or more generally pretopology or preclosure). It is however easy to turn a topology into a proximity: two sets are near if they have intersecting closures.
-\end{rem}
-
 So we have (generalized) limits of arbitrary functions
-acting from $\Ob\mu$ to $\Ob\nu$. (The functions in consideration
+acting from $\Ob\mu$ to $\Ob\mathrm{X}$. (The functions in consideration
 are not required to be continuous.)
 
 \begin{rem}
@@ -242,29 +405,29 @@ Most typically $G$ is the group of translations of some topological vector space
 \section[Injection to generalized limits]{Injection from the set of points to the set of all generalized limits}
 
 The function $\tau$ will define an injection from the set of points
-of the space $\nu$ (``numbers'', ``points'', or ``vectors'')
+of the space $\mathrm{X}$ (``numbers'', ``points'', or ``vectors'')
 to the set of all (generalized) limits (i.e. values which $\xlim_{x}f$
 may take).
 \begin{defn}
-\[ \tau(y)\eqdef\setcond{\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\}}{x\in D}. \]
+\[ \tau(y)\eqdef\setcond{\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\}}{x\in D}. \]
 \end{defn}
 \begin{prop}
-\[ \tau(y)=\setcond{(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\})\circ\uparrow r}{r\in G} \]
+\[ \tau(y)=\setcond{(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\})\circ\uparrow r}{r\in G} \]
 for every (fixed) $x\in D$.\end{prop}
 
 \begin{proof}
 ~
 \begin{align*}
-(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\})\circ\uparrow r & =\\
-\supfun{\uparrow r^{-1}}\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & =\\
-\supfun{\mu}\supfun{\uparrow r^{-1}}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & =\\
-\supfun{\mu}\uparrow\{r^{-1}x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & \in \\ \setcond{\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\}}{x\in D}.
+(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\})\circ\uparrow r & =\\
+\supfun{\uparrow r^{-1}}\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & =\\
+\supfun{\mu}\supfun{\uparrow r^{-1}}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & =\\
+\supfun{\mu}\uparrow\{r^{-1}x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & \in \\ \setcond{\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\}}{x\in D}.
 \end{align*}
 
 
 Reversely
 \begin{multline*}
-\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\}=\\(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\})\circ\uparrow e
+\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\}=\\(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\})\circ\uparrow e
 \end{multline*}
 where $e$ is the identify element of $G$.\end{proof}
 
@@ -278,88 +441,92 @@ of a constant function.
 ~
 \begin{align*}
 \xlim(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\uparrow\{y\}) & =\\
-\setcond{\nu\circ(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\uparrow\{y\})\circ\uparrow r}{r\in G} & =\\
-\setcond{(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\})\circ\uparrow r}{r\in G} & =\tau(y).
+\setcond{\mathrm{X}\circ(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\uparrow\{y\})\circ\uparrow r}{r\in G} & =\\
+\setcond{(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\})\circ\uparrow r}{r\in G} & =\tau(y).
 \end{align*}
 \end{proof}
 
-In further we will use on of the definitions of continuity from above:
-\[ f\in\continuous(\mu,\nu)\Leftrightarrow
-f\circ\mu \sqsubseteq \nu\circ f \]
+\begin{cor}
+The~$\tau$ defined in this section for generalized limits ``coincides'' with the~$\tau$ defined in the section about axiomatic generalized limits.
+\end{cor}
+
+In further we will use on of the definitions of continuity from~\cite{volume-1-edition1}:
+\[ f\in\continuous(\mu,\mathrm{X})\Leftrightarrow
+f\circ\mu \sqsubseteq \mathrm{X}\circ f \]
 and other notation from the book.
 
 \begin{thm}
-If $f$ is a function and $f|_{\supfun{\mu}\uparrow\{x\}}\in\continuous(\mu,\nu)$
+If $f$ is a function and $f|_{\supfun{\mu}\uparrow\{x\}}\in\continuous(\mu,\mathrm{X})$
 and $\supfun{\mu}\uparrow\{x\}\sqsupseteq\uparrow\{x\}$
 then $\xlim_{x}f=\tau(fx)$.\end{thm}
 
 \begin{proof}
-$f|_{\supfun{\mu}\uparrow\{x\}}\circ\mu\sqsubseteq\nu\circ f|_{\supfun{\mu}\uparrow\{x\}}\sqsubseteq\nu\circ f$;
-thus $\langle f\rangle\supfun{\mu}\uparrow\{x\}\sqsubseteq\supfun{\nu}\supfun{f}\uparrow\{x\}$;
+$f|_{\supfun{\mu}\uparrow\{x\}}\circ\mu\sqsubseteq\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}}\sqsubseteq\mathrm{X}\circ f$;
+thus $\langle f\rangle\supfun{\mu}\uparrow\{x\}\sqsubseteq\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\}$;
 consequently we have
 \begin{gather*}
-\nu\sqsupseteq\supfun{\nu}\supfun{f}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\}\sqsupseteq\\\supfun f\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\}.\\
-\begin{aligned}\nu\circ f|_{\supfun{\mu}\uparrow\{x\}} & \sqsupseteq\\
-(\supfun f\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\})\circ f|_{\supfun{\mu}\uparrow\{x\}} & =\\
-(f|_{\supfun{\mu}\uparrow\{x\}})^{-1}\supfun f\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\} & \sqsupseteq\\
-\supfun{\id_{\dom f|_{\supfun{\mu}\uparrow\{x\}}}^{\mathsf{FCD}}}\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\} & \sqsupseteq\\
-\dom f|_{\supfun{\mu}\uparrow\{x\}}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\} & =\\
-\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\}.
+\mathrm{X}\sqsupseteq\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\}\sqsupseteq\\\supfun f\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\}.\\
+\begin{aligned}\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}} & \sqsupseteq\\
+(\supfun f\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\})\circ f|_{\supfun{\mu}\uparrow\{x\}} & =\\
+(f|_{\supfun{\mu}\uparrow\{x\}})^{-1}\supfun f\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\} & \sqsupseteq\\
+\supfun{\id_{\dom f|_{\supfun{\mu}\uparrow\{x\}}}^{\mathsf{FCD}}}\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\} & \sqsupseteq\\
+\dom f|_{\supfun{\mu}\uparrow\{x\}}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\} & =\\
+\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\}.
 \end{aligned}
 \end{gather*}
 
 
-$\im(\nu\circ f|_{\supfun{\mu}\uparrow\{x\}})=\supfun{\nu}\supfun{f}\uparrow\{x\}$;
+$\im(\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}})=\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\}$;
 \begin{align*}
-\nu\circ f|_{\supfun{\mu}\uparrow\{x\}} & \sqsubseteq\\
-\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\im(\nu\circ f|_{\supfun{\mu}\uparrow\{x\}}) & =\\
-\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\}.
+\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}} & \sqsubseteq\\
+\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\im(\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}}) & =\\
+\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\}.
 \end{align*}
-So $\nu\circ f|_{\supfun{\mu}\uparrow\{x\}}=\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\}$.
+So $\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}}=\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\}$.
 
 Thus
 \begin{multline*}
-\xlim_{x}f= \\ \setcond{(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{f}\uparrow\{x\})\circ\uparrow r}{r\in G}= \\ \tau(fx).
+\xlim_{x}f= \\ \setcond{(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{f}\uparrow\{x\})\circ\uparrow r}{r\in G}= \\ \tau(fx).
 \end{multline*}
 \end{proof}
 \begin{rem}
 Without the requirement of $\supfun{\mu}\uparrow\{x\}\sqsupseteq\uparrow\{x\}$
 the last theorem would not work in the case of removable singularity.\end{rem}
 \begin{thm}
-Let $\nu\sqsubseteq\nu\circ\nu$. If $f|_{\supfun{\mu}\uparrow\{x\}}\overset{\nu}{\rightarrow}\uparrow\{y\}$
+Let $\mathrm{X}\sqsubseteq\mathrm{X}\circ\mathrm{X}$. If $f|_{\supfun{\mu}\uparrow\{x\}}\overset{\mathrm{X}}{\rightarrow}\uparrow\{y\}$
 then $\xlim_{x}f=\tau(y)$.\end{thm}
 
 \begin{proof}
-$\im f|_{\supfun{\mu}\uparrow\{x\}}\sqsubseteq\supfun{\nu}\uparrow\{y\}$;
-$\supfun f\supfun{\mu}\uparrow\{x\}\sqsubseteq\supfun{\nu}\uparrow\{y\}$;
+$\im f|_{\supfun{\mu}\uparrow\{x\}}\sqsubseteq\supfun{\mathrm{X}}\uparrow\{y\}$;
+$\supfun f\supfun{\mu}\uparrow\{x\}\sqsubseteq\supfun{\mathrm{X}}\uparrow\{y\}$;
 \begin{align*}
-\nu\circ f|_{\supfun{\mu}\uparrow\{x\}} & \sqsupseteq\\
-(\supfun{\nu}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\})\circ f|_{\supfun{\mu}\uparrow\{x\}} & =\\
-\supfun{(f|_{\supfun{\mu}\uparrow\{x\}})^{-1}}\supfun{\nu}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & =\\
-\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}\circ f^{-1}}\supfun{\nu}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & \sqsupseteq\\
-\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}\circ f^{-1}}\supfun f\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & =\\
-\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}}\supfun{f^{-1}\circ f}\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & \sqsupseteq\\
-\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}}\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}}\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\} & =\\
-\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\}.
+\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}} & \sqsupseteq\\
+(\supfun{\mathrm{X}}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\})\circ f|_{\supfun{\mu}\uparrow\{x\}} & =\\
+\supfun{(f|_{\supfun{\mu}\uparrow\{x\}})^{-1}}\supfun{\mathrm{X}}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & =\\
+\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}\circ f^{-1}}\supfun{\mathrm{X}}\uparrow\{y\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & \sqsupseteq\\
+\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}\circ f^{-1}}\supfun f\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & =\\
+\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}}\supfun{f^{-1}\circ f}\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & \sqsupseteq\\
+\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}}\supfun{\id_{\supfun{\mu}\uparrow\{x\}}^{\mathsf{FCD}}}\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\} & =\\
+\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\}.
 \end{align*}
 
-On the other hand, \[ f|_{\supfun{\mu}\uparrow\{x\}}\sqsubseteq\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\}; \]
+On the other hand, \[ f|_{\supfun{\mu}\uparrow\{x\}}\sqsubseteq\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\}; \]
 
 \begin{multline*}
-\nu\circ f|_{\supfun{\mu}\uparrow\{x\}}\sqsubseteq\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\supfun{\nu}\uparrow\{y\}\sqsubseteq\\\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\}.
+\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}}\sqsubseteq\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\supfun{\mathrm{X}}\uparrow\{y\}\sqsubseteq\\\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\}.
 \end{multline*}
 
-So $\nu\circ f|_{\supfun{\mu}\uparrow\{x\}}=\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\}$.
+So $\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}}=\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\}$.
 
 \begin{multline*}
-\xlim_{x}f=\setcond{\nu\circ f|_{\supfun{\mu}\uparrow\{x\}}\circ\uparrow r}{r\in G}=\\ \setcond{(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\nu}\uparrow\{y\})\circ\uparrow r}{r\in G}=\tau(y).
+\xlim_{x}f=\setcond{\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x\}}\circ\uparrow r}{r\in G}=\\ \setcond{(\supfun{\mu}\uparrow\{x\}\times^{\mathsf{FCD}}\supfun{\mathrm{X}}\uparrow\{y\})\circ\uparrow r}{r\in G}=\tau(y).
 \end{multline*}
 \end{proof}
 \begin{cor}
-If $\lim_{\supfun{\mu}\uparrow\{x\}}^{\nu}f=y$ then $\xlim_{x}f=\tau(y)$ (provided that $\nu\sqsubseteq\nu\circ\nu$).
+If $\lim_{\supfun{\mu}\uparrow\{x\}}^{\mathrm{X}}f=y$ then $\xlim_{x}f=\tau(y)$ (provided that $\mathrm{X}\sqsubseteq\mathrm{X}\circ\mathrm{X}$).
 \end{cor}
-We have injective $\tau$ if $\supfun{\nu}\uparrow\{y_{1}\}\sqcap\supfun{\nu}\uparrow\{y_{2}\}=\bot^{\mathscr{F}(\Ob\mu)}$
-for every distinct $y_{1},y_{2}\in\Ob\nu$ that is if $\nu$ is $T_{2}$-separable.
+We have injective $\tau$ if $\supfun{\mathrm{X}}\uparrow\{y_{1}\}\sqcap\supfun{\mathrm{X}}\uparrow\{y_{2}\}=\bot^{\mathscr{F}(\Ob\mu)}$
+for every distinct $y_{1},y_{2}\in\Ob\mathrm{X}$ that is if $\mathrm{X}$ is $T_{2}$-separable.
 
 \section{Hausdorff and Kolmogorov funcoids}
 
@@ -423,50 +590,106 @@ coincides with the traditional definition of a Hausdorff
 topological space.
 \end{obvious}
 
-\chapter{Operations on generalized limits}
+\chapter{Generalized limit vs axiomatic generalized limit}
 
 I will call \emph{singularities} the set of generalized limits of the form $\xlim_{\supfun{\mu}\uparrow\{x\}}f$ where $f$~is an entirely defined funcoid and $x$~ranges all points of~$\Ob\mu$.
 
+I will call \emph{axiomatic singularities} the set of axiomatic generalized limits of the form $\xlim_{\supfun{\mu}\uparrow\{x\}}f$ where $f$~is an entirely defined funcoid and $x$~ranges all points of~$\Ob\mu$.
+
 Switching back and forth between generalized limits and what I call $F$-singularities:
 \begin{gather*}
-\Phi f =\setcond{(\dom F, F)}{F \in \up f};\\
+\Phi f =\setcond{(\dom F, F)}{F \in f};\\
 \Psi f = \im f.
 \end{gather*}
 
 \begin{prop}
-$\Phi$ is an injection from the set of singularities to the set of monovalued functions, provided the funcoid~$\mu$ is Kolmogorov and~$\nu$ is entirely defined.
+Let the funcoid~$\mu$ is Kolmogorov and~$\mathrm{X}$ is entirely defined. Then $\Phi$ is an injection from the set of singularities to the set of monovalued functions.
 \end{prop}
 
 \begin{proof}
 That it's an injection is obvious.
 
 We need to prove that $\dom F_0\ne\dom F_1$ for each~$F_0,F_1\in f$ such that $F_0\ne F_1$.
-Really, $F_0=\nu\circ f|_{\supfun{\mu}\uparrow\{x_0\}}\circ\uparrow r_0$ for $x_0\in\Ob\mu$, $r_0\in G$.
+Really, $F_0=\mathrm{X}\circ f|_{\supfun{\mu}\uparrow\{x_0\}}\circ\uparrow r_0$ for $x_0\in\Ob\mu$, $r_0\in G$.
 We have $\dom F_0 = \dom f|_{\supfun{\mu}\uparrow\{x_0\}}=\supfun{\mu}\uparrow\{x_0\}$. Similarly $\dom F_1=\supfun{\mu}\uparrow\{x_1\}$ for some $x_1\in\Ob\mu$.
 Thus $\dom F_0\ne\dom F_1$ because otherwise $x_0=x_1$ and so $r_0\ne r_1$,
 \begin{multline*}
 \dom F_0=\supfun{\uparrow r_0^{-1}}\supfun{\mu}\uparrow\{x_0\}=\\\supfun{\mu}\supfun{\uparrow r_0^{-1}}\uparrow\{x_0\}\ne\\\text{(Kolmogorov property)}\ne\\\supfun{\mu}\supfun{\uparrow r_1^{-1}}\{x_0\}=\\\supfun{\uparrow r_1^{-1}}\supfun{\mu}\{x_0\}=\dom F_1,
 \end{multline*}
 contradiction.
+
+It remains to prove that $(f,\mathcal{X})\mapsto\Phi(\xlim_{\mathcal{X}} f)$ conforms to the axioms.
+
+The second axiom is obvious.
+
+It remains to prove that
+\[ \supfun{\Phi(\xlim_{\mathcal{X}} f)}\mathcal{C} = \lim_{\mathcal{C}}f. \]
+Really, $\Phi(\xlim_{\mathcal{X}} f)$ is equal to an $F\in\xlim_{\mathcal{X}} f$ such that $\dom F=\mathcal{X}$.
+So $F=\mathrm{X}\circ f$.
+\[ \supfun{\Phi(\xlim_{\mathcal{X}} f)}\mathcal{C} =
+\supfun{\mathrm{X}\circ f}\mathcal{C} =
+\supfun{\mathrm{X}\circ f}\mathcal{C} =
+\lim_{\mathcal{C}}f. \]
+\end{proof}
+
+\begin{thm}
+The following are mutually inverse bijections between
+generalized limits and axiomatic generalized limits on a filter~$\mathcal{X}$ such that $\supfun{r}\mathcal{X}\asymp\mathcal{X}$ for all $r\in G\setminus\{e\}$:
+\begin{enumerate}
+\item\label{corr-gl-agl} Let~$y$ be a generalized limit. The corresponding axiomatic
+generalized limit maps~$\mathcal{C}$ to $\supfun{f}\mathcal{C}$ whenever $f\in y$ and $\mathcal{C}\sqsubseteq\dom f$ and is undefined if there is no such~$f$. (Remark: obviously $y\ne\emptyset$.)
+\item\label{corr-agl-gl} Let~$u$ be an axiomatic generalized limit. The corresponding generalized limit~$y$ is a set of funcoids (of suitable source and destination) such that
+\[q\in y \Leftrightarrow \supfun{q}\mathcal{C}=\begin{cases}
+u\mathcal{C}&\text{if }\mathcal{C}\in\dom u;\\
+\emptyset&\text{otherwise}.
+\end{cases}
+\]
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+First, we need to prove that the mapping from~$\mathcal{C}$ to~$\supfun{f}\mathcal{C}$ is monovalued. For $\mathcal{C}=\emptyset$ it's obvious. It's enough to show that $f_0=f_1$ if $f_0,f_1\in y$ and $\mathcal{C}\sqsubseteq\dom f_0\land\mathcal{C}\sqsubseteq\dom f_1$. But for $\mathcal{C}\ne\emptyset$ it follows from the fact that $\dom f_0\asymp\dom f_1$ for $f_0\ne f_1$ as directly follow from theorem conditions.
+
+Next we need to show that our functions are mutually inverse.
+
+Let~$y_0$ be a generalized limit. Let~$u$ be the axiomatic generalized limit corresponding to it by~\ref{corr-gl-agl}. Let $y_1$ be the generalized limit corresponding to it by~\ref{corr-agl-gl}. Then
+\[q\in y_1 \Leftrightarrow \forall\mathcal{C}:\supfun{q}\mathcal{C}=\begin{cases}
+\supfun{f}\mathcal{C}&\text{if }\mathcal{C}\sqsubseteq\dom f;\\
+\emptyset&\text{otherwise};
+\end{cases} \Leftrightarrow q=f
+\]
+for some $f\in y_0$. That is, if $q\in y_1$ then $q=f$ for some $f\in y_0$ and if $q=f$ for some $f\in y_0$ then $f\in y_1$. So $y_0=y_1$.
+
+Let now $u_0$ be an axiomatic generalized limit. Let~$y$ be the generalized limit corresponding to it by by~\ref{corr-agl-gl}. Let $u_1$ be the axiomatic generalized limit corresponding to it by~\ref{corr-gl-agl}. Then~$u_1$ maps~$\mathcal{C}$ to $\supfun{f}\mathcal{C}$ whenever $f\in y$ that is whenever
+\[\supfun{f}\mathcal{C}=\begin{cases}
+u_0\mathcal{C}&\text{if }\mathcal{C}\in\dom u_0;\\
+\emptyset&\text{otherwise}.
+\end{cases}
+\] and $\mathcal{C}\sqsubseteq\dom f$ and it undefined if there is no such~$f$.
+In other words, $u_1$ maps~$\mathcal{C}$ to $u_0\mathcal{C}$ if~$\mathcal{C}\in\dom u_0$ (the case ``otherwise'' is not to be considered because $\dom u_1=\dom u_0$). So $u_1=u_0$.
 \end{proof}
 
 So if we define a function on the set of functions whose values are funcoids, we automatically define (as this injection preimage) a function on the set of singularities. Let's do it.
 
 Let $\varphi$ be a (possibly multivalued) multiargument function.
 
+\chapter{Operations on generalized limits}
+
 \section{Applying functions to functions}
 
 As usually in calculus:
 
+Let~$\varphi$ is an arbitrary multiargument function.
+
 \begin{defn}
 $(\varphi f) x = \varphi (\lambda i \in D : f_i x)$
-for an indexed family $f$ of functions of the same domain $D$.
+for an indexed (by $\dom\varphi$) family $f$ of functions of the same domain $D$ to domains of arguments of~$\varphi$.
 \end{defn}
 
 \section{Applying functions to sets}
 
 \begin{defn}
-  $\varphi X = \rsupfun{\varphi} \prod X$ for a family $X$ of sets.
+  $\varphi X = \rsupfun{\varphi} \prod X$ for a family $X$ of sets, where each $X_i$ is an element of the domain of $i$-th element of~$\varphi$.
 \end{defn}
 
 \begin{obvious}
@@ -485,7 +708,7 @@ $\varphi (\lambda i \in D : \{ x_0 \}) = \{ \varphi x \}$.
 \end{prop}
 
 \begin{proof}
-  Need to prove (theorem~\ref{pf-atom-cont})
+  Need to prove (theorem 1650 in~\cite{volume-1-edition1})
   \[ \supfun{\varphi} \prod^{\reloids}_{X \in \prod a} X \sqsubseteq \bigsqcap
      \setcond{\bigsqcup \rsupfun{x \mapsto \supfun{\varphi}
      \prod^{\reloids}_{X \in \prod x} X} \atoms \mathcal{X}}{\mathcal{X} \in
@@ -496,7 +719,7 @@ $\varphi (\lambda i \in D : \{ x_0 \}) = \{ \varphi x \}$.
      \prod x} X} \atoms \mathcal{X} =\\ \supfun{\varphi} \bigsqcup \rsupfun{x
      \mapsto \prod^{\reloids}_{X \in \prod x} X} \atoms \mathcal{X} .
 \end{multline*}
-  But by theorem~\ref{spfn-atoms}:
+  But by theorem 1875 in~\cite{volume-1-edition1}:
   \[ \bigsqcup \rsupfun{x \mapsto \prod^{\reloids}_{X \in \prod x} X}
      \atoms \mathcal{X} = \prod^{\reloids}_{X \in \prod \mathcal{X}}
      X . \]
@@ -508,7 +731,7 @@ $\varphi (\lambda i \in D : \{ x_0 \}) = \{ \varphi x \}$.
 \section{Applying functions to funcoids}
 
 \begin{defn}
-For a family $f$ of funcoids and filter
+For a family $f$ of funcoids having a common source set and filter on this set
   $\mathcal{X}$
 \[(\varphi f) \mathcal{X} = \varphi \left( \lambda i \in \dom f :
   \supfun{f_i} \mathcal{X} \right) .\]
@@ -548,51 +771,83 @@ For a family $f$ of funcoids and filter
   Consider values on principal atomic filters.
 \end{proof}
 
-\section{Applying to generalized limits}
+\section{Applying to axiomatic generalized limits}
 
 \begin{defn}
   Define applying finitary (multivalued) functions $\varphi$ to and indexed
-  family $x$ of $F$-singularities of the same domain $D$ as
-  \[ \varphi x = \lambda \Delta \in D : \supfun{\nu} \varphi (\lambda i \in
-     \dom x : x_i \Delta) . \]
+  family $x$ of axiomatic generalized limits of the same domain $D$ (and probably different destination sets) as
+  \[ \varphi x = \supfun{\mathrm{X}} \circ \varphi \circ x. \]
+(Here $\varphi$ is considered as a function on filters, $x$~is considered as a function on indexed famililies of functions.)
 \end{defn}
 
 \begin{prop}
-  If $\nu$ is transitive ($\nu \circ \nu \sqsubseteq \nu$) and reflexive and
-  $\nu$ commutes with $\varphi$ in some argument $k$, then
-  \[ \varphi x = \lambda \Delta \in D : \varphi (\lambda i \in \dom x :
-     x_i \Delta) . \]
+  If $\mathrm{X} \circ \mathrm{X} \sqsupseteq \mathrm{X}$ and reflexive and
+  $\mathrm{X}$ commutes with $\varphi$ in some argument $k$, then
+  \[ \varphi x = \phi \circ x . \]
 \end{prop}
 
 \begin{proof}
-  $\lambda \Delta \in D : \varphi (\lambda i \in \dom x : x_i \Delta)
-  \sqsubseteq \varphi x$ because $\nu$ is reflexive.
+  $\varphi \circ x \sqsubseteq \varphi x$ because $\mathrm{X}$ is reflexive.
   
-  $x_i = \nu \circ f_i \circ r_i'$ for some funcoid $f_i$ and $r_i' \in G$.
+  $x_i = \supfun{\mathrm{X} \circ f_i}$ for some funcoid $f_i$.
   
-  $x_i \Delta = \supfun{\nu} \supfun{f_i } \supfun{r_i} \Delta$ for some $r_i
-  \in G$.
+  $x_i \mathcal{X} = \supfun{\mathrm{X}} \supfun{f_i } \mathcal{X}$.
   
-  \begin{multline*}\varphi (\lambda i \in \dom x : x_i \Delta) =\\ \varphi (\lambda i \in
-  \dom x : \supfun{\nu} \supfun{f_i} \supfun{r_i} \Delta) \sqsupseteq\\
-  \varphi \left( \lambda i \in \dom x : \left\{\begin{array}{ll}
-    \supfun{\nu} \supfun{f_i} \supfun{r_i} \Delta & \text{if } i \neq k\\
-    \supfun{\nu} \supfun{\nu} \supfun{f_i} \supfun{r_i} \Delta & \text{if } i =
+  \begin{multline*}\varphi \circ x =\\ \mathcal{C} \mapsto \varphi (\lambda i \in
+  \dom x : \supfun{\mathrm{X}} \supfun{f_i} \mathcal{C}) =\\ \mathcal{C} \mapsto \supfun{\mathrm{X}}\circ \varphi \circ (\lambda i \in
+  \dom x : \supfun{\mathrm{X}} \supfun{f_i} \mathcal{C}) =\\
+  \supfun{\mathrm{X}}\varphi(\mathcal{C} \mapsto \lambda i \in
+  \dom x : \supfun{\mathrm{X}} \supfun{f_i} \mathcal{C}) \sqsupseteq\\
+  \varphi \left( \mathcal{C} \mapsto \lambda i \in \dom x : \left\{\begin{array}{ll}
+    \supfun{\mathrm{X}} \supfun{f_i} \mathcal{C} & \text{if } i \neq k\\
+    \supfun{\mathrm{X}} \supfun{\mathrm{X}} \supfun{f_i} \mathcal{C} & \text{if } i =
     k
-  \end{array}\right. \right) =\\ \supfun{\nu} \varphi \left( \lambda i \in
-  \dom x : \supfun{\nu} \supfun{f_i} \supfun{r_i} \Delta \right) =
-  \varphi x.\end{multline*}
+  \end{array}\right. \right) \sqsupseteq\\ \varphi \left( \mathcal{C} \mapsto \lambda i \in
+  \dom x : \supfun{\mathrm{X}} \supfun{f_i} \mathcal{C} \right) =\\ \supfun{\mathrm{X}} \circ \varphi \circ \left( \mathcal{C} \mapsto \lambda i \in
+  \dom x : \supfun{\mathrm{X}} \supfun{f_i} \mathcal{C} \right) = \\ \mathcal{C} \mapsto \supfun{\mathrm{X}} \varphi \left( \lambda i \in
+  \dom x : \supfun{\mathrm{X}} \supfun{f_i} \mathcal{C} \right) =
+  \supfun{\mathrm{X}}\circ\varphi\circ x = \varphi x.\end{multline*}
+\end{proof}
+
+\begin{prop}
+The conditions of the previous propositions hold for~$\mathrm{A}$ and for~$\mathrm{L}$ if they hold for~$d$. More exactly:
+
+Let $d$ is transitive ($d \circ d \sqsubseteq d$) and reflexive. Then:
+\begin{enumerate}
+\item\label{a-rt} Let $\mathrm{A}$ is transitive ($\mathrm{A} \circ \mathrm{A} \sqsubseteq \mathrm{A}$) and reflexive.
+\item\label{l-rt} Let $\mathrm{L}$ is transitive ($\mathrm{L} \circ \mathrm{L} \sqsubseteq \mathrm{L}$) and reflexive.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+~
+\begin{disorder}
+\item[\ref{a-rt}] Reflexivity is obvious. Prove that $\mathrm{A} \circ \mathrm{A} \sqsubseteq \mathrm{A}$. Really,
+$\mathrm{A} \circ \mathrm{A} = (c\circ d^{-1})\circ(c\circ d^{-1}) \sqsubseteq c\circ d^{-1}\circ d^{-1} \sqsubseteq c\circ d^{-1} = \mathrm{A}$ where $c$ is the ``core part'' funcoid.
+
+\item[\ref{l-rt}] Reflexivity is obvious. Prove that $\mathrm{L} \circ \mathrm{L} \sqsubseteq \mathrm{L}$. Really,
+\begin{multline*}
+\supfun{L}\supfun{L}\mathcal{A}=
+\supfun{L}\setcond{x}{\rsupfun{d}\{x\}\sqsupseteq\mathcal{A}}=
+\supfun{L}\setcond{x}{\rsupfun{d}\{x\}\nasymp\mathcal{A}}= \\
+\supfun{L}\setcond{x}{\{x\}\nasymp\supfun{d^{-1}}\mathcal{A}}
+\sqsubseteq
+\supfun{L}\supfun{d^{-1}}\mathcal{A} = \\
+\setcond{x}{\rsupfun{d}\{x\}\sqsupseteq\supfun{d^{-1}}\mathcal{A}}\sqsubseteq
+\setcond{x}{\rsupfun{d}\{x\}\sqsupseteq\mathcal{A}} =
+\supfun{L}\mathcal{A}.
+\end{multline*}
+\end{disorder}
 \end{proof}
 
 \begin{defn}
-  Applying to singularities: $\varphi x = \Psi f (\lambda i \in \dom x :
-  \Phi x_i)$ (applicable only if limits $x_i$ are taken on filters that are
+  Applying to singularities: $\varphi x = \Psi f (\Phi \circ x)$ (applicable only if limits $x_i$ are taken on filters that are
   equal up to $\supfun{r}$ for $r \in G$).
 \end{defn}
 
 \begin{thm}
-  If $\varphi$ is continuous regarding $\nu$ in each argument and $\dom f_0
-  = \cdots = \dom f_n = \Delta$ and $\nu \circ \nu \sqsubseteq \nu$, then for singularities
+  If $\varphi$ is continuous regarding $\mathrm{X}$ in each argument and $\dom f_0
+  = \cdots = \dom f_n = \Delta$ and $\mathrm{X} \circ \mathrm{X} \sqsubseteq \mathrm{X}$, then for singularities
 \[ \lim \varphi (f_0, \ldots, f_n) = \varphi (\lim f_0, \ldots, \lim f_n). \]
 \end{thm}
 
@@ -602,31 +857,31 @@ For a family $f$ of funcoids and filter
   
   Equivalently transforming:
 \begin{multline*}
-  \lambda \Delta \in D : \supfun{\nu} \varphi ((\Phi \lim f_0) \Delta,
+  \lambda \Delta \in D : \supfun{\mathrm{X}} \varphi ((\Phi \lim f_0) \Delta,
   \ldots, (\Phi \lim f_n) \Delta) =\\ \Phi \lim \varphi (f_0, \ldots, f_n);
 \end{multline*}  
 
-  $\nu \circ \varphi (\nu \circ f_0 \circ r, \ldots, \nu \circ f_n \circ r) =
-  \nu \circ \varphi (f_0, \ldots, f_n) \circ r$;
+  $\mathrm{X} \circ \varphi (\mathrm{X} \circ f_0 \circ r, \ldots, \mathrm{X} \circ f_n \circ r) =
+  \mathrm{X} \circ \varphi (f_0, \ldots, f_n) \circ r$;
   
-  $\nu \circ \varphi (\nu \circ f_0, \ldots, \nu \circ f_n) = \nu \circ
+  $\mathrm{X} \circ \varphi (\mathrm{X} \circ f_0, \ldots, \mathrm{X} \circ f_n) = \mathrm{X} \circ
   \varphi (f_0, \ldots, f_n)$;
   
-  Obviously, $\nu \circ \varphi (\nu \circ f_0, \ldots, \nu \circ f_n)
-  \sqsupseteq \nu \circ \varphi (f_0, \ldots, f_n)$.
+  Obviously, $\mathrm{X} \circ \varphi (\mathrm{X} \circ f_0, \ldots, \mathrm{X} \circ f_n)
+  \sqsupseteq \mathrm{X} \circ \varphi (f_0, \ldots, f_n)$.
   
   Reversely, applying continuity $n + 1$ times, we get:
 \begin{multline*}
-  \nu \circ \varphi (\nu \circ f_0, \ldots, \nu \circ f_n) \sqsubseteq\\
-     \underset{n + 1 \text{ times}}{\underbrace{\nu \circ \nu}} \circ \varphi
-     (f_0, \ldots, f_n) \sqsubseteq\\ \nu \circ \varphi (f_0, \ldots, f_n) .
+  \mathrm{X} \circ \varphi (\mathrm{X} \circ f_0, \ldots, \mathrm{X} \circ f_n) \sqsubseteq\\
+     \underset{n + 1 \text{ times}}{\underbrace{\mathrm{X} \circ \mathrm{X}}} \circ \varphi
+     (f_0, \ldots, f_n) \sqsubseteq\\ \mathrm{X} \circ \varphi (f_0, \ldots, f_n) .
 \end{multline*}
-  So $\nu \circ \varphi (\nu \circ f_0, \ldots, \nu \circ f_n) = \nu \circ
+  So $\mathrm{X} \circ \varphi (\mathrm{X} \circ f_0, \ldots, \mathrm{X} \circ f_n) = \mathrm{X} \circ
   \varphi (f_0, \ldots, f_n)$.
 \end{proof}
 
 \begin{prop}
-If $\phi$ is continuous regarding~$\nu$ in each argument, then
+If $\varphi$ is continuous regarding~$\mathrm{X}$ in each argument, then
 \begin{multline*}
   \varphi (\lim f_0 |_{\Delta}, \ldots, \lim f_n |_{\Delta}) =\\ \lim \varphi
   (f_0 |_{\Delta}, \ldots, f_n |_{\Delta}) =\\ \lim_{\Delta} \varphi (f_0,
@@ -663,14 +918,14 @@ for funcoids $f_0$, ..., $f_n$,
 
 \begin{thm}
 Let~$\Delta$ be a filter on~$\mu$.
-Let~$S$ be the set of all functions $p\in\mathsf{FCD}(\Ob\mu,\Ob\nu)$
+Let~$S$ be the set of all functions $p\in\mathsf{FCD}(\Ob\mu,\Ob\mathrm{X})$
 such that $\dom p=\Delta$.
 Let $f$, $g$ be
-finitary multiargument functions on $\Ob\nu$.
+finitary multiargument functions on $\Ob\mathrm{X}$.
 Let $J$ be an index
 set. Let $k \in J^{\operatorname{dom} P}$, $l \in J^{\operatorname{dom} Q}$. Then
 \begin{multline*}
-\forall x \in (\Ob\nu)^J : f (\lambda i \in \operatorname{dom} f : x_{k_i}) =\\ g (\lambda
+\forall x \in (\Ob\mathrm{X})^J : f (\lambda i \in \operatorname{dom} f : x_{k_i}) =\\ g (\lambda
    i \in \operatorname{dom} g : x_{l_i})
 \end{multline*}
 implies
@@ -678,11 +933,11 @@ implies
    \forall x \in (\rsupfun{\lim}S)^J : f (\lambda i \in
    \operatorname{dom} f : x_{k_i}) =\\ g (\lambda i \in \operatorname{dom} g : x_{l_i}) ,
 \end{multline*}
-provided that~$f$ and~$g$ are continuous regarding~$\nu$ in each argument.
+provided that~$f$ and~$g$ are continuous regarding~$\mathrm{X}$ in each argument.
 \end{thm}
 
 \begin{rem}
-This theorem implies that if $\Ob\nu$ is a group, ring, vector space, etc., then $\rsupfun{\lim}S$ is also accordingly a group, ring, vector space, etc.
+This theorem implies that if $\Ob\mathrm{X}$ is a group, ring, vector space, etc., then $\rsupfun{\lim}S$ is also accordingly a group, ring, vector space, etc.
 \end{rem}
 
 \begin{proof}
@@ -706,9 +961,32 @@ We can also define definite integral of an arbitrary function (I remind that int
 
 From above it follows that my generalized derivatives and integrals are linear operators.
 
+\chapter{Equivalence of different generalized limits}
+
+\begin{prop}
+Axiomatic generalized limits of monovalued funcoids for 
+$\mathrm{X}=\mathrm{A}$ and $\mathrm{X}=\mathrm{L}$ coincide on ultrafilers.
+\end{prop}
+
+\begin{proof}
+Follow from the facts that the image of an ultrafilter by an atomic funcoid is an ultrafilter and that $\mathrm{L}$ and $\mathrm{A}$ coincide on ultrafilters.
+\end{proof}
+
+\begin{question}
+Under which conditions the algebras of all functions on the set of of all possible values of axiomatic generalized limits between two fixed sets~$A$ and~$B$ induced (as described above) by functions $A\to B$ for generalized limits are pairwise isomorphic (with an obvious bijection) for:
+\begin{enumerate}
+\item $\mathrm{X}=\mathrm{A}$;
+\item $\mathrm{X}=\mathrm{L}$.
+\end{enumerate}
+Moreover, if $d$ is $T_2$-separable, they are also isomorphic to the case
+$\mathrm{X}=d\circ d^{-1}$ (remark: for a pretopology~$d$, it's the proximity of two sets being near if they have intersecting closures). The isomorphism is composing every element~$F$ of a value of an axiomatic generalized limit with~$d$ on the left ($F\mapsto d\circ F$).
+\end{question}
+
+Also let question how to generalize the above for functions~$\varphi$ between \emph{different} kinds of singularities is also not yet settled.
+
 \chapter{Hierarchy of singularities}
 
-Above we have defined (having fixed endofuncoids~$\mu$ and~$\nu$) for every set of ``points''~$R=\Ob\nu$ its set of singularities $\operatorname{SNG}(R)$.
+Above we have defined (having fixed endofuncoids~$\mu$ and~$\mathrm{X}$) for every set of ``points''~$R=\Ob\mathrm{X}$ its set of singularities $\operatorname{SNG}(R)$.
 
 We can further consider
 \[
@@ -727,7 +1005,7 @@ R\cup\operatorname{SNG}(R)\cup
 
 But what is the limit (and derivative) on this set? And how to perform addition, subtraction, multiplication, division, etc.\ on this set?
 
-Finite functions on the set $\operatorname{SUPER}(R)$ are easy: just apply~$\tau$ to arguments belonging to ``lower'' parts of the hierarchy of singularities a finite number of times, to make them to belong to the same singularity level (the biggest singularity level of all arguments).
+Finitary functions on the set $\operatorname{SUPER}(R)$ are easy: just apply~$\tau$ to arguments belonging to ``lower'' parts of the hierarchy of singularities a finite number of times, to make them to belong to the same singularity level (the biggest singularity level of all arguments).
 
 Instead of generalized limit, we will use ``regular'' limit but on the set $\operatorname{SUPER}(R)$ (which below we will make into a funcoid) rather than on the set~$R$.
 
@@ -737,42 +1015,42 @@ What nondifferentiable solutions of such equations do look like? No idea! Do the
 
 \chapter{Funcoid of singularities}
 
-I remind that for funcoid~$\nu$ the relation~$\rsuprel{\nu}$ can be thought as generalized nearness.
+I remind that for funcoid~$\mathrm{X}$ the relation~$\rsuprel{\mathrm{X}}$ can be thought as generalized nearness.
 
-We will extend $\rsuprel{\nu}$ from the set~$R$ of points to the set of funcoids from a (fixed) set~$A$ to~$R$ having the same domain (or empty domain):
+We will extend $\rsuprel{\mathrm{X}}$ from the set~$R$ of points to the set of funcoids from a (fixed) set~$A$ to~$R$ having the same domain (or empty domain):
 \[
-y_0 \rsuprel{\nu} y_1 \Leftrightarrow
+y_0 \rsuprel{\mathrm{X}} y_1 \Leftrightarrow
 \forall x\in\atoms\dom y_0:
-\supfun{y_0}x \rsuprel{\nu} \supfun{y_1}x
+\supfun{y_0}x \rsuprel{\mathrm{X}} \supfun{y_1}x
 \]
 where $\atoms\dom y_0$ is the set of ultrafilters over the filter $\dom y_0$.
 
-The above makes $\nu$ a pointfree funcoid on this set of funcoids:
+The above makes $\mathrm{X}$ a pointfree funcoid (as defined in~\cite{volume-1-edition1}) on this set of funcoids:
 
 \begin{proof}
 Because funcoids are isomorphic to filters on certain boolean lattice, it's enough to prove:
 \begin{align*}
-\lnot(\bot\rsuprel{\nu}y_1),\quad
-\lnot(y_0\rsuprel{\nu}\bot),\\
-i\sqcup j\rsuprel{\nu}y_1 \Leftrightarrow
-i\rsuprel{\nu}y_1\lor j\rsuprel{\nu}y_1,\\
-y_0\rsuprel{\nu}i\sqcup j \Leftrightarrow
-y_0\rsuprel{\nu}i\lor y_0\rsuprel{\nu}j.
+\lnot(\bot\rsuprel{\mathrm{X}}y_1),\quad
+\lnot(y_0\rsuprel{\mathrm{X}}\bot),\\
+i\sqcup j\rsuprel{\mathrm{X}}y_1 \Leftrightarrow
+i\rsuprel{\mathrm{X}}y_1\lor j\rsuprel{\mathrm{X}}y_1,\\
+y_0\rsuprel{\mathrm{X}}i\sqcup j \Leftrightarrow
+y_0\rsuprel{\mathrm{X}}i\lor y_0\rsuprel{\mathrm{X}}j.
 \end{align*}
 The first two formulas are obvious. Let's prove the third (the fourth is similar):
 \begin{multline*}
-i\sqcup j\rsuprel{\nu}y_1 \Leftrightarrow\\
+i\sqcup j\rsuprel{\mathrm{X}}y_1 \Leftrightarrow\\
 \forall x\in\atoms\dom(i\sqcup j):
-\supfun{y_0}x \rsuprel{\nu} \supfun{y_1}x \Leftrightarrow\\
+\supfun{y_0}x \rsuprel{\mathrm{X}} \supfun{y_1}x \Leftrightarrow\\
 \forall x\in\atoms(\dom i\sqcup\dom j):
-\supfun{y_0}x \rsuprel{\nu} \supfun{y_1}x \Leftrightarrow\\
+\supfun{y_0}x \rsuprel{\mathrm{X}} \supfun{y_1}x \Leftrightarrow\\
 \forall x\in\atoms\dom i\cup\atoms\dom j:\\
-\supfun{y_0}x \rsuprel{\nu} \supfun{y_1}x \Leftrightarrow\\
+\supfun{y_0}x \rsuprel{\mathrm{X}} \supfun{y_1}x \Leftrightarrow\\
 \forall x\in\atoms\dom i:
-\supfun{y_0}x \rsuprel{\nu} \supfun{y_1}x \lor\\
+\supfun{y_0}x \rsuprel{\mathrm{X}} \supfun{y_1}x \lor\\
 \forall x\in\atoms\dom j:
-\supfun{y_0}x \rsuprel{\nu} \supfun{y_1}x \Leftrightarrow\\
-i\rsuprel{\nu}y_1\lor j\rsuprel{\nu}y_1.
+\supfun{y_0}x \rsuprel{\mathrm{X}} \supfun{y_1}x \Leftrightarrow\\
+i\rsuprel{\mathrm{X}}y_1\lor j\rsuprel{\mathrm{X}}y_1.
 \end{multline*}
 \end{proof}
 
@@ -785,11 +1063,11 @@ there exist two elements of~$y_0$ and~$y_1$ correspondingly such that $\dom y_0=
 Let's prove it defines a funcoid on the set of $F$-singularities:
 
 \begin{proof}
-Not $\emptyset\rsuprel{\nu}X$ and not $X\rsuprel{\nu}\emptyset$ are obvious.
+Not $\emptyset\rsuprel{\mathrm{X}}X$ and not $X\rsuprel{\mathrm{X}}\emptyset$ are obvious.
 
 It remains to prove for example
-\[ I\cup J\rsuprel{\nu}K \Leftrightarrow 
-I\rsuprel{\nu}K \lor J\rsuprel{\nu}K, \]
+\[ I\cup J\rsuprel{\mathrm{X}}K \Leftrightarrow 
+I\rsuprel{\mathrm{X}}K \lor J\rsuprel{\mathrm{X}}K, \]
 but that's obvious.
 \end{proof}
 
@@ -801,11 +1079,11 @@ Let $y_0$,~$y_1$ be sets of supersingularities.
 
 We will define $y_0$~and~$y_1$ to be near iff
 there exist natural~$n$,~$m$ such that
-\[ \tau^n[y_0\cap\operatorname{SNG}^m(R)] \rsuprel{\nu}
+\[ \tau^n[y_0\cap\operatorname{SNG}^m(R)] \rsuprel{\mathrm{X}}
 \tau^m[y_1\cap\operatorname{SNG}^n(R)]. \]
 
 \begin{rem}
-In this formula both the left and the right arguments of~$\rsuprel{\nu}$ belong to $\operatorname{SNG}^{n+m}(R)$.
+In this formula both the left and the right arguments of~$\rsuprel{\mathrm{X}}$ belong to $\operatorname{SNG}^{n+m}(R)$.
 \end{rem}
 
 Let's prove that the above formula really defines a funcoid:
@@ -813,37 +1091,37 @@ Let's prove that the above formula really defines a funcoid:
 \begin{proof}
 We need to show
 \begin{align*}
-\emptyset\rsuprel{\nu}y_1,\quad
-y_0\rsuprel{\nu}\emptyset,\\
-i\cup j\rsuprel{\nu}y_1 \Leftrightarrow
-i\rsuprel{\nu}y_1\lor j\rsuprel{\nu}y_1,\\
-y_0\rsuprel{\nu}i\cup j \Leftrightarrow
-y_0\rsuprel{\nu}i\lor y_0\rsuprel{\nu}j.
+\emptyset\rsuprel{\mathrm{X}}y_1,\quad
+y_0\rsuprel{\mathrm{X}}\emptyset,\\
+i\cup j\rsuprel{\mathrm{X}}y_1 \Leftrightarrow
+i\rsuprel{\mathrm{X}}y_1\lor j\rsuprel{\mathrm{X}}y_1,\\
+y_0\rsuprel{\mathrm{X}}i\cup j \Leftrightarrow
+y_0\rsuprel{\mathrm{X}}i\lor y_0\rsuprel{\mathrm{X}}j.
 \end{align*}
 The first two formulas are obvious. Let's prove the third (the fourth is similar):
 \begin{align*}
-&i\cup j\rsuprel{\nu}y_1 \Leftrightarrow \\&
+&i\cup j\rsuprel{\mathrm{X}}y_1 \Leftrightarrow \\&
 \exists n,m\in\mathbb{N}:\\& 
-\tau^n[(i\cup j)\cap\operatorname{SNG}^m(R)] \rsuprel{\nu}
+\tau^n[(i\cup j)\cap\operatorname{SNG}^m(R)] \rsuprel{\mathrm{X}}
 \tau^m[y_1\cap\operatorname{SNG}^n(R)] \Leftrightarrow \\&
 \exists n,m\in\mathbb{N}:\\& 
-\tau^n[(i\cap\operatorname{SNG}^m(R))\cup(j\cap\operatorname{SNG}^m(R)))] \rsuprel{\nu}\\&
+\tau^n[(i\cap\operatorname{SNG}^m(R))\cup(j\cap\operatorname{SNG}^m(R)))] \rsuprel{\mathrm{X}}\\&
 \tau^m[y_1\cap\operatorname{SNG}^n(R)] \Leftrightarrow \\&
 \exists n,m\in\mathbb{N}:\\& 
-\tau^n[i\cap\operatorname{SNG}^m(R)]\cup\tau^n[j\cap\operatorname{SNG}^m(R)))] \rsuprel{\nu}\\&
+\tau^n[i\cap\operatorname{SNG}^m(R)]\cup\tau^n[j\cap\operatorname{SNG}^m(R)))] \rsuprel{\mathrm{X}}\\&
 \tau^m[y_1\cap\operatorname{SNG}^n(R)] \Leftrightarrow \\&
 \exists n,m\in\mathbb{N}:\\& 
-(\tau^n[i\cap\operatorname{SNG}^m(R)]\rsuprel{\nu}
+(\tau^n[i\cap\operatorname{SNG}^m(R)]\rsuprel{\mathrm{X}}
 \tau^m[y_1\cap\operatorname{SNG}^n(R)] \lor \\&
-\tau^n[j\cap\operatorname{SNG}^m(R)]\rsuprel{\nu}
+\tau^n[j\cap\operatorname{SNG}^m(R)]\rsuprel{\mathrm{X}}
 \tau^m[y_1\cap\operatorname{SNG}^n(R)]) \Leftrightarrow \\&
 \exists n,m\in\mathbb{N}:\\& 
-\tau^n[i\cap\operatorname{SNG}^m(R)]\rsuprel{\nu}
+\tau^n[i\cap\operatorname{SNG}^m(R)]\rsuprel{\mathrm{X}}
 \tau^m[y_1\cap\operatorname{SNG}^n(R)] \lor \\&
 \exists n,m\in\mathbb{N}:\\& 
-\tau^n[j\cap\operatorname{SNG}^m(R)]\rsuprel{\nu}
+\tau^n[j\cap\operatorname{SNG}^m(R)]\rsuprel{\mathrm{X}}
 \tau^m[y_1\cap\operatorname{SNG}^n(R)] \Leftrightarrow \\&
-i\rsuprel{\nu}y_1\lor j\rsuprel{\nu}y_1.
+i\rsuprel{\mathrm{X}}y_1\lor j\rsuprel{\mathrm{X}}y_1.
 \end{align*}
 \end{proof}
 
