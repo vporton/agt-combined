@@ -1,0 +1,455 @@
+\documentclass{amsart}
+\usepackage{stmaryrd}
+
+\usepackage{agt}
+
+\begin{document}
+
+This document contains a list of short ideas of future research in Algebraic
+General Topology.
+
+I have created branch \texttt{devel} in \href{https://bitbucket.org/portonv/algebraic-general-topology}{the \LaTeX repository} for the book
+to add new ``draft'' features there. The \texttt{devel} branch isn't distributed by me in PDF format, but you can download and compile it yourself.
+
+This research plan is not formal and may contain vague statements.
+
+\section{Things to do first}
+
+Isn't generalized limit just the limit on the set of ``singularities''? If yes, it seems a key to put it into a diffeq!
+
+Which filter operations are congruences on
+equivalence of filters?
+
+\section{Misc}
+
+Funcoids can also be defined by the formula $Y\nasymp\alpha X\Leftrightarrow X\nasymp\beta Y$ (for sets) - is it known?
+Equivalent: $Y\in\partial\alpha X\Leftrightarrow X\in\partial\beta Y$; $X\mathrel{\partial\alpha}Y\Leftrightarrow Y\mathrel{\partial\beta}X$.
+In other words, funcoids can be defined as functions from sets to free stars, whose relational inverse is also a function from sets to free stars.
+In other words, it is an arbitrary binary relation between sets each whose (both $x$ and $y$) projections are free stars.
+(This idea simplifies the definion of prestaroids.)
+In yet other words, it is an arbitrary binary relation between sets each whose (both $x$ and $y$) projections are ideals.
+In yet other words, it is an arbitrary binary relation between sets each whose (both $x$ and $y$) projections are filters.
+It can be generalized to point-free.
+
+Both uniform covers and functions can be represented as sets of binary Cartesian products
+(uniform covers as sets of ``quadrtatic'' products, function as sets of products of singletons).
+Define composition as ??.
+Therefore we can form a semigroup of them. What is the action of this semigroup?
+
+Some special cases of reloids:
+\url{https://www.researchgate.net/publication/331776637_Functional_Boundedness_of_Balleans_Coarse_Versions_of_Compactness}
+
+``Unfixed'' for more general settings than lattice and its
+sublattice. (However, it looks like this generalization has
+no practical applications.)
+
+Should clearly denote $\mathsf{pFCD}(\mathfrak{A};\mathfrak{Z})$ or $\mathsf{pFCD}(\mathfrak{A})$.
+
+\url{https://en.wikipedia.org/wiki/Compact_element}
+
+\url{https://arxiv.org/abs/1904.12525} On proximal fineness of topological groups in their right uniformity
+
+\url{https://arxiv.org/abs/1905.00513}
+On $\mathcal{B}$-Open Sets
+
+\url{https://arxiv.org/abs/1812.09802} Boundaries of coarse proximity spaces and boundaries of compactifications
+
+Try to describe a filter with up of infintiely small
+components.
+For this use a filter (of sets or filters) rather than a set
+of sets.
+
+About generalization of simplical sets for nearness spaces on posets?
+\url{https://arxiv.org/abs/1902.07948}
+
+\section{Category theory}
+
+Can product morphism (in a category with restricted
+identities) be considered as a categorical product
+in \href{https://en.wikipedia.org/wiki/Comma_category#Arrow_category}{arrow category}?
+(It seems impossible to define projections for
+arbitrary categories with binary product morphism.
+Can it be in the special cases of funcoids and reloids?)
+
+Attempting to extend Tychonoff product from topologies to funcoids:
+|| If $i$ has left adjoint:
+If $r$ is left adjoint to $i$, we have $\Hom(A, i(X\times Y)) = \Hom(r(A), X\times Y) = \Hom(r(A), X)\times \Hom(r(A), Y) = \Hom(A, i(X))\times \Hom(A, i(Y))$.
+|| If also the left adjoint is full and faithful:
+$\Hom(A, i(r(X)\times r(Y))) = \Hom(r(A), r(X)\times r(Y)) = \Hom(r(A), r(X))\times \Hom(r(A), r(Y)) = \Hom(A, X)\times \Hom(A, Y)$.
+See also \url{http://math.stackexchange.com/q/1982931/4876}. However this does not apply because reflection of topologies in funcoids
+is not full.
+
+\emph{Being intersecting} is defined for posets (=~thin categories). It seems that this can be generalized for any categories.
+This way we can define (pointfree) funcoids between categories generalizing pointfree funcoids between posets.
+(However this is probably easily reducible to the case of posets.)
+
+I have defined $\mathsf{RLD}\sharp$ to describe $\Hom$-sets of the category or reloids but without source and destination and without composition.
+$\mathsf{RLD}$ should be replaced with $\mathsf{RLD}\sharp$ where possible, in order to make the theorems throughout the book a little more general.
+Also introduce similar features like $\Gamma\sharp$ and $\mathfrak{F}\Gamma\sharp$ (the last notation may need to be changed).
+
+Misc properties of continuous functions between endofuncoids and endoreloids.
+
+\url{http://nforum.ncatlab.org/discussion/6765/please-help-with-a-proof-that-a-category-is-monoidal/} proves that
+finitary staroids are isomorphic to an ideal on a poset (for semilattices only).
+
+\cite{filt-cat}~defines two categories with objects being filters. Another article on the same topic:\\
+\url{https://eudml.org/doc/16352} (Koubek, V\'aclav, and Reiterman, Jan. "On the category of filters.")
+
+\fxnote{\url{https://en.wikipedia.org/wiki/Cauchy space} says ``The category of Cauchy spaces and Cauchy continuous maps is cartesian closed.'' Generalize.
+\url{http://www.sciencedirect.com/science/article/pii/0166864187900988}}
+
+\section{Compact funcoids}
+
+Generalize the theorem that compact topology corresponds to only one uniformity.
+
+For compact funcoids the Cantor's theorem that a function continuous on a compact is uniformly continuous.
+
+Every closed subset of a compact space is compact. A compact subset of a Hausdorff space is closed. 17.5 theorem in Willard.
+
+17.6 theorem in Willard.
+
+17.7 theorem in Willard: The continuous image of a compact space is compact.
+
+17.10 Theorem in Willard: A compact Hausdorff space $X$ is a $T 4$-space. Also 17.11 Corollary, 17.13, 17.14 theorem.
+
+"Locally compact" for funcoids. See also 18 "Locally compact spaces: in Willard.
+
+Compactification.
+
+\section{Misc}
+
+A funcoid or pointfree funcoids can be turned into an ordered semigroup action also by the formula: $\supfun{f}(x,y)=(\supfun{f}(x),\supfun{f^{-1}}(y))$ (on the left $\supfun{}$ denotes the semigroup action, on the right it denotes components of the funcoid.) Can we similarly consider multifuncoids as an ordered semigroup action?
+
+Counterexample at \url{https://math.stackexchange.com/a/3046071/4876}.
+
+\url{https://www.researchgate.net/project/Contra-continuity-in-its-different-aspects}
+
+We know that $\torldout(f\sqcup g) = \torldout f\sqcup\torldout g$.
+Hm, then it is a pointfree funcoid!
+
+\begin{conjecture}
+$\langle f \rangle \bigsqcup S = \bigsqcup_{\mathcal{X} \in S} \langle f
+\rangle \mathcal{X}$ if $S$ is a totally ordered (generalize for a filter
+base) set of filters (or at least set of sets).
+[Counterexample: \url{https://portonmath.wordpress.com/2018/05/20/a-counterexample-to-my-recent-conjecture/}]
+\end{conjecture}
+
+Should we replace the word ``intersect'' with the word ``overlap''?
+
+Instead of a filtrator use ``closure`` $(X,[X])$?
+
+$\tofcd$, $\torldin$, $\torldout$ can be defined purely in terms of filtrators.
+So generalize it.
+
+Generalize for funcoids and reloids factoring into monovalued and injective:\\
+\url{https://math.stackexchange.com/q/2414159/4876}.
+Generalize it for star-composition with multidimensional, identity relations, identity staroids/multifuncoids, or identity reloid.
+Isn't thus a category with star-morphisms determined by a regular category?!
+Also try to split into complete and co-complete funcoids/reloids.
+
+Open problems on $\beta\omega$ (Klass Pieter Hart and Jab van Mill).
+
+Example that $\Compl f\sqcup\CoCompl f\sqsubset f$ (for both funcoids and reloids).
+Proof for funcoids (for reloids it's similar): Take $f=\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}$. Then (write an explicit proof)
+$\Compl f=(\Cor\mathcal{A})\times^{\mathsf{FCD}}\mathcal{B}$ and $\CoCompl f=\mathcal{A}\times^{\mathsf{FCD}}(\Cor\mathcal{B})$.
+Thus $\Compl f\sqcup\CoCompl f\ne f$ (if $\mathcal{A}$, $\mathcal{B}$ are non-principal).
+
+Every funcoid (reloid) is a join of monovalued funcoids (reloids). For funcoids it's obvious
+(because it's a join of atomic funcoids). For reloids?
+
+``Vicinity'' and ``neighborhood'' mean different things, e.g. in \cite{converg}.
+
+Micronization~$\mu$ and $S^\ast$ are in some sense related as Galois connection.
+To formalize this we need to extend $\mu$ to arbitrary reloids (not only binary relations).
+
+We need (it is especially important for studying compactness) to find a product of funcoids which coincides with
+product of topological spaces. (Cross-composition product doesn't because it is even not a funcoid (but a pointfree funcoid).)
+Neither subatomic product.
+
+Subspace topology for space~$\mu$ and set~$X$ is equal to $\mu\sqcap(X\times^{\mathsf{FCD}} X)$.
+
+Change terminology: \emph{monotone} $\rightarrow$ \emph{increasing}.
+
+What are necessary and sufficient conditions for $\up f$ to be a filter for a funcoid~$f$?
+
+Article ``Neighborhood Spaces'' by D. C. KENT and WON KEUN MIN.
+\url{ftp://ftp.math.ethz.ch/EMIS/journals/IJMMS/Volume32 7/239107.pdf}
+
+$g\sqsubseteq f^{\circ}\circ h \Leftrightarrow f\circ g\sqsubseteq h$?
+
+$\lim {x\rightarrow a} f(x) = b$ iff $x\rightarrow a$ implies $\supfun{f}x\rightarrow b$ for all filters~$x$.
+
+\url{http://mathoverflow.net/q/36999/4086} ``A good place to read about uniform spaces''.
+
+Research the posets of all proximity spaces and all uniform spaces (and also possibly reflexive and transitive funcoids/reloids).
+
+Are filters on all Heyting or all co-Heyting lattices star-separable?
+\url{http://math.stackexchange.com/q/1326266/4876}
+
+Define generalized pointfree reloids as filters on systems of sides.
+
+\href{https://www.math.ksu.edu/~strecker/primer.ps}{Galois connections primer} -- study to ensure that we considered all Galois connections properties.
+
+\href{https://en.wikipedia.org/wiki/Germ (mathematics)}{Germs} seems to be equivalent to monovalued reloids.
+
+$\mathcal{A} = \min\setcond{X}{\forall K\in\corestar\mathcal{A}:K\nasymp K}$, so we can restore $\mathcal{A}$ from~$\corestar\mathcal{A}$.
+
+Boolean funcoid is a join-semilattice morphism from a boolean lattice to a boolean lattice. Generalize for pointfree funcoids.
+
+Another way to define pointfree reloid as filters on Galois connections between two posets.
+
+$L \in \GR \prod^{\mathsf{Strd} \ast} A \Leftrightarrow \forall
+\text{finite } M \subseteq \dom A \forall i \in M : A i \nasymp L i$?
+
+Star-composition with identity staroids?
+
+Does upgrading/downgrading of the ideal which represents a prestaroid coincide with upgrading/downgrading of the prestaroid?
+
+It seems that equivalence of filters on different bases can be generalized:
+filters~$\mathcal{A}\in\mathfrak{A}$ and~$\mathcal{B}\in\mathfrak{B}$ are \emph{equivalent} iff
+there exists an $X\in\mathfrak{A}\cap\mathfrak{B}$ which is greater than both~$\mathcal{A}$ and~$\mathcal{B}$.
+This however works only in the case if order of the orders~$\mathfrak{A}$ and~$\mathfrak{B}$ agree,
+that is if then are both a suborders of a greater fixed order.
+
+Under which conditions a function spaces of posets is strongly separable?
+
+Generalize both funcoids and reloids as filters on a superset of the lattice~$\Gamma$ (see ``Funcoids are filters'' chapter).
+
+When the set of filters closed regarding a funcoid is a (co-)frame?
+
+If a formula $F(x 0,\dots,x n)$ holds for every poset $\mathfrak{A} i$ then it also holds for product order $\prod\mathfrak{A}$.
+(What about infinite formulas like complete lattice joins and meets?)
+Moreover $F(x 0,\dots,x n) = \mylambda{i}{n}{F(x {0,i},\dots,x {n,i})}$ (confused logical forms and functions).
+It looks like a promising approach, but how to define it exactly? For example, $F$ may be a form always true for boolean
+lattices or for Heyting lattices, or whatsoever. How one theorem can encompass all kinds of lattices and posets?
+We may attempt to restrict to (partial) functions determined by order.
+(This is not enough, because we can define an operation restricting $\setminus$ defined only for posets
+of cardinality above or below some cardinal~$\kappa$. For such restricted $\setminus$ the above formula does not work.)
+See also \url{https://portonmath.wordpress.com/2016/01/12/a-conjecture-about-product-order-and-logic/}.
+It seems that \noun{Todd Trimble} shows a general category-theoretic way to describe this:
+\url{https://nforum.ncatlab.org/discussion/6887/operations-on-product-order/}.
+
+Get results from \url{http://ncatlab.org/toddtrimble/published/topogeny}.
+
+What about distributivity of quasicomplements over meets and joins for the filtrator of funcoids? Seems like nontrivial conjectures.
+
+Conjecture: Each filtered filtrator is isomorphic to a primary filtrator. (If it holds, then primary and filtered filtrators are the same!)
+
+Add analog of the last item of the theorem about co-complete funcoids for pointfree funcoids.
+
+Generalize theorems about $\mathsf{RLD}(A;B)$ as $\mathscr{F}(A\times B)$ in order to clean up the notation
+(for example in the chapter ``Funcoids are filters'').
+
+Define reloids as a filtrator whose core is an ordered semigroup.
+This way reloids can be described in several isomorphic ways (just like primary filtrators are both filtrators of filters, of ideals, etc.)
+Is it enough to describe all properties of reloids? Well, it is not a semigroup, it is a precategory.
+It seems that we also need functions $\dom$ and $\im$ into partially ordered sets and ``reversion'' (dagger).
+
+\url{http://mathoverflow.net/a/191381/4086} says that $n$-staroids can be identified with certain ideals!
+
+To relax theorem conditions and definition, we can define \emph{protofuncoids} as arbitrary pairs $(\alpha;\beta)$ of functions
+between two posets. For protofuncoids composition and reverse are defined.
+
+Add examples of funcoids to demonstrate their power:
+$D\sqcup T$ ($D$ is a digraph $T$ is a topological space),
+$T\sqcap\setcond{(x;y)}{y\ge x}$ as ``one-side topology'' and also a circle made from its $\pi$-length segment.
+
+Say explicitly that pseudodifference is a special case of difference.
+
+For pointfree funcoids, if $f:\mathfrak{A}\rightarrow\mathfrak{B}$ exists,
+then existence of least element of~$\mathfrak{A}$ is equivalent to existence of least element of~$\mathfrak{B}$:
+$y \nasymp \supfun{f} \bot^{\mathfrak{A}} \Leftrightarrow
+\bot^{\mathfrak{A}} \nasymp \langle f^{- 1} \rangle y \Leftrightarrow 0$. Thus
+$\supfun{f} y \asymp \supfun{f} y$ and so $\supfun{f} y =
+\bot^{\mathfrak{B}}$.
+Can a similar statement be made that $\mathfrak{A}$ being join-semilattice implies $\mathfrak{B}$ being join-semilattice
+(at least for separable posets)? If yes, this could allow to shorten some theorem conditions.
+It seems we can produce a counter-example for non-separable posets by replacing an element with another element with the same full star.
+
+Develop Todd Trimble's idea to represent funcoids as a relation~$\xi$ further:
+Define funcoid as a function from sets to sets of sets
+$\xi(A\sqcup B) = \xi A\cap\xi B$ and $\xi\bot=\emptyset$.
+
+Denote the set of least elements as $\operatorname{Least}$. (It is either an
+one-element set or empty set.)
+
+Show that cross-composition product is a special case of infimum product.
+
+Analog of order topology for funcoids/reloids.
+
+A set is connected if every function from it to a discrete space is constant. Can this be generalized for generalized connectedness and generalized continuity? I have no idea how to relate these two concepts in general.
+
+Develop theory of \emph{funcoidal groups} by analogy with topological groups.
+Attempt to use this theory to solve this open problem:\\
+\url{http://garden.irmacs.sfu.ca/?q=op/is every regular paratopological group tychonoff}
+Is it useful as topological group determines not only a topology but even a uniformity?
+An interesting article on topological groups:
+\url{https://arxiv.org/abs/1901.01420}
+
+Consider generalizations of this article: \\
+\url{https://www.researchgate.net/publication/318822240_Categorically_Closed_Topological_Groups}
+
+A space $\mu$ is $T 2$- iff the diagonal $\Delta$ is closed in $\mu\times\mu$.
+
+The $\beta$-th projection map is not only continuous but also open (Willard, theorem 8.6).
+
+$T x$-separation axioms for products of spaces.
+
+Willard 13.13 and its important corollary 13.14.
+
+Willard 15.10.
+
+About real-valued functions on endofuncoids: Urysohn's Lemma (and consequences: Tietze's extension theorem) for funcoids.
+
+About product of reloids:\\
+\url{http://portonmath.wordpress.com/2012/05/23/unfirunded-questions/}
+
+Generalized Fr\'echet filter on a poset (generalize for filtrators) $\mathfrak{A}$ is a filter $\Omega$ such that
+\[ \corestar\Omega = \setcond{x\in\mathfrak{A}}{\atoms x\text{ is infinite}}. \]
+Research their properties (first, whether they exists for every poset).\
+Also consider Fr\'echet element of $\mathsf{FCD}(A;B)$.
+Another generalization of Fr\'echet filter is meet of all coatoms.
+
+Manifolds.
+
+\url{http://www.sciencedirect.com/science/article/pii/0304397585900623}\\
+(free download, also Google for "pre-adjunction", also "semi" instead of "pre") Are $\tofcd$ and $\torldin$ adjunct?
+
+Check how \href{http://ncatlab.org/nlab/show/multicategory}{multicategories}
+are related with categories with star-morphisms.
+
+At \url{https://en.wikipedia.org/wiki/Semilattice} they are defined distributive
+semilattices. A join-semilattice is distributive if and only if the lattice of its ideals (under inclusion) is distributive.
+
+The article \url{http://arxiv.org/abs/1410.1504} has solved ``Every paratopological group is Tychonoff'' conjecture positively.
+Rewrite this article in terms of funcoids and reloids (especially with the algebraic formulas characterizing regular funcoids).
+
+Generalize interior in topological spaces as the \emph{interior funcoid} of a co-complete funcoid~$f$, defined as a pointfree funcoid
+$f^\circ: \mathscr{F}\dual\Src f \rightarrow \mathscr{F}\dual\Dst f$ conforming to the formula:
+$\rsupfun{f^{\circ}} (I \sqcap J) = \overline{\rsupfun{f} \overline{I \sqcap J}} = \overline{\rsupfun{f} ( \overline{I} \sqcup \overline{J} )}$.
+However composition of an interior funcoid with a funcoid is neither a funcoid nor an interior funcoid.
+It can be generalized using pseudocomplement.
+
+\url{http://math.sun.ac.za/cattop/Output/Kunzi/quasiintr.pdf} ``An Introduction to the Theory of Quasi-uniform Spaces''.
+
+\url{http://www.mscand.dk/article/download/10581/8602} (``On equivalence between proximity structures and totally bounded uniform structures'')
+
+Characterize the set $\setcond{f\in\mathsf{FCD}}{\torldin f=\torldout f}$. (This seems a difficult problem.)
+Another (possibly related) problem: when $\up f$ is a filter for a funcoid~$f$.
+
+Define $S^\ast (f)$ for a funcoid~$f$ (using that~$f$ is a filter).
+
+Let $\mathcal{A}$ be a filter. Is the boolean algebra~$Z(D\mathcal{A})$
+a. atomic; b. complete?
+
+\url{https://arxiv.org/pdf/1003.5377.pdf}
+
+\url{https://www.researchgate.net/project/Generalized-topological-groups-in-Delfs-Knebusch-generalized-topology}
+and
+\url{http://www.sciencedirect.com/science/authShare/S0166864117302742/20170530T163200Z/1?md5=a5f9bcce5a6c49d4b8b35fdc0d2f9105}
+(not available for free).
+
+\url{https://arxiv.org/abs/1802.05746} about uniform spaces and
+function spaces.
+
+\url{https://arxiv.org/abs/1904.08969} about $k$-Scattered spaces.
+
+\url{https://www.researchgate.net/publication/333731858_SUPERCOMPACT_MINUS_COMPACT_IS_SUPER}
+seems interesting.
+
+``Second reloidal product'' of more than two filters.
+Also starred second product.
+
+Homotopy with a monovalued (complete?) funcoid from~$\mathbb{R}$
+instead of path.
+
+What's about limits multidimesional functions? $\forall x_i : x_i \rightarrow
+\alpha_i \Rightarrow f (x) \rightarrow \beta$.
+
+``Contra continuity'' (see journals).
+
+Product of pointfree funcoids considered as structures:
+\url{http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.414.9364&rep=rep1&type=pdf}.
+$2$-staroids are universal classes: \url{https://modeltheory.fandom.com/wiki/Universal_theory}
+
+\url{http://imar.ro/journals/Revue_Mathematique/pdfs/2015/2/5.pdf}
+``ON IDEALS AND FILTERS IN POSETS'' SERGIU RUDEANU.
+
+\url{https://www.researchgate.net/publication/334695188_A_note_on_compact-like_semitopological_groups}
+A note on compact-like semitopological groups.
+
+\url{https://arxiv.org/abs/1907.12129} Closed subsets of compact-like topological spaces.
+
+\url{https://arxiv.org/abs/1908.05624} A remark on locally direct product subsets in a topological Cartesian space.
+
+\url{https://arxiv.org/abs/1909.06428} Coproducts of proximity spaces.
+
+\url{https://arxiv.org/abs/1909.09303} On $T_0$ spaces determined by well-filtered spaces.
+
+\url{https://arxiv.org/abs/1812.06379} Closed Discrete Selection in the Compact Open Topology.
+
+\url{https://www.researchgate.net/publication/333731858_SUPERCOMPACT_MINUS_COMPACT_IS_SUPER}
+Supercompact minus compact is super.
+
+\url{https://www.jstor.org/stable/2306387?read-now=1&seq=1} Ideals in partially ordered sets (free to read).
+
+\url{https://blog.mathematics21.org/2019/11/07/funcoid-is-a-structure-in-the-sense-of-math-logic/} (blog post).
+
+\url{https://arxiv.org/abs/1910.01014} Codensity: Isbell duality, pro-objects, compactness and accessibility.
+
+\url{https://arxiv.org/abs/1910.12228} New proofs for some fundamental results of topology.
+
+\url{https://arxiv.org/abs/1910.12228} A simple proof of Tychonoff theorem.
+
+\url{https://arxiv.org/abs/1910.05293} Lusin and Suslin properties of function spaces.
+
+\url{https://www.researchgate.net/project/Generalized-topological-groups-in-Delfs-Knebusch-generalized-topology}
+Generalized topological groups in Delfs-Knebusch generalized topology.
+
+\url{https://www.researchgate.net/publication/334759733_Closed_subsets_of_compact-like_topological_spaces}
+Closed subsets of compact-like topological spaces.
+
+\url{ttps://arxiv.org/abs/1906.10832} Existence of well-filterifications of $T_0$ topological spaces.
+
+\url{https://arxiv.org/abs/1906.11194} Locally ordered topological spaces.
+
+\url{https://arxiv.org/abs/1906.03549} Supercompact minus compact is super.
+
+\url{https://arxiv.org/abs/1905.12446} On $\mathcal{H}_Y$-Ideals.
+
+\url{https://arxiv.org/abs/1910.12228} New proofs for some fundamental results of topology.
+
+\url{https://arxiv.org/abs/1906.08498} A $T_0$ Compactification Of A Tychonoff Space Using The Rings Of Baire One
+  Functions.
+
+\url{https://arxiv.org/abs/1911.05390} Soft $T_{(0,\alpha)}$ Spaces.
+
+\section{Common generalizations of funcoids and convergence spaces}
+
+I propose the following (possible) common generalizations of funcoids and convergence spaces~(\cite{converg}):
+
+\begin{itemize}
+\item To every set we associate an isotone (and in some sense preserving finite joins) collection of filters.
+\item To every filter we associate an isotone (and in some sense preserving finite joins) collection of filters.
+\item Consider pointfree funcoids between isotone families of filters.
+\item What's about ``double-filtrator'' $(A;B;C)$?
+\end{itemize}
+
+\section{Dimension}
+
+Define dimensions of funcoids.
+
+Every funcoid of dimension~$N$ can be represented as
+a subfuncoid of a composition $f_n\circ\dots\circ f_0$ of $N$-planes
+$f_0$, \dots, $f_n$? Seems wrong, counterexample:
+$\bigcup_{i\in\mathbb{N}} l_{\frac{1}{i+1}}$ where $l_\alpha$ is the
+abscissa rotated~$\alpha$ radians.
+
+Don't forget to add open problems to
+\url{http://openproblemgarden.org} and
+\url{https://scilag.net}.
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[a4paper,oneside,english,reqno]{amsbook}
+\usepackage[T1]{fontenc}
+\synctex=-1
+% \usepackage{xcolor}
+\usepackage{babel}
+\usepackage{textcomp}
+\usepackage{mathrsfs}
+% \usepackage{url}
+\usepackage{amstext}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{stmaryrd}
+\usepackage{agt}
+% \usepackage{rotating}
+\usepackage{subcaption}
+
+\makeindex
+% \usepackage[all]{xy}
+% \usepackage[unicode=true,
+%  bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+%  breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=true]
+%  {hyperref}
+\hypersetup{pdftitle={Algebraic General Topology. Volume 1 addons},
+ pdfauthor={Victor Porton},
+ pdfsubject={general topology},
+ pdfkeywords={algebraic general topology,quasi-uniform spaces,generalizations of proximity spaces,generalizations of nearness spaces,generalizations of uniform spaces}}
+
+\usepackage{xr,refcount}
+\externaldocument[book-]{volume-1}
+\newcommand{\bookref}[1]{\ref*{book-#1}}
+
+% Continue numbering of book.pdf
+\setcounter{thm}{\getrefnumber{book-finalthm}}
+\addtocounter{thm}{-1}
+\AtBeginDocument{\setcounter{figure}{\getrefnumber{book-LASTFIGURE}}} % TODO
+
+\global\long\def\Low{\operatorname{Low}}
+\global\long\def\Back{\operatorname{Back}}
+
+\begin{document}
+
+\title{Algebraic General Topology. Volume 1 addons}
+
+\author{Victor Porton}
+
+\email{\href{mailto:porton@narod.ru}{porton@narod.ru}}
+
+
+\urladdr{\href{http://www.mathematics21.org}{http://www.mathematics21.org}}
+
+
+\date{\today}
+
+
+\begin{abstract}
+This file contains future addons for the free e-book ``Algebraic General
+Topology. Volume 1'', which are yet not enough ripe to be included into the
+book.
+\end{abstract}
+
+
+\keywords{algebraic general topology, quasi-uniform spaces, generalizations
+of proximity spaces, generalizations of nearness spaces, generalizations
+of uniform spaces}
+
+
+\subjclass[2000]{54J05, 54A05, 54D99, 54E05, 54E15, 54E17, 54E99}
+
+\maketitle
+
+\tableofcontents{}
+
+\chapter{About this document}
+
+This file contains future addons for the free e-book ``Algebraic General
+Topology. Volume 1'', which are yet not enough ripe to be included into the
+book.
+
+Theorem (including propositions, conjectures, etc.) numbers in this document start from the last theorem number
+in the book plus one. Theorems references inside this document are hyperlinked, but references
+to theorems in the book are not hyperlinked (because PDF viewer Okular 0.20.2 does not support
+Backward button after clicking a cross-document reference, and thus I want to avoid clicking such links).
+
+\include{chap-applications}
+\include{chap-limit-more}
+\include{chap-fcd-rld-gal}
+\include{chap-boolean-fcd}
+\include{chap-interior}
+\include{chap-pf-funcoid-filt}
+\include{chap-sides}
+\include{chap-backward}
+\include{chap-quasiatoms}
+\include{chap-cauchy}
+\include{chap-tgroups}
+\include{chap-micro}
+\include{chap-connected2}
+\include{chap-rels-are-fcd}
+\include{chap-manifold}
+
+% \printindex{}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}
