@@ -559,28 +559,26 @@ We want to consider functions in relations with MGNRM. So we we will consider (n
 \begin{thm}
 If~$\rho$ is a MGNRM and~$f$ is a binary relation composable with it, then:
 \begin{enumerate}
-\item $(\rho\circ f)(x,y) = \rho(\rsupfun{f}\{x\},\{y\})$;
-\item $(f\circ\rho)(x,y) = \rho(\{x\},\rsupfun{f^{-1}}\{y\})$.
+\item $(\rho\circ f)(X,Y) = \rho(Y,\rsupfun{f}X)$;
+\item $(f\circ\rho)(X,Y) = \rho(\rsupfun{f^{-1}}Y,X)$.
 \end{enumerate}
 \end{thm}
 
 \begin{proof}
 ~
 \[
-(\rho\circ f)(x,y) = \inf_{t}(f(x,t) + \rho(t,y))
+(\rho\circ f)(x,y) = \inf_{t}(f(X,t) + \rho(Y,y))
 \]
-but $f(x,t) + \rho(t,y) = +\infty$ if not $x\mathrel{f}t$ and $f(x,t) + \rho(t,y) = \rho(t,y)$ if $x\mathrel{f}t$. So
+but $f(X,t) + \rho(Y,t) = +\infty$ if not $X\rsuprel{f}\{t\}$ and $f(X,t) + \rho(Y,t) = \rho(Y,t)$ if $X\rsuprel{f}\{t\}$. So
 \begin{multline*}
-(\rho\circ f)(x,y) = \\
-\inf_{t\in\setcond{t}{x\mathrel{f}t}}\rho(t,y) = \\
-\inf_{t\in\rsupfun{f}\{x\}}\rho(t,y) = \\
-\rho(\rsupfun{f}\{x\},\{y\}).
+(\rho\circ f)(X,Y) = \\
+\inf_{t\in\setcond{t}{X\rsuprel{f}\{t\}}}\rho(Y,t) = \\
+\inf_{t\in\rsupfun{f}X}\rho(Y,t) = \\
+\rho(Y,\rsupfun{f}X).
 \end{multline*}
 The other item follows from symmetry.
 \end{proof}
-
-\fxnote{Analogous theorem when~$x$ and~$y$ are sets?}
-
+    
 \section{Contractions}
 
 What are (generalized) continuous functions between metric spaces?
