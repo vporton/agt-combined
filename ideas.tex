@@ -22,6 +22,14 @@ equivalence of filters?
 
 \section{Misc}
 
+$x\suprel{f}y$ is the same as $(x,f,y)$ being an element of a certain filter~$\varphi$
+on triples. We can extend to quadruples and further by the formula
+$(a,b,c,d)\in\varphi\Leftrightarrow a\suprel{c\circ b}d$. By the way,
+composition is defined by these two filters.
+$a\suprel{b}c\Leftrightarrow c\suprel{z}b$ for $z=(x\mapsto a\times x,x\mapsto\supfun{x}a$. So, we have a permutation of $(a,b,c)$. Try to use it to
+solve complete distributivity of composition with a complete funcoid.
+
+
 Define for OPA $\suprel{}$ by the formula $\suprel{g\circ a\circ f}=\supfun{g}\circ\suprel{a}\circ\supfun{f^{-1}}$.
 
 Represent covers of~$A$ as funcoids on~$\subsets A$.
