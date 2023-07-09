@@ -1,5 +1,32 @@
 \chapter{Manifolds and surfaces}
 
+\section{Manifolds}
+
+\begin{defn}
+ A \emph{manifold} is a funcoid~$\mu$
+ such that
+ $\supfun{\mu}x$ is isomorphic to a $\supfun{E}y$ where $E$ is an Euclidean space in the category of funcoids to
+ neighborhood of $fx$.
+\end{defn}
+
+In other words, exists an isomorphism~$\phi$ such that
+$\phi\circ\supfun{\mu}x=(\supfun{E}0)\circ\phi$.
+
+$\phi\circ\supfun{\mu}x\circ\phi^{-1}=\supfun{E}0$.
+
+$\supfun{\mu}x=\phi_x^{-1}\circ(\supfun{E}0)\circ\phi_x$.
+
+Consider~$\phi$ a funcoid of two arguments after researching multiargument funcoids.
+
+??A generalized manifold is a function~$f$ and funcoid~$\mu$
+such that
+\[
+ \forall x\in\dom f: \bigsqcup_{x'\in\dom f}\rsupfun{\mu}\{x'\}\sqsupseteq\rsupfun{\mu}\{x\}.
+\]
+
+Or $\rsupfun{\mu\circ\mu}\{x\}=\rsupfun{\mu}\{x\}$.
+(This is to wide: any topological space matches this formula.)
+
 \section{Sides of a surface}
 
 \begin{defn}
