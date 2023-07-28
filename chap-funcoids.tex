@@ -2352,6 +2352,8 @@ f\bigsqcup S=\bigsqcup\rsupfun{\supfun f}S$;
 f\bigsqcup S=\bigsqcup\rsupfun{\rsupfun f}S$;
 \item \label{cfcd:sing}$\forall A\in\mathscr{T}(\Src f):\rsupfun
 fA=\bigsqcup_{a\in\atoms A}\rsupfun fa$.
+\item \label{cfcd:comb-filt}$\forall K\in\subsets\mathsf{FCD}(X,\dom f): f\circ\bigsqcup K=\bigsqcup_{g\in K}(f\circ g)$ for every set~$X$.
+\item \label{cfcd:comb-rel}$\forall K\in\subsets\mathbf{Rel}(X,\dom f): f\circ\bigsqcup K=\bigsqcup_{g\in K}(f\circ g)$ for every set~$X$.
 \end{enumerate}
 \end{thm}
 \begin{proof}
@@ -2395,10 +2397,16 @@ J\nasymp\supfun f\bigsqcup S & \Leftrightarrow\\
 J\nasymp\bigsqcup\rsupfun{\supfun f}S.
 \end{align*}
 
+\item[\ref{cfcd:f-set}$\Rightarrow$\ref{cfcd:comb-filt}]
+$\rsupfun{f\circ\bigsqcup K}I=\supfun{f}\rsupfun{\bigsqcup K}I=\supfun{f}\bigsqcup_{g\in K}\rsupfun{g}I=\bigsqcup_{g\in K}\supfun{f}\rsupfun{g}I=\bigsqcup_{g\in K}\rsupfun{f\circ g}I=\rsupfun{\bigsqcup_{g\in K}(f\circ g)}I$
+for any suitable set~$I$.
+
+\item[\ref{cfcd:comb-rel}$\Rightarrow$\ref{cfcd:f-set}]
+$\rsupfun{f}\bigsqcup S=\im\left((f\circ\left(\top\times^{\mathsf{FCD}}\bigsqcup S\right)\right)=\im\left(f\circ\bigsqcup_{G\in S}(\top\times^{\mathsf{FCD}}\bigsqcup G)\right)=\bigsqcup_{G\in S}\im(f\circ(\top\times^{\mathsf{FCD}}G))=\bigsqcup_{G\in S}\rsupfun{f}G=\bigsqcup\rsupfun{\rsupfun{f}}S$.
+
 \item
-[{\ref{cfcd:r-filt}$\Rightarrow$\ref{cfcd:r-set},~\ref{cfcd:f-filt}
-$\Rightarrow$\ref{cfcd:f-set},~\ref{cfcd:f-set}$\Rightarrow$\ref{cfcd:r-set},
-~\ref{cfcd:f-set}$\Rightarrow$\ref{cfcd:sing}}] Obvious.
+[{\ref{cfcd:r-filt}$\Rightarrow$\ref{cfcd:r-set},~\ref{cfcd:f-filt}$\Rightarrow$\ref{cfcd:f-set},~\ref{cfcd:f-set}$\Rightarrow$\ref{cfcd:r-set},
+~\ref{cfcd:f-set}$\Rightarrow$\ref{cfcd:sing}}, \ref{cfcd:comb-filt}$\Rightarrow$\ref{cfcd:comb-rel}] Obvious.
 \end{description}
 \end{proof}
 The following proposition shows that complete funcoids are a direct
