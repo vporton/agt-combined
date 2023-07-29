@@ -12,8 +12,9 @@
 
     <math|f\<circ\><big|sqcup>K=<bigsqcap><setcond|<big|sqcup><rsub|x\<in\>dom
     f><around*|(|<around*|{|x|}>\<times\><rsup|<reloids>>\<varphi\>x|)>|\<varphi\>\<in\><around*|(|im
-    f|)><rsup|dom f>,\<forall\>x:<rsupfun|\<varphi\>><around*|{|x|}>\<sqsupseteq\><rsupfun|f><around*|{|x|}>>\<circ\><big|sqcup>K=<text|<around*|(|theorem
-    842 (discovered by Todd Trimble)|)>>=<bigsqcap><setcond|<big|sqcup><rsub|x\<in\>dom
+    f|)><rsup|dom f>,\<forall\>x:<rsupfun|\<varphi\>><around*|{|x|}>\<sqsupseteq\><rsupfun|f><around*|{|x|}>>\<circ\><big|sqcup>K=<text|<around*|(|<math|x\<mapsto\>x\<circ\><big|sqcup>K>
+    preserves filtered meets by theorem 842 (discovered by Todd
+    Trimble)|)>>=<bigsqcap><setcond|<big|sqcup><rsub|x\<in\>dom
     f><around*|(|<around*|{|x|}>\<times\><rsup|<reloids>>\<varphi\>x|)>\<circ\><big|sqcup>K|\<varphi\>\<in\><around*|(|im
     f|)><rsup|dom f>,\<forall\>x:<rsupfun|\<varphi\>><around*|{|x|}>\<sqsupseteq\><rsupfun|f><around*|{|x|}>>=<del|<text|(here
     proof can be shortened?)>=<bigsqcap><setcond|<big|sqcup><rsub|g\<in\>K><around*|(|<big|sqcup><rsub|x\<in\>dom
