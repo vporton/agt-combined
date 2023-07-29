@@ -208,6 +208,30 @@ We will prove only the first as the second is dual. Let $f$ be a
 monovalued reloid. Then $f\circ f^{-1}\sqsubseteq1_{\Dst f}^{\mathsf{RLD}}$;
 $\tofcd(f\circ f^{-1})\sqsubseteq1_{\Dst f}^{\mathsf{FCD}}$; $\tofcd f\circ(\tofcd f)^{-1}\sqsubseteq1_{\Dst f}^{\mathsf{FCD}}$
 that is $\tofcd f$ is a monovalued funcoid.\end{proof}
+
+\begin{thm}
+$g\circ(\mathcal{X}\times^{\mathsf{RLD}}\mathcal{Y})=
+\mathcal{X}\times^{\mathsf{RLD}}\supfun{\tofcd g}\mathcal{Y}$
+for every reloid~$g$ and suitable filters~$\mathcal{X}$,~$\mathcal{Y}$.
+\end{thm}
+
+\begin{proof}
+\begin{multline*}
+g\circ(\mathcal{X}\times^{\mathsf{RLD}}\mathcal{Y})=
+\bigsqcap_{G\in\up g,X\in\up\mathcal{X},Y\in\up\mathcal{Y}}
+(G\circ(X\times Y))=\\
+\bigsqcap_{G\in\up g,X\in\up\mathcal{X},Y\in\up\mathcal{Y}}
+(X\times\rsupfun{G}Y)=\\
+\mathcal{X}\times^{\mathsf{RLD}}\bigsqcap_{G\in\up g,Y\in\up\mathcal{Y}}\rsupfun{G}Y=
+\mathcal{X}\times^{\mathsf{RLD}}\supfun{\tofcd g}\mathcal{Y}.
+\end{multline*}
+\end{proof}
+
+\begin{cor}
+$g\circ(\mathcal{X}\times^{\mathsf{RLD}}\mathcal{Y})\circ f=
+\supfun{\tofcd f^{-1}}\mathcal{X}\times^{\mathsf{RLD}}\supfun{\tofcd g}\mathcal{Y}$.
+\end{cor}
+
 \begin{prop}
 \label{fcd-of-rprod}$\tofcd(\mathcal{A}\times^{\mathsf{RLD}}\mathcal{B})=\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}$
 for every filters $\mathcal{A}$,~$\mathcal{B}$.\end{prop}
