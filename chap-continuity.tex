@@ -77,13 +77,13 @@ I have expressed different kinds of continuity with simple algebraic
 formulas hiding the complexity of traditional epsilon-delta notation
 behind a smart algebra. Let's summarize these three algebraic formulas:
 
-Let $\mu$ and $\nu$ be endomorphisms of some partially ordered precategory.
+Let $\mu$ and $\nu$ be endomorphisms of some partially ordered semicategory.
 Continuous functions can be defined as these morphisms $f$ of this
-precategory which conform to the following formula:
+semicategory which conform to the following formula:
 \[
 f\in\continuous(\mu,\nu)\Leftrightarrow f\in\Hom(\Ob\mu,\Ob\nu)\land f\circ\mu\sqsubseteq\nu\circ f.
 \]
-If the precategory is a partially ordered dagger precategory then
+If the semicategory is a partially ordered dagger semicategory then
 continuity also can be defined in two other ways:
 \begin{gather*}
 f\in\continuous'(\mu,\nu)\Leftrightarrow f\in\Hom(\Ob\mu,\Ob\nu)\land\mu\sqsubseteq f^{\dagger}\circ\nu\circ f;\\
@@ -94,8 +94,8 @@ f\in\continuous''(\mu,\nu)\Leftrightarrow f\in\Hom(\Ob\mu,\Ob\nu)\land f\circ\mu
 In the examples (above) about funcoids and reloids the ``dagger functor''
 is the reverse of a funcoid or reloid, that is $f^{\dagger}=f^{-1}$.\end{rem}
 \begin{prop}
-Every of these three definitions of continuity forms a wide sub-precategory
-(wide subcategory if the original precategory is a category).\end{prop}
+Every of these three definitions of continuity forms a wide sub-semicategory
+(wide subcategory if the original semicategory is a category).\end{prop}
 \begin{proof}
 ~
 \begin{description}
@@ -160,7 +160,7 @@ For entirely defined monovalued morphisms our three definitions of
 continuity coincide:
 \begin{thm}\label{cont-eq}
 If $f$ is a monovalued and entirely defined morphism of a partially
-ordered dagger precategory then
+ordered dagger semicategory then
 \[
 f\in\continuous'(\mu,\nu)\Leftrightarrow f\in\continuous(\mu,\nu)\Leftrightarrow f\in\continuous''(\mu,\nu).
 \]
@@ -181,7 +181,7 @@ I leave a simple exercise for the reader to prove the last theorem.
 \end{xca}
 
 \begin{thm}
-Let $\mu$ and $\nu$ be endomorphisms of some partially ordered dagger precategory and
+Let $\mu$ and $\nu$ be endomorphisms of some partially ordered dagger semicategory and
 $f\in\Hom(\Ob\mu,\Ob\nu)$ be a monovalued, entirely defined morphism. Then
 \[ f\in\continuous(\mu,\nu)\Leftrightarrow f\in\continuous(\mu^{\dagger},\nu^{\dagger}). \]
 \end{thm}
@@ -379,7 +379,7 @@ require
 \item $f\circ I_{A}\sqsubseteq f$; $I_{A}\circ f\sqsubseteq f$.
 \end{enumerate}
 In the case when our semigroup is ``dagger'' (that is is a dagger
-precategory) we will require also $(I_{A})^{\dagger}=I_{A}$.
+semicategory) we will require also $(I_{A})^{\dagger}=I_{A}$.
 
 We can define restricting an element $f$ of our semigroup to an object
 $A$ by the formula $f|_{A}=f\circ I_{A}$.
@@ -447,13 +447,13 @@ f\in\continuous''(\mu,\nu).
 
 \section{Anticontinuous morphisms}
 
-Let $\mu$ and $\nu$ be endomorphisms of some partially ordered precategory.
+Let $\mu$ and $\nu$ be endomorphisms of some partially ordered semicategory.
 \emph{Anticontinuous} functions can be defined as these morphisms $f$ of this
-precategory which conform to the following formula:
+semicategory which conform to the following formula:
 \[
 f\in\continuous_{\ast}(\mu,\nu)\Leftrightarrow f\in\Hom(\Ob\mu,\Ob\nu)\land f\circ\mu\sqsupseteq\nu\circ f.
 \]
-If the precategory is a partially ordered dagger precategory then
+If the semicategory is a partially ordered dagger semicategory then
 \emph{anticontinuity} also can be defined in two other ways:
 \begin{gather*}
 f\in\continuous_{\ast}'(\mu,\nu)\Leftrightarrow f\in\Hom(\Ob\mu,\Ob\nu)\land\mu\sqsupseteq f^{\dagger}\circ\nu\circ f;\\

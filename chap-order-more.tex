@@ -523,7 +523,7 @@ that is
 
 \subsection{Definition}
 \begin{defn}
-\index{category!partially ordered}\index{precategory!partially ordered}I
+\index{category!partially ordered}\index{semicategory!partially ordered}I
 will call a partially ordered (pre)category a (pre)category together
 with partial order $\sqsubseteq$ on each of its Mor-sets with the
 additional requirement that
@@ -541,11 +541,11 @@ $\sqcup^{C(A,B)}$ explicitly.
 
 \subsection{Dagger categories}
 \begin{defn}
-\index{precategory!dagger}I will call a \emph{dagger precategory}
-a precategory together with an involutive contravariant identity-on-objects
+\index{semicategory!dagger}I will call a \emph{dagger semicategory}
+a semicategory together with an involutive contravariant identity-on-objects
 prefunctor $x\mapsto x^{\dagger}$.
 
-In other words, a dagger precategory is a precategory equipped with
+In other words, a dagger semicategory is a semicategory equipped with
 a function $x\mapsto x^{\dagger}$ on its set of morphisms which reverses
 the source and the destination and is subject to the following identities
 for every morphisms $f$ and~$g$:
@@ -571,7 +571,7 @@ for every morphisms $f$ and $g$ and object~$A$:
 \end{enumerate}
 \end{defn}
 \begin{thm}
-If a category is a dagger precategory then it is a dagger category.\end{thm}
+If a category is a dagger semicategory then it is a dagger category.\end{thm}
 \begin{proof}
 We need to prove only that $(1_{A})^{\dagger}=1_{A}$. Really,
 \[
@@ -596,15 +596,15 @@ these sets with usual composition of binary relations and with $f^{\dagger}=f^{-
 
 \begin{defn}
 \index{morphism!symmetric}\emph{Symmetric} (endo)morphism of a dagger
-precategory is such a morphism $f$ that $f=f^{\dagger}$.
+semicategory is such a morphism $f$ that $f=f^{\dagger}$.
 \end{defn}
 
 \begin{defn}
 \index{morphism!transitive}\emph{Transitive} (endo)morphism of a
-precategory is such a morphism $f$ that $f=f\circ f$.\end{defn}
+semicategory is such a morphism $f$ that $f=f\circ f$.\end{defn}
 \begin{thm}
 \label{sym-trans}The following conditions are equivalent for a morphism
-$f$ of a dagger precategory:
+$f$ of a dagger semicategory:
 \begin{enumerate}
 \item \label{sym-trans-both}$f$ is symmetric and transitive.
 \item \label{f-df-f}$f=f^{\dagger}\circ f$.

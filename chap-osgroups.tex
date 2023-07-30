@@ -1,6 +1,6 @@
 \chapter{Introduction}
 
-I will show that most of the topology can be formulated in an ordered semigroup (or, more generally, an ordered precategory).
+I will show that most of the topology can be formulated in an ordered semigroup (or, more generally, an ordered semicategory).
 
 I will make this part of the book mostly self-contained, for example, reminding definitions of funcoids.
 
@@ -38,11 +38,11 @@ This includes topological spaces, uniform spaces, proximity spaces, (directed) g
 
 Moreover we can consider the semigroup of all functions~$\subsets\mho\to\subsets\mho$ for some set~$\mho$ (the set of ``points'' of our space). Above we showed that topological spaces correspond to elements of this semigroup. Functions on~$\mho$ also can be considered as elements of this semigroup (replace every function with its ``image of a set'' function). Then we have an ordered semigroup action containing both topospaces and functions. As it was considered above, we can describe a function~$f$ being continuous from a space~$\mu$ to a space~$\nu$ by the formula $f\circ\mu\sqsubseteq\nu\circ f$. See, it's an instance of \emph{algebraic} general topology: a topological concept was described by an algebraic formula, without any quantifiers.
 
-\chapter{Precategories}
+\chapter{Semicategories}
 
 \begin{defn}
-\index{precategory}A \emph{precategory} is a directed multigraph
-together with a partial binary operation $\circ$ on the set~$\mathcal{M}$ of edges (called the set of \emph{morphisms} in the context of precategories)
+\index{semicategory}A \emph{semicategory} is a directed multigraph
+together with a partial binary operation $\circ$ on the set~$\mathcal{M}$ of edges (called the set of \emph{morphisms} in the context of semicategories)
 such that $g\circ f$ is defined iff $\Dst f=\Src g$ (for every morphisms
 $f$ and $g$) such that
 \begin{enumerate}
@@ -54,22 +54,22 @@ equation are defined.
 \end{defn}
 
 \begin{defn}
-\index{prefunctor}A \emph{prefunctor} is a pair of a function from the set of objects of one precategory to the set of objects of another precategory and a function from the set of morphisms of one precategory to the set of morphisms of that another precategory (these two functions are denoted by the same letter such as~$\phi$) conforming to the axioms:
+\index{prefunctor}A \emph{prefunctor} is a pair of a function from the set of objects of one semicategory to the set of objects of another semicategory and a function from the set of morphisms of one semicategory to the set of morphisms of that another semicategory (these two functions are denoted by the same letter such as~$\phi$) conforming to the axioms:
 \begin{enumerate}
-\item $\phi(f): \phi(\Src f)\to\phi(\Dst f)$ for every morphism~$f$ of the first precategory;
-\item $\phi(g\circ f)=\phi(g)\circ\phi(f)$ for every composable morphisms~$f$,~$g$ of the first precategory.
+\item $\phi(f): \phi(\Src f)\to\phi(\Dst f)$ for every morphism~$f$ of the first semicategory;
+\item $\phi(g\circ f)=\phi(g)\circ\phi(f)$ for every composable morphisms~$f$,~$g$ of the first semicategory.
 \end{enumerate}
 \end{defn}
 
 \begin{note}
-A semigroup is essentially a special case of a precategory (with only one object) and semigroup homomorphism is a prefunctor.
+A semigroup is essentially a special case of a semicategory (with only one object) and semigroup homomorphism is a prefunctor.
 \end{note}
 
-\chapter{Ordered precategories}
+\chapter{Ordered semicategories}
 
 \begin{defn}
-\emph{Ordered precategory} (or \emph{poprecategory}) is
-a precategory together with an order on the set of morphisms conforming to the equality:
+\emph{Ordered semicategory} (or \emph{posemicategory}) is
+a semicategory together with an order on the set of morphisms conforming to the equality:
 \[ x_0\sqsubseteq x_1\land y_0\sqsubseteq y_1\Rightarrow y_0\circ x_0\sqsubseteq y_1\circ x_1. \]
 \end{defn}
 
@@ -80,39 +80,39 @@ a precategory together with an order on the set of morphisms conforming to the e
 \[ x_0\sqsubseteq x_1\land y_0\sqsubseteq y_1\Rightarrow y_0\circ x_0\sqsubseteq y_1\circ x_1. \]
 \end{defn}
 
-Essentially, a posemigroup is just an ordered precategory with just one object.
+Essentially, a posemigroup is just an ordered semicategory with just one object.
 
 In this book I will call elements of an ordered semigroup \emph{spaces}, because they generalize such things as topological spaces, (quasi)proximity spaces, (quasi)uniform spaces, (directed) graphs, (quasi)metric spaces.
 
 As I shown above, functions (and more generally binary relations) can also be considered as spaces.
 
-\chapter{Precategory actions}
+\chapter{Semicategory actions}
 
 \begin{defn}
-\emph{Precategory action} is a prefunctor from a precategory to the category~$\mathbf{Set}$.
+\emph{Semicategory action} is a prefunctor from a semicategory to the category~$\mathbf{Set}$.
 \end{defn}
 
-\chapter{Ordered precategory actions}
+\chapter{Ordered semicategory actions}
 
 The category~$\mathbf{Pos}$ is the category whose objects are (small) posets and whose morphisms are order homomorphisms.
 
 \begin{defn}
-\emph{Semiordered precategory action} on a is a precategory action~$\supfun{}$ to the category~$\mathbf{Pos}$ of all partially ordered sets, such that
+\emph{Semiordered semicategory action} on a is a semicategory action~$\supfun{}$ to the category~$\mathbf{Pos}$ of all partially ordered sets, such that
 \begin{enumerate}
 \item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in S$, $x\in\mathfrak{A}$.
 \end{enumerate}
-I call morphisms of such a precategory as \emph{semi-interspaces}.\footnote{The prefix inter- is supposed to mean that the morphisms may have the source different that the destination.}
+I call morphisms of such a semicategory as \emph{semi-interspaces}.\footnote{The prefix inter- is supposed to mean that the morphisms may have the source different that the destination.}
 \end{defn}
 
 \begin{defn}
-\emph{Ordered precategory action} on a is a precategory action~$\supfun{}$ to the category~$\mathbf{Pos}$ of all partially ordered sets, such that
+\emph{Ordered semicategory action} on a is a semicategory action~$\supfun{}$ to the category~$\mathbf{Pos}$ of all partially ordered sets, such that
 \begin{enumerate}
 \item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in S$, $x\in\mathfrak{A}$;
 \item $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq \supfun{a}y$ for all $a\in S$, $x,y\in\mathfrak{A}$.
 \end{enumerate}
-In other words, an ordered precategory action is a (not necessarily strictly) increasing precategory action (we consider transformations of this action to be ordered pointwise, that is by the product order).
+In other words, an ordered semicategory action is a (not necessarily strictly) increasing semicategory action (we consider transformations of this action to be ordered pointwise, that is by the product order).
 
-I call morphisms of such a precategory as \emph{interspaces}.
+I call morphisms of such a semicategory as \emph{interspaces}.
 \end{defn}
 
 Note that this ``inducting'' is an ordered semigroup homomorphism.
@@ -144,7 +144,7 @@ I call elements of such an action \emph{spaces}.
 Google search for ``"ordered semigroup action"'' showed nothing. Was a spell laid onto Earth mathematicians not to find the most important structure in general topology?
 \end{rem}
 
-Essentially, an ordered semigroup action is an ordered precategory action with just one object.
+Essentially, an ordered semigroup action is an ordered semicategory action with just one object.
 
 We can order actions componentwise. Then the above axioms simplify to:
 \begin{enumerate}
@@ -154,54 +154,54 @@ We can order actions componentwise. Then the above axioms simplify to:
 \end{enumerate}
 
 \begin{defn}
-A \emph{functional ordered precategory action} is such an ordered precategory action that $\supfun{a}=a$ for every space~$a$.
+A \emph{functional ordered semicategory action} is such an ordered semicategory action that $\supfun{a}=a$ for every space~$a$.
 \end{defn}
 
 \begin{thm}
-Each ordered precategory action induces as functional ordered precategory action, whose morphisms are the same a of the original one but with objects being posets, spaces are the actions of the original precategory, the composition operation is function composition, and order of spaces is the product order.
+Each ordered semicategory action induces as functional ordered semicategory action, whose morphisms are the same a of the original one but with objects being posets, spaces are the actions of the original semicategory, the composition operation is function composition, and order of spaces is the product order.
 \end{thm}
 
 \begin{proof}
-That it's a precategory is obvious. The partial order is the same as the original. It remains to prove the remaining axioms.
+That it's a semicategory is obvious. The partial order is the same as the original. It remains to prove the remaining axioms.
 
-For our precategory
+For our semicategory
 \[ \supfun{b\circ a} = b\circ a=\supfun{b}\circ \supfun{a}. \]
 
 $\supfun{}$ is increasing because it's the identity function.
 
-$\supfun{a}$ is the same as one of the original ordered precategory action and thus is increasing.
+$\supfun{a}$ is the same as one of the original ordered semicategory action and thus is increasing.
 \end{proof}
 
-Having a ordered precategory action and a homomorphism to its ordered precategory, we can define in an obvious way a new ordered precategory action. The following is an example of this construction (here $\torldin$ is a functor of ordered precategories).
+Having a ordered semicategory action and a homomorphism to its ordered semicategory, we can define in an obvious way a new ordered semicategory action. The following is an example of this construction (here $\torldin$ is a functor of ordered semicategories).
 
-\emph{Funcoids} form an ordered precategory with action $\supfun{}$. \emph{Reloids} form an ordered precategory with action $a\mapsto\supfun{\torldin a}$.
-As we know from the above, funcoids are a generalization of topological spaces, proximity spaces, and directed graphs (``discrete spaces''), reloids is a generalization of uniform spaces and directed graphs. Funcoid is determined by its action. So most of the customary general topology can be described in terms of ordered precategory actions (or ordered semigroup actions, see below).
+\emph{Funcoids} form an ordered semicategory with action $\supfun{}$. \emph{Reloids} form an ordered semicategory with action $a\mapsto\supfun{\torldin a}$.
+As we know from the above, funcoids are a generalization of topological spaces, proximity spaces, and directed graphs (``discrete spaces''), reloids is a generalization of uniform spaces and directed graphs. Funcoid is determined by its action. So most of the customary general topology can be described in terms of ordered semicategory actions (or ordered semigroup actions, see below).
 
 Remember that elements of our posets of objects may be such things as sets or more generally filters, they may be not just points. So our topological construction is ``pointfree'' (we may consider sets or filters, not points).
 
-This part of the book is mainly about this topic: describing general topology in terms of ordered precategory actions. Above are the new axioms for general topology. No topological spaces here.
+This part of the book is mainly about this topic: describing general topology in terms of ordered semicategory actions. Above are the new axioms for general topology. No topological spaces here.
 
-Semiordered precategory action is \emph{ordered by elements} when \[ a\sqsubseteq b \Leftarrow \supfun{a}\sqsubseteq \supfun{b} \] that is when \[ a\sqsubseteq b \Leftarrow \forall x:\supfun{a}x\sqsubseteq\supfun{b}x. \]
+Semiordered semicategory action is \emph{ordered by elements} when \[ a\sqsubseteq b \Leftarrow \supfun{a}\sqsubseteq \supfun{b} \] that is when \[ a\sqsubseteq b \Leftarrow \forall x:\supfun{a}x\sqsubseteq\supfun{b}x. \]
 
-Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered precategory action is \emph{essentially functional} (functional, up to a faithful functor).
+Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered semicategory action is \emph{essentially functional} (functional, up to a faithful functor).
 
 \chapter{Ordered dagger categories and ordered semigroups with involution}
 
 \begin{defn}
-\emph{Dagger precategory} is a precategory together with the operation $a\mapsto a^{\dagger}$ (called \emph{involution} or \emph{dagger}) such that:
+\emph{Dagger semicategory} is a semicategory together with the operation $a\mapsto a^{\dagger}$ (called \emph{involution} or \emph{dagger}) such that:
 \begin{enumerate}
 \item $a^{\dagger\dagger} = a$;
 \item $(b\circ a)^{\dagger} = a^{\dagger}\circ b^{\dagger}$.
 \end{enumerate}
 \end{defn}
 
-For an \emph{ordered dagger precategory} we will additionally require $a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}$ (and consequently $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
+For an \emph{ordered dagger semicategory} we will additionally require $a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}$ (and consequently $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
 
 \begin{defn}
-\emph{Semigroup with involution} is a dagger precategory with just one object.
+\emph{Semigroup with involution} is a dagger semicategory with just one object.
 \end{defn}
 
-For an \emph{ordered semigroup with involution} or \emph{ordered dagger precategory} we will additionally require $a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}$ (and consequently $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
+For an \emph{ordered semigroup with involution} or \emph{ordered dagger semicategory} we will additionally require $a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}$ (and consequently $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
 
 \chapter{Topological properties}
 
@@ -222,7 +222,7 @@ To define compactness\footnote{That this coincides with the traditional definiti
 \[\forall x\in\mathfrak{A}:(x\text{ is non-least}\Rightarrow\Cor\supfun{a}x\text{ is non-least}); \]
 $a$~is \emph{reversely compact} iff $a^{\dagger}$ is directly compact; $a$~is \emph{compact} iff it is both directly and reversely compact.
 
-Denote~$c$ the element of the precategory~$\mathbf{Set}$ such that
+Denote~$c$ the element of the semicategory~$\mathbf{Set}$ such that
 $\supfun{c}=\Cor$, then the above can be rewritten
 \[\forall x\in\mathfrak{A}:(x\text{ is non-least}\Rightarrow\supfun{c\circ a}x\text{ is non-least}); \]
 what is equivalent to $1 \sqsubseteq c\circ a$.
@@ -235,9 +235,9 @@ It seem we cannot define \emph{total boundness} purely in terms of ordered semig
 
 \chapter{A relation}
 
-Every ordered precategory action~$\supfun{}$ defines a relation~$R$: $x\suprel{a}y\Leftrightarrow y\nasymp\supfun{a}x$.
+Every ordered semicategory action~$\supfun{}$ defines a relation~$R$: $x\suprel{a}y\Leftrightarrow y\nasymp\supfun{a}x$.
 
-If $\suprel{a}^{\dagger}=\suprel{a}^{-1}$ for every~$a$, we call the action~$\supfun{}$ on an dagger precategory \emph{inter\-sec\-tion-sym\-met\-ric}. In this case our action defines a pointfree funcoid.
+If $\suprel{a}^{\dagger}=\suprel{a}^{-1}$ for every~$a$, we call the action~$\supfun{}$ on an dagger semicategory \emph{inter\-sec\-tion-sym\-met\-ric}. In this case our action defines a pointfree funcoid.
 
 A space is connected iff $x\equiv y\Rightarrow x\suprel{a}y$.
 
@@ -270,7 +270,7 @@ $p\ne q\Rightarrow\id_p\ne\id_q$.
 $\id_p p=p \ne q = \id_q q$.
 \end{proof}
 
-\emph{Ordered precategory action with identities} is an ordered precategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in S$ such that
+\emph{Ordered semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in S$ such that
 \begin{enumerate}
 \item $\supfun{\id_p}=\id_p$ whenever this equality is defined;
 \item $\id_p\circ x\sqsubseteq x$;
@@ -279,7 +279,7 @@ $\id_p p=p \ne q = \id_q q$.
 (I abuse the notation $\id_p$ for both interspaces and for transformations; this won't lead to inconsistencies, because as proved above this mapping is faithful on restricted identities.)
 
 \begin{obvious}
-For every ordered precategory action with identities, the identity transformations are entirely defined on their domains.
+For every ordered semicategory action with identities, the identity transformations are entirely defined on their domains.
 \end{obvious}
 
 From injectivity it follows $\id_{p\sqcap q} = \id_p\circ\id_q$.
@@ -291,7 +291,7 @@ From injectivity it follows $\id_{p\sqcap q} = \id_p\circ\id_q$.
 \chapter{Binary product of poset elements}
 
 \begin{defn}
-I call an ordered precategory action \emph{correctly bounded} when the set of interspaces between two fixed objects is bounded and:
+I call an ordered semicategory action \emph{correctly bounded} when the set of interspaces between two fixed objects is bounded and:
 \begin{enumerate}
 \item $\supfun{\bot}x = \bot$ for every poset element~$x$;
 \item $\supfun{\top}x =
@@ -369,11 +369,11 @@ $T_4$-space is such a space~$f$ that \[ f\circ f^{-1}\circ f\circ f^{-1}\sqsubse
 
 \chapter{Distributive ordered semigroup actions}
 
-We can define (product) order of ordered precategory actions. For functional ordered precategory actions composition is defined. So we have one more ``level'' of ordered precategories. By the way, it can be continued indefinitely building new and new levels of such ordered precategories.
+We can define (product) order of ordered semicategory actions. For functional ordered semicategory actions composition is defined. So we have one more ``level'' of ordered semicategories. By the way, it can be continued indefinitely building new and new levels of such ordered semicategories.
 
-More generally we could consider ordered precategory functors (or specifically, ordered semigroup homomorphisms). Examples of such homomorphisms are $\supfun{}$, $\tofcd$, $\torldin$.
+More generally we could consider ordered semicategory functors (or specifically, ordered semigroup homomorphisms). Examples of such homomorphisms are $\supfun{}$, $\tofcd$, $\torldin$.
 
-Pointfree funcoids (and consequently funcoids) are an ordered precategory action. Reloids are also an ordered precategory action.
+Pointfree funcoids (and consequently funcoids) are an ordered semicategory action. Reloids are also an ordered semicategory action.
 
 \chapter{Complete spaces and completion of spaces}
 
@@ -401,9 +401,9 @@ Kuratowski spaces are a generalization of topological spaces.
 
 \chapter{Metric spaces}
 
-Let us call \emph{most general nonnegative real metrics} (MGNRM) the precategory of all extended nonnegative ($\mathbb{R}_{+}\cup\{+\infty\}$) real functions (on some fixed set) of two arguments and the ``composition'' operation
+Let us call \emph{most general nonnegative real metrics} (MGNRM) the semicategory of all extended nonnegative ($\mathbb{R}_{+}\cup\{+\infty\}$) real functions (on some fixed set) of two arguments and the ``composition'' operation
 \[ (\sigma\circ\rho)(x,z) = \inf_{y\in\mho}(\rho(x,y)+\sigma(z,y)) \]
-and \emph{most general nonnegative real metric} an element of this precategory.
+and \emph{most general nonnegative real metric} an element of this semicategory.
 
 \begin{rem}
 The infimum exists because it's nonnegative.
@@ -530,12 +530,12 @@ Z\nasymp\supfun{\Delta_b}\supfun{\Delta_a}X\Leftrightarrow\\
 So, $Z\nasymp\supfun{\Delta_{b\circ a}}X \Leftrightarrow Z\nasymp\supfun{\Delta_b\circ\Delta_a}X$.
 \end{proof}
 
-Let's prove it's really an ordered precategory action:
+Let's prove it's really an ordered semicategory action:
 
 \begin{proof}
 ~
 \begin{itemize}
-\item It is an ordered precategory, because
+\item It is an ordered semicategory, because
 $\supfun{a}x = \supfun{\Delta_a} x \sqsubseteq \supfun{\Delta_a} y = \supfun{a}y$ 
 for filters $x\sqsubseteq y$.
 

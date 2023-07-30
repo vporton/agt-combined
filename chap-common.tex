@@ -1433,7 +1433,7 @@ and \emph{destination}) from $\mathcal{M}$ to $\mathcal{O}$.
 \index{object}\index{morphism}Note that in category theory vertices
 are called \emph{objects} and edges are called \emph{morphisms}.
 \begin{defn}
-\index{precategory}A \emph{precategory} is a directed multigraph
+\index{semicategory}A \emph{semicategory} is a directed multigraph
 together with a partial binary operation $\circ$ on the set $\mathcal{M}$
 such that $g\circ f$ is defined iff $\Dst f=\Src g$ (for every morphisms
 $f$ and $g$) such that
@@ -1459,7 +1459,7 @@ these formulas are defined.
 \end{defn}
 
 \begin{defn}
-\index{category}A \emph{category} is a precategory with additional
+\index{category}A \emph{category} is a semicategory with additional
 requirement that for every object $X$ there exists identity morphism
 $1_{X}$.\end{defn}
 \begin{prop}
@@ -1566,7 +1566,7 @@ morphisms is a subset of the set of morphisms of~$C$.
 is a category $(\mathcal{O},\mathcal{M}')$ where $\mathcal{M}\subseteq\mathcal{M}'$
 and the composition on $(\mathcal{O},\mathcal{M}')$ is a restriction
 of composition of $(\mathcal{O},\mathcal{M})$. (Similarly \emph{wide
-sub-precategory} can be defined.)
+sub-semicategory} can be defined.)
 \end{defn}
 
 \subsection{Commutative diagrams}

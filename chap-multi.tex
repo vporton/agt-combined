@@ -1117,10 +1117,10 @@ ternary.
 
 \section{Star categories}
 \begin{defn}
-\index{precategory!with star-morphisms}\index{precategory!with star-morphisms}A
-\emph{precategory with star-morphisms} consists of
+\index{semicategory!with star-morphisms}\index{semicategory!with star-morphisms}A
+\emph{semicategory with star-morphisms} consists of
 \begin{enumerate}
-\item a precategory $C$ (\emph{the base precategory});
+\item a semicategory $C$ (\emph{the base semicategory});
 \item \index{star-morphism}a set $M$ (\emph{star-morphisms});
 \item a function ``$\arity$'' defined on $M$ (how many objects are connected
 by this star-morphism);
@@ -1152,7 +1152,7 @@ and destination.
 \index{form!of star-morphism}I will call $\Obj_{m}$ the \emph{form}
 of the star-morphism $m$.
 \end{defn}
-(Having fixed a precategory with star-morphisms) I will denote $\StarHom(P)$
+(Having fixed a semicategory with star-morphisms) I will denote $\StarHom(P)$
 the set of star-morphisms of the form $P$.
 \begin{prop}
 The sets $\StarHom(P)$ are disjoint (for different $P$).\end{prop}
@@ -1160,7 +1160,7 @@ The sets $\StarHom(P)$ are disjoint (for different $P$).\end{prop}
 If two star-morphisms have different forms, they are clearly not equal.\end{proof}
 \begin{defn}
 \index{category!with star-morphisms}A \emph{category with star-morphisms}
-is a precategory with star-morphisms whose base is a category and
+is a semicategory with star-morphisms whose base is a category and
 the following equality (\emph{the law of composition with identity})
 holds for every star-morphism $m$:
 \[
@@ -1170,9 +1170,9 @@ holds for every star-morphism $m$:
 \end{defn}
 
 \begin{defn}
-\index{precategory!partially ordered!with star-morphisms}A \emph{partially
-ordered precategory with star-morphisms} is a category with star-morphisms,
-whose base precategory is a partially ordered precategory and every
+\index{semicategory!partially ordered!with star-morphisms}A \emph{partially
+ordered semicategory with star-morphisms} is a category with star-morphisms,
+whose base semicategory is a partially ordered semicategory and every
 set $\StarHom(X)$ is partially ordered for every $X$, such that:
 \[
 m_{0}\sqsubseteq m_{1}\wedge f_{0}\sqsubseteq f_{1}\Rightarrow\StarComp(m_{0},f_{0})\sqsubseteq\StarComp(m_{1},f_{1})
@@ -1188,17 +1188,17 @@ and indexed families $f_{0}$ and $f_{1}$ of morphisms such that
 
 \begin{defn}
 A \emph{partially ordered category with star-morphisms} is a category
-with star-morphisms which is also a partially ordered precategory
+with star-morphisms which is also a partially ordered semicategory
 with star-morphisms.
 \end{defn}
 
 \begin{defn}
-\index{precategory!with star-morphisms!quasi-invertible}A \emph{quasi-invertible}
-precategory with star-morphisms is a partially ordered precategory
-with star-morphisms whose base precategory is a quasi-invertible precategory,
+\index{semicategory!with star-morphisms!quasi-invertible}A \emph{quasi-invertible}
+semicategory with star-morphisms is a partially ordered semicategory
+with star-morphisms whose base semicategory is a quasi-invertible semicategory,
 such that for every index set $n$, star-morphisms $a$ and $b$ of
 arity $n$, and an $n$-indexed family $f$ of morphisms of the base
-precategory it holds 
+semicategory it holds 
 \[
 b\nasymp\StarComp(a,f)\Leftrightarrow a\nasymp\StarComp(b,f^{\dagger}).
 \]
@@ -1207,7 +1207,7 @@ b\nasymp\StarComp(a,f)\Leftrightarrow a\nasymp\StarComp(b,f^{\dagger}).
 
 \begin{defn}
 \index{category!with star-morphisms!quasi-invertible}A \emph{quasi-invertible}
-category with star-morphisms is a quasi-invertible precategory with
+category with star-morphisms is a quasi-invertible semicategory with
 star-morphisms which is a category with star-morphisms.
 \end{defn}
 \index{category!abrupt}Each category with star-morphisms gives rise
@@ -1281,8 +1281,8 @@ on the right.
 \end{rem}
 By $\llbracket x_{0},\ldots,x_{n-1}\rrbracket$ I denote an $n$-tuple.
 \begin{defn}
-\index{precategory!with star-morphism!induced by dagger precategory}Precategory
-with star morphisms \emph{induced} by a dagger precategory $C$ is: 
+\index{semicategory!with star-morphism!induced by dagger semicategory}Semicategory
+with star morphisms \emph{induced} by a dagger semicategory $C$ is: 
 \begin{itemize}
 \item The base category is $C$.
 \item Star-morphisms are morphisms of $C$.
@@ -1291,7 +1291,7 @@ with star morphisms \emph{induced} by a dagger precategory $C$ is:
 \item $\StarComp(m,\llbracket f,g\rrbracket)=g\circ m\circ f^{\dagger}$.
 \end{itemize}
 \end{defn}
-Let prove it is really a precategory with star-morphisms.
+Let prove it is really a semicategory with star-morphisms.
 \begin{proof}
 We need to prove the associativity law: 
 \[
@@ -1306,7 +1306,7 @@ q\circ g\circ m\circ f^{\dagger}\circ p^{\dagger}=q\circ g\circ m\circ(p\circ f)
 \begin{defn}
 \index{category!with star-morphisms!induced by dagger category}Category
 with star morphisms \emph{induced} by a dagger category~$C$ is the
-above defined precategory with star-morphisms.
+above defined semicategory with star-morphisms.
 \end{defn}
 That it is a category (the law of composition with identity) is trivial.
 \begin{rem}
@@ -1320,22 +1320,22 @@ and just binary star-composition product.
 
 \subsection{Abrupt of quasi-invertible categories with star-morphisms}
 \begin{defn}
-The abrupt partially ordered precategory of a partially ordered precategory
-with star-morphisms is the abrupt precategory with the following order
+The abrupt partially ordered semicategory of a partially ordered semicategory
+with star-morphisms is the abrupt semicategory with the following order
 of morphisms: 
 \begin{itemize}
 \item Indexed (by $\arity m$ for some $m\in M$) families of morphisms
 of $C$ are ordered as function spaces of posets.
 \item Star-morphisms (which are morphisms $\None\rightarrow\Obj_{m}$ for
-some $m\in M$) are ordered in the same order as in the precategory
+some $m\in M$) are ordered in the same order as in the semicategory
 with star-morphisms.
 \item Morphisms $\None\rightarrow\None$ which are only the identity morphism
 ordered by the unique order on this one-element set. 
 \end{itemize}
 \end{defn}
-We need to prove it is a partially ordered precategory.
+We need to prove it is a partially ordered semicategory.
 \begin{proof}
-It trivially follows from the definition of partially ordered precategory
+It trivially follows from the definition of partially ordered semicategory
 with star-morphisms.
 \end{proof}
 
@@ -1777,9 +1777,9 @@ for staroids $a$ and $b$ on indexed families~$\mathfrak{A}$ and~$\mathfrak{B}$
 of filters on powersets.\end{conjecture}
 \begin{thm}
 Anchored relations with objects being atomic posets and above defined
-compositions form a quasi-invertible precategory with star-morphisms.\end{thm}
+compositions form a quasi-invertible semicategory with star-morphisms.\end{thm}
 \begin{rem}
-It seems that this precategory with star-morphisms isn't a category with star-morphisms.\end{rem}
+It seems that this semicategory with star-morphisms isn't a category with star-morphisms.\end{rem}
 \begin{proof}
 We need to prove:
 \begin{enumerate}
