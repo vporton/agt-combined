@@ -133,13 +133,12 @@ K\in\setcond{(\Gamma'_{0}\otimes f)\cap\dots\cap(\Gamma'_{n}\otimes f)}{n\in\mat
 \end{proof}
 
 \section{Proof of the main result}
-Let's prove a special case of conjecture~\ref{rld-compl-mcompl}:
-\begin{thm}
+\begin{lem}
 $\left(\bigsqcup T\right)\circ F=\bigsqcup\setcond{G\circ F}{G\in T}$
 for every principal reloid $F=\uparrow^{\mathsf{RLD}}f$ (for a $\mathbf{Rel}$-morphism~$f$)
 and a set $T$ of reloids from $\Dst F$ to some set $V$. (In other
 words principal reloids are co-metacomplete and thus also metacomplete
-by duality.)\end{thm}
+by duality.)\end{lem}
 \begin{proof}
 ~
 \begin{align*}
@@ -159,6 +158,33 @@ It's enough to prove
 \bigsqcap_{G\in\up\bigsqcup T}^{\mathsf{RLD}(\Src f\times V,\mho)}(G\otimes f)=\bigsqcup_{G\in T}\bigsqcap^{\mathsf{RLD}(\Src f\times V,\mho)}(G\otimes F)
 \]
 but this is the statement of the lemma.
+\end{proof}
+
+\begin{thm}
+If $f$ is a complete reloid, then it is metacomplete. That is,
+$f\circ\bigsqcup K=\bigsqcup_{g\in K}(f\circ g)$ for every complete reloid~$f$
+and a set $K$ of reloids with suitable image.
+\fxnote{Prove also the opposite theorem.}
+\end{thm}
+
+\begin{proof}
+Obviously $f\circ\bigsqcup K \sqsupseteq \bigsqcup_{g \in K}(f\circ g)$.
+
+\begin{multline*}
+f\circ\bigsqcup K = \text{(because $f$ is complete)} =\\
+\bigsqcap\setcond{\bigsqcup_{x\in\dom f}(\{x\}\times^{\mathsf{RLD}}\varphi x)}{\varphi\in(\mathscr{T}\im f)^{\dom f}, \rsupfun{\varphi}\{x\}\sqsupseteq\rsupfun{f}\{x\}}\circ\bigsqcup K =\\
+\text{($x\mapsto x\circ\bigsqcup K$ preserves filtered meets by theorem \ref{fcd-as-func})} = \\
+\bigsqcap\setcond{\bigsqcup_{x\in\dom f}(\{x\}\times^{\mathsf{RLD}}\varphi x)\circ\bigsqcup K}{\varphi\in(\mathscr{T}\im f)^{\dom f}, \rsupfun{\varphi}\{x\}\sqsupseteq\rsupfun{f}\{x\}} =
+\text{(by the lemma)} = \\
+\bigsqcap\setcond{\bigsqcup_{x\in\dom f}\left((\{x\}\times^{\mathsf{RLD}}\varphi x)\circ\bigsqcup K\right)}{\varphi\in(\mathscr{T}\im f)^{\dom f}, \rsupfun{\varphi}\{x\}\sqsupseteq\rsupfun{f}\{x\}} =\\
+\text{(apply theorem~\ref{rld-prod-comp} two times)} =\\
+\bigsqcap\setcond{\bigsqcup_{x\in\dom f}\left(\varphi\circ\left(\rsupfun{\left(\bigsqcup K\right)^{-1}}\{x\}\times^{\mathsf{RLD}}\{x\}\right)\right)}{\varphi\in(\mathscr{T}\im f)^{\dom f}, \rsupfun{\varphi}\{x\}\sqsupseteq\rsupfun{f}\{x\}} =\\
+\text{(by the lemma)} = \\
+\bigsqcap\setcond{\varphi\circ\bigsqcup_{x\in\dom f}\left(\rsupfun{\left(\bigsqcup K\right)^{-1}}\{x\}\times^{\mathsf{RLD}}\{x\}\right)}{\varphi\in(\mathscr{T}\im f)^{\dom f}, \rsupfun{\varphi}\{x\}\sqsupseteq\rsupfun{f}\{x\}} =\\
+\bigsqcap\setcond{\varphi\circ\Compl\bigsqcup K}{\varphi\in(\mathscr{T}\im f)^{\dom f}, \rsupfun{\varphi}\{x\}\sqsupseteq\rsupfun{f}\{x\}} \sqsubseteq\\
+\bigsqcap\setcond{\varphi\circ\bigsqcup K}{\varphi\in(\mathscr{T}\im f)^{\dom f}, \rsupfun{\varphi}\{x\}\sqsupseteq\rsupfun{f}\{x\}} =
+f\circ\bigsqcup K.
+\end{multline*}
 \end{proof}
 
 \section{\index{embedding!reloids into funcoids}Embedding reloids into funcoids}
