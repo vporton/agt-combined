@@ -161,13 +161,21 @@ but this is the statement of the lemma.
 \end{proof}
 
 \begin{thm}
-If $f$ is a complete reloid, then it is metacomplete. That is,
-$f\circ\bigsqcup K=\bigsqcup_{g\in K}(f\circ g)$ for every complete reloid~$f$
-and a set $K$ of reloids with suitable image.
-\fxnote{Prove also the opposite theorem.}
+The following are pair-wise equivalent:
+\begin{enumerate}
+\item\label{rld-compl-compl} $f$ is a complete reloid.
+\item\label{rld-compl-rld} $f\circ\bigsqcup K=\bigsqcup_{g\in K}(f\circ g)$ for every complete reloid~$f$ and a set $K$ of reloids with suitable image (in other words,
+$f$~is a metacomplete reloid).
+\item\label{rld-compl-rel} $f\circ\bigsqcup K=\bigsqcup_{g\in K}(f\circ g)$ for every complete reloid~$f$ and a set $K$ of $\mathbf{Rel}$-morphisms with suitable image.
+\end{enumerate}
 \end{thm}
 
 \begin{proof}
+~
+\begin{widedisorder}
+\item[\ref{rld-compl-rld}$\Rightarrow$\ref{rld-compl-rel}] Obvious.
+
+\item[\ref{rld-compl-compl}$\Rightarrow$\ref{rld-compl-rld}]
 Obviously $f\circ\bigsqcup K \sqsupseteq \bigsqcup_{g \in K}(f\circ g)$.
 
 \begin{multline*}
@@ -185,6 +193,11 @@ f\circ\bigsqcup K = \text{(because $f$ is complete)} =\\
 \bigsqcap\setcond{\varphi\circ\bigsqcup K}{\varphi\in(\mathscr{T}\im f)^{\dom f}, \rsupfun{\varphi}\{x\}\sqsupseteq\rsupfun{f}\{x\}} =
 f\circ\bigsqcup K.
 \end{multline*}
+
+\item[\ref{rld-compl-rel}$\Rightarrow$\ref{rld-compl-compl}]
+$f = f\circ 1 = f\circ\bigsqcup_{x \in \dom f} \{x,x\} =
+\bigsqcup_{x \in \dom f} (f\circ\{x,x\}) = \bigsqcup_{x\in\dom f}(\{x\} \times^{\mathsf{RLD}}\rsupfun{\tofcd f}\{x\}) = \Compl f$.
+\end{widedisorder}
 \end{proof}
 
 \section{\index{embedding!reloids into funcoids}Embedding reloids into funcoids}
