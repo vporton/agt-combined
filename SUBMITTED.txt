@@ -3,8 +3,9 @@ academia.edu
 researchsquare.com (Unfortunately, our screeners have determined that the manuscript type or its content is not suitable for posting as a preprint on Research Square)
 LeanPUB.com
 osf.io
+nodes.desci.com
 
 - submitted to Harvard (rejected)
 - submitted to MIT rejected 31 Mar 2021 "we do not feel this is a good fit for our current publishing goals"
 - submitted to intlpress.com 4 Apr 2021
-- submitted to "Mathematics" (journal without length restriction) https://susy.mdpi.com/ - 15 Oct 2023
+- submitted to "Mathematics" (journal without length restriction) https://susy.mdpi.com/ - 15 Oct 2023 - rejected 18 Oct 2023
