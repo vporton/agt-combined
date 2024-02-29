@@ -20,4 +20,4 @@ The theory of funcoids (and ordered semicategory actions in general) is also use
 
 The primary author also created a big number of **open problems** a big part of which have been solved, but there remains quite a few.
 
-The book about ordered semicategory actions is [freely available](https://math.portonvictor.org/binaries/volume-1.pdf): 
+The book about ordered semicategory actions is [freely available](https://math.portonvictor.org/binaries/volume-1.pdf).
