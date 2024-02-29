@@ -10,7 +10,7 @@ The theorems of general topology usually map to **algebraic formulas with ordere
 
 So, called "funcoids" and also reloids, that is filters on Cartesian product of two sets, are of special interest and are researched in details. That's because funcoids generalize simultaneously: digraphs, topologies, pretopologies, preclosures, proximity spaces.
 
-Also, they are researched "multidimensional" (including infinite dimensional) analogies of funcoids and reloid (next, should research multidimensional analogs of ordered semicategory actions).
+Also, they are researched "multidimensional" (including infinite dimensional) analogies of funcoids and reloids (next, should research multidimensional analogs of ordered semicategory actions).
 
 Ordered semicategory actions are currently briefly considered at the end of the book, after their special cases (funcoids, reloids, etc.), because they were discovered when most of the book (about their special cases) has been already written. The book needs to be rewritten to consider ordered semicategory actions in more details, partly replacing the former text about their special cases.
 
