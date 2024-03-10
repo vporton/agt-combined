@@ -3,6 +3,47 @@
 <style|<tuple|generic|AGT>>
 
 <\body>
+  I will call <with|font-shape|italic|embedding> a functor from category
+  <math|C> to category <math|D> such that:
+
+  <\itemize>
+    <item>
+  </itemize>
+
+  Note that different authors use the word \Pembedding\Q in different
+  meanings.
+
+  I will prove theorems of the form:
+
+  I will denote <math|OSA> the category of ordered semicategory actions.
+
+  <math|\<tau\>> is a bijection from objects of a category <math|\<mu\>> to
+  <math|OSA>. <math|\<tau\> a\<cong\>\<tau\> b\<Leftrightarrow\>a\<cong\>b>.
+
+  <\theorem>
+    Any concretizable category is isomorphic to a subcategory of <math|OSA>.
+  </theorem>
+
+  <\proof>
+    It follows from the fact that every category is isomorphic to a
+    subcategory of <math|<with|font-series|bold|Set>>.
+
+    https://math.stackexchange.com/a/3317571/4876
+  </proof>
+
+  We can make the above theorem stronger by requiring the order to match the
+  order on the original category <math|\<mu\>>, but that's an obvious
+  consequence.
+
+  We can have more than one representation of a (concrete) category as a
+  subcategory of <math|OSA>. Consider for example
+  <math|<around*|(|<around*|{|a|}>,<around*|{|id|}>, id|)>> and
+  <math|<around*|(|<around*|{|a,b|}>,<around*|{|id|}>, id|)>> representing
+  the same category, but being different (non-isomorphic) OSAs. They are
+  isomorphic as categories but not isomorphic as OSAs.
+
+  \V
+
   Restoring an Euclidean up to a scaling factor space from the set of all its
   motions (that is in turn restored from the function from sets of sets to
   their motions).
