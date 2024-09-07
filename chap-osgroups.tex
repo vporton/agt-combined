@@ -1,6 +1,9 @@
 \chapter{Introduction}
 
-I will show that most of the topology can be formulated in an ordered semigroup (or, more generally, an ordered semicategory).
+I define \emph{space} or \emph{space-in-general} that fully describes (not just generalizes) most, if not all, kinds of spaces met in mathematics.
+
+The definition is quite simple: space-in-general is an element of an ordered semigroup with an action
+(or I will simply say ``of an ordered semigroup action''). Contrary to possible expectations, ordered semigroup actions were first described only in 2019 (by me).
 
 I will make this part of the book mostly self-contained, for example, reminding definitions of funcoids.
 
@@ -34,7 +37,8 @@ So we have topological space defined by actions of an ordered semigroup.
 
 Below I will define a \emph{space} as an \emph{ordered semigroup action element}.
 
-This includes topological spaces, uniform spaces, proximity spaces, (directed) graphs, metric spaces, semigroups of operators, etc.
+This includes topological spaces, uniform spaces, proximity spaces, (directed) graphs, metric spaces, semigroups of operators, as well as Euclidean spaces, vector spaces,
+at least some kinds of manifolds, etc.
 
 Moreover we can consider the semigroup of all functions~$\subsets\mho\to\subsets\mho$ for some set~$\mho$ (the set of ``points'' of our space). Above we showed that topological spaces correspond to elements of this semigroup. Functions on~$\mho$ also can be considered as elements of this semigroup (replace every function with its ``image of a set'' function). Then we have an ordered semigroup action containing both topospaces and functions. As it was considered above, we can describe a function~$f$ being continuous from a space~$\mu$ to a space~$\nu$ by the formula $f\circ\mu\sqsubseteq\nu\circ f$. See, it's an instance of \emph{algebraic} general topology: a topological concept was described by an algebraic formula, without any quantifiers.
 
@@ -595,3 +599,51 @@ Transforming the formula equivalently, we get:
 \end{align*}
 
 So generalized continuous functions for metric spaces is what is called \emph{contractions} that is functions that decrease distance.
+
+\chapter{Spaces defined by a group}
+
+\fxwarning{This chapter is a rough draft.}
+
+I will demonstrate, that a permutation group can be described as a space-in-general.
+This is significant especially because the usual geometric spaces (Euclidean space, projective spaces, vector spaces)
+can be described [TODO: details] as groups of symmetries. So, for example, Euclidean spaces fall into spaces-in-general category, too.
+
+Let $\pi$ be a set of permutation groups (such as all symmetry groups for Euclidean spaces).
+I'll denote $\dom G$ the set on which a permutation group~$G$ acts.
+We will consider the subset of groups~$G$ for which $\dom G_0=\dom G_1$.
+
+We'll define both the action $\supfun{\mu_G}$ of the space and the space $\mu_G$ itself by the formula
+\[ \mu_G S = \supfun{\mu_G}S = \setcond{\rsupfun{f}S}{f\in G} \]
+for $S\in\subsets\dom G$.
+We order arguments~$S$ of our actions by set-inclusion and spaces $\mu$ are ordered by the formula
+\[ \mu_o\sqsubseteq\mu_1 \Leftrightarrow \forall S\in\subsets\dom G: \supfun{\mu_0}S\subseteq\supfun{\mu_1}S. \]
+
+To finish forming an ordered semigroup action, it remains to compose $\mu_1\circ\mu_0$ as function composition.
+
+\begin{obvious}
+$G$ can be restored by~$\mu_G$.
+\end{obvious}
+
+\begin{prop}
+Permutation groups~$G_0$ and~$G_1$ are isomorphic iff $\mu_{G_0}$ and~$\mu_{G_1}$ are isomorphic.
+\fxwarning{What is isomorphism of permutation groups?}
+\end{prop}
+
+\begin{proof}
+?? WRONG: \url{https://math.stackexchange.com/q/4968191/4876}.
+\end{proof}
+
+It's yet unclean which useful properties ``geometric'' spaces-in-general have, but they were considered to justify the name ``space-in-general''.
+
+\chapter{Manifolds}
+
+A \emph{topological manifold} is a locally Euclidean Hausdorff topological space. So, it mathches space-in-general, because it's a topological space.
+
+Riemannian manifold can be considered as metric spaces (that is can be restored from its metric) by
+\href{https://mathoverflow.net/q/45154/4086}{this} and \href{https://math.stackexchange.com/q/4962648/4876}{this}.
+\fxwarning{Make a proper citation.}
+Therefore they match space-in-general.
+
+\fxnote{What's about differentiable manifolds, are they spaces-in-general?}
+
+\fxnote{What's about homologies and co-homologies, are they spaces-in-general?}
