@@ -602,37 +602,10 @@ So generalized continuous functions for metric spaces is what is called \emph{co
 
 \chapter{Spaces defined by a group}
 
-\fxwarning{This chapter is a rough draft.}
-
-I will demonstrate, that a permutation group can be described as a space-in-general.
+I will demonstrate, that a permutation group can be described as a space-in-general
+simply taking its group of symmetries as our semigroup with action and introducing on it the trivial order.
 This is significant especially because the usual geometric spaces (Euclidean space, projective spaces, vector spaces)
 can be described [TODO: details] as groups of symmetries. So, for example, Euclidean spaces fall into spaces-in-general category, too.
-
-Let $\pi$ be a set of permutation groups (such as all symmetry groups for Euclidean spaces).
-I'll denote $\dom G$ the set on which a permutation group~$G$ acts.
-We will consider the subset of groups~$G$ for which $\dom G_0=\dom G_1$.
-
-We'll define both the action $\supfun{\mu_G}$ of the space and the space $\mu_G$ itself by the formula
-\[ \mu_G S = \supfun{\mu_G}S = \setcond{\rsupfun{f}S}{f\in G} \]
-for $S\in\subsets\dom G$.
-We order arguments~$S$ of our actions by set-inclusion and spaces $\mu$ are ordered by the formula
-\[ \mu_o\sqsubseteq\mu_1 \Leftrightarrow \forall S\in\subsets\dom G: \supfun{\mu_0}S\subseteq\supfun{\mu_1}S. \]
-
-To finish forming an ordered semigroup action, it remains to compose $\mu_1\circ\mu_0$ as function composition.
-
-\begin{obvious}
-$G$ can be restored by~$\mu_G$.
-\end{obvious}
-
-\begin{prop}
-Permutation groups~$G_0$ and~$G_1$ are isomorphic iff $\mu_{G_0}$ and~$\mu_{G_1}$ are isomorphic.
-\fxwarning{What is isomorphism of permutation groups?}
-\end{prop}
-
-\begin{proof}
-?? WRONG: \url{https://math.stackexchange.com/q/4968191/4876}.
-\end{proof}
-
 It's yet unclean which useful properties ``geometric'' spaces-in-general have, but they were considered to justify the name ``space-in-general''.
 
 \chapter{Manifolds}
