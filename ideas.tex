@@ -22,6 +22,10 @@ equivalence of filters?
 
 \section{Misc}
 
+Every binary relation~$r$ can be decomposed into two functions:
+\[r = \setcond{((x,y),y)}{x\mathrel{r}y}\circ\setcond{((x,y),x)}{x\mathrel{r}y}^{-1}.\]
+Do similarly for funcoids and reloids.
+
 Funcoid (and likewise staroids) can be considered simply as a free star, if we consider sets of pairs of arguments and take
 ${\sqcup}={\times}$, where $\times$ is the product described by the next formula. For this free star~$f$ we additionally
 require $\{(\bot,Y)\},\{(X,\bot)\}\not\in f$. Is this operation really a Cartesian product?
