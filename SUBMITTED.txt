@@ -6,6 +6,7 @@ researchsquare.com (Unfortunately, our screeners have determined that the manusc
 LeanPUB.com
 osf.io
 nodes.desci.com
+https://www.ams.org/open-math-notes/omn-submit
 
 - submitted to Harvard (rejected)
 - submitted to MIT rejected 31 Mar 2021 "we do not feel this is a good fit for our current publishing goals"
