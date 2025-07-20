@@ -15,7 +15,7 @@ You need to know about semigroups, ordered semigroups, semigroup actions, before
 
 I will denote meet and join on a poset correspondingly as~$\sqcap$ and~$\sqcup$.
 
-I call two elements~$a$ and~$b$ \emph{intersecting} ($a\nasymp b$) when there is a non-least element~$c$ such that $c\sqsubseteq a\land c\sqsubseteq b$. For meet-semilattices with meet operation~$\sqcap$ this condition is equivalent to $a\sqcap b$ being non-least element.
+I call two elements~$a$ and~$b$ \emph{intersecting} ($a\nasymp b$) when there is a non-least element~$c$ such that $c\sqsubseteq a\land c\sqsubseteq b$. For	 meet-semilattices with meet operation~$\sqcap$ this condition is equivalent to $a\sqcap b$ being non-least element.
 
 I call two elements~$a$ and~$b$ \emph{joining} ($a\equiv b$) when there is no non-greatest element~$c$ such that $c\sqsupseteq a\land c\sqsupseteq b$. For join-semilattices with meet operation~$\sqcup$ this condition is equivalent to $a\sqcup b$ being the greatest element.
 
@@ -202,6 +202,12 @@ Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered semica
 For an \emph{ordered dagger semicategory} we will additionally require $a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}$ (and consequently $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
 
 \begin{defn}
+\emph{Funcoidal element (of ordered dagger semicategory with involution)} is such an element~$f$ that \[ \forall x,y:(y\nasymp\supfun{f}x\Leftrightarrow x\nasymp\supfun{f^\dagger}y). \]
+\end{defn}
+
+Funcoidal element in an obvious way determines a pointfree funcoid.
+
+\begin{defn}
 \emph{Semigroup with involution} is a dagger semicategory with just one object.
 \end{defn}
 
@@ -244,6 +250,16 @@ It seem we cannot define \emph{total boundness} purely in terms of ordered semig
 Every ordered semicategory action~$\supfun{}$ defines a relation~$R$: $x\suprel{a}y\Leftrightarrow y\nasymp\supfun{a}x$.
 
 If $\suprel{a}^{\dagger}=\suprel{a}^{-1}$ for every~$a$, we call the action~$\supfun{}$ on an dagger semicategory \emph{inter\-sec\-tion-sym\-met\-ric}. In this case our action defines a pointfree funcoid.
+
+\begin{prop}
+If $\Dst a$ is a separable poset, then a functional ordered semicategory action~$a$~is uniquely determined by~$\suprel{a}$.
+\end{prop}
+
+\begin{proof}
+$\supfun{a}$~is uniquely determined by separability.
+
+By functionality, $a=\supfun{a}$.
+\end{proof}
 
 A space is connected iff $x\equiv y\Rightarrow x\suprel{a}y$.
 
@@ -607,6 +623,9 @@ simply taking its group of symmetries as our semigroup with action and introduci
 This is significant especially because the usual geometric spaces (Euclidean space, projective spaces, vector spaces)
 can be described [TODO: details] as groups of symmetries. So, for example, Euclidean spaces fall into spaces-in-general category, too.
 It's yet unclean which useful properties ``geometric'' spaces-in-general have, but they were considered to justify the name ``space-in-general''.
+
+\chapter{More properties}
+
 
 \chapter{Manifolds}
 
