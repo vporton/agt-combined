@@ -1,0 +1,42 @@
+\documentclass{amsart}
+\usepackage{agt}
+
+\begin{document}
+
+Let $(A,\circ,\supfun{})$ be an ordered monoid action with identities.
+
+$\supfun{f}x = \im(f\circ\id_x) = \supfun{f\circ\id_x}1 = (f\circ\id_x)1$
+
+$\id_{\supfun{f}x} = (y\mapsto y\sqcap fx) = ?? = (y\mapsto f(x\sqcap y)) = f\circ\id_x$
+
+We can define $g\cdot f = \id_{\im(g\circ f)}$.
+
+---
+
+\begin{defn}
+An \emph{actionable ordered semigroup with identities} is a quadruple $(A,\circ,x\mapsto\id_x,\cdot)$ such that $(A,\circ,x\mapsto\id_x)$ is an ordered semigroup with identities, and $\cdot$ is a binary operation on $A$ such that $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
+\end{defn}
+
+\begin{rem}
+An actionable ordered semigroup is an abstract algebra scheme.
+\end{rem}
+
+If $(A,\circ,\cdot)$ is a double ordered semigroup with identities, then we can define $\supfun{f}x = f\cdot x$.
+We will require $(g\circ f)\cdot x = g\cdot(f\cdot x)$. [Does the last equality hold for $x$ running the entire set~$A$?]
+
+This is an ordered monoid action with identities. [Check]
+
+We need to check $\supfun{g\circ f}x = \supfun{g}\supfun{f}x$. Really,
+\[ \supfun{g\circ f}x = (g\circ f)\cdot x = g\cdot(f\cdot x) = \supfun{g}\supfun{f}x. \]
+
+We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$
+
+We can obtain a double ordered monoid with identities from an ordered semigroup action by $f\cdot x = f\circ\id_x$.
+
+$(g\cdot f)\cdot x=(g\cdot f)\circ\id_x = (g\circ\id_f)\circ\id_x = g\id_{f\sqcap x} \ne ??\text{(counterexample)} \ne g\cdot\id_{f\circ\id_x} = g\cdot\id_{f\cdot x}$
+
+\begin{thm}
+Them bijectively correspond to each other, under the condition ??.
+\end{thm}
+
+\end{document}
