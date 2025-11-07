@@ -19,7 +19,9 @@ An actionable semigroup is an abstract algebra scheme.
 \end{rem}
 
 If $(A,\circ,\cdot)$ is a double ordered semigroup with identities, then we can define $\supfun{f}x = f\cdot x$.
-We will require $(g\circ f)\cdot x = g\cdot(f\cdot x)$. [Does the last equality hold for $x$ running the entire set~$A$?]
+We will require $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
+
+Really, $(g\circ f)\cdot x = \id_{\im(g\circ f\circ x)} = \id_{\supfun{g}\supfun{f}\supfun{x}1} = \id_{\supfun{g}{\im(f\circ x)}} = \id_{\supfun{g}(1\sqcap\im(f\circ x))} = \id_{\im(g\circ(y\mapsto y\sqcap\im(f\circ x))} = \id_{\im(g\circ\id_{\im(f\circ x)})} = g\cdot(f\cdot x)$.
 
 This is an ordered monoid action with identities. [Check]
 
