@@ -50,8 +50,6 @@ Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}
 
 But, as it easy to show\fxwarning{Show.}, $x\mapsto\id_x$ is an injection. So, we extended the mapping $\supfun{g}$ to a wider set.
 
----
-
 \begin{defn}
 An \emph{actionable semicategory} is a quadruple $(A,\circ,x\mapsto\id_x,\cdot)$ such that $(A,\circ,x\mapsto\id_x)$ is an ordered semicategory with identities, and $\cdot$ is a binary operation on $A$ such that $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
 \end{defn}
@@ -60,10 +58,19 @@ An \emph{actionable semicategory} is a quadruple $(A,\circ,x\mapsto\id_x,\cdot)$
 An actionable semigroup is an universal algebra scheme.
 \end{rem}
 
-If $(A,\circ,\cdot)$ is a double ordered semicategory with identities, then we can define $\supfun{f}x = f\cdot x$.
-We will require $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
+\begin{defn}
+If $(A,\circ,\cdot)$ is an actionable ordered semicategory with identities, then we can define $\supfun{f}x = f\cdot x$.
+\end{defn}
 
+\begin{prop}
+The above defines an ordered semicategory action.
+\end{prop}
+
+\begin{proof}
 Really, $(g\circ f)\cdot x = \id_{\im(g\circ f\circ x)} = \id_{\supfun{g}\supfun{f}\supfun{x}\top} = \id_{\supfun{g}{\im(f\circ x)}} = \id_{\supfun{g}(\top\sqcap\im(f\circ x))} = \id_{\im(g\circ(y\mapsto y\sqcap\im(f\circ x))} = \id_{\im(g\circ\id_{\im(f\circ x)})} = g\cdot(f\cdot x)$.
+
+\fxwarning{Prove monotonity.}
+\end{proof}
 
 This is an ordered semicategory action with identities. [Check]
 
