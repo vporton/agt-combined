@@ -36,16 +36,6 @@ Another axiom (that we don't need now) is ${\id_p}\circ{\id_q}=\id_{p\sqcap q}$.
 
 \section{Actionable semigroups}
 
-Let $(A,\circ,\supfun{})$ be an ordered semicategory action with identities, with object set having greatest element~$\top$.
-
-$\supfun{f}x = \supfun{f}\supfun{\id_x}\top = \supfun{f\circ\id_x}\top = \im(f\circ\id_x)$
-
-We can define $g\cdot f = \supfun{g}f = \id_{\im(g\circ f)}$.
-
-Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}x}. \]
-
-So, we extended the mapping $\supfun{g}$ to a wider set, because $x\mapsto\id_x$ is an injection.
-
 \begin{defn}
 An \emph{actionable semicategory} is an semicategory, and $\cdot$ is a binary operation on $A$ such that $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
 \end{defn}
@@ -75,32 +65,39 @@ It is even an universal algebra signature\footnote{See here for \href{https://ch
 
 TODO: Prove that it has the same signature for up or down semilattice.
 
+\section{From actionable semicategory to semicategory action}
+
 \begin{defn}
-If $(\dots,\circ,\cdot)$ is an actionable semicategory with identities, then we can define $\supfun{f}x = f\cdot x$.
+If $(\dots,\circ,\cdot)$ is an actionable semicategory, then we can define the operation $\supfun{}$ by $\supfun{f}x = f\cdot x$.
 \end{defn}
 
-\begin{prop}
+\begin{obvious}
 The above defines an ordered semicategory action with operations~$\circ$ and~$\supfun{}$.
+\end{obvious}
+
+\section{From semicategory action with identities to actionable semicategory}
+
+Let $(A,\circ,\supfun{})$ be an ordered semicategory action with identities, with object set having greatest element~$\top$.
+
+$\supfun{f}x = \supfun{f}\supfun{\id_x}\top = \supfun{f\circ\id_x}\top = \im(f\circ\id_x)$
+
+We can define $g\cdot f = \supfun{g}f = \id_{\im(g\circ f)}$.
+
+\begin{prop}
+The above defines an actionable semicategory with identities.
 \end{prop}
 
 \begin{proof}
 Really, $(g\circ f)\cdot x = \id_{\im(g\circ f\circ x)} = \id_{\supfun{g}\supfun{f}\supfun{x}\top} = \id_{\supfun{g}{\im(f\circ x)}} = \id_{\supfun{g}(\top\sqcap\im(f\circ x))} = \id_{\im(g\circ(y\mapsto y\sqcap\im(f\circ x))} = \id_{\im(g\circ\id_{\im(f\circ x)})} = g\cdot(f\cdot x)$.
 
-\fxwarning{Prove monotonity.}
+Monotonicity is obvious.
 \end{proof}
 
-This is an ordered semicategory action with identities. [Check]
+Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}x}. \]
 
-We need to check $\supfun{g\circ f}x = \supfun{g}\supfun{f}x$. Really,
-\[ \supfun{g\circ f}x = (g\circ f)\cdot x = g\cdot(f\cdot x) = \supfun{g}\supfun{f}x. \]
+So, we extended the mapping $\supfun{g}$ to a wider set, because $x\mapsto\id_x$ is an injection.
 
-We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$
-
-We can obtain an actionable semicategory with identities from an ordered semicategory action by $f\cdot x = f\circ\id_x$.
-
-\begin{thm}
-Them bijectively correspond to each other, under the condition ??.
-\end{thm}
+We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$ and obtain this way an ordered semicategory action isomorphic to the original one.
 
 Conclusion: Every semigroup with identities induces another semigroup with identities.
 \fxnote{What happens if we apply this ``inducing'' two times?}
