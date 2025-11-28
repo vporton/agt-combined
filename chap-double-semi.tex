@@ -18,6 +18,7 @@ For every ordered semicategory action with identities, the identity transformati
 \end{obvious}
 
 \begin{prop}
+\label{prop:id-inj}
 $x\mapsto\id_x$ is an injection.
 \end{prop}
 
@@ -87,7 +88,7 @@ Let $(A,\circ,\supfun{})$ be an ordered semicategory action with identities, eac
 $\supfun{f}x = \supfun{f}\supfun{\id_x}\top = \supfun{f\circ\id_x}\top = \im(f\circ\id_x)$
 \end{obvious}
 
-By analogy with the above obvious, we can define $g\cdot f = \supfun{g}f = \id_{\im(g\circ f)}$.
+By analogy with the above obvious, we can define $g\cdot f = \id_{\im(g\circ f)}$.
 
 \begin{prop}
 The above defines an actionable semicategory with identities.
@@ -103,12 +104,13 @@ Monotonicity is obvious.
 
 Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}x}. \]
 
-So, we extended the mapping $\supfun{g}$ to a wider set, because $x\mapsto\id_x$ is an injection.
+So, we extended the mapping $\supfun{g}$ to a wider set, because $x\mapsto\id_x$ is an injection (see proposition~\ref{prop:id-inj}).
 
 We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$ and obtain this way an ordered semicategory action isomorphic to the original one.
 
 \section{Compositions of our ``inducing'' operations}
 
-Every semicategory action with identities, whose objects have greatest elements, induces an actionable semicategory with identities, which induces another semicategory action with identities. Thus every semigroup with identities, whose objects have greatest elements, induces another semigroup with identities.
+Every semicategory action with identities, whose objects have greatest elements, induces an actionable semicategory with identities, which induces another semicategory action with identities. Thus every semigroup with identities, whose objects have greatest elements, induces another semigroup with identities. The formula for this is $\supfun{g}'f = \id_{\im(g\circ f)}$, where $\supfun{}'$ is the induced action.
 
-\fxnote{What happens if we apply this ``inducing'' two times to a semicategory having both greatest elements of objects and greatest morphisms in $\Mor$-sets?}
+Let apply this formula two times:
+\[ \supfun{g}''f = \id_{\im'(g\circ f)} = \id_{\supfun{g\circ f}'\top} = \id_{\im(g\circ f\circ\top)} = \id_{\im(g\circ f)} = \supfun{g}'f. \]
