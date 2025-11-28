@@ -32,6 +32,15 @@ Fix an ordered semicategory action.
 For every ordered semicategory action with identities, the identity transformations are entirely defined on their domains.
 \end{obvious}
 
+\begin{prop}
+$x\mapsto\id_x$ is an injection.
+\end{prop}
+
+\begin{proof}
+Let $x\ne y$. Then $x\ne x\sqcap y$ (possibly, $x\sqcap y$ is undefined).
+\[ \supfun{\id_y}x=x\sqcap y\ne x=x\sqcap x=\supfun{\id_x}x. \]
+\end{proof}
+
 \begin{defn}
 Another axiom (that we don't need now) is ${\id_p}\circ{\id_q}=\id_{p\sqcap q}$.
 \end{defn}
@@ -50,7 +59,7 @@ We can define $g\cdot f = \supfun{g}f = \id_{\im(g\circ f)}$.
 
 Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}x}. \]
 
-But, as it easy to show\fxwarning{Show.}, $x\mapsto\id_x$ is an injection. So, we extended the mapping $\supfun{g}$ to a wider set.
+So, we extended the mapping $\supfun{g}$ to a wider set, because $x\mapsto\id_x$ is an injection.
 
 \begin{defn}
 An \emph{actionable semicategory} is an semicategory, and $\cdot$ is a binary operation on $A$ such that $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
@@ -76,12 +85,13 @@ An actionable ordered semigroup\fxnote{Define!} is an relational algebra.
 \end{rem}
 
 \begin{rem}
-It is even an universal algebra scheme in the case of up or down semilattice.
-See \url{https://chatgpt.com/s/t_691e8f88da64819184591f9e310e1728} for its properties.
+It is even an universal algebra signature\footnote{See here for \href{https://chatgpt.com/s/t_691e8f88da64819184591f9e310e1728}{universal algebra properties}.} in the case of up or down semilattice.
 \end{rem}
 
+TODO: Prove that it has the same signature for up or down semilattice.
+
 \begin{defn}
-If $(A,\circ,\cdot)$ is an actionable ordered semicategory with identities, then we can define $\supfun{f}x = f\cdot x$.
+If $(\dots,\circ,\cdot)$ is an actionable semicategory with identities, then we can define $\supfun{f}x = f\cdot x$.
 \end{defn}
 
 \begin{prop}
@@ -101,9 +111,7 @@ We need to check $\supfun{g\circ f}x = \supfun{g}\supfun{f}x$. Really,
 
 We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$
 
-We can obtain an actionable ordered semicategory with identities from an ordered semicategory action by $f\cdot x = f\circ\id_x$.
-
-$(g\cdot f)\cdot x=(g\cdot f)\circ\id_x = (g\circ\id_f)\circ\id_x = g\id_{f\sqcap x} \ne ??\text{(counterexample)} \ne g\cdot\id_{f\circ\id_x} = g\cdot\id_{f\cdot x}$
+We can obtain an actionable semicategory with identities from an ordered semicategory action by $f\cdot x = f\circ\id_x$.
 
 \begin{thm}
 Them bijectively correspond to each other, under the condition ??.
