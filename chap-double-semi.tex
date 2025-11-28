@@ -1,5 +1,7 @@
 \chapter{Actionable semigroups}
 
+Each definition contining the word ``semicategory'' will also implicity create a similar definition for semigroups.
+
 \chapter{Restricted identity transformations}
 
 Fix an ordered semicategory action.
@@ -18,10 +20,10 @@ Fix an ordered semicategory action.
 % $\id_p p=p \ne q = \id_q q$.
 % \end{proof}
 
-\emph{Ordered semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in S$ such that whenever these equalities are defined
+\emph{Semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in S$ such that whenever these equalities are defined
 \begin{enumerate}
 \item $\supfun{\id_p}x=x\sqcap p$;
-\item $\id_p\circ x\sqsubseteq x$;
+\item ${\id_p}\circ x\sqsubseteq x$;
 \item $x\circ\id_p\sqsubseteq x$.
 \end{enumerate}
 (I abuse the notation $\id_p$ for both interspaces and for transformations; this won't lead to inconsistencies, because as proved above this mapping is faithful on restricted identities.)
@@ -31,16 +33,16 @@ For every ordered semicategory action with identities, the identity transformati
 \end{obvious}
 
 \begin{defn}
-Another axiom (that we don't need now) is $\id_p\circ\id_q=\id_{p\sqcap q}$.
+Another axiom (that we don't need now) is ${\id_p}\circ{\id_q}=\id_{p\sqcap q}$.
 \end{defn}
 
-\emph{Restriction} of an interspace~$a$ to element~$x$ is $a|_x=a\circ\id_x$.
+\emph{Restriction} of an interspace~$a$ to element~$x$ is $a|_x=a\circ{\id_x}$.
 
-\emph{Square restriction} (a generalization of restriction of a topological space, metric space, etc.) of a space~$a$ to element~$x$ is $\id_x\circ a\circ\id_x$.
+\emph{Square restriction} (a generalization of restriction of a topological space, metric space, etc.) of a space~$a$ to element~$x$ is ${\id_x}\circ a\circ{\id_x}$.
 
 \section{Actionable semigroups}
 
-Let $(A,\circ,\supfun{})$ be an ordered semigroup\fxwarning{semicategory} action with identities, with object set having greatest element~$\top$.
+Let $(A,\circ,\supfun{})$ be an ordered semicategory action with identities, with object set having greatest element~$\top$.
 
 $\supfun{f}x = \supfun{f}\supfun{\id_x}\top = \supfun{f\circ\id_x}\top = \im(f\circ\id_x)$
 
@@ -51,8 +53,18 @@ Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}
 But, as it easy to show\fxwarning{Show.}, $x\mapsto\id_x$ is an injection. So, we extended the mapping $\supfun{g}$ to a wider set.
 
 \begin{defn}
-An \emph{actionable semicategory} is a quadruple $(A,\circ,x\mapsto\id_x,\cdot)$ such that $(A,\circ,x\mapsto\id_x)$ is an ordered semicategory with identities, and $\cdot$ is a binary operation on $A$ such that $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
-\fxwarning{Is $\id_x$ necessary here?}
+An \emph{actionable semicategory} is an semicategory, and $\cdot$ is a binary operation on $A$ such that $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
+\end{defn}
+
+\begin{defn}
+An \emph{ordered actionable semicategory} is an actionable semicategory which is also an ordered semicategory with additional equation:
+\begin{enumerate}
+\item $f_0\sqsubseteq f_0\land g_1\sqsubseteq g_0 \Rightarrow g_0\cdot f_0\sqsubseteq g_1\cdot f_1$.
+\end{enumerate}
+\end{defn}
+
+\begin{defn}
+An \emph{actionable semicategory with identities} is an ordered actionable semicategory that is also a semicategory with identities.
 \end{defn}
 
 \begin{rem}
