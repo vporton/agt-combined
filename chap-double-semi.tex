@@ -74,7 +74,8 @@ Let write the full universal algebra signature for actionable semigroup with ide
 \item $a\sqcap a = a$ (ditto);
 \item $(g_0\sqcap g_1)\circ(f_0\sqcap f_1) = ((g_0\sqcap g_1)\circ(f_0\sqcap f_1)) \sqcap (g_0\circ f_0)$ (ordered semigroup);
 \item $(g_0\sqcap g_1)\cdot(f_0\sqcap f_1) = ((g_0\sqcap g_1)\cdot(f_0\sqcap f_1)) \sqcap (g_0\cdot f_0)$ (ditto);
-\item\label{ax:ids} $\supfun{\id_p}x=x\sqcap p$ (identities);
+\item\label{ax:ids} ${\id_p}\cdot x=x\sqcap p$ (identities);\fxwarning{It may be non-true for arbitrary morphism~$x$.}
+  \fxnote{This axiom allows to remove the operation~$\sqcap$ from the signature.}
 \item $({\id_p}\circ f)\sqcap f=f$ (ditto);
 \item $(f\circ{\id_p})\sqcap f=f$ (ditto).
 \item \fxwarning{Check that this is all the axioms.}
