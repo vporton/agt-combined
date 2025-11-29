@@ -58,7 +58,7 @@ equation are defined.
 \end{defn}
 
 \begin{defn}
-\index{prefunctor}A \emph{prefunctor} is a pair of a function from the set of objects of one semicategory to the set of objects of another semicategory and a function from the set of morphisms of one semicategory to the set of morphisms of that another semicategory (these two functions are denoted by the same letter such as~$\phi$) conforming to the axioms:
+\index{semifunctor}A \emph{semifunctor} is a pair of a function from the set of objects of one semicategory to the set of objects of another semicategory and a function from the set of morphisms of one semicategory to the set of morphisms of that another semicategory (these two functions are denoted by the same letter such as~$\phi$) conforming to the axioms:
 \begin{enumerate}
 \item $\phi(f): \phi(\Src f)\to\phi(\Dst f)$ for every morphism~$f$ of the first semicategory;
 \item $\phi(g\circ f)=\phi(g)\circ\phi(f)$ for every composable morphisms~$f$,~$g$ of the first semicategory.
@@ -66,7 +66,7 @@ equation are defined.
 \end{defn}
 
 \begin{note}
-A semigroup is essentially a special case of a semicategory (with only one object) and semigroup homomorphism is a prefunctor.
+A semigroup is essentially a special case of a semicategory (with only one object) and semigroup homomorphism is a semifunctor.
 \end{note}
 
 \chapter{Ordered semicategories}
@@ -90,29 +90,32 @@ In this book I will call elements of an ordered semigroup \emph{spaces}, because
 
 As I shown above, functions (and more generally binary relations) can also be considered as spaces.
 
-\chapter{Semicategory actions}
+\chapter{Ordered semicategory actions}
 
 \begin{defn}
-\emph{Semicategory action} is a prefunctor from a semicategory to the category~$\mathbf{Set}$.
+\emph{Semicategory action} is a semifunctor from a semicategory to the category~$\mathbf{Set}$.
 \end{defn}
-
-\chapter{Ordered semicategory actions}
 
 The category~$\mathbf{Pos}$ is the category whose objects are (small) posets and whose morphisms are order homomorphisms.
 
 \begin{defn}
-\emph{Semiordered semicategory action} is a function~$\supfun{}$ (\emph{action}) from an ordered semicategory objects and morphisms to the category~$\mathbf{Pos}$, such that
+\emph{Semiordered semicategory action} is a functor from an ordered semicategory~$\mathcal{C}$ to the category~$\mathbf{Pos}$.
+\end{defn}
+
+An equivalent definition is:
+
+\begin{defn}
+\emph{Semiordered semicategory action} is a function~$\supfun{}$ (\emph{action}) from an ordered semicategory~$\mathcal{C}$ objects and morphisms to the category~$\mathbf{Pos}$ objects and morphisms, such that
 \begin{enumerate}
-\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in S$, $x\in\mathfrak{A}$.
+\item $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq \supfun{a}y$ for all $a\in\Hom(x,y)$, $x,y\in\Ob\mathcal{C}$.
 \end{enumerate}
 I call morphisms of such a semicategory as \emph{semi-interspaces}.\footnote{The prefix inter- is supposed to mean that the morphisms may have the source different than the destination.}
 \end{defn}
 
 \begin{defn}
-\emph{Ordered semicategory action} is a function~$\supfun{}$ (\emph{action}) from an ordered semicategory objects and morphisms to the category~$\mathbf{Pos}$, such that
+\emph{Ordered semicategory action} is a ordered semicategory action with the property
 \begin{enumerate}
-\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in S$, $x\in\mathfrak{A}$;
-\item $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq \supfun{a}y$ for all $a\in S$, $x,y\in\mathfrak{A}$.
+\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in\Hom(x,y)$, $x,y\in\Ob\mathcal{C}$;
 \end{enumerate}
 In other words, an ordered semicategory action is a (not necessarily strictly) increasing semicategory action (we consider transformations of this action to be ordered pointwise, that is by the product order).
 
