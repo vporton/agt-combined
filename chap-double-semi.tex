@@ -9,8 +9,8 @@ Fix an ordered semicategory action.
 \emph{Semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in\End(A)$ for $p\in A$ for $A\in\Ob S$ such that whenever these equalities are defined
 \begin{enumerate}
 \item $\supfun{\id_p}x=x\sqcap p$;
-\item ${\id_p}\circ f\sqsubseteq f$;\fxwarning{This and the next axioms are probably not needed.}
-\item $f\circ{\id_p}\sqsubseteq f$.
+\item $\id_p\circ f\sqsubseteq f$;\fxwarning{This and the next axioms are probably not needed.}
+\item $f\circ\id_p\sqsubseteq f$.
 \end{enumerate}
 
 \begin{obvious}
@@ -28,12 +28,12 @@ Let $x\ne y$. Then $x\ne x\sqcap y$ (possibly, $x\sqcap y$ is undefined).
 \end{proof}
 
 \begin{defn}
-Another axiom (that we don't need now) is ${\id_p}\circ{\id_q}=\id_{p\sqcap q}$.
+Another axiom (that we don't need now) is $\id_p\circ\id_q=\id_{p\sqcap q}$.
 \end{defn}
 
-\emph{Restriction} of an interspace~$a$ to element~$x$ is $a|_x=a\circ{\id_x}$.
+\emph{Restriction} of an interspace~$a$ to element~$x$ is $a|_x=a\circ\id_x$.
 
-\emph{Square restriction} (a generalization of restriction of a topological space, metric space, etc.) of a space~$a$ to element~$x$ is ${\id_x}\circ a\circ{\id_x}$.
+\emph{Square restriction} (a generalization of restriction of a topological space, metric space, etc.) of a space~$a$ to element~$x$ is $\id_x\circ a\circ\id_x$.
 
 \section{Actionable semigroups}
 
@@ -75,10 +75,10 @@ Let write the full universal algebra signature for actionable semigroup with ide
 \item $a\sqcap a = a$ (ditto);
 \item $(g_0\sqcap g_1)\circ(f_0\sqcap f_1) = ((g_0\sqcap g_1)\circ(f_0\sqcap f_1)) \sqcap (g_0\circ f_0)$ (ordered semigroup);
 \item $(g_0\sqcap g_1)\cdot(f_0\sqcap f_1) = ((g_0\sqcap g_1)\cdot(f_0\sqcap f_1)) \sqcap (g_0\cdot f_0)$ (ditto);
-\item\label{ax:ids} ${\id_p}\cdot x=x\sqcap p$ (identities);\fxwarning{It may be non-true for arbitrary morphism~$x$.}
+\item\label{ax:ids} $\id_p\cdot x=x\sqcap p$ (identities);\fxwarning{It may be non-true for arbitrary morphism~$x$.}
   \fxnote{This axiom allows to remove the operation~$\sqcap$ from the signature.}
-\item $({\id_p}\circ f)\sqcap f=f$ (ditto);
-\item $(f\circ{\id_p})\sqcap f=f$ (ditto).
+\item $(\id_p\circ f)\sqcap f=f$ (ditto);
+\item $(f\circ\id_p)\sqcap f=f$ (ditto).
 \item \fxwarning{Check that this is all the axioms.}
 \end{enumerate}
 
