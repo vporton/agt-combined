@@ -10,7 +10,7 @@ Fix an ordered semicategory action.
 \begin{enumerate}
 \item $\supfun{\id_p}x=x\sqcap p$;
 \item ${\id_p}\circ f\sqsubseteq f$;
-\item $f\circ\id_p\sqsubseteq f$.
+\item $f\circ{\id_p}\sqsubseteq f$.
 \end{enumerate}
 
 \begin{obvious}
@@ -64,13 +64,23 @@ Actionable ordered semigroups and actionable semigroups with identities are rela
 It is even an universal algebra signature\footnote{See here for \href{https://chatgpt.com/s/t_691e8f88da64819184591f9e310e1728}{properties of categories isomorphic to universal algebras}.} in the case of up or down semilattice.
 \end{rem}
 
-TODO: Prove that it has the same signature for up or down semilattice.
-
-Let write the full universal algebra signature for actionable semigroup with identities ?? up semilattice:
+Let write the full universal algebra signature for actionable semigroup with identities ?? down-se\-mi\-lat\-ti\-ce:
 
 \begin{enumerate}
-\item ??
+\item $h\circ(g\circ f) = (h\circ g)\circ f$ (semigroup);
+\item $h\cdot(g\cdot f) = (h\circ g)\cdot f$ (actionable);
+\item $a\sqcap(b\sqcap c) = (a\sqcap b)\sqcap c$ (semilattice);
+\item $a\sqcap b = b\sqcap b$ (ditto);
+\item $a\sqcap a = a$ (ditto);
+\item $(g_0\sqcap g_1)\circ(f_0\sqcap f_1) = ((g_0\sqcap g_1)\circ(f_0\sqcap f_1)) \sqcap (g_0\circ f_0)$ (ordered semigroup);
+\item $(g_0\sqcap g_1)\cdot(f_0\sqcap f_1) = ((g_0\sqcap g_1)\cdot(f_0\sqcap f_1)) \sqcap (g_0\cdot f_0)$ (ditto);
+\item\label{ax:ids} $\supfun{\id_p}x=x\sqcap p$ (identities);
+\item $({\id_p}\circ f)\sqcap f=f$ (ditto);
+\item $(f\circ{\id_p})\sqcap f=f$ (ditto).
+\item \fxwarning{Check that this is all the axioms.}
 \end{enumerate}
+
+For up-se\-mi\-lat\-ti\-ce, we need more axions because it requires both $\sqcup$ and $\sqcap$ (for axiom~\ref{ax:ids}).
 
 \section{From actionable semicategory to semicategory action}
 
