@@ -9,15 +9,28 @@ The category~$\mathbf{SemiCat}$ of semicategories is small semicategories with s
 \end{defn}
 
 \begin{defn}
-The category~$\mathbf{OrdSemiCat}$ of ordered semicategories is small ordered semicategories with monotone semifunctors as morphisms.
+The category~$\mathbf{SemiOrdSemiCatAct}$ of semi-ordered semicategory actions is small semi-ordered semicategories with semifunctors between them as morphisms.
+\end{defn}
+
+That is, morphisms~$F$ are semifunctors defined by the following properties:
+
+\begin{enumerate}
+\item $F:a\to b$;
+\item $b\circ F = a$.
+\end{enumerate}
+
+In more detail: $a:\mathcal{C}\to\mathbf{Pos}$ and $b:\mathcal{D}\to\mathbf{Pos}$, the morphisms are $(a,b,f)$
+where $f:\mathcal{C}\to\mathcal{D}$ and $b\circ f=a$ and
+\[ x\sqsubseteq y\Rightarrow \supfun{a}x\sqsubseteq\supfun{a}y\land\supfun{b}x\sqsubseteq\supfun{b}y. \]
+
+\begin{defn}
+The category~$\mathbf{OrdSemiCat}$ of ordered semicategories is the wide subcategory of~$\mathbf{SemiOrdSemiCat}$
+consisting of semifunctors~$a$ such that $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in\Hom(x,y)$, $x,y\in\Ob\mathcal{C}$.
 \end{defn}
 
 \begin{defn}
-The category~$\mathbf{SemiOrdSemiCatAct}$ of semi-ordered semicategory actions ??
-\end{defn}
-
-\begin{defn}
-The category~$\mathbf{OrdSemiCatAct}$ of ordered semicategory actions ??
+The category~$\mathbf{OrdSemiCatAct}$ of ordered semicategory actions is the wide subcategory of~$\mathbf{SemiOrdSemiCatAct}$
+consisting of semifunctors~$a$ such that $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in\Hom(x,y)$, $x,y\in\Ob\mathcal{C}$.
 \end{defn}
 
 \section{Restricted identity transformations}
