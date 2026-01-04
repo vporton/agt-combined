@@ -4,7 +4,12 @@
 # Then:
 # pandoc -f html -t epub3 -o limit.epub limit.html
 
+.PHONY: default
 default: volume-1.pdf
+
+.PHONY: arxiv
+arxiv:
+	tar -czf arxiv.tar.gz volume-1.tex chap-*.tex appendixes.tex agt.sty refs.bib
 
 .PRECIOUS: tmp/%/index.html
 tmp/%/index.html: %.tex
