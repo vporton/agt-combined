@@ -14,24 +14,27 @@ The category~$\mathbf{OrdSemiCat}$ of ordered semicategories is small ordered se
 
 \begin{defn}
 The category~$\mathbf{SemiOrdSemiCatAct}$ of semi-ordered semicategory actions is small semi-ordered semicategories with monotone semifunctors between them as morphisms.
-That is it $\mathbf{OrdSemiCat}$ with full faithful functor $\mathbf{OrdSemiCat}\to\mathbf{Pos}$.
 \end{defn}
-
-That is, morphisms~$F$ are semifunctors defined by the following properties:
-
-\begin{enumerate}
-\item $F:a\to b$;
-\item $b\circ F = a$.
-\end{enumerate}
-
-In more detail: $a:\mathcal{C}\to\mathbf{Pos}$ and $b:\mathcal{D}\to\mathbf{Pos}$, the morphisms are $(a,b,f)$
-where $f:\mathcal{C}\to\mathcal{D}$ and $b\circ f=a$ and there is a full faithful functor~$\supfun{}$ such that where $a,b\in\Mor\mathbf{Arr}(\mathbf{Pos})$ that is $a$ and~$b$ are monotone functions, that is:
-\[ x\sqsubseteq y\Rightarrow \supfun{a}x\sqsubseteq\supfun{a}y\land\supfun{b}x\sqsubseteq\supfun{b}y. \]
 
 \begin{defn}
 The category~$\mathbf{OrdSemiCatAct}$ of ordered semicategory actions is the wide subcategory of~$\mathbf{SemiOrdSemiCatAct}$
 consisting of semifunctors~$(a,b,f)$ with the additional requirement $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in\Hom(x,y)$, $x,y\in\Ob\mathcal{C}$.
+
+Alternatively, it is $\mathbf{SemiCat}$ with full faithful functor
+\[ \supfun{}:\mathbf{SemiCat}\to\mathbf{Pos} \]
+for which holds $\supfun{b}\circ a=\supfun{b\circ a}$.
 \end{defn}
+
+\begin{prop}
+$\mathbf{OrdSemiCatAct}$ can be equivalently (with an obvious isomorphism) be defined as
+$\mathbf{OrdSemiCat}$ with full faithful functor
+\[ \supfun{}:\mathbf{OrdSemiCat}\to\mathbf{Pos} \]
+for which holds $\supfun{b}\circ a=\supfun{b\circ a}$.
+\end{prop}
+
+\begin{proof}
+Note one-to-one correspondance between monotone morphisms and morphisms of~$\mathbf{Pos}$.
+\end{proof}
 
 \section{Restricted identity transformations}
 
