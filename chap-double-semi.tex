@@ -127,11 +127,13 @@ Operations $\circ$, $\cdot$, $p\mapsto\id_p$ with axioms:
 \begin{enumerate}
 \item $h\circ(g\circ f) = (h\circ g)\circ f$ (semigroup);
 \item $h\cdot(g\cdot f) = (h\circ g)\cdot f$ (actionable);
-\item $\id_a\cdot(\id_b\cdot c) = \id_{\id_a\cdot b}\cdot c$; ($\sqcap$-semilattice)
-\item $\id_a\cdot b = \id_b\cdot a$; (ditto)
-\item $\id_a\cdot a = a$; (ditto)
-\item $(\id_{g_0}\cdot g_1)\circ(\id_{f_0}\cdot f_1) = \id_{\id_{g_0}\cdot g_1}\cdot((\id_{g_0}\cdot g_1)\circ(\id_{f_0}\cdot f_1))$ (ordered semigroup);
-\item $(\id_{g_0}\cdot g_1)\cdot(\id_{f_0}\cdot f_1) = \id_{\id_{g_0}\cdot g_1}\cdot((\id_{g_0}\cdot g_1)\cdot(\id_{f_0}\cdot f_1))$ (ordered actionable semigroup).
+\item $\id_a\cdot(\id_b\cdot c) = \id_{\id_a\cdot b}\cdot c$ ($\sqcap$-semilattice)\footnote{$a\sqcap(b\sqcap c) = (a\sqcap b)\sqcap c$};
+\item $\id_a\cdot b = \id_b\cdot a$ (ditto)\footnote{$a\sqcap b = b\sqcap a$};
+\item $\id_a\cdot a = a$ (ditto)\footnote{$a\sqcap a=a$};
+\item $\id_{g_0\circ(\id_{\id_{f_0}\cdot f_1})}\cdot((\id_{g_0}\cdot g_1)\circ(\id_{f_0}\cdot f_1)) = (\id_{g_0}\cdot g_1)\circ(\id_{f_0}\cdot f_1)$ (ordered semigroup)\footnote{$(g_0\circ(f_0\sqcap f_1))\sqcap((g_0\sqcap g_1)\circ(f_0\sqcap f_1)) = (g_0\sqcap g_1)\circ(f_0\sqcap f_1)$};
+\item $\id_{((\id_{f_1}\cdot f_0)\cdot g_0)}\circ((\id_{f_0}\cdot f_1)\cdot(\id_{g_0}\cdot g_1)) = (\id_{f_0}\cdot f_1)\circ(\id_{g_0}\cdot g_1)$ (ordered semigroup)\footnote{$((f_0\sqcap f_1)\circ g_0)\sqcap((f_0\sqcap f_1)\circ(g_0\sqcap g_1)) = (f_0\sqcap f_1)\circ(g_0\sqcap g_1)$};
+\item $\id_{g_0\cdot(\id_{\id_{f_0}\cdot f_1})}\cdot((\id_{g_0}\cdot g_1)\cdot(\id_{f_0}\cdot f_1)) = (\id_{g_0}\cdot g_1)\cdot(\id_{f_0}\cdot f_1)$ (ordered actionable semigroup)\footnote{$(g_0\cdot(f_0\sqcap f_1))\sqcap((g_0\sqcap g_1)\cdot(f_0\sqcap f_1)) = (g_0\sqcap g_1)\cdot(f_0\sqcap f_1)$};
+\item $\id_{((\id_{f_1}\cdot f_0)\cdot g_0)}\cdot((\id_{f_0}\cdot f_1)\cdot(\id_{g_0}\cdot g_1)) = (\id_{f_0}\cdot f_1)\cdot(\id_{g_0}\cdot g_1)$ (ordered actionable semigroup)\footnote{$((f_0\sqcap f_1)\cdot g_0)\sqcap((f_0\sqcap f_1)\cdot(g_0\sqcap g_1)) = (f_0\sqcap f_1)\cdot(g_0\sqcap g_1)$}.
 \end{enumerate}
 
 For up-se\-mi\-lat\-ti\-ce, we need more axioms because it requires both $\sqcup$ and $\sqcap$ (for axiom~\ref{ax:ids}).
