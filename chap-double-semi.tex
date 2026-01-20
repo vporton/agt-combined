@@ -13,7 +13,9 @@ The category~$\mathbf{OrdSemiCat}$ of \emph{ordered semicategories} is small ord
 \end{defn}
 
 \begin{defn}
-The category~$\mathbf{SemiOrdSemiCatAct}$ of \emph{semi-ordered semicategory actions} is small ordered semicategories with semifunctors between them as morphisms and a full faithful functor \[ \supfun{}:\mathbf{SemiCat}\to\mathbf{Pos} \] with the identities:
+The category~$\mathbf{SemiOrdSemiCatAct}$ of \emph{semi-ordered semicategory actions} is small ordered semicategories with semifunctors between them as morphisms and a full faithful functor \[ \supfun{}:\mathbf{SemiCat}\to\mathbf{Pos} \] with the identity $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq\supfun{b}x$.
+
+In other words, $\mathbf{SemiOrdSemiCatAct}$ is small semi-ordered semicategories with morphisms conforming to identities:
 \begin{enumerate}
 \item $\supfun{b\circ a}=\supfun{b}\circ\supfun{a}$;
 \item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq\supfun{b}x$.
@@ -26,7 +28,7 @@ $\mathbf{OrdSemiCat}$ full faithful functor
 \[ \supfun{}:\mathbf{OrdSemiCat}\to\mathbf{Pos} \]
 with with the identity $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$.
 
-In other words, $\mathbf{SemiOrdSemiCatAct}$ is small semi-ordered semicategories with morphisms conforming to identities:
+In other words, $\mathbf{OrdSemiCatAct}$ is small semi-ordered semicategories with morphisms conforming to identities:
 \begin{enumerate}
 \item $\supfun{b\circ a}=\supfun{b}\circ\supfun{a}$;
 \item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$;
