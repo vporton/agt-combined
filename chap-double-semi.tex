@@ -19,16 +19,20 @@ The category~$\mathbf{SemiOrdSemiCatAct}$ of \emph{semi-ordered semicategory act
 \item[\textbf{morphisms}] monotone semifunctors between them.
 \end{description}
 
-In other words, $\mathbf{OrdSemiCatAct}$ is small semi-ordered semicategories with morphisms conforming to the identities:
+In other words, $\mathbf{OrdSemiCatAct}$ is small semi-ordered semicategories together with a function~$\supfun{}$ to $\mathbf{Pos}$ with morphisms conforming to the identities:
 \begin{enumerate}
 \item $\supfun{b\circ a}=\supfun{b}\circ\supfun{a}$;
 \item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$.
 \end{enumerate}
+
+I call objects of this category \emph{semi-ordered semicategory actions}.
 \end{defn}
 
 \begin{defn}
 \[ \mathbf{OrdSemiCatAct}\text{ is the wide subcategory of }\mathbf{SemiOrdSemiCatAct} \]
 determined by the additional axiom $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq\supfun{a}y$.
+
+I call objects of this category \emph{ordered semicategory actions}.
 \end{defn}
 
 \begin{rem}
@@ -39,16 +43,18 @@ Contrary to sound mind, ordered semicategory actions (and ordered semigroup acti
 
 Fix an ordered semicategory action.
 
-\emph{Semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in\End(A)$ for $p\in A$ for $A\in\Ob S$ such that whenever these equalities are defined:
-\begin{enumerate}
-\item $\supfun{\id_p}x=x\sqcap p$;
-\item $\id_p\circ f\sqsubseteq f$;\fxwarning{This and the next axioms are probably not needed.}
-\item $f\circ\id_p\sqsubseteq f$.
-\end{enumerate}
+\begin{defn}
+\emph{Semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in\End(A)$ for $p\in A$ for $A\in\Ob S$ such that whenever this equality is defined: \[ \supfun{\id_p}x=x\sqcap p. \]
+\end{defn}
 
-\begin{obvious}
-For every ordered semicategory action with identities, the identity transformations are entirely defined on their domains.
-\end{obvious}
+\begin{rem}
+The following axioms often hold, too, but are not needed below:
+\begin{enumerate}
+\item $\id_p\circ f\sqsubseteq f$;
+\item $f\circ\id_p\sqsubseteq f$;
+\item $\id_p\circ\id_q=\id_{p\sqcap q}$.
+\end{enumerate}
+\end{rem}
 
 \begin{prop}
 \label{prop:id-inj}
@@ -59,10 +65,6 @@ $x\mapsto\id_x$ is an injection.
 Let $x\ne y$. Then $x\ne x\sqcap y$ (possibly, $x\sqcap y$ is undefined).
 \[ \supfun{\id_y}x=x\sqcap y\ne x=x\sqcap x=\supfun{\id_x}x. \]
 \end{proof}
-
-\begin{defn}
-Another axiom (that we don't need now) is $\id_p\circ\id_q=\id_{p\sqcap q}$.
-\end{defn}
 
 \emph{Restriction} of an interspace~$a$ to element~$x$ is $a|_x=a\circ\id_x$.
 
