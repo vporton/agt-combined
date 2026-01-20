@@ -78,6 +78,15 @@ Let $x\ne y$. Then $x\ne x\sqcap y$ (possibly, $x\sqcap y$ is undefined).
 \[ \supfun{\id_y}x=x\sqcap y\ne x=x\sqcap x=\supfun{\id_x}x. \]
 \end{proof}
 
+\begin{prop}
+For a $\sqcap$-se\-mi\-lat\-ti\-ce semicategory action, the semilattice axioms can be rewritten as:
+\begin{enumerate}
+\item $\supfun{\id_a}\supfun{\id_b}c = \supfun{\id_{\supfun{\id_a b}}}c$;
+\item $\supfun{\id_a}b = \supfun{\id_b}a$;
+\item $\supfun{\id_a}a = a$.
+\end{enumerate}
+\end{prop}
+
 \emph{Restriction} of an interspace~$a$ to element~$x$ is $a|_x=a\circ\id_x$.
 
 \emph{Square restriction} (a generalization of restriction of a topological space, metric space, etc.) of a space~$a$ to element~$x$ is $\id_x\circ a\circ\id_x$.
@@ -114,19 +123,15 @@ It is even an universal algebra signature\footnote{See here for \href{https://ch
 Let write the full universal algebra signature for actionable semigroup with identities ?? down-se\-mi\-lat\-ti\-ce:
 
 \fxwarning{Move the axioms below.}
+Operations $\circ$, $\cdot$, $p\mapsto\id_p$ with axioms:
 \begin{enumerate}
 \item $h\circ(g\circ f) = (h\circ g)\circ f$ (semigroup);
 \item $h\cdot(g\cdot f) = (h\circ g)\cdot f$ (actionable);
-\item $a\sqcap(b\sqcap c) = (a\sqcap b)\sqcap c$ (semilattice);
-\item $a\sqcap b = b\sqcap a$ (ditto);
-\item $a\sqcap a = a$ (ditto);
-\item $(g_0\sqcap g_1)\circ(f_0\sqcap f_1) = ((g_0\sqcap g_1)\circ(f_0\sqcap f_1)) \sqcap (g_0\circ f_0)$ (ordered semigroup);
-\item $(g_0\sqcap g_1)\cdot(f_0\sqcap f_1) = ((g_0\sqcap g_1)\cdot(f_0\sqcap f_1)) \sqcap (g_0\cdot f_0)$ (ditto);
-\item\label{ax:ids} $\id_p\cdot x=x\sqcap p$ (identities);\fxwarning{It may be non-true for arbitrary morphism~$x$.}
-  \fxnote{This axiom allows to remove the operation~$\sqcap$ from the signature.}
-\item $(\id_p\circ f)\sqcap f=f$ (ditto);\fxwarning{This and the next axioms are probably not needed.}
-\item $(f\circ\id_p)\sqcap f=f$ (ditto).
-\item \fxwarning{Check that this is all the axioms.}
+\item $\id_a\cdot(\id_b\cdot c) = \id_{\id_a\cdot b}\cdot c$; ($\sqcap$-semilattice)
+\item $\id_a\cdot b = \id_b\cdot a$; (ditto)
+\item $\id_a\cdot a = a$; (ditto)
+\item $(\id_{g_0}\cdot g_1)\circ(\id_{f_0}\cdot f_1) = \id_{\id_{g_0}\cdot g_1}\cdot((\id_{g_0}\cdot g_1)\circ(\id_{f_0}\cdot f_1))$ (ordered semigroup);
+\item $(\id_{g_0}\cdot g_1)\cdot(\id_{f_0}\cdot f_1) = \id_{\id_{g_0}\cdot g_1}\cdot((\id_{g_0}\cdot g_1)\cdot(\id_{f_0}\cdot f_1))$ (ordered actionable semigroup).
 \end{enumerate}
 
 For up-se\-mi\-lat\-ti\-ce, we need more axioms because it requires both $\sqcup$ and $\sqcap$ (for axiom~\ref{ax:ids}).
