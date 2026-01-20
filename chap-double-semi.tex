@@ -23,22 +23,9 @@ In other words, $\mathbf{OrdSemiCatAct}$ is small semi-ordered semicategories wi
 \end{defn}
 
 \begin{defn}
-The category~$\mathbf{OrdSemiCatAct}$ of \emph{ordered semicategory actions} is
-$\mathbf{OrdSemiCat}$ semifunctor
-\[ \supfun{}:\mathbf{OrdSemiCat}\to\mathbf{Pos} \]
-with with the identities $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ and $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq\supfun{a}y$.
-
-In other words, $\mathbf{OrdSemiCatAct}$ is small semi-ordered semicategories with morphisms conforming to identities:
-\begin{enumerate}
-\item $\supfun{b\circ a}=\supfun{b}\circ\supfun{a}$;
-\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$;
-\item $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq\supfun{a}y$.
-\end{enumerate}
+\[ \mathbf{OrdSemiCatAct}\text{ is the wide subcategory of }\mathbf{SemiOrdSemiCatAct} \]
+determined by the additional axiom $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq\supfun{a}y$.
 \end{defn}
-
-\begin{obvious}
-\[ \mathbf{OrdSemiCatAct}\text{ is a wide subcategory of }\mathbf{SemiOrdSemiCatAct}. \]
-\end{obvious}
 
 \begin{rem}
 Contrary to sound mind, ordered semicategory actions (and ordered semigroup actions) were discovered only in 2019 (by me).
