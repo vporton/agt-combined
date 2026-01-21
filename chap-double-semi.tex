@@ -20,13 +20,14 @@ The category~$\mathbf{OrdSemiCat}$ of \emph{ordered semicategories} is small ord
 The category~$\mathbf{SemiOrdSemiCatAct}$ of \emph{semi-ordered semicategory actions} is:
 \begin{description}
 \item[\textbf{objects}] small ordered semicategories~$\mathcal{C}$ together with a semifunctor $\supfun{}:\mathcal{C}\to\mathbf{Pos}$ conforming to the identity $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq\supfun{b}x$;
-\item[\textbf{morphisms}] monotone semifunctors between them.
+\item[\textbf{morphisms}] monotone semifunctors~$F$ between them together with a function~$G$ such that $\supfun{Fa}x=G\supfun{a}x$.
 \end{description}
 
-In other words, $\mathbf{OrdSemiCatAct}$ is small semi-ordered semicategories together with a function~$\supfun{}$ to $\mathbf{Pos}$ with morphisms conforming to the identities:
+In other words, $\mathbf{OrdSemiCatAct}$ is small semi-ordered semicategories together with a function~$\supfun{}$ to $\mathbf{Pos}$ with morphisms being a monotone semifunctors~$F$ together with a function~$G$ such that conforming to the identities:
 \begin{enumerate}
 \item $\supfun{b\circ a}=\supfun{b}\circ\supfun{a}$;
-\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$.
+\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$;
+\item $\supfun{Fa}x=G\supfun{a}x$.
 \end{enumerate}
 
 I call objects of this category \emph{semi-ordered semicategory actions}.
@@ -77,6 +78,8 @@ $x\mapsto\id_x$ is an injection.
 Let $x\ne y$. Then $x\ne x\sqcap y$ (possibly, $x\sqcap y$ is undefined).
 \[ \supfun{\id_y}x=x\sqcap y\ne x=x\sqcap x=\supfun{\id_x}x. \]
 \end{proof}
+
+\fxnote{Define the category of semicategory actions with identities.}
 
 \begin{prop}
 For a $\sqcap$-se\-mi\-lat\-ti\-ce semicategory action, the semilattice axioms can be rewritten as:
@@ -194,13 +197,19 @@ Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}
 
 So, we extended the mapping $\supfun{g}$ to mapping $g\cdot'f=\supfun{g}'f=\id_{\im(g\circ f)}$ on a wider set, because $x\mapsto\id_x$ is an injection (see proposition~\ref{prop:id-inj}).
 
-\begin{prop}
+\begin{thm}
 ~
 \begin{enumerate}
 \item $(A,\circ,\supfun{}')$ is an ordered semicategory action naturally isomorphic (by an isomorphism in $\mathbf{OrdSemiCatAct}$) to the original one $(A,\circ,\supfun{})$.
 \item $(A,\circ,\cdot')$ is an ordered actionable semicategory, corresponding (as above) to the ordered semicategory action $(A,\circ,\supfun{}')$.
 \end{enumerate}
-\end{prop}
+\end{thm}
+
+\begin{proof}
+\begin{description}
+\item Denote $F$ the functor that maps an object $(A,\circ,\supfun{})$ to $(A,\circ,\supfun{}')$ and a morphism ?? to ??.
+\end{description}
+\end{proof}
 
 We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$ and obtain this way an ordered semicategory action isomorphic to the original one.
 
