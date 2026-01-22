@@ -198,24 +198,22 @@ Identities can't be the same, because the set of objects is not the same.
 
 [??Check that I have correct ``items'' in the tuples.]  
 
-Fix an ordered semicategory action with identities $(\mathcal{C},\supfun{},p\mapsto\id_p)$, where $\mathcal{C}$ is an ordered semicategory.
+Fix a semicategory action with identities $(\mathcal{C},\supfun{},p\mapsto\id_p)$, where $\mathcal{C}$ is an ordered semicategory.
 
 Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}x}. \]
 
 So, we extended the mapping $\supfun{g}$ to mapping $g\cdot'f=\supfun{g}'f=\id_{\im(g\circ f)}$ on a wider set, because $x\mapsto\id_x$ is an injection (see proposition~\ref{prop:id-inj}).
 
+\begin{prop}
+$(\mathcal{C},\cdot')$ is an ordered actionable semicategory, corresponding (as above) to the ordered semicategory action $(\mathcal{C},\supfun{}')$.
+\end{prop}
+
 \begin{thm}
-~
-\begin{enumerate}
-\item $(\mathcal{C},\supfun{}')$ is an ordered semicategory action naturally isomorphic (by an isomorphism in $\mathbf{OrdSemiCatAct}$) to the original one $(\mathcal{C},\supfun{})$.
-\item $(\mathcal{C},\cdot')$ is an ordered actionable semicategory, corresponding (as above) to the ordered semicategory action $(\mathcal{C},\supfun{}')$.
-\end{enumerate}
+$(\mathcal{C},\supfun{}'|_{\setcond{\id_x}{x\in A,A\in\Ob\mathcal{C}}})$ is an ordered semicategory action naturally isomorphic (by an isomorphism in $\mathbf{OrdSemiCatAct}$) to the original one $(\mathcal{C},\supfun{})$.
 \end{thm}
 
 \begin{proof}
-\begin{description}
-\item Denote $F$ the functor that maps an object $(A,\circ,\supfun{})$ to $(A,\circ,\supfun{}')$ and a morphism ?? to ??.
-\end{description}
+Denote $\Phi$ the functor that maps an object $(A,\circ,\supfun{})$ to $(A,\circ,\supfun{}')$ and a morphism $(F,G)$ to $(F,p\mapsto\id_p)$ and $\Psi$ the unique?? functor that maps an object $(A,\circ,\supfun{}')$ to $(A,\circ,\supfun{})$ and a morphism $(F,G)$ to $(F,\id_p\mapsto p)$.
 \end{proof}
 
 We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$ and obtain this way an ordered semicategory action isomorphic to the original one.
