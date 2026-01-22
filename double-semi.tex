@@ -58,7 +58,7 @@ The category~$\mathbf{HalfOrdSemiCatAct}$ of \emph{half-ordered semicategory act
 \item[\textbf{morphisms}] monotone semifunctors~$F$ between them together with a function~$G$ such that $\supfun{Fa}x=G\supfun{a}x$.
 \end{description}
 
-In other words, $\mathbf{OrdSemiCatAct}$ is small half-ordered semicategories together with a function~$\supfun{}$ to $\mathbf{Pos}$ with morphisms being a monotone semifunctors~$F$ together with a function~$G$ conforming to the identities:
+In other words, $\mathbf{OrdSemiCatAct}$ is small ordered semicategories together with a function~$\supfun{}$ to $\mathbf{Pos}$ with morphisms being a monotone semifunctors~$F$ together with a function~$G$ conforming to the identities:
 \begin{enumerate}
 \item $\supfun{b\circ a}=\supfun{b}\circ\supfun{a}$;
 \item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$;
@@ -140,7 +140,7 @@ For a $\sqcap$-se\-mi\-lat\-ti\-ce semicategory action, the semilattice axioms c
 \section{Actionable semigroups}
 
 \begin{defn}
-An \emph{actionable semicategory} is a semicategory, and $\cdot$ is a binary operation on $A$ such that $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
+An \emph{actionable semicategory} is a semicategory~$\mathcal{C}$, and $\cdot$ is a binary operation on morphisms of~$\mathcal{C}$ such that $(g\circ f)\cdot x = g\cdot(f\cdot x)$.
 \end{defn}
 
 \begin{defn}
@@ -159,14 +159,14 @@ The category $\mathbf{Act^{\ast}SemiCat}$ of actionable semicategories is define
 \end{defn}
 
 \begin{defn}
-The morphisms of the category $\mathbf{Act^{\ast}OrdSemiCat}$ of ordered actionable semicategories are semifunctors that are both morphisms of $\mathbf{Act^{\ast}SemiCat}$ and $\mathbf{Pos}$ under the conditions that:
+The morphisms of the category $\mathbf{OrdAct^{\ast}SemiCat}$ of ordered actionable semicategories are semifunctors that are morphisms of both $\mathbf{Act^{\ast}SemiCat}$ and $\mathbf{Pos}$ under the conditions that:
 \[
 f_0\sqsubseteq f_1\land g_0\sqsubseteq g_1\Rightarrow f_0\cdot g_0\sqsubseteq f_1\cdot g_1.
 \]
 \end{defn}
 
 \begin{defn}
-The morphisms of the category $\mathbf{Act^{\ast}SemiCatIden}$ of actionable semicategories with identities are semifunctors that are both morphisms of $\mathbf{Act^{\ast}OrdSemiCat}$ under the conditions that: $\supfun{\id_p}=x\sqcap p$.
+The morphisms of the category $\mathbf{Act^{\ast}SemiCatIden}$ of actionable semicategories with identities are semifunctors that are both morphisms of $\mathbf{OrdAct^{\ast}SemiCat}$ under the conditions that: $\supfun{\id_p}=x\sqcap p$.
 \end{defn}
 
 \begin{obvious}
