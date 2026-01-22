@@ -57,7 +57,7 @@ The usage of the word ``space'' in the above definition will be justified later.
 Fix an ordered semicategory action.
 
 \begin{defn}
-\emph{Semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in\End(A)$ for $p\in A$ for $A\in\Ob S$ such that whenever this equality is defined: \[ \supfun{\id_p}x=x\sqcap p. \]
+\emph{Semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in\End(A)$ for $p\in A$ for $A\in\Ob S$ such that whenever the left or right side is defined: \[ \supfun{\id_p}x=x\sqcap p. \]
 \end{defn}
 
 \begin{rem}
@@ -68,6 +68,8 @@ The following axioms often hold, too, but are not needed below:
 \item $\id_p\circ\id_q=\id_{p\sqcap q}$.
 \end{enumerate}
 \end{rem}
+
+\fxnote{Can we prove $p\sqsubseteq q\Rightarrow\id_p\sqsubseteq\id_q$? If not, add to above axioms.}
 
 \begin{prop}
 \label{prop:id-inj}
