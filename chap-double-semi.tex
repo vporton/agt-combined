@@ -27,6 +27,7 @@ In other words, $\mathbf{OrdSemiCatAct}$ is small semi-ordered semicategories to
 \begin{enumerate}
 \item $\supfun{b\circ a}=\supfun{b}\circ\supfun{a}$;
 \item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$;
+\item $a\sqsubseteq b\Rightarrow Ga\sqsubseteq Gb$;
 \item $\supfun{Fa}x=G\supfun{a}x$.
 \end{enumerate}
 
@@ -52,12 +53,14 @@ I call objects of ordered semicategory actions \emph{interspaces} and elements o
 The usage of the word ``space'' in the above definition will be justified later.
 \end{rem}
 
-\section{Restricted identity transformations}
+\section{Restricted identities}
 
 Fix an ordered semicategory action.
 
 \begin{defn}
 \emph{Semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in\End(A)$ for $p\in A$ for $A\in\Ob S$ such that whenever the left or right side is defined: \[ \supfun{\id_p}x=x\sqcap p. \]
+
+Morphisms $\id_p$ are called \emph{restricted identities}.
 \end{defn}
 
 \begin{rem}
@@ -66,10 +69,10 @@ The following axioms often hold, too, but are not needed below:
 \item $\id_p\circ f\sqsubseteq f$;
 \item $f\circ\id_p\sqsubseteq f$;
 \item $\id_p\circ\id_q=\id_{p\sqcap q}$.
+\item \fxnote{Can we prove $p\sqsubseteq q\Rightarrow\id_p\sqsubseteq\id_q$? If not, add to above axioms.}
+\item \fxnote{Also add axioms $\id_p\sqsubseteq 1$ and/or $\id_{\top}=1$?}
 \end{enumerate}
 \end{rem}
-
-\fxnote{Can we prove $p\sqsubseteq q\Rightarrow\id_p\sqsubseteq\id_q$? If not, add to above axioms.}
 
 \begin{prop}
 \label{prop:id-inj}
@@ -81,7 +84,9 @@ Let $x\ne y$. Then $x\ne x\sqcap y$ (possibly, $x\sqcap y$ is undefined).
 \[ \supfun{\id_y}x=x\sqcap y\ne x=x\sqcap x=\supfun{\id_x}x. \]
 \end{proof}
 
-\fxnote{Define the category of semicategory actions with identities.}
+\begin{defn}
+Morphisms of the \emph{category of semicategory actions with identities.} are morphisms $(F,G)$ of the category of ordered semicategory actions conforming to the identity $F\id_p=\id_{Gp}$.
+\end{defn}
 
 \begin{prop}
 For a $\sqcap$-se\-mi\-lat\-ti\-ce semicategory action, the semilattice axioms can be rewritten as:
