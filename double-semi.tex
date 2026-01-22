@@ -1,4 +1,34 @@
-\chapter{Actionable semigroups}
+\documentclass[a4paper,oneside,english,reqno]{amsart}
+% \usepackage[T1]{fontenc}
+\usepackage{agt}
+
+\hypersetup{pdftitle={On Ordered Semicategory Actions},
+ pdfauthor={Victor Porton},
+ pdfsubject={Ordered Semicategories Actions},
+ pdfkeywords={ordered semicategories actions, algebra, universal algebra, general topology}}
+
+\begin{document}
+
+\title{On Ordered Semicategory Actions}
+
+\author{Victor Porton, ORCID 0000-0001-7064-7975}
+
+\email{\href{mailto:porton.Victor@gmail.com}{porton.Victor@gmail.com}}
+
+\urladdr{\href{http://math.portonvictor.org}{http://math.portonvictor.org}}
+
+\date{\today}
+
+\begin{abstract}
+I introduce \emph{ordered semicategory actions} and \emph{ordered semigroup actions} in mathematical vernacular with the purpose to use them in general topology. A wide class of ordered semigroup actions are a embedded into an algebraic variety.
+\end{abstract}
+
+\keywords{ordered semicategories actions, algebra, universal algebra, general topology}
+
+\subjclass[2020]{06A06, 06F05, 20M30, 20M99, 54B99}
+
+\maketitle
+
 
 Each definition containing the word ``semicategory'' will also implicity create a similar definition for semigroups.
 
@@ -73,9 +103,10 @@ The following axioms often hold, too, but are not needed below:
 \begin{enumerate}
 \item $\id_p\circ f\sqsubseteq f$;
 \item $f\circ\id_p\sqsubseteq f$;
-\item $\id_p\circ\id_q=\id_{p\sqcap q}$.
-\item \fxnote{Can we prove $p\sqsubseteq q\Rightarrow\id_p\sqsubseteq\id_q$? If not, add to above axioms.}
-\item \fxnote{Also add axioms $\id_p\sqsubseteq 1$ and/or $\id_{\top}=1$?}
+\item $\id_p\circ\id_q=\id_{p\sqcap q}$;
+\item $p\sqsubseteq q\Rightarrow\id_p\sqsubseteq\id_q$;
+\item $\id_p\sqsubseteq 1$;
+\item $\id_{\top}=1$.
 \end{enumerate}
 \end{rem}
 
@@ -278,3 +309,5 @@ I will publish the details later.
 In any case, that the entire theory of general topology is reducible to ordered semicategory actions, makes ordered semicategory actions immensely important, about on-par with group theory.
 
 It is yet unclear for me, whether non-ge\-ne\-ral-to\-po\-lo\-gy spaces such as Euclidean spaces are also reducible to ordered semigroup actions, so possibly defining ``space in general''.
+
+\end{document}
