@@ -155,7 +155,7 @@ An \emph{actionable semicategory with identities} is an actionable semicategory 
 \end{defn}
 
 \begin{defn}
-The category $\mathbf{Act^{\ast}SemiCat}$ of actionable semicategories is defined as usual in universal algebra.
+The category $\mathbf{Act^{\ast}SemiCat}$ of actionable semicategories are semicategory morphisms~$F$ together with a function~$G$ conforming to the identity $\supfun{Ff}x=G\supfun{f}x$.
 \end{defn}
 
 \begin{defn}
@@ -166,7 +166,7 @@ f_0\sqsubseteq f_1\land g_0\sqsubseteq g_1\Rightarrow f_0\cdot g_0\sqsubseteq f_
 \end{defn}
 
 \begin{defn}
-The morphisms of the category $\mathbf{Act^{\ast}SemiCatIden}$ of actionable semicategories with identities are semifunctors that are both morphisms of $\mathbf{OrdAct^{\ast}SemiCat}$ under the conditions that: $\supfun{\id_p}=x\sqcap p$.
+The morphisms of the category $\mathbf{Act^{\ast}SemiCatIden}$ of actionable semicategories with identities are semifunctors that are morphism~$(F,G)$ of $\mathbf{OrdAct^{\ast}SemiCat}$ under the conditions that: $F\id_p=\id_{Gp}$.
 \end{defn}
 
 \begin{obvious}
@@ -184,7 +184,7 @@ If $(\mathcal{C},\cdot)$ (where $\mathcal{C}$ is a semicategory) is an actionabl
 \end{defn}
 
 \begin{obvious}
-The above defines an semicategory action with identities with operations~$\circ$ and~$\supfun{}$.
+The above defines a semicategory action $(\mathcal{C},\supfun{})$.
 \end{obvious}
 
 \begin{rem}
@@ -192,7 +192,7 @@ Semicategory actions defined this way have the sets of objects and morphisms equ
 \end{rem}
 
 \begin{obvious}
-If it is an ordered actionable semicategory, then the result is a semicategory action with identities.
+If it is an ordered actionable semicategory, then the result is a ordered semicategory action.
 \end{obvious}
 
 \begin{obvious}
@@ -201,13 +201,17 @@ If it is an actionable semicategory with identities, then the result is an order
 
 \section{From semicategory action with identities to actionable semicategory}
 
-Let $(A,\circ,\supfun{},p\mapsto\id_p)$ be an ordered semicategory action with identities, each object set having greatest element~$\top$.
+Let $(\mathcal{C},\supfun{},p\mapsto\id_p)$ (where $\mathcal{C}$~is a semicategory) be an ordered semicategory action with identities, each object set having greatest element~$\top$.
 
-\begin{obvious}
+\begin{prop}
+$\supfun{f}x = \im(f\circ\id_x)$.\footnote{$\im f \eqdef \supfun{f}\top$.}
+\end{prop}
+
+\begin{prop}
 $\supfun{f}x = \supfun{f}\supfun{\id_x}\top = \supfun{f\circ\id_x}\top = \im(f\circ\id_x)$.
-\end{obvious}
+\end{prop}
 
-By analogy with the above obvious, we can define $g\cdot f = \id_{\im(g\circ f)}$.
+By analogy with the above proposition, we can define $g\cdot f = \id_{\im(g\circ f)}$.
 
 \begin{prop}
 The above with the same semigroup operation~$\circ$ defines an actionable semicategory.
@@ -252,19 +256,6 @@ Denote $\Phi$ the functor that maps an object $(\mathcal{C},\supfun{})$ to $(\ma
 \end{proof}
 
 We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$ and obtain this way an ordered semicategory action isomorphic to the original one.
-
-\section{idempotency of our ``inducing'' operations}
-
-Every semicategory action with identities, whose objects have greatest elements, induces an actionable semicategory with identities, which induces another semicategory action with identities. Thus every semigroup with identities, whose objects have greatest elements, induces another semigroup with identities. The formula for this is $\supfun{g}'f = \id_{\im(g\circ f)}$, where $\supfun{}'$ is the induced action.
-
-\begin{prop}
-The mapping on semicategory action with identities, defined by the previous paragraph, is idempotent.
-\end{prop}
-
-\begin{proof}
-Let apply this formula two times:
-\[ \supfun{g}''f = \id_{\im'(g\circ f)} = \id_{\supfun{g\circ f}'\top} = \id_{\im(g\circ f\circ\top)} = \id_{\im(g\circ f)} = \supfun{g}'f. \]
-\end{proof}
 
 \section{Actionable semigroup actions as algebraic varieties}
 
