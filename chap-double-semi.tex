@@ -205,6 +205,14 @@ Then \[ g\cdot\id_x = \supfun{g}\id_x = \id_{\im(g\circ\id_x)} = \id_{\supfun{g}
 So, we extended the mapping $\supfun{g}$ to mapping $g\cdot'f=\supfun{g}'f=\id_{\im(g\circ f)}$ on a wider set, because $x\mapsto\id_x$ is an injection (see proposition~\ref{prop:id-inj}).
 
 \begin{prop}
+$\supfun{\id_p}'f = \id_{p\sqcap\im f}$.
+\end{prop}
+
+\begin{proof}
+$\supfun{\id_p}'f = \id_{\im(\id_p\circ f)} = \id_{\supfun{\id_p}\supfun{f}\top} = \id_{p\sqcap\im f}$
+\end{proof}
+
+\begin{prop}
 $(\mathcal{C},\cdot')$ is an ordered actionable semicategory, corresponding (as above) to the ordered semicategory action $(\mathcal{C},\supfun{}')$.
 \end{prop}
 
@@ -217,7 +225,7 @@ $(\mathcal{C},\supfun{}'|_{\setcond{\id_x}{x\in\mathcal{C},\mathcal{C}\in\Ob\mat
 \end{thm}
 
 \begin{proof}
-Denote $\Phi$ the functor that maps an object $(\mathcal{C},\circ,\supfun{})$ to $(\mathcal{C},\circ,\supfun{}')$ and a morphism $(1,G)$ to $(1,p\mapsto\id_p)$ and $\Psi$ the unique functor that maps an object $(\mathcal{C},\circ,\supfun{}')$ to $(\mathcal{C},\circ,\supfun{})$ and a morphism $(1,G)$ to $(1,\id_p\mapsto p)$ ($p\mapsto\id_p$ is an injection). It's obvious, that $\Phi$ and $\Psi$ are inverse to each other.
+Denote $\Phi$ the functor that maps an object $(\mathcal{C},\supfun{})$ to $(\mathcal{C},\supfun{}')$ and a morphism $(1,G)$ to $(1,p\mapsto\id_p)$ and $\Psi$ the unique functor that maps an object $(\mathcal{C},\supfun{}')$ to $(\mathcal{C},\supfun{})$ and a morphism $(1,G)$ to $(1,\id_p\mapsto p)$ ($p\mapsto\id_p$ is an injection). It's obvious, that $\Phi$ and $\Psi$ are inverse to each other.
 \end{proof}
 
 We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x$ and obtain this way an ordered semicategory action isomorphic to the original one.
@@ -226,15 +234,13 @@ We can also restrict it to restricted identities: $\supfun{f}\id_x = f\cdot\id_x
 
 Every semicategory action with identities, whose objects have greatest elements, induces an actionable semicategory with identities, which induces another semicategory action with identities. Thus every semigroup with identities, whose objects have greatest elements, induces another semigroup with identities. The formula for this is $\supfun{g}'f = \id_{\im(g\circ f)}$, where $\supfun{}'$ is the induced action.
 
-Let apply this formula two times:
-\[ \supfun{g}''f = \id_{\im'(g\circ f)} = \id_{\supfun{g\circ f}'\top} = \id_{\im(g\circ f\circ\top)} = \id_{\im(g\circ f)} = \supfun{g}'f. \]
-
-\begin{thm}
-If we restrict the~$\cdot$ operation to the set that $\setcond{\id_x}{x\in A,A\in\Ob}$, then we recover the original semicategory action \fxnote{with identities?} up to isomorphism of ??.
-\end{thm}
+\begin{prop}
+The mapping on semicategory action with identities, defined by the previous paragraph, is idempotent.
+\end{prop}
 
 \begin{proof}
-??
+Let apply this formula two times:
+\[ \supfun{g}''f = \id_{\im'(g\circ f)} = \id_{\supfun{g\circ f}'\top} = \id_{\im(g\circ f\circ\top)} = \id_{\im(g\circ f)} = \supfun{g}'f. \]
 \end{proof}
 
 \section{Significance of ordered semicategory actions}
