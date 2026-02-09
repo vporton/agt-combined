@@ -1,4 +1,3 @@
-
 \chapter{\label{chap-filt}Filters and filtrators}
 
 This chapter is based on my article \cite{filters}.
@@ -432,19 +431,15 @@ $a\sqcap^{\mathfrak{Z}}b$ exists for $a,b\in\mathfrak{Z}$.
 \end{defn}
 
 \begin{defn}
-\index{filtrator!prefiltered}\emph{Prefiltered filtrator} is a filtrator
-$(\mathfrak{A},\mathfrak{Z})$ such that ``$\up$'' is injective.
-\end{defn}
-
-\begin{defn}
-\index{filtrator!filtered}\emph{Filtered filtrator} is a filtrator
+\index{filtrator!primary}\emph{Primary filtrator} is a filtrator
 $(\mathfrak{A},\mathfrak{Z})$ such that
 \[
 \forall a,b\in\mathfrak{A}:(\up a\supseteq\up b\Rightarrow a\sqsubseteq b).
 \]
 \end{defn}
+
 \begin{thm}
-A filtrator $(\mathfrak{A},\mathfrak{Z})$ is filtered iff $\forall a\in\mathfrak{A}:a=\bigsqcap^{\mathfrak{A}}\up a$.\end{thm}
+A filtrator $(\mathfrak{A},\mathfrak{Z})$ is primary iff $\forall a\in\mathfrak{A}:a=\bigsqcap^{\mathfrak{A}}\up a$.\end{thm}
 \begin{proof}
 ~
 \begin{description}
@@ -455,18 +450,64 @@ that $b$ is lower bound of $\up a$ implies $a\sqsupseteq b$.
 
 
 $b$ is lower bound of $\up a$ implies $\up b\supseteq\up a$. So
-as it is filtered $a\sqsupseteq b$.
-
+as it is primary $a\sqsupseteq b$.
 \end{description}
 \end{proof}
+
+\begin{thm}
+A filtrator is primary iff it is isomorphic to the filtrator consisting of the set of filters on a poset and the set of principal filters on this poset.
+\end{thm}
+
+\begin{proof}
+~
+\begin{widedisorder}
+\item[$\Leftarrow$] Obvious.
+
+\item[$\Rightarrow$] Let filtrator $((\mathfrak{A},{\sqsubseteq}),\mathfrak{Z})$ be primary.
+
+$((\mathfrak{A},{\sqsubseteq}),\mathfrak{Z})$ is isomorphic to $((\rsupfun{\up}\mathfrak{A},{\supseteq}),\rsupfun{\up}\mathfrak{Z})$ by the isomorphism $(x,{\sqsubseteq})\mapsto(\up x,{\supseteq})$. It is an isomorphism between $(\mathfrak{A},{\sqsubseteq})$ and $(\rsupfun{\up}\mathfrak{A},{\supseteq})$ because $((\mathfrak{A},{\sqsubseteq}),\mathfrak{Z})$ is primary. Next, it is obvious that this function an isomorphism between the filtrators.
+
+$\up x$ is a filter, because
+\[
+  a, b \in \up x \Leftrightarrow a, b \sqsupseteq x \Leftrightarrow
+  \up a, \up b \subseteq \up x \Leftrightarrow \up a
+  \cup \up b \subseteq \up x \Leftrightarrow \up a \sqcap
+  \up b \sqsupseteq \up x.
+\]
+So, $((\rsupfun{\up}\mathfrak{A},{\supseteq}),\rsupfun{\up}\mathfrak{Z})$ is a filtrator of filters on the poset~$\mathfrak{Z}$.
+\end{widedisorder}
+\end{proof}
+
+\begin{defn}
+\index{filtrator!powerset}I will call a primary filtrator over a
+poset isomorphic to a powerset as \emph{powerset filtrator}.\end{defn}
 \begin{obvious}
-Every filtered filtrator is prefiltered.
+$\up\mathcal{F}$ is a filter for every element~$\mathcal{F}$ of
+a primary filtrator. Reversely, there exists a filter $\mathcal{F}$
+if $\up\mathcal{F}$ is a filter.\end{obvious}
+
+\begin{thm}
+\label{thm1:prim-exists}For every poset~$\mathfrak{Z}$ there exists
+a poset $\mathfrak{A}\supseteq\mathfrak{Z}$ such that $(\mathfrak{A},\mathfrak{Z})$
+is a primary filtrator.\end{thm}
+
+\begin{proof}
+See appendix~\ref{app:prim-exists}.
+\end{proof}
+
+\begin{defn}
+\index{filtrator!prefiltered}\emph{Prefiltered filtrator} is a filtrator
+$(\mathfrak{A},\mathfrak{Z})$ such that ``$\up$'' is injective.
+\end{defn}
+
+\begin{obvious}
+Every primary filtrator is prefiltered.
 \end{obvious}
 
 \begin{obvious}
 \label{up-straight}``$\up$'' is a straight map from $\mathfrak{A}$
 to the dual of the poset $\subsets\mathfrak{Z}$ if $(\mathfrak{A},\mathfrak{Z})$
-is a filtered filtrator.\end{obvious}
+is a primary filtrator.\end{obvious}
 \begin{defn}
 An \emph{isomorphism} between filtrators $(\mathfrak{A}_{0},\mathfrak{Z}_{0})$
 and $(\mathfrak{A}_{1},\mathfrak{Z}_{1})$ is an isomorphism between
@@ -479,27 +520,6 @@ order on~$\mathfrak{Z}_{1}$.\end{obvious}
 Two filtrators are \emph{isomorphic} when there exists an isomorphism
 between them.
 \end{defn}
-
-\begin{defn}
-I will call \emph{primary filtrator} a filtrator isomorphic to the
-filtrator consisting of the set of filters on a poset and the set
-of principal filters on this poset.\end{defn}
-\begin{obvious}
-The order on a primary filtrator is defined by the formula $a\sqsubseteq b\Leftrightarrow\up a\supseteq\up b$.\end{obvious}
-\begin{defn}
-\index{filtrator!powerset}I will call a primary filtrator over a
-poset isomorphic to a powerset as \emph{powerset filtrator}.\end{defn}
-\begin{obvious}
-$\up\mathcal{F}$ is a filter for every element~$\mathcal{F}$ of
-a primary filtrator. Reversely, there exists a filter $\mathcal{F}$
-if $\up\mathcal{F}$ is a filter.\end{obvious}
-\begin{thm}
-\label{thm1:prim-exists}For every poset~$\mathfrak{Z}$ there exists
-a poset $\mathfrak{A}\supseteq\mathfrak{Z}$ such that $(\mathfrak{A},\mathfrak{Z})$
-is a primary filtrator.\end{thm}
-\begin{proof}
-See appendix~\ref{app:prim-exists}.
-\end{proof}
 
 \subsection{Filtrators with Separable Core}
 \begin{defn}
@@ -1619,8 +1639,6 @@ is also a co-frame.
 powerset filtrator.
 \item \label{semifilt-joinclosed-f}$(\mathfrak{A},\mathfrak{Z})$ is a
 primary filtrator.
-\item \label{semifilt-joinclosed-sfit}$(\mathfrak{A},\mathfrak{Z})$ is
-a filtered filtrator.
 \item \label{semifilt-joinclosed-conc}$(\mathfrak{A},\mathfrak{Z})$ is
 a filtrator with join-closed core.
 \end{enumerate}
@@ -1629,10 +1647,8 @@ a filtrator with join-closed core.
 ~
 \begin{description}
 \item [{\ref{semifilt-joinclosed-p}$\Rightarrow$\ref{semifilt-joinclosed-f}}] Obvious.
-\item [{\ref{semifilt-joinclosed-f}$\Rightarrow$\ref{semifilt-joinclosed-sfit}}] The formula
-$\forall a,b\in\mathfrak{A}:(\up a\supseteq\up b\Rightarrow a\sqsubseteq b)$ is obvious for primary filtrators.
-\item [{\ref{semifilt-joinclosed-sfit}$\Rightarrow$\ref{semifilt-joinclosed-conc}}] Let
-$(\mathfrak{A},\mathfrak{Z})$ be a filtered filtrator. Let $S\in\subsets\mathfrak{Z}$
+\item [{\ref{semifilt-joinclosed-f}$\Rightarrow$\ref{semifilt-joinclosed-conc}}] Let
+$(\mathfrak{A},\mathfrak{Z})$ be a primary filtrator. Let $S\in\subsets\mathfrak{Z}$
 and $\bigsqcup^{\mathfrak{Z}}S$ be defined. We need to prove $\bigsqcup^{\mathfrak{A}}S=\bigsqcup^{\mathfrak{Z}}S$.
 That $\bigsqcup^{\mathfrak{Z}}S$ is an upper bound for $S$ is obvious.
 Let $a\in\mathfrak{A}$ be an upper bound for $S$. It's enough to
@@ -1641,7 +1657,7 @@ prove that $\bigsqcup^{\mathfrak{Z}}S\sqsubseteq a$. Really,
 c\in\up a\Rightarrow c\sqsupseteq a\Rightarrow\forall x\in S:c\sqsupseteq x\Rightarrow c\sqsupseteq\bigsqcup^{\mathfrak{Z}}S\Rightarrow c\in\up\bigsqcup^{\mathfrak{Z}}S;
 \]
 so $\up a\subseteq\up\bigsqcup^{\mathfrak{Z}}S$ and thus $a\sqsupseteq\bigsqcup^{\mathfrak{Z}}S$
-because it is filtered.
+because it is primary.
 \end{description}
 \end{proof}
 
@@ -1745,7 +1761,7 @@ $\Cor a=\Cor'a=a$ for every element $a$ of the core of a filtrator.\end{obvious}
 \begin{enumerate}
 \item \label{cor-less-p}$a$ is a filter on a set.
 \item \label{cor-less-fcomp}$a$ is a filter on a complete lattice.
-\item \label{cor-less-flt}$a$ is an element of a filtered filtrator and
+\item \label{cor-less-flt}$a$ is an element of a primary filtrator and
 $\Cor a$ exists.
 \item \label{cor-less-conc}$\Cor a\sqsubseteq a$ and $\Cor a\in\down a$.
 \end{enumerate}
@@ -1791,7 +1807,7 @@ $\Cor a=\bigsqcap^{\mathfrak{Z}}\up a\sqsupseteq\Cor'a$ because $\forall A\in\up
 \begin{enumerate}
 \item \label{cor-eq-pow}$a$ is a filter on a set.
 \item \label{cor-eq-mlat}$a$ is a filter on a complete lattice.
-\item \label{cor-eq-filt}$a$ is an element of a filtered filtrator and
+\item \label{cor-eq-filt}$a$ is an element of a primary filtrator and
 both $\Cor a$ and $\Cor'a$ exist.
 \item \label{cor-eq-conc}$\Cor'a=\Cor a$.
 \end{enumerate}
@@ -1802,7 +1818,7 @@ both $\Cor a$ and $\Cor'a$ exist.
 \item [{\ref{cor-eq-pow}$\Rightarrow$\ref{cor-eq-mlat}}] Obvious.
 \item [{\ref{cor-eq-mlat}$\Rightarrow$\ref{cor-eq-filt}}] By theorem~\ref{semifilt-joinclosed}.
 \item [{\ref{cor-eq-filt}$\Rightarrow$\ref{cor-eq-conc}}] It is with
-join-closed core because it is filtered. So $\Cor'a\sqsubseteq\Cor a$.
+join-closed core because it is primary  . So $\Cor'a\sqsubseteq\Cor a$.
 $\Cor a\in\down a$. So $\Cor a\sqsubseteq\bigsqcup^{\mathfrak{Z}}\down a=\Cor'a$.
 \end{description}
 \end{proof}
@@ -1993,11 +2009,7 @@ The following is an implications tuple:
 \label{atom-both}The following is an implications tuple:
 \begin{enumerate}
 \item \label{atom-both-p}$(\mathfrak{A},\mathfrak{Z})$ is a powerset filtrator.
-\item \label{atom-both-f}$(\mathfrak{A},\mathfrak{Z})$ is a primary filtrator
-over a meet-semilattice.
-\item \label{atom-both-mlat}$(\mathfrak{A},\mathfrak{Z})$ is a filtered
-weakly down-aligned filtrator with binarily meet-closed core $\mathfrak{Z}$
-which is a meet-semilattice.
+\item \label{atom-both-f}$(\mathfrak{A},\mathfrak{Z})$ is a primary filtrator over a meet-semilattice.
 \item \label{atom-both-conc}$a$ is an atom of $\mathfrak{Z}$ iff $a\in\mathfrak{Z}$
 and $a$ is an atom of $\mathfrak{A}$.
 \end{enumerate}
@@ -2006,11 +2018,10 @@ and $a$ is an atom of $\mathfrak{A}$.
 ~
 \begin{description}
 \item [{\ref{atom-both-p}$\Rightarrow$\ref{atom-both-f}}] Obvious.
-\item [{\ref{atom-both-f}$\Rightarrow$\ref{atom-both-mlat}}] It is filtered
+\item [{\ref{{atom-both-f}$\Rightarrow$\ref{atom-both-conc}}]
+It is filtered
 by the theorem~\ref{semifilt-joinclosed}, binarily meet-closed by
 corollary~\ref{f-meet-closed}.
-\item [{\ref{atom-both-mlat}$\Rightarrow$\ref{atom-both-conc}}] ~
-
 \begin{description}
 \item [{$\Leftarrow$}] Let $a$ be an atom of $\mathfrak{A}$ and $a \in \mathfrak{Z}$. Then either
 $a$ is an atom of $\mathfrak{Z}$ or $a$ is the least element of
@@ -2051,14 +2062,12 @@ iff $\up a=\corestar a$.
 \begin{description}
 \item [{\ref{up-eq-corestar-p}$\Rightarrow$\ref{up-eq-corestar-f}}] Obvious.
 \item [{\ref{up-eq-corestar-f}$\Rightarrow$\ref{up-eq-corestar-mlat}}] By the theorem~\ref{semifilt-joinclosed}.
-\item [{\ref{up-eq-corestar-mlat}$\Rightarrow$\ref{up-eq-corestar-conc}}] ~
-
+\item [{\ref{up-eq-corestar-mlat}$\Rightarrow$\ref{up-eq-corestar-conc}}]
 \begin{description}
 \item [{$\Rightarrow$}] For any $K\in\mathfrak{A}$
 \[
 K\in\up a\Leftrightarrow K\sqsupseteq a\Leftrightarrow K\nasymp^{\mathfrak{A}}a\Leftrightarrow K\in\corestar a.
 \]
-
 \item [{$\Leftarrow$}] Let $\up a=\corestar a$. Then~$a$ is not
 least element of~$\mathfrak{A}$. Consequently
 for every $x\in\mathfrak{A}$ if~$x$ is not the least element
@@ -2071,11 +2080,7 @@ x\nasymp^{\mathfrak{A}}a & \Rightarrow\\
 \up x\subseteq\up a & \Rightarrow\\
 x\sqsupseteq a.
 \end{align*}
-
-
-
 So $a$ is an atom of $\mathfrak{A}$.
-
 \end{description}
 \end{description}
 \end{proof}
@@ -2100,11 +2105,9 @@ of $\up b$ is the greatest element of $\mathfrak{Z}$ (if it exists)
 from what follows $b=\top^{\mathfrak{A}}$. So $a$ is a coatom of
 $\mathfrak{A}$.
 
-
 Suppose now that $a$ is a coatom of $\mathfrak{A}$. To finish the
 proof it is enough to show that $a$ is principal. (Then $a$ is non-greatest
 and thus is a coatom of $\mathfrak{Z}$.)
-
 
 Suppose $a$ is non-principal. Then obviously exist two distinct elements
 $x$ and $y$ of the core such that $x,y\in\up a$. Thus $a$ is not
