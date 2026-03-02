@@ -1,1 +1,3 @@
-Typo: Reflexive, symmetric, transitive funcoids endofuncoids
+- Typo: Reflexive, symmetric, transitive funcoids endofuncoids
+
+- It seems that in `limit.pdf` the requirement of reflexivity of $d$ is superfluous.
