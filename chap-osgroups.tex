@@ -446,12 +446,21 @@ Kuratowski spaces are a generalization of topological spaces.
 
 \chapter{Spaces defined by a group}
 
-\fxwarning{This may be wrong.}
+\fxwarning{This unverified.}
 
-I will demonstrate, that a permutation group can be described as a space-in-general
-simply taking its group of symmetries as our semigroup with action and introducing on it the trivial order.
-This is significant especially because the usual geometric spaces (Euclidean space, projective spaces, vector spaces)
-can be described [TODO: details] as groups of symmetries. So, for example, Euclidean spaces fall into spaces-in-general category, too.
+Geometric spaces: Euclidean spaces, projective spaces, Hilbert spaces, vector spaces\fxerror{Not sure about vector spaces, see \href{https://chatgpt.com/share/6a664534-7484-83eb-864f-3999115d07a2}{ChatGPT            }.}, are characterized by their symmetry groups~$G$.
+
+Now let's construct ordered semigroup action for it:
+
+We have the set, the ordered semigroup is $G$ with the trivial order. As the action take:
+
+\[
+\lambda X\in\subsets\subsets G:
+\setcond{\setcond{\rsupfun{f}x}{f\in F}}{x\in X}
+\]
+
+The group~$G$ can be restored from this structure simply because it contains~$G$, its action can be restored as: ?? .
+
 It's yet unclean which useful properties ``geometric'' spaces-in-general have, but they were considered to justify the name ``space-in-general''.
 
 \chapter{More properties}
