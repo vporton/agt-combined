@@ -212,14 +212,20 @@ For an \emph{ordered semigroup with involution} or \emph{ordered dagger semicate
 
 \chapter{Topological properties}
 
-Now we have a formalism to describe many topological properties (following the idea above in this book):
+Why the following are generalizations of sa\-me-na\-med properties in classic general topology, will become clear in the below chapter about funcoids.
 
-Continuity is described by the formulas $f\circ a\sqsubseteq a\circ f$, $f\circ a\circ f^{\dagger}\sqsubseteq a$, $a\sqsubseteq f^{\dagger}\circ a\circ f$.
+Continuity is described by the formulas
+\[
+\mathrm{C}(a,b)\Leftrightarrow f\circ a\sqsubseteq b\circ f,\quad \mathrm{C}''(a,b)\Leftrightarrow f\circ a\circ f^{\dagger}\sqsubseteq b,\quad \mathrm{C}'(a,b)\Leftrightarrow a\sqsubseteq f^{\dagger}\circ b\circ f.
+\]
 
 Convergence of a function~$f$ from an endomorphism (space)~$\mu$ to an endomorphism (space)~$\nu$ at filter~$x$ to a set or filter~$y$ is described by the formula $\supfun{f}\supfun{\mu}x\sqsubseteq\supfun{\nu}y$.
 
+\fxwarning{This is out-of-scope for this book.}
 Generalized limit of an arbitrary interspace~$f$ (for example, of an arbitrary (possibly discontinuous) function), see \cite{limit}, is described by the formula \[ \xlim f=\setcond{\nu\circ f\circ r}{r\in G}, \]
 where~$G$~is a suitable group (consider for example the group of all translations of a vector space).
+
+\section{Compactness}
 
 We will generalize properties of funcoids, but instead of funcoids~$\mathsf{FCD}(A,B)$ we will consider more general maps in~$\mathbf{Set}(\mathscr{F}A,\mathscr{F}B)$.
 
@@ -239,6 +245,8 @@ what is equivalent to $1 \sqsubseteq c\circ a$.
 However, we can define compactness without specifying~$\mathfrak{Z}$ as we can take~$\mathfrak{Z}$ to be the \emph{center} (the set of all its complemented elements) of the poset~$\mathfrak{A}$.
 
 The same reasoning applies to $\Cor'$ in place of~$\Cor$.
+
+\section{Total boundness}
 
 It seem we cannot define \emph{total boundness} purely in terms of ordered semigroups, because it is a property of reloids and reloid is not determined by its action.
 
