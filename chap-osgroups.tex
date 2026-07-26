@@ -229,8 +229,6 @@ where~$G$~is a suitable group (consider for example the group of all translation
 
 \section{Neighborhood/interior}
 
-We will generalize properties of funcoids, but instead of funcoids~$\mathsf{FCD}(A,B)$ we will consider more general maps in~$\mathbf{Set}(\mathscr{F}A,\mathscr{F}B)$.
-
 \emph{Neighborhood} of element~$x$ is such a $y$ that $\supfun{a}x\sqsubseteq y$. \emph{Interior} of~$x$ (if it exists) if the join of all $y$ such that $x$ is a neighborhood of~$x$.
 
 An element~$x$ is closed regarding~$a$ iff $\supfun{a}x\sqsubseteq x$. $x$~is open iff $x$ is closed regarding $\supfun{a}^{\dagger}$.
@@ -244,6 +242,8 @@ Morphism~$a$ is \emph{closed} iff $\forall x:\supfun{a}x\sqsubseteq x$.
 \section{Compactness}
 
 \fxwarning{Move it to a more suitable place in the text.}
+
+We will generalize properties of funcoids, but instead of funcoids~$\mathsf{FCD}(A,B)$ we will consider more general maps in~$\mathbf{Set}(\mathscr{F}A,\mathscr{F}B)$.
 
 To define compactness\footnote{That this coincides with the traditional definition of compactness of topological spaces, follows from the well known fact that a topological space is compact iff each proper filter on it has an adherent point.\fxwarning{Describe in more detail.}} we additionally need the structure of filtrator $(\mathfrak{A},\mathfrak{Z})$ on our poset. Then it is space~$a$ is \emph{directly compact} iff
 \[\forall x\in\mathfrak{A}:(x\text{ is non-least}\Rightarrow\Cor\supfun{a}x\text{ is non-least}); \]
