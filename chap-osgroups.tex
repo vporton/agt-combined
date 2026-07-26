@@ -235,7 +235,11 @@ We will generalize properties of funcoids, but instead of funcoids~$\mathsf{FCD}
 
 An element~$x$ is closed regarding~$a$ iff $\supfun{a}x\sqsubseteq x$. $x$~is open iff $x$ is closed regarding $\supfun{a}^{\dagger}$.
 
-We can define open and closed functions.
+\begin{defn}
+Morphism~$a$ is \emph{closed} iff $\forall x:\supfun{a}x\sqsubseteq x$.
+\end{defn}
+
+\fxwarning{We can define open functions in two ways: $\forall x:\supfun{a}x\sqsupseteq x$ or $\forall x:\supfun{a}^\dagger x\sqsubseteq x$. It remains also the fourth variant $\forall x:\supfun{a}^\dagger x\sqsupseteq x$.}
 
 \section{Compactness}
 
