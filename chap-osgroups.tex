@@ -235,6 +235,8 @@ We will generalize properties of funcoids, but instead of funcoids~$\mathsf{FCD}
 
 An element~$x$ is closed regarding~$a$ iff $\supfun{a}x\sqsubseteq x$. $x$~is open iff $x$ is closed regarding $\supfun{a}^{\dagger}$.
 
+We can define open and closed functions.
+
 \section{Compactness}
 
 \fxwarning{Move it to a more suitable place in the text.}
@@ -258,9 +260,11 @@ It seem we cannot define \emph{total boundness} purely in terms of ordered semig
 
 \chapter{A relation}
 
+The below is motivated by the definition of pointfree funcoids (below).
+
 Every ordered semicategory action~$\supfun{}$ defines a relation~$R$: $x\suprel{a}y\Leftrightarrow y\nasymp\supfun{a}x$.
 
-If $\suprel{a}^{\dagger}=\suprel{a}^{-1}$ for every~$a$, we call the action~$\supfun{}$ on an dagger semicategory \emph{inter\-sec\-tion-sym\-met\-ric}. In this case our action defines a pointfree funcoid.
+If $\suprel{a}^{\dagger}=\suprel{a}^{-1}$ for every~$a$, we call the action~$\supfun{}$ on an dagger semicategory \emph{inter\-sec\-tion-sym\-met\-ric}. In this case our action defines a pointfree funcoid. \fxwarning{Move this after the definition of pointfree funcoids.}
 
 \begin{prop}
 If $\Dst a$ is a separable poset, then a functional ordered semicategory action~$a$~is uniquely determined by~$\suprel{a}$.
@@ -273,8 +277,6 @@ By functionality, $a=\supfun{a}$.
 \end{proof}
 
 A space is connected iff $x\equiv y\Rightarrow x\suprel{a}y$.
-
-We can define open and closed functions.
 
 \chapter{Further axioms}
 
