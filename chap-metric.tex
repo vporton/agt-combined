@@ -1,0 +1,196 @@
+
+\chapter{Metric spaces}
+
+Let us call \emph{most general nonnegative real metrics} (MGNRM) the semicategory of all extended nonnegative ($\mathbb{R}_{+}\cup\{+\infty\}$) real functions (on some fixed set) of two arguments and the ``composition'' operation
+\[ (\sigma\circ\rho)(x,z) = \inf_{y\in\mho}(\rho(x,y)+\sigma(z,y)) \]
+and \emph{most general nonnegative real metric} an element of this semicategory.
+
+\begin{rem}
+The infimum exists because it's nonnegative.
+\end{rem}
+
+We need to prove it's an associative operation.
+
+\begin{proof}
+\begin{multline*}
+(\tau\circ(\sigma\circ\rho))(x,z) = \\
+\inf_{y_1\in\mho}((\sigma\circ\rho)(x,y_1)+\tau(y_1,z)) = \\
+\inf_{y_1\in\mho}(\inf_{y_0\in\mho}(\rho(x,y_0)+\sigma(y_0,y_1))+\tau(y_1,z)) = \\
+\inf_{y_0,y_1\in\mho}(\rho(x,y_0)+\sigma(y_0,y_1)+\tau(y_1,z)).
+\end{multline*}
+Similarly
+\begin{multline*}
+((\tau\circ\sigma)\circ\rho)(x,z) = \\
+\inf_{y_0,y_1\in\mho}(\rho(x,y_0)+\sigma(y_0,y_1)+\tau(y_1,z)).
+\end{multline*}
+Thus $\tau\circ(\sigma\circ\rho)=(\tau\circ\sigma)\circ\rho$.
+\end{proof}
+
+\begin{defn}
+We extend MGNRM to the set $\subsets\mho$ by the formula:
+\[ \rho(X,Y) = \inf_{x\in X,y\in Y}\rho(x,y). \]
+\end{defn}
+
+\begin{rem}
+This is well-defined thanks to MGNRM being nonnegative and allowing the infinite value.
+\end{rem}
+
+\begin{prop}
+~
+\begin{enumerate}
+\item $\rho(I\cup J,Y) = \min\{\rho(I,Y), \rho(J,Y)\}$;
+\item $\rho(X,I\cup J) = \min\{\rho(X,I), \rho(Y,J)\}$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+We'll prove the first as the second is similar:
+\begin{multline*}
+\rho(I\cup J,Y) = \\
+\inf_{x\in I\cup J,y\in Y}\rho(x,y) = \\
+\min\left\{\inf_{x\in I,y\in Y}\rho(x,y), \inf_{x\in J,y\in Y}\rho(x,y)\right\} = \\
+\min\{\rho(I,Y), \rho(J,Y)\}.
+\end{multline*}
+\end{proof}
+
+Let~$a$ be a most general metric. I denote~$\Delta_a$ the funcoid determined by the formula
+\[
+X\rsuprel{\Delta_a}Y \Leftrightarrow \rho_a(X,Y)=0.
+\]
+
+(If~$a$ is a metric, then it's the proximity induced by it.)
+
+Let's prove it really defines a funcoid:
+
+\begin{proof}
+Not $\emptyset\rsuprel{\Delta_a}Y$ and not $X\rsuprel{\Delta_a}\emptyset$ because \[ \rho_{a}(\emptyset,Y)=\rho_{a}(X,\emptyset)=+\infty. \]
+
+By symmetry, it remains to prove
+\[ (I\cup J)\rsuprel{\Delta_a}Y \Leftrightarrow
+I\rsuprel{\Delta_a}Y \lor J\rsuprel{\Delta_a}Y. \]
+Really,
+\begin{multline*}
+(I\cup J)\rsuprel{\Delta_a}Y \Leftrightarrow \\
+\rho_a(I\cup J,Y)=0 \Leftrightarrow \\
+\min\{\rho_a(I,Y),\rho_a(J,Y)\}=0 \Leftrightarrow \\
+\rho_a(I,Y)=0\lor\rho_a(J,Y)=0 \Leftrightarrow \\
+I\rsuprel{\Delta_a}Y \lor J\rsuprel{\Delta_a}Y.
+\end{multline*}
+\end{proof}
+
+\begin{obvious}
+\begin{multline*}
+X\rsuprel{\Delta_a}Y \Leftrightarrow \\
+\forall\epsilon>0\exists x\in X,y\in Y:
+\lvert\rho_a(x,y)\rvert<\epsilon.
+\end{multline*}
+\end{obvious}
+
+\begin{thm}
+\[ \supfun{\Delta_a}X = \bigsqcap_{\epsilon>0}\bigcup_{x\in X}B(x,\epsilon) \]
+($B(x,\epsilon)$ is the open ball of the radius~$\epsilon$ centered at~$x$).
+\end{thm}
+
+\begin{proof}
+\begin{multline*}
+Y\nasymp\supfun{\Delta_a}X\Leftrightarrow X\suprel{\Delta_a}Y \Leftrightarrow \\ \forall\epsilon>0\exists x\in X,y\in Y:\rho_a(x,y)<\epsilon.
+\end{multline*}
+\begin{multline*}
+Y\nasymp\bigsqcap_{\epsilon>0}\bigcup_{x\in X}B_a(x,\epsilon) \Leftrightarrow \\ \forall\epsilon>0:Y\nasymp\bigcup_{x\in X}B_a(x,\epsilon) \Leftrightarrow \\
+\forall\epsilon>0\exists x\in X:Y\nasymp B_a(x,\epsilon) \Leftrightarrow \\
+\forall\epsilon>0\exists x\in X,y\in Y:\rho_a(x,y)<\epsilon.
+\end{multline*}
+\end{proof}
+
+MGNRM are also interspaces: Define the order on metric spaces by the formula \[ \rho\sqsubseteq\sigma \Leftrightarrow \forall x,y:\rho(x,y)\sqsupseteq\sigma(x,y). \] Define the action for a metric space~$a$ as the action $\supfun{\Delta_a}$ of its induced proximity~$\Delta_a$ (see above for a definition of proximity and more generally funcoid actions~$\supfun{}$) and composition of metrics $\rho$, $\sigma$ by the formula: \[ (\sigma\circ\rho)(x,z) = \inf_{y\in\mho}(\rho(x,y)+\sigma(z,y)), \]
+where~$\mho$ is the set of points of our metric space.
+
+\begin{lem}
+$\Delta_{b\circ a} = \Delta_b\circ\Delta_a$.
+\end{lem}
+
+\begin{proof}
+Let~$X$,~$Y$ be arbitrary sets on a metric space.
+\begin{multline*}
+Z\nasymp\supfun{\Delta_{b\circ a}}X \Leftrightarrow \\
+\forall\epsilon>0\exists x\in X,z\in Z:\\\inf_{y\in\mho}(\rho_a(x,y)+\rho_b(y,z))<\epsilon \Leftrightarrow \\
+\forall\epsilon>0\exists x\in X,y\in\mho,z\in Z:\\\rho_a(x,y)+\rho_b(y,z)<\epsilon \Leftrightarrow \\
+\forall\epsilon>0\exists x\in X,y\in\mho,z\in Z:\\(\rho_a(x,y)<\epsilon\land\rho_b(y,z)<\epsilon)
+\end{multline*}
+\begin{multline*}
+Z\nasymp\supfun{\Delta_b\circ\Delta_a}X \Leftrightarrow
+Z\nasymp\supfun{\Delta_b}\supfun{\Delta_a}X\Leftrightarrow\\
+\supfun{\Delta_b^{-1}}Z\nasymp\supfun{\Delta_a}X \Leftrightarrow\\
+\bigsqcap_{\epsilon>0}\bigcup_{x\in X}B_a(x,\epsilon) \nasymp\bigsqcap_{\epsilon>0}\bigcup_{z\in Z}B_b(z,\epsilon) \Leftrightarrow \\
+\forall\epsilon>0:\bigcup_{x\in X}B_a(x,\epsilon) \nasymp\bigcup_{z\in Z}B_b(z,\epsilon) \Leftrightarrow \\
+\forall\epsilon>0\exists x\in X,z\in Z:B_a(x,\epsilon)\nasymp B_b(z,\epsilon) \Leftrightarrow \\
+\forall\epsilon>0\exists x\in X,z\in Z,y\in\mho:\\(\rho_a(x,z)<\epsilon\land\rho_b(z,y)<\epsilon).
+\end{multline*}
+
+So, $Z\nasymp\supfun{\Delta_{b\circ a}}X \Leftrightarrow Z\nasymp\supfun{\Delta_b\circ\Delta_a}X$.
+\end{proof}
+
+Let's prove it's really an ordered semicategory action:
+
+\begin{proof}
+~
+\begin{itemize}
+\item It is an ordered semicategory, because
+$\supfun{a}x = \supfun{\Delta_a} x \sqsubseteq \supfun{\Delta_a} y = \supfun{a}y$
+for filters $x\sqsubseteq y$.
+
+\item
+\begin{multline*}
+\supfun{b\circ a} = \supfun{\Delta_{b\circ a}} = \\ \supfun{\Delta_b\circ\Delta_a} = \\ \supfun{\Delta_b}\circ\supfun{\Delta_a} = \supfun{b}\circ\supfun{a};
+\end{multline*}
+\item $a\sqsubseteq b\Rightarrow \supfun{a}\sqsubseteq \supfun{b}$ is obvious;
+\item $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq \supfun{a}y$ for all $a\in S$ is obvious.
+\end{itemize}
+\end{proof}
+
+\fxnote{The above can be generalized for the values of the metric to be certain ordered additive semigroups instead of nonnegative real numbers.}
+
+\section{Functions as metrics}
+
+We want to consider functions in relations with MGNRM. So we we will consider (not only functions but also) every morphism~$f$ of category~$\mathbf{Rel}$ as an MGNRM by the formulas $\rho_{f}(x,y) = 0$ if $x\mathrel{f}y$ and $\rho_{f}(x,y) = +\infty$ if not $x\mathrel{f}y$.
+
+\begin{thm}
+If~$\rho$ is a MGNRM and~$f$ is a binary relation composable with it, then:
+\begin{enumerate}
+\item $(\rho\circ f)(X,Y) = \rho(Y,\rsupfun{f}X)$;
+\item $(f\circ\rho)(X,Y) = \rho(\rsupfun{f^{-1}}Y,X)$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+~
+\[
+(\rho\circ f)(x,y) = \inf_{t}(f(X,t) + \rho(Y,y))
+\]
+but $f(X,t) + \rho(Y,t) = +\infty$ if not $X\rsuprel{f}\{t\}$ and $f(X,t) + \rho(Y,t) = \rho(Y,t)$ if $X\rsuprel{f}\{t\}$. So
+\begin{multline*}
+(\rho\circ f)(X,Y) = \\
+\inf_{t\in\setcond{t}{X\rsuprel{f}\{t\}}}\rho(Y,t) = \\
+\inf_{t\in\rsupfun{f}X}\rho(Y,t) = \\
+\rho(Y,\rsupfun{f}X).
+\end{multline*}
+The other item follows from symmetry.
+\end{proof}
+
+\section{Contractions}
+
+What are (generalized) continuous functions between metric spaces?
+
+Let~$f$ be a function, $\mu$~and~$\nu$ be MGNRMs. Provided that they are composable, what does the formula of generalized continuity $f\circ\mu\sqsubseteq\nu\circ f$ mean?
+
+Transforming the formula equivalently, we get:
+
+\begin{align*}
+\forall x,z: (f\circ\mu)(x,z)\sqsupseteq(\nu\circ f)(x,z);\\
+\forall x,z: \mu(\{x\},\rsupfun{f^{-1}}\{z\})\sqsupseteq\nu(fx,z);\\
+\forall x,z,y\in\rsupfun{f^{-1}}\{z\}: \mu(x,y)\sqsupseteq\nu(fx,z);\\
+\forall x,y: \mu(x,y)\sqsupseteq\nu(fx,fy).
+\end{align*}
+
+So generalized continuous functions for metric spaces is what is called \emph{contractions} that is functions that decrease distance.
+
