@@ -5,8 +5,6 @@ I define \emph{space} or \emph{space-in-general} that fully describes (not just 
 The definition is quite simple: space-in-general is an element of an ordered semigroup with an action
 (or I will simply say ``of an ordered semigroup action''). Contrary to possible expectations, ordered semigroup actions were first described only in 2019 (by me).
 
-I will make this part of the book mostly self-contained, for example, reminding definitions of funcoids.
-
 \chapter{Prerequisites}
 
 You need to know about semigroups, ordered semigroups, semigroup actions, before reading further. If in doubt, consult Wikipedia.
@@ -38,9 +36,9 @@ So we have topological space defined by actions of an ordered semigroup.
 Below I will define a \emph{space} as an \emph{ordered semigroup action element}.
 
 This includes topological spaces, uniform spaces, proximity spaces, (directed) graphs, metric spaces, semigroups of operators, as well as Euclidean spaces, vector spaces,
-at least some kinds of manifolds, etc.
+manifolds, etc.
 
-Moreover we can consider the semigroup of all functions~$\subsets\mho\to\subsets\mho$ for some set~$\mho$ (the set of ``points'' of our space). Above we showed that topological spaces correspond to elements of this semigroup. Functions on~$\mho$ also can be considered as elements of this semigroup (replace every function with its ``image of a set'' function). Then we have an ordered semigroup action containing both topospaces and functions. As it was considered above, we can describe a function~$f$ being continuous from a space~$\mu$ to a space~$\nu$ by the formula $f\circ\mu\sqsubseteq\nu\circ f$. See, it's an instance of \emph{algebraic} general topology: a topological concept was described by an algebraic formula, without any quantifiers.
+Moreover we can consider the semigroup of all functions~$\subsets\mho\to\subsets\mho$ for some set~$\mho$ (the set of ``points'' of our space). Above we showed that topological spaces correspond to elements of this semigroup. Functions on~$\mho$ also can be considered as elements of this semigroup (replace every function with its ``image of a set'' function). Then we have an ordered semigroup action containing both topospaces and functions. As it will be considered below, we can describe a function~$f$ being continuous from a space~$\mu$ to a space~$\nu$ by the formula $f\circ\mu\sqsubseteq\nu\circ f$. See, it's an instance of \emph{algebraic} theory of general topology: a topological concept was described by an algebraic formula, without any quantifiers.
 
 \chapter{Semicategories}
 
@@ -99,7 +97,7 @@ As I shown above, functions (and more generally binary relations) can also be co
 The category~$\mathbf{Pos}$ is the category whose objects are (small) posets and whose morphisms are order homomorphisms.
 
 \begin{defn}
-\emph{Semiordered semicategory action} (denoted $\supfun{}$) is a functor from an ordered semicategory~$\mathcal{C}$ to the category~$\mathbf{Pos}$.
+\emph{Semiordered semicategory action} (denoted $\supfun{}$) is a semifunctor from an ordered semicategory~$\mathcal{C}$ to the category~$\mathbf{Pos}$.
 \end{defn}
 
 An equivalent definition is:
@@ -179,14 +177,14 @@ $\supfun{}$ is increasing because it's the identity function.
 $\supfun{a}$ is the same as one of the original ordered semicategory action and thus is increasing.
 \end{proof}
 
-Having a ordered semicategory action and a homomorphism to its ordered semicategory, we can define in an obvious way a new ordered semicategory action. The following is an example of this construction (here $\torldin$ is a functor of ordered semicategories).
+Having a ordered semicategory action and a homomorphism to its ordered semicategory, we can define in an obvious way a new ordered semicategory action. \fxerror{Move this below in the book.} The following is an example of this construction (here $\torldin$ is a functor of ordered semicategories).
 
 \emph{Funcoids} form an ordered semicategory with action $\supfun{}$. \emph{Reloids} form an ordered semicategory with action $a\mapsto\supfun{\torldin a}$.
-As we know from the above, funcoids are a generalization of topological spaces, proximity spaces, and directed graphs (``discrete spaces''), reloids is a generalization of uniform spaces and directed graphs. Funcoid is determined by its action. So most of the customary general topology can be described in terms of ordered semicategory actions (or ordered semigroup actions, see below).
+As we know from the above, funcoids are a generalization of topological spaces, proximity spaces, and directed graphs (``discrete spaces''), reloids is a generalization of uniform spaces and directed graphs. Funcoid is determined by its action.
 
 Remember that elements of our posets of objects may be such things as sets or more generally filters, they may be not just points. So our topological construction is ``pointfree'' (we may consider sets or filters, not points).
 
-This part of the book is mainly about this topic: describing general topology in terms of ordered semicategory actions. Above are the new axioms for general topology. No topological spaces here.
+The book (\fxnote{after a rewrite}) will be mainly about this topic: describing general topology in terms of ordered semicategory actions. Above are the new axioms for general topology.
 
 Semiordered semicategory action is \emph{ordered by elements} when \[ a\sqsubseteq b \Leftarrow \supfun{a}\sqsubseteq \supfun{b} \] that is when \[ a\sqsubseteq b \Leftarrow \forall x:\supfun{a}x\sqsubseteq\supfun{b}x. \]
 
@@ -216,7 +214,7 @@ Why the following are generalizations of sa\-me-na\-med properties in classic ge
 
 Continuity for semicategories or semicategories with involution is described by the formulas
 \[
-\mathrm{C}(a,b)\Leftrightarrow f\circ a\sqsubseteq b\circ f,\quad \mathrm{C}''(a,b)\Leftrightarrow f\circ a\circ f^{\dagger}\sqsubseteq b,\quad \mathrm{C}'(a,b)\Leftrightarrow a\sqsubseteq f^{\dagger}\circ b\circ f.
+\mathrm{C}(a,b)\Leftrightarrow f\circ a\sqsubseteq b\circ f,\quad \mathrm{C}'(a,b)\Leftrightarrow a\sqsubseteq f^{\dagger}\circ b\circ f,\quad \mathrm{C}''(a,b)\Leftrightarrow f\circ a\circ f^{\dagger}\sqsubseteq b.
 \]
 
 Convergence of a function~$f$ from an endomorphism (space)~$\mu$ to an endomorphism (space)~$\nu$ at filter~$x$ to a set or filter~$y$ is described by the formula $\supfun{f}\supfun{\mu}x\sqsubseteq\supfun{\nu}y$.
@@ -229,12 +227,12 @@ where~$G$~is a suitable group (consider for example the group of all translation
 
 \section{Neighborhood/interior}
 
-\emph{Neighborhood} of element~$x$ is such a $y$ that $\supfun{a}x\sqsubseteq y$. \emph{Interior} of~$x$ (if it exists) if the join of all $y$ such that $x$ is a neighborhood of~$x$.
+\emph{Neighborhood} of element~$x$ is such a $y$ that $\supfun{a}x\sqsubseteq y$. \emph{Interior} of~$x$ (if it exists) if the join of all $y$ such that $x$ is a neighborhood of~$y$.
 
 An element~$x$ is closed regarding~$a$ iff $\supfun{a}x\sqsubseteq x$. $x$~is open iff $x$ is closed regarding $\supfun{a}^{\dagger}$.
 
 \begin{defn}
-Morphism~$a$ is \emph{closed} iff $\forall x:\supfun{a}x\sqsubseteq x$.
+Space~$a$ is \emph{closed} iff $\forall x:\supfun{a}x\sqsubseteq x$.
 \end{defn}
 
 \fxwarning{We can define open functions in two ways: $\forall x:\supfun{a}x\sqsupseteq x$ or $\forall x:\supfun{a}^\dagger x\sqsubseteq x$. It remains also the fourth variant $\forall x:\supfun{a}^\dagger x\sqsupseteq x$.}
@@ -295,6 +293,14 @@ Further possible axioms for an ordered semigroup action with binary joins:
 
 \fxnote{Need to generalize for a wider class of posets.}
 
+\section{Kuratowski spaces}
+
+\begin{defn}
+\emph{Kuratowski space} is a complete idempotent ($a\circ a=a$) space.
+\end{defn}
+
+Kuratowski spaces are a generalization of topological spaces.
+
 \chapter{Restricted identity transformations}
 
 \emph{Restricted identity transformation} $\id_p$, where ~$p$ is an element of a poset, is the (generally, partially defined) transformation $x\mapsto x\sqcap p$.
@@ -317,7 +323,7 @@ $\id_p p=p \ne q = \id_q q$.
 \item $\id_p\circ x\sqsubseteq x$;
 \item $x\circ\id_p\sqsubseteq x$.
 \end{enumerate}
-(I abusee\fxerror{Seems wrong.} the notation $\id_p$ for both interspaces and for transformations; this won't lead to inconsistencies, because as proved above this mapping is faithful on restricted identities.)
+(I abuse\fxerror{Seems wrong.} the notation $\id_p$ for both interspaces and for transformations; this won't lead to inconsistencies, because as proved above this mapping is faithful on restricted identities.)
 
 \begin{obvious}
 For every ordered semicategory action with identities, the identity transformations are entirely defined on their domains.
@@ -436,19 +442,14 @@ Apparently, not every space has a completion.
 It is unrelated with Cachy-completion.
 \end{note}
 
-\chapter{Kuratowski spaces}
-
-\begin{defn}
-\emph{Kuratowski space} is a complete idempotent ($a\circ a=a$) space.
-\end{defn}
-
-Kuratowski spaces are a generalization of topological spaces.
 
 \chapter{Spaces defined by a group}
 
 \fxwarning{This unverified.}
 
-Geometric spaces: Euclidean spaces, projective spaces, Hilbert spaces, vector spaces\fxerror{Not sure about vector spaces, see \href{https://chatgpt.com/share/6a664534-7484-83eb-864f-3999115d07a2}{ChatGPT            }.}, are characterized by their symmetry groups~$G$.
+\fxwarning{Usefulness of this is dubious: I just define \emph{some} embedding that may be useless. Especially, because a Euclidean space is alternatively characterized by embedding the category of Euclidean spaces into the category of ordered semigroup actions with trivial order and an identity action.}
+
+Geometric spaces: Euclidean spaces, projective spaces, Hilbert spaces, vector spaces\fxerror{Not sure about vector spaces, see \href{https://chatgpt.com/share/6a664534-7484-83eb-864f-3999115d07a2}{ChatGPT            }.}, have a symmetry group~$G$. \fxnote{Also consider Banach spaces.}
 
 Now let's construct ordered semigroup action for it:
 
@@ -462,9 +463,6 @@ We have the set, the ordered semigroup is $G$ with the trivial order. As the act
 The group~$G$ can be restored from this structure simply because it contains~$G$, its action can be restored as: ?? .
 
 It's yet unclean which useful properties ``geometric'' spaces-in-general have, but they were considered to justify the name ``space-in-general''.
-
-\chapter{More properties}
-
 
 \chapter{Manifolds}
 
