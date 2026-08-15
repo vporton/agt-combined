@@ -447,7 +447,7 @@ It is unrelated with Cachy-completion.
 
 \chapter{Spaces defined by a group}
 
-\fxwarning{This unverified.}
+Skip reading this chapter, because it's ``unripe'' (the ideas may be completely wrong). \href{https://chatgpt.com/share/6a80a2aa-2b90-83eb-b184-0f0c582c1c8b}{Some ideas by ChatGPT.}
 
 \fxwarning{Usefulness of this is dubious: I just define \emph{some} embedding that may be useless.}
 
@@ -459,14 +459,18 @@ We have the set, the ordered semigroup is $G$ with the trivial order. As the act
 
 \[
 \lambda X\in\subsets\subsets G:
-\setcond{\setcond{fx}{f\in G}}{x\in X}
+\setcond{\setcond{\supfun{f}x}{f\in G}}{x\in X}
+\]
+that is
+\[
+\supfun{G'}X=\setcond{\setcond{\supfun{f}x}{f\in G}}{x\in X}
 \]
 
 The group~$G$ can be restored from this structure simply because it contains~$G$, its action can be restored as: ?? .
 
 It's yet unclean which useful properties ``geometric'' spaces-in-general have, but they were considered to justify the name ``space-in-general''.
 
-\chapter{Manifolds}
+\section{Manifolds}
 
 A \emph{topological manifold} is a locally Euclidean Hausdorff topological space. So, it mathches space-in-general, because it's a topological space.
 
