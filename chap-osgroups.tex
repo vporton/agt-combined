@@ -192,6 +192,25 @@ Semiordered semicategory action is \emph{ordered by elements} when \[ a\sqsubset
 
 Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered semicategory action is \emph{essentially functional} (functional, up to a faithful functor).
 
+\chapter{Morphisms of ordered semicategory actions}
+
+Unripe chapter, you may skip its reading.
+
+Let $(\cdot,\supfun{})$ and $(\cdot',\supfun{}')$ be semicategory actions.
+
+\begin{defn}
+\emph{Action homomorphism} between semicategory actions is a pair of $\mathbf{Set}$-morphisms~$(f,g)$ of suitable domains and images, such that
+$f\circ\supfun{} = \supfun{}'\circ g$, that is $\forall x:f\supfun{x}=\supfun{gx}'$.
+\end{defn}
+
+Let $(\cdot,\sqsubseteq,\supfun{})$ and $(\cdot',\sqsubseteq',\supfun{}')$ be ordered semicategory actions.
+
+\begin{defn}
+\emph{Homomorphism} between ordered semicategory actions is~$f$ that is both semigroup homomorphism, order homomorphism and action homomorphism. Action conforming to ??
+\end{defn}
+
+\fxnote{Need to apply to ordered dagger semicategories.}
+
 \chapter{Ordered dagger categories and ordered semigroups with involution}
 
 \begin{defn}
@@ -448,6 +467,16 @@ It is unrelated with Cachy-completion.
 \chapter{Spaces defined by a group}
 
 Skip reading this chapter, because it's ``unripe'' (the ideas may be completely wrong). \href{https://chatgpt.com/share/6a80a2aa-2b90-83eb-b184-0f0c582c1c8b}{Some ideas by ChatGPT.}
+
+Any category can be reduced to OSA with one-to-one correspondence bettween OSA elements and category automorphisms, by taking the trivial order and the identity action.
+
+This makes space-in-general ``all encompassing'': every kind of mathematical objects can be described as a category (up to categorical isomorphism), therefore any kind of mathematical objects can be described by OSA up to ?? isomorphism.
+
+\begin{rem}
+The above is just another formality, not a way to describe e.g.\ funcoids as OSA morphisms.
+\end{rem}
+
+Another way: Consider the category of Euclidean spaces. Then a space can be considered as an automorphism and so a morphism of the category. As the action we can take the below or even identiy action and as the order the identity order. (It can also be done for any category or semicategory whatsoever.)
 
 \fxwarning{Usefulness of this is dubious: I just define \emph{some} embedding that may be useless.}
 
