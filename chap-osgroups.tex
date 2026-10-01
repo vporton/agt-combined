@@ -194,22 +194,46 @@ Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered semica
 
 \chapter{Morphisms of ordered semicategory actions}
 
-Unripe chapter, you may skip its reading.
-
-Let $(\cdot,\supfun{})$ and $(\cdot',\supfun{}')$ be semicategory actions.
+Let $(\mathcal{C},\sqsubseteq,\supfun{})$ and $(\mathcal{D},\sqsubseteq',\supfun{}')$ be ordered semicategory actions. The natural notion of morphism is the one that preserves the underlying semicategory, the order, and the action itself.
 
 \begin{defn}
-\emph{Action homomorphism} between semicategory actions is a pair of $\mathbf{Set}$-morphisms~$(f,g)$ of suitable domains and images, such that
-$f\circ\supfun{} = \supfun{}'\circ g$, that is $\forall x:f\supfun{x}=\supfun{gx}'$.
+Let $A:\mathcal{C}\to\mathbf{Pos}$ and $B:\mathcal{D}\to\mathbf{Pos}$ be semicategory actions. A \emph{morphism of semicategory actions} is a pair $(F,\Phi)$ where
+\begin{enumerate}
+\item $F:\mathcal{C}\to\mathcal{D}$ is a semifunctor of the underlying semicategories;
+\item for each object $X\in\Ob\mathcal{C}$, $\Phi_X:A_X\to B_{F(X)}$ is a map;
+\end{enumerate}
+subject to the compatibility condition
+\[
+\Phi_Y\bigl(A_a(x)\bigr)=B_{F(a)}\bigl(\Phi_X(x)\bigr)
+\]
+for every morphism $a:X\to Y$ and every element $x\in A_X$.
 \end{defn}
 
-Let $(\cdot,\sqsubseteq,\supfun{})$ and $(\cdot',\sqsubseteq',\supfun{}')$ be ordered semicategory actions.
+If the actions take values in posets, we require every component $\Phi_X$ to be an order homomorphism. Then $(F,\Phi)$ is a morphism of \emph{ordered semicategory actions}.
 
 \begin{defn}
-\emph{Homomorphism} between ordered semicategory actions is~$f$ that is both semigroup homomorphism, order homomorphism and action homomorphism. Action conforming to ??
+A \emph{homomorphism of ordered semicategory actions} is a morphism $(F,\Phi)$ of the underlying actions such that:
+\begin{enumerate}
+\item $F$ is monotone on morphisms, that is $a\sqsubseteq b\Rightarrow F(a)\sqsubseteq'F(b)$;
+\item each $\Phi_X$ is monotone;
+\item $\Phi_Y\circ\supfun{a}=\supfun{F(a)}'\circ\Phi_X$ for every morphism $a:X\to Y$.
+\end{enumerate}
 \end{defn}
 
-\fxnote{Need to apply also to ordered dagger semicategories (in the next chanpter).}
+In the functional case, when the action is represented by actual endomorphisms of a poset, the preceding definition simplifies to the familiar formula
+\[
+\phi\bigl(\supfun{a}x\bigr)=\supfun{F(a)}'\bigl(\phi(x)\bigr),
+\]
+with $\phi$ monotone and $F$ a monotone semigroup (or semicategory) homomorphism. If there is only one object, this becomes the usual requirement for a homomorphism of ordered semigroup actions:
+\[
+\phi\bigl(\supfun{a}x\bigr)=\supfun{f(a)}'\phi(x),
+\qquad a\sqsubseteq b\Rightarrow f(a)\sqsubseteq' f(b).
+\]
+The semigroup part, the order part, and the action part are therefore all preserved simultaneously.
+
+\begin{rem}
+The same definition works for the dagger case: a morphism of ordered dagger semicategory actions is required to commute with the involution, that is $F(a^{\dagger})=F(a)^{\dagger}$ and $\Phi_Y\bigl(\supfun{a^{\dagger}}x\bigr)=\supfun{F(a)^{\dagger}}'\Phi_Y(x)$ whenever the formula is meaningful. The next chapter develops the corresponding ordered dagger framework.
+\end{rem}
 
 \chapter{Ordered dagger categories and ordered semigroups with involution}
 
@@ -221,13 +245,46 @@ Let $(\cdot,\sqsubseteq,\supfun{})$ and $(\cdot',\sqsubseteq',\supfun{}')$ be or
 \end{enumerate}
 \end{defn}
 
-For an \emph{ordered dagger semicategory} we will additionally require $a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}$ (and consequently $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
+For an \emph{ordered dagger semicategory} we additionally require
+\[
+ a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}
+\]
+(and hence $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
 
 \begin{defn}
 \emph{Semigroup with involution} is a dagger semicategory with just one object.
 \end{defn}
 
-For an \emph{ordered semigroup with involution} or \emph{ordered dagger semicategory} we will additionally require $a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}$ (and consequently $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
+For an \emph{ordered semigroup with involution} or \emph{ordered dagger semigroup} we likewise require monotonicity of the involution:
+\[
+ a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}
+\quad\text{and hence}\quad
+ a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}.
+\]
+
+A prototypical example is the semigroup of binary relations on a set under composition, with the dagger given by converse relation. In such an example, the order is inclusion and the involution is order preserving. This is why the formulas from the preceding chapter with $f^{\dagger}$ are the correct generalization of the usual adjoint or inverse operations.
+
+\begin{defn}
+An \emph{ordered dagger semicategory action} is an ordered semicategory action $\supfun{}$ together with an involution on the underlying semicategory and a compatible involution on the values of the action, such that
+\[
+\supfun{a^{\dagger}} = \bigl(\supfun{a}\bigr)^{\dagger}
+\]
+whenever the latter is defined.
+\end{defn}
+
+This compatibility means that the action preserves the dagger operation and thus the formulas
+\[
+\mathrm{C}(a,b)\Leftrightarrow f\circ a\sqsubseteq b\circ f,
+\qquad
+\mathrm{C}'(a,b)\Leftrightarrow a\sqsubseteq f^{\dagger}\circ b\circ f,
+\qquad
+\mathrm{C}''(a,b)\Leftrightarrow f\circ a\circ f^{\dagger}\sqsubseteq b
+\]
+are the natural generalizations of continuity in ordered dagger settings. In particular, the involution allows us to express the inverse or adjoint direction of a morphism without leaving the algebraic framework.
+
+\begin{rem}
+For ordered semigroup actions with involution, the same definitions reduce to the one-object case. Then the involution on the semigroup and the action are compatible, and the whole theory becomes the algebraic language of symmetry, duality, and generalized continuity.
+\end{rem}
 
 \chapter{Topological properties}
 
