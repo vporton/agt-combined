@@ -197,42 +197,59 @@ Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered semica
 Let $(\mathcal{C},\sqsubseteq,\supfun{})$ and $(\mathcal{D},\sqsubseteq',\supfun{}')$ be ordered semicategory actions. The natural notion of morphism is the one that preserves the underlying semicategory, the order, and the action itself.
 
 \begin{defn}
-Let $A:\mathcal{C}\to\mathbf{Pos}$ and $B:\mathcal{D}\to\mathbf{Pos}$ be semicategory actions. A \emph{morphism of semicategory actions} is a pair $(F,\Phi)$ where
+Let $A:\mathcal{C}\to\mathbf{Set}$ and $B:\mathcal{D}\to\mathbf{Set}$ be semicategory actions. A \emph{morphism of semicategory actions} is a pair $(f,g)$ where
 \begin{enumerate}
-\item $F:\mathcal{C}\to\mathcal{D}$ is a semifunctor of the underlying semicategories;
-\item for each object $X\in\Ob\mathcal{C}$, $\Phi_X:A_X\to B_{F(X)}$ is a map;
+\item $f:\mathcal{C}\to\mathcal{D}$ is a semifunctor of the underlying semicategories;
+\item for each object $X\in\Ob\mathcal{C}$, $g_X:A_X\to B_{f(X)}$ is a map;
 \end{enumerate}
 subject to the compatibility condition
 \[
-\Phi_Y\bigl(A_a(x)\bigr)=B_{F(a)}\bigl(\Phi_X(x)\bigr)
+g_Y\bigl(\supfun{a}(x)\bigr)=\supfun{f(a)}'\bigl(g_X(x)\bigr)
 \]
-for every morphism $a:X\to Y$ and every element $x\in A_X$.
+for every morphism $a:X\to Y$ and every $x\in A_X$.
 \end{defn}
 
-If the actions take values in posets, we require every component $\Phi_X$ to be an order homomorphism. Then $(F,\Phi)$ is a morphism of \emph{ordered semicategory actions}.
+This formula is equivalent to the compact form
+\[
+f\circ\supfun{}=\supfun{}'\circ g,
+\]
+which is the same as saying that the action commutes with the morphism; equivalently,
+\[
+\forall a\in\Hom(\mathcal{C}),\ \forall x:\quad
+g\bigl(\supfun{a}(x)\bigr)=\supfun{f(a)}'(g(x)).
+\]
+Now suppose the underlying sets of the actions are posets and the semicategories are ordered. Then $(f,g)$ is a morphism of \emph{ordered semicategory actions} if, in addition, $f$ is monotone on morphisms and every component $g_X$ is an order homomorphism.
 
 \begin{defn}
-A \emph{homomorphism of ordered semicategory actions} is a morphism $(F,\Phi)$ of the underlying actions such that:
+A \emph{homomorphism of ordered semicategory actions} is a morphism $(f,g)$ of the underlying semicategory actions such that:
 \begin{enumerate}
-\item $F$ is monotone on morphisms, that is $a\sqsubseteq b\Rightarrow F(a)\sqsubseteq'F(b)$;
-\item each $\Phi_X$ is monotone;
-\item $\Phi_Y\circ\supfun{a}=\supfun{F(a)}'\circ\Phi_X$ for every morphism $a:X\to Y$.
+\item $f$ is monotone on morphisms, that is $a\sqsubseteq b\Rightarrow f(a)\sqsubseteq'f(b)$;
+\item each component $g_X$ is monotone;
+\item $g_Y\circ\supfun{a}=\supfun{f(a)}'\circ g_X$ for every morphism $a:X\to Y$.
 \end{enumerate}
 \end{defn}
 
+This is exactly the same as the old formula
+\[
+f\circ\supfun{} = \supfun{}'\circ g,
+\]
+because both sides are functions from the underlying set of an object of the action to the corresponding set in the codomain, and equality of functions is equivalent to equality on each argument. In the usual point-free notation this is also written as
+\[
+\forall x:\quad f\bigl(\supfun{x}\bigr)=\supfun{g(x)}'.
+\]
 In the functional case, when the action is represented by actual endomorphisms of a poset, the preceding definition simplifies to the familiar formula
 \[
-\phi\bigl(\supfun{a}x\bigr)=\supfun{F(a)}'\bigl(\phi(x)\bigr),
+g\bigl(\supfun{a}x\bigr)=\supfun{f(a)}'\bigl(g(x)\bigr),
 \]
-with $\phi$ monotone and $F$ a monotone semigroup (or semicategory) homomorphism. If there is only one object, this becomes the usual requirement for a homomorphism of ordered semigroup actions:
+with $g$ monotone and $f$ a monotone semigroup (or semicategory) homomorphism. If there is only one object, this becomes the usual requirement for a homomorphism of ordered semigroup actions:
 \[
-\phi\bigl(\supfun{a}x\bigr)=\supfun{f(a)}'\phi(x),
+g\bigl(\supfun{a}x\bigr)=\supfun{f(a)}'g(x),
 \qquad a\sqsubseteq b\Rightarrow f(a)\sqsubseteq' f(b).
 \]
 The semigroup part, the order part, and the action part are therefore all preserved simultaneously.
 
 \begin{rem}
-The same definition works for the dagger case: a morphism of ordered dagger semicategory actions is required to commute with the involution, that is $F(a^{\dagger})=F(a)^{\dagger}$ and $\Phi_Y\bigl(\supfun{a^{\dagger}}x\bigr)=\supfun{F(a)^{\dagger}}'\Phi_Y(x)$ whenever the formula is meaningful. The next chapter develops the corresponding ordered dagger framework.
+The same definition works for the dagger case: a morphism of ordered dagger semicategory actions is required to commute with the involution, that is $f(a^{\dagger})=f(a)^{\dagger}$ and $g\bigl(\supfun{a^{\dagger}}x\bigr)=\supfun{f(a)^{\dagger}}'g(x)$ whenever the formula is meaningful. The next chapter develops the corresponding ordered dagger framework.
 \end{rem}
 
 \chapter{Ordered dagger categories and ordered semigroups with involution}
