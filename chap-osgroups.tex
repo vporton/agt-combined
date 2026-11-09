@@ -194,7 +194,9 @@ Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered semica
 
 \chapter{Morphisms of ordered semicategory actions}
 
-Let $(\mathcal{C},\sqsubseteq,\supfun{})$ and $(\mathcal{D},\sqsubseteq',\supfun{}')$ be ordered semicategory actions. The natural notion of morphism is the one that preserves the underlying semicategory, the order, and the action itself.
+\begin{defn}
+The \emph{category of semicategories} is the category whose objects are semicategories and whose morphisms are semifunctors.
+\end{defn}
 
 \begin{defn}
 Let $A:\mathcal{C}\to\mathbf{Set}$ and $B:\mathcal{D}\to\mathbf{Set}$ be semicategory actions. A \emph{morphism of semicategory actions} is a pair $(f,g)$ where
@@ -209,37 +211,32 @@ g_Y\bigl(\supfun{a}(x)\bigr)=\supfun{f(a)}'\bigl(g_X(x)\bigr)
 for every morphism $a:X\to Y$ and every $x\in A_X$.
 \end{defn}
 
+\begin{defn}
+\emph{The category of semicategory actions} is the category whose objects are semicategory actions and whose morphisms are morphisms of semicategory actions.
+\end{defn}
+
 The compatibility condition is exactly the compact form
 \[
 g_Y\circ\supfun{a}=\supfun{f(a)}'\circ g_X
 \]
 for every morphism $a:X\to Y$.
 
-Now suppose the underlying sets of the actions are posets and the semicategories are ordered. Then $(f,g)$ is a morphism of \emph{ordered semicategory actions} if, in addition, $f$ is monotone on morphisms and every component $g_X$ is an order homomorphism.
+Now suppose the underlying sets of the actions are posets and the semicategories are ordered:
+
+Let $(\mathcal{C},\sqsubseteq,\supfun{})$ and $(\mathcal{D},\sqsubseteq',\supfun{}')$ be ordered semicategory actions. The natural notion of morphism is the one that preserves the underlying semicategory, the order, and the action itself.
+
+Then $(f,g)$ is a morphism of \emph{ordered semicategory actions} if, in addition, $f$ is monotone on morphisms and every component $g_X$ is an order homomorphism.
 
 \begin{defn}
 A \emph{homomorphism of ordered semicategory actions} is a morphism $(f,g)$ of the underlying semicategory actions such that:
 \begin{enumerate}
 \item $f$ is monotone on morphisms, that is $a\sqsubseteq b\Rightarrow f(a)\sqsubseteq'f(b)$;
-\item each component $g_X$ is monotone;
-\item $g_Y\circ\supfun{a}=\supfun{f(a)}'\circ g_X$ for every morphism $a:X\to Y$.
+\item each component $g_X$ is monotone.
+\fxnote{It is natural to also consider the cases when only one of two above axioms is satisfied.}
 \end{enumerate}
 \end{defn}
 
-This is the same condition written in a component-free way: for each morphism $a:X\to Y$, the square with vertical maps $g_X$ and $g_Y$ and horizontal maps $\supfun{a}$ and $\supfun{f(a)}'$ commutes. In the usual point-free notation this may also be written as
-\[
-\forall x:\quad g\bigl(\supfun{a}(x)\bigr)=\supfun{f(a)}'(g(x)).
-\]
-In the functional case, when the action is represented by actual endomorphisms of a poset, the preceding definition simplifies to the familiar formula
-\[
-g\bigl(\supfun{a}x\bigr)=\supfun{f(a)}'\bigl(g(x)\bigr),
-\]
-with $g$ monotone and $f$ a monotone semigroup (or semicategory) homomorphism. If there is only one object, this becomes the usual requirement for a homomorphism of ordered semigroup actions:
-\[
-g\bigl(\supfun{a}x\bigr)=\supfun{f(a)}'g(x),
-\qquad a\sqsubseteq b\Rightarrow f(a)\sqsubseteq' f(b).
-\]
-The semigroup part, the order part, and the action part are therefore all preserved simultaneously.
+The morphisms for (ordered) semigroup actions are defined similarly, with the only difference that the underlying semicategories have just one object.
 
 \begin{rem}
 The same definition works for the dagger case: a morphism of ordered dagger semicategory actions is required to commute with the involution, that is $f(a^{\dagger})=f(a)^{\dagger}$ and $g\bigl(\supfun{a^{\dagger}}x\bigr)=\supfun{f(a)^{\dagger}}'g(x)$ whenever the formula is meaningful. The next chapter develops the corresponding ordered dagger framework.
