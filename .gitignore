@@ -17,3 +17,5 @@
 .kile
 *.synctex.gz
 fontconfig
+*.fls
+*.fdb_latexmk
