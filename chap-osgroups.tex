@@ -238,14 +238,12 @@ A \emph{homomorphism of ordered semicategory actions} is a morphism $(f,g)$ of t
 
 \section{Isomorphisms}
 
-\fxwarning{This section is under construction.}
-
 \begin{obvious}
 An isomorphism of semicategories~$\mathcal{C}$ and~$\mathcal{D}$ is a semifunctor $f:\mathcal{C}\to\mathcal{D}$ that has a two-sided inverse semifunctor $f^{-1}:\mathcal{D}\to\mathcal{C}$, that is $f\circ f^{-1}=\mathrm{id}_{\mathcal{D}}$ and $f^{-1}\circ f=\mathrm{id}_{\mathcal{C}}$.
 \end{obvious}
 
 \begin{prop}
-For a $(f,g)$, such that
+Let $(f,g)$ be data such that
 \begin{enumerate}
 \item $f:\mathcal{C}\to\mathcal{D}$ is a semifunctor of the underlying semicategories;
 \item ${\supfun{}}:\mathcal{C}\to\mathbf{Set}$ and ${\supfun{}}':\mathcal{D}\to\mathbf{Set}$ are ordered semicategory actions;
@@ -257,6 +255,7 @@ the following are pairwise equivalent:
 \item
 \begin{enumerate}
 \item $(f,g)$~is a morphism of ordered semicategory actions;
+\item $f:\mathcal{C}\to\mathcal{D}$ is an isomorphism of semicategories;
 \item $f$~is an order isomorphism on every hom-set;
 \item every $g_X$ is an
 order isomorphism;
@@ -272,10 +271,50 @@ order isomorphism;
 g_Y\bigl(\supfun{a}(x)\bigr)
  =\supfun{f(a)}'\bigl(g_X(x)\bigr),
 \]
-in other words, $g_Y\circ a=\supfun{f(a)}'\circ g_X$.
+in other words, $g_Y\circ\supfun{a}=\supfun{f(a)}'\circ g_X$.
 \end{enumerate}
 \end{enumerate}
 \end{prop}
+
+\begin{proof}
+Suppose first that $(f,g)$ is an isomorphism, and denote its inverse by
+$(h,k)$.  The equalities
+\[
+(h,k)\circ(f,g)=\id
+\quad\text{and}\quad
+(f,g)\circ(h,k)=\id
+\]
+show that $h=f^{-1}$, and that $k_{f(X)}=g_X^{-1}$ for every
+$X\in\Ob\mathcal C$.  Thus $f$ is an isomorphism of semicategories and
+every $g_X$ is an order isomorphism.  Since both $f$ and $h$ are monotone
+on morphisms, the restriction
+\[
+f:\Hom_{\mathcal C}(X,Y)\longrightarrow
+  \Hom_{\mathcal D}(f(X),f(Y))
+\]
+and its inverse are monotone; hence this restriction is an order
+isomorphism.  This proves the second assertion.
+
+The second and third assertions are equivalent merely by expanding the
+definition of a morphism of ordered semicategory actions (including its
+compatibility with the actions).
+
+It remains to prove directly that the third assertion gives an inverse.
+Put $h=f^{-1}$ and, for each $Z\in\Ob\mathcal D$, define
+\[
+k_Z=(g_{h(Z)})^{-1}:\supfun{Z}'\longrightarrow\supfun{h(Z)}.
+\]
+The maps $h$ on hom-sets and $k_Z$ are monotone because they are inverses
+of order isomorphisms.  If $b:Z\to W$ is a morphism of $\mathcal D$, apply
+the compatibility condition to $a=h(b)$ and then compose with the
+appropriate inverses.  We obtain
+\[
+k_W\circ\supfun{b}'=\supfun{h(b)}\circ k_Z.
+\]
+Consequently $(h,k)$ is a morphism of ordered semicategory actions.
+By its definition, its two composites with $(f,g)$ are the respective
+identity morphisms.  Therefore $(f,g)$ is an isomorphism.
+\end{proof}
 
 The morphisms for (ordered) semigroup actions are defined similarly, with the only difference that the underlying semicategories have just one object.
 
