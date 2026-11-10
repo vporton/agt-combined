@@ -247,11 +247,11 @@ An isomorphism of semicategories~$\mathcal{C}$ and~$\mathcal{D}$ is a semifuncto
 \begin{prop}
 The following are pairwise equivalent for a $(f,g)$, such that
 \begin{enumerate}
-\item
-\begin{enumerate}
 \item $f:\mathcal{C}\to\mathcal{D}$ is a semifunctor of the underlying semicategories;
 \item for each object $X\in\Ob\mathcal{C}$, $g_X:A_X\to B_{f(X)}$ is a map;
 \end{enumerate}
+\begin{enumerate}
+\item
 \item
 \begin{enumerate}
 \item $(f,g)$ is an isomorphism of ordered semicategory actions;
@@ -262,14 +262,14 @@ order isomorphism, and for every morphism $a:X\to Y$ and every $x\in\supfun{X}$,
 g_Y\bigl(\supfun{a}(x)\bigr)
  =\supfun{f(a)}'\bigl(g_X(x)\bigr),.
 \]
-in other words, $g_Y\circ a=\supfun{f(a)}'\circ g_X$.
+in other words, $g_Y\circ\supfun{a}=\supfun{f(a)}'\circ g_X$.
 \item $(f,g)$ is a homomorphism of ordered semicategory actions that
 has a two-sided inverse homomorphism $(f^{-1},g^{-1})$, where
-$(g^{-1})_{f(X)}=(g_X)^{-1}$.
+$(g^{-1})_{Y}=(g_{f^{-1}(Y)})^{-1}$.
 \end{enumerate}
 \item
 \begin{enumerate}
-\item $f:\mathcal{C}\to\mathcal{D}$ is a semifunctor;
+\item $f:\mathcal{C}\to\mathcal{D}$ is an isomorphism of semicategories;
 \item for all parallel morphisms $a,b$ of $\mathcal{C}$,
 \[
 a\sqsubseteq b\quad\Longleftrightarrow\quad f(a)\sqsubseteq'f(b);
