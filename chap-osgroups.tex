@@ -236,6 +236,49 @@ A \emph{homomorphism of ordered semicategory actions} is a morphism $(f,g)$ of t
 \end{enumerate}
 \end{defn}
 
+\section{Isomorphisms}
+
+\fxwarning{This section is under construction.}
+
+\begin{obvious}
+An isomorphism of semicategories~$\mathcal{C}$ and~$\mathcal{D}$ is a semifunctor $f:\mathcal{C}\to\mathcal{D}$ that has a two-sided inverse semifunctor $f^{-1}:\mathcal{D}\to\mathcal{C}$, that is $f\circ f^{-1}=\mathrm{id}_{\mathcal{D}}$ and $f^{-1}\circ f=\mathrm{id}_{\mathcal{C}}$.
+\end{obvious}
+
+\begin{obvious}
+$(f,g)$ is an isomorphism of ordered semicategory actions iff it is a morphism of ordered semicategory actions and, in addition, $f$ is an order isomorphism on every hom-set, every $g_X$ is an
+order isomorphism, and the family $(g_X)_X$ intertwines the two actions.
+Equivalently, $(f,g)$ is a homomorphism of ordered semicategory actions that
+has a two-sided inverse homomorphism $(f^{-1},g^{-1})$, where
+$(g^{-1})_{f(X)}=(g_X)^{-1}$.
+\end{obvious}
+
+\begin{obvious}
+Let $(\mathcal{C},\sqsubseteq,\supfun{})$ and
+$(\mathcal{D},\sqsubseteq',\supfun{}')$ be ordered semicategory actions.
+An \emph{isomorphism of ordered semicategory actions} from the first action to
+the second is a pair $(f,g)$ with the following properties:
+\begin{enumerate}
+\item $f:\mathcal{C}\to\mathcal{D}$ is an isomorphism of semicategories;
+\item for all parallel morphisms $a,b$ of $\mathcal{C}$,
+\[
+a\sqsubseteq b\quad\Longleftrightarrow\quad f(a)\sqsubseteq'f(b);
+\]
+\item for every object $X\in\Ob\mathcal{C}$, the map
+\[
+g_X:\supfun{X}\to\supfun{f(X)}'
+\]
+is a bijection and, for all $x,y\in\supfun{X}$,
+\[
+x\sqsubseteq y\quad\Longleftrightarrow\quad g_X(x)\sqsubseteq'g_X(y);
+\]
+\item for every morphism $a:X\to Y$ and every $x\in\supfun{X}$,
+\[
+g_Y\bigl(\supfun{a}(x)\bigr)
+ =\supfun{f(a)}'\bigl(g_X(x)\bigr).
+\]
+\end{enumerate}
+\end{obvious}
+
 The morphisms for (ordered) semigroup actions are defined similarly, with the only difference that the underlying semicategories have just one object.
 
 \begin{rem}
