@@ -248,39 +248,29 @@ An isomorphism of semicategories~$\mathcal{C}$ and~$\mathcal{D}$ is a semifuncto
 For a $(f,g)$, such that
 \begin{enumerate}
 \item $f:\mathcal{C}\to\mathcal{D}$ is a semifunctor of the underlying semicategories;
-\item for each object $X\in\Ob\mathcal{C}$, $g_X:A_X\to B_{f(X)}$ is a map;
+\item ${\supfun{}}:\mathcal{C}\to\mathbf{Set}$ and ${\supfun{}}':\mathcal{D}\to\mathbf{Set}$ are ordered semicategory actions;
+\item for each object $X\in\Ob\mathcal{C}$, $g_X:\supfun{X}\to \supfun{f(X)}'$ is a map;
 \end{enumerate}
 the following are pairwise equivalent:
 \begin{enumerate}
 \item $(f,g)$ is an isomorphism of ordered semicategory actions;
 \item
 \begin{enumerate}
-\item $(f,g)$~is a morphism of ordered semicategory actions
+\item $(f,g)$~is a morphism of ordered semicategory actions;
 \item $f$~is an order isomorphism on every hom-set;
 \item every $g_X$ is an
-order isomorphism, and for every morphism $a:X\to Y$ and every $x\in\supfun{X}$,
-\[
-g_Y\bigl(\supfun{a}(x)\bigr)
- =\supfun{f(a)}'\bigl(g_X(x)\bigr),
-\]
-in other words, $g_Y\circ\supfun{a}=\supfun{f(a)}'\circ g_X$.
-\item $(f,g)$ is a homomorphism of ordered semicategory actions that
-has a two-sided inverse homomorphism $(f^{-1},g^{-1})$, where
-$(g^{-1})_{Y}=(g_{f^{-1}(Y)})^{-1}$.
+order isomorphism;
 \end{enumerate}
-\item \fxwarning{Seems too similar to the previous item.}
+\item
 \begin{enumerate}
 \item $f:\mathcal{C}\to\mathcal{D}$ is an isomorphism of semicategories;
 \item $f$~is an order isomorphism on every hom-set of~$\mathcal{C}$;
-\item for every object $X\in\Ob\mathcal{C}$, the map
-\[
-g_X:\supfun{X}\to\supfun{f(X)}'
-\]
-is an order isomorphism;
+\item every $g_X$ is an
+order isomorphism;
 \item for every morphism $a:X\to Y$ and every $x\in\supfun{X}$,
 \[
 g_Y\bigl(\supfun{a}(x)\bigr)
- =\supfun{f(a)}'\bigl(g_X(x)\bigr),.
+ =\supfun{f(a)}'\bigl(g_X(x)\bigr),
 \]
 in other words, $g_Y\circ a=\supfun{f(a)}'\circ g_X$.
 \end{enumerate}
