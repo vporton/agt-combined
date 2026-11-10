@@ -10,7 +10,7 @@
 *.toc
 *.ilg
 *.ind
-*.synctex
+*.synctex*
 *.backup
 # *.kilepr are modified too often to be managed by Git:
 *.kilepr
