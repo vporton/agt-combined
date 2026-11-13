@@ -179,9 +179,9 @@ $\supfun{}$ is increasing because it's the identity function.
 $\supfun{a}$ is the same as one of the original ordered semicategory action and thus is increasing.
 \end{proof}
 
-Having a ordered semicategory action and a homomorphism to its ordered semicategory, we can define in an obvious way a new ordered semicategory action. \fxerror{Move this below in the book.} The following is an example of this construction (here $\torldin$ is a functor of ordered semicategories).
+Having a ordered semicategory action and a homomorphism to its ordered semicategory, we can define in an obvious way a new ordered semicategory action. \fxerror{Move this below in the book.} The following is an example of this construction (here $\tofcd$ is a functor of ordered semicategories).
 
-\emph{Funcoids} form an ordered semicategory with action $\supfun{}$. \emph{Reloids} form an ordered semicategory with action $a\mapsto\supfun{\torldin a}$.
+\emph{Funcoids} form an ordered semicategory with action $\supfun{}$. \emph{Reloids} form an ordered semicategory with action $a\mapsto\supfun{\tofcd a}$.
 As we know from the above, funcoids are a generalization of topological spaces, proximity spaces, and directed graphs (``discrete spaces''), reloids is a generalization of uniform spaces and directed graphs. Funcoid is determined by its action.
 
 Remember that elements of our posets of objects may be such things as sets or more generally filters, they may be not just points. So our topological construction is ``pointfree'' (we may consider sets or filters, not points).
@@ -191,6 +191,225 @@ The book (\fxnote{after a rewrite}) will be mainly about this topic: describing 
 Semiordered semicategory action is \emph{ordered by elements} when \[ a\sqsubseteq b \Leftarrow \supfun{a}\sqsubseteq \supfun{b} \] that is when \[ a\sqsubseteq b \Leftarrow \forall x:\supfun{a}x\sqsubseteq\supfun{b}x. \]
 
 Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered semicategory action is \emph{essentially functional} (functional, up to a faithful functor).
+
+\section{Equality and isomorphism of represented interspaces}
+\fxwarning{Move this section below in the book, after the concepts are defined.}
+\fxwarning{Check this section for errors.}
+
+There are two different representations which should not be confused.  We
+may retain both a morphism and its action, or we may project to the action
+component alone.  The first representation is lossless by construction;
+the second need not be faithful. \fxnote{Do we need to explicitly define the second representation?  It is implicit in the definition of an ordered semicategory action.}
+
+For clarity, when the semicategories in question have identities, if
+$a:X\to Y$ and $b:X'\to Y'$ are morphisms, we call them
+\emph{isomorphic as morphisms} when there are isomorphisms $u:X\to X'$ and
+$v:Y\to Y'$ such that
+\[
+b\circ u=v\circ a.
+\]
+Thus this is isomorphism in the arrow category.  The corresponding action
+morphisms are isomorphic by isomorphisms belonging to the image of the
+action when the witnesses are $\supfun{u}$ and $\supfun{v}$.  Isomorphism
+in the whole ambient category~$\mathbf{Pos}$ is a stronger issue: its
+witnessing order isomorphisms need not be actions of morphisms of the
+original semicategory.
+
+\begin{defn}
+Let $U$ be an ordered semicategory action on~$\mathcal C$.  Its
+\emph{graph representation} has objects $(X,U(X))$ and morphisms
+\[
+(a,U(a)):(X,U(X))\longrightarrow(Y,U(Y))
+\]
+for $a:X\to Y$ in~$\mathcal C$.  Composition and order are
+\[
+(b,U(b))\circ(a,U(a))=(b\circ a,U(b)\circ U(a))
+ =(b\circ a,U(b\circ a))
+\]
+and
+\[
+(a,U(a))\sqsubseteq(b,U(b))\quad\Longleftrightarrow\quad a\sqsubseteq b.
+\]
+Thus a morphism of the graph representation retains the morphism
+\emph{and} its action, rather than only its action.
+\fxwarning{We already have defined morphisms of semicategory actions. Isn't it the same?}
+\end{defn}
+
+\begin{thm}\label{osa-graph-eq-iso}
+For all morphisms $a$ and~$b$ of an ordered semicategory action,
+\[
+a=b\quad\Longleftrightarrow\quad(a,U(a))=(b,U(b)).
+\]
+If the underlying semicategory has identities, then $a$ and~$b$ are
+isomorphic as morphisms if and only if $(a,U(a))$ and $(b,U(b))$ are
+isomorphic as morphisms.
+In fact the original ordered semicategory action and its graph
+representation are isomorphic ordered semicategory actions.
+\end{thm}
+
+\begin{proof}
+Define
+\[
+J(X)=(X,U(X)),\qquad J(a)=(a,U(a)).
+\]
+Functoriality of~$U$ proves that $J$ preserves composition, and the
+definition of the order proves that it preserves and reflects order.  The
+projection
+\[
+P(X,U(X))=X,\qquad P(a,U(a))=a
+\]
+is its two-sided inverse; the component maps on the values of the actions
+are identities.  Hence $J$ is an isomorphism of ordered semicategory
+actions.  In particular it preserves and reflects equality.
+
+If $b\circ u=v\circ a$, applying~$J$ gives
+$J(b)\circ J(u)=J(v)\circ J(a)$, and $J(u),J(v)$ are isomorphisms.  This
+proves the forward isomorphism implication.  Conversely, apply~$P$ to an
+isomorphism square between $J(a)$ and~$J(b)$.  Its witnesses project to
+isomorphisms and its commutative square projects to
+$b\circ u=v\circ a$.
+\end{proof}
+
+\begin{cor}\label{fcd-rld-mgnrm-graph-eq-iso}
+Pointfree funcoids, funcoids, reloids, and MGNRMs are equal if and only if
+their corresponding morphisms, together with their actions, in the graph
+representation are equal.  They are isomorphic if and only if those
+corresponding graph-representation morphisms are isomorphic.
+\end{cor}
+
+\begin{proof}
+Apply Theorem~\ref{osa-graph-eq-iso} to the respective ordered
+semicategory actions.  No separability or faithfulness hypothesis is
+needed, because the first component of $(a,U(a))$ has not been discarded.
+\end{proof}
+
+For comparison, we now record exactly what happens if one forgets the
+underlying morphism and retains only its action component.
+
+\begin{thm}\label{osa-faithful-eq-iso}
+Let $U$ be an ordered semicategory action and let $a,b:X\to Y$.
+\begin{enumerate}
+\item $a=b\Rightarrow U(a)=U(b)$.  The converse holds for every such pair
+if and only if $U$ is faithful.
+\item If $a$ and $b$ are isomorphic as morphisms, then $U(a)$ and $U(b)$
+are isomorphic as morphisms.
+\item If $U$ is faithful and an isomorphism of $U(a)$ and $U(b)$ is
+witnessed by $U(u)$ and $U(v)$ for isomorphisms $u$ and $v$ of the
+original semicategory, then $a$ and $b$ are isomorphic.  Consequently a
+faithful action preserves and reflects isomorphism \emph{inside its
+image}.  Reflection of arbitrary ambient isomorphisms additionally
+requires the witnesses to lift (for example, full faithfulness suffices).
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+The first assertion is precisely the definition of faithfulness.  If
+$b\circ u=v\circ a$, functoriality gives
+\[
+U(b)\circ U(u)=U(v)\circ U(a),
+\]
+and a functor maps an inverse of $u$ (respectively $v$) to an inverse of
+$U(u)$ (respectively $U(v)$).  This proves preservation of isomorphism.
+Conversely, if the last displayed equality holds with the stated
+witnesses, then
+\[
+U(b\circ u)=U(v\circ a).
+\]
+Faithfulness gives $b\circ u=v\circ a$, proving reflection inside the
+image.  If the witnesses are arbitrary order isomorphisms, this argument
+cannot even name preimages $u,v$ unless they lift.
+\end{proof}
+
+\begin{thm}\label{fcd-action-faithful}
+For funcoids $f,g\in\mathsf{FCD}(A,B)$,
+\[
+f=g\quad\Longleftrightarrow\quad\supfun{f}=\supfun{g}.
+\]
+More generally, for pointfree funcoids with a common separable source,
+\[
+f=g\quad\Longleftrightarrow\quad\supfun{f}=\supfun{g}.
+\]
+Thus their action representations preserve and reflect isomorphisms inside
+the represented image, in the precise sense of
+Theorem~\ref{osa-faithful-eq-iso}.  Without separability the assertion for
+arbitrary pointfree funcoids is not justified.
+\end{thm}
+
+\begin{proof}
+The forward implications are immediate.  An ordinary funcoid is uniquely
+determined by its first action component, as proved in the theorem in the
+chapter on funcoids.  The pointfree assertion is
+Theorem~\ref{one-funcoid}: separability of the source lets one recover the
+reverse component from the first component by
+\[
+y\nasymp\supfun{f}x\quad\Longleftrightarrow\quad
+x\nasymp\supfun{f^{-1}}y.
+\]
+Hence the two components, and therefore the pointfree funcoid, are equal.
+The isomorphism assertion follows from
+Theorem~\ref{osa-faithful-eq-iso}.
+\end{proof}
+
+The analogous unrestricted claims about the \emph{action component alone}
+are false for reloids and MGNRMs with the actions chosen in this book.
+
+\begin{prop}\label{rld-mgnrm-actions-not-faithful}
+Neither the reloid action $r\mapsto\supfun{\tofcd r}$ nor the MGNRM action
+$a\mapsto\supfun{\Delta_a}$ is faithful.  Hence equality of either kind of
+interspace cannot be characterized by equality of its corresponding
+action morphism.  These representations preserve isomorphism.  The
+counterexamples below also show that they do not reflect the usual
+isomorphism by relabelling.
+\end{prop}
+
+\begin{proof}
+For reloids on~$\mathbb N$, put
+\[
+r=1_{\mathbb N}^{\mathsf{RLD}},\qquad
+s=\torldin\tofcd r.
+\]
+The chapter on counter-examples about funcoids and reloids proves
+$s\ne r$.  Nevertheless,
+\[
+\tofcd s=\tofcd\torldin\tofcd r=\tofcd r,
+\]
+so their action morphisms are equal.  Notice also that $r$ is principal
+whereas $s$ is not: if $s$ were principal, equality of their induced
+funcoids would force its generating relation to be the diagonal and hence
+$s=r$.  Since relabelling preserves principality, these two reloids are
+not isomorphic under the usual structure-preserving relabelling, although
+their actions are equal (and therefore isomorphic).
+
+For MGNRMs take the one-point set $\{*\}$ and define
+\[
+\rho(*,*)=1,\qquad \sigma(*,*)=2.
+\]
+Then $\rho\ne\sigma$, but for every pair of subsets $X,Y\subseteq\{*\}$,
+neither $\rho(X,Y)$ nor $\sigma(X,Y)$ is zero; in fact both induced
+proximity relations are empty.
+Thus $\Delta_\rho=\Delta_\sigma$ and the corresponding action morphisms
+are equal.  The one-point set has only the identity relabelling, which
+does not turn the value~$1$ into~$2$, so the MGNRMs are not isomorphic
+under relabelling even though their actions are isomorphic.  They are not
+isomorphic in the arrow category either.  Indeed, on one point composition
+is addition, the identity has value~$0$, and the only invertible MGNRM has
+value~$0$.  Thus an arrow isomorphism would reduce to the false equality
+$2+0=0+1$.
+\end{proof}
+
+\begin{rem}
+Both equality and isomorphism are important, but they answer different
+questions.  Equality is foundational: it says that the graph
+representation is an honest encoding and makes formulas unambiguous.
+Isomorphism is usually the more important invariant for classification,
+because it ignores a mere change of coordinates.  The graph representation
+preserves and reflects both for pointfree funcoids, funcoids, reloids, and
+MGNRMs.  Faithfulness becomes an additional issue only after projecting
+away the original morphism and retaining its action component alone.  That
+projection is faithful for funcoids (and for pointfree funcoids under the
+separability hypothesis), but not for the present reloid and MGNRM
+actions.
+\end{rem}
 
 \chapter{Morphisms of ordered semicategory actions}
 
