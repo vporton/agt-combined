@@ -887,6 +887,73 @@ does not recover the coordinate division ring.  In dimension one a
 coordinatization, or equivalent additional structure, must also be
 distinguished.
 
+\section{Vector spaces}
+
+Fix a field~$K$.  For a $K$-vector space~$V$, take the disjoint union
+\[
+ X_V=V\sqcup(V\times V).
+\]
+The ordered monoid of all binary relations on~$X_V$ acts on
+$\subsets X_V$ by relational image.  In this OSA distinguish the identity
+relations on the two summands, the relations
+\[
+ P_i=\setcond{((x_1,x_2),x_i)}{x_1,x_2\in V}\quad(i=1,2),
+ \qquad
+ S=\setcond{((x,y),x+y)}{x,y\in V},
+\]
+and, for every labelled scalar~$a\in K$, the relation
+\[
+ M_a=\setcond{(x,ax)}{x\in V}.
+\]
+Call the resulting pointed OSA~$\mathcal V_K(V)$.
+
+\begin{prop}
+For any two $K$-vector spaces $V$ and~$W$,
+\[
+ V\cong_K W\quad\Longleftrightarrow\quad
+ \mathcal V_K(V)\cong\mathcal V_K(W),
+\]
+where an isomorphism of the pointed OSAs is required to preserve all the
+displayed distinguished relations and their scalar labels.
+\end{prop}
+
+\begin{proof}
+Let~$H:X_V\to X_W$ be the bijection induced by an isomorphism of the
+pointed OSAs.  Preservation of the two distinguished identity relations
+implies that~$H$ maps $V$ onto~$W$ and $V\times V$ onto~$W\times W$.  Put
+$h=H|_V$.  Preservation of~$P_1$ and~$P_2$ forces
+\[
+ H(x,y)=(h(x),h(y))qquad(x,y\in V).
+\]
+Preservation of~$S$ now gives
+\[
+ h(x+y)=h(x)+h(y),
+\]
+and preservation of every labelled~$M_a$ gives
+\[
+ h(ax)=a h(x).
+\]
+Thus~$h$ is a bijective $K$-linear map, so $V\cong_K W$.
+
+Conversely, a $K$-linear isomorphism~$h:V\to W$ extends to the bijection
+$H:X_V\to X_W$ given by $H|_V=h$ and
+$H(x,y)=(h(x),h(y))$.  Direct image by~$H$ is an order isomorphism of the
+powersets, conjugation by~$H$ is an isomorphism of the ordered relation
+monoids, and these maps preserve all the distinguished relations.
+Therefore they define an isomorphism
+$\mathcal V_K(V)\cong\mathcal V_K(W)$.
+\end{proof}
+
+If vector spaces over different fields are to be compared, add the field
+as another distinguished sort, together with the required product sorts
+and projections, the graphs of field addition and multiplication, and the
+scalar-action relation.  The same proof then shows that an isomorphism of
+the resulting pointed OSAs is exactly a field isomorphism together with a
+semilinear bijection of the vector spaces.
+Consequently vector spaces are spaces-in-general without attempting to
+recover their linear structure from the usually insufficient bare action
+of their automorphism groups.
+
 \section{Hilbert and Banach spaces}
 
 The MGNRM construction already proves that the norm metric of every Hilbert
