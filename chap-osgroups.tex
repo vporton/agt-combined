@@ -820,7 +820,7 @@ sets, is precisely the displayed equation.  The converse is immediate.
 \section{Euclidean spaces}
 
 \begin{prop}
-Let $E$ and~$F$ be finite-dimensional real Euclidean affine spaces, and put
+Let $E$ and~$F$ be finite-dimensional real Euclidean spaces, and put
 $G_E=\operatorname{Isom}(E)$ and $G_F=\operatorname{Isom}(F)$.  Then
 \[
  E\cong F\quad\Longleftrightarrow\quad
@@ -857,47 +857,50 @@ still more action automorphisms, coming from wild additive automorphisms of
 $(\mathbb R,+)$.  Thus the motion-group OSA recovers a Euclidean space only
 up to its isomorphism class, not its individual Euclidean morphisms.
 
-\section{Metric, Hilbert, and Banach spaces}
+\section{Affine spaces}
 
-There is a more robust construction that also treats metric, Hilbert, and
-Banach spaces.  For a metric space $(X,d)$ and $r\in\mathbb R_+$ put
-\[
- R_r^X=\setcond{(x,y)\in X\times X}{d(x,y)\leq r}.
-\]
-Binary relations on~$X$, ordered by inclusion and composed as relations,
-form an ordered monoid acting on~$\subsets X$ by relational image.  Regard
-the elements $R_r^X$ as distinguished and labelled by~$r$.
+For an affine space~$A$, let $P_A$ and~$L_A$ be its sets of points and
+lines.  On the disjoint union $P_A\sqcup L_A$, distinguish the identity
+relations on $P_A$ and~$L_A$ (which mark the two sorts) and the point--line
+incidence relation.  These are elements of the ordered monoid of binary
+relations.  This monoid acts on the powerset by relational image, so the
+distinguished relations form a pointed OSA.
 
 \begin{prop}
-Two metric spaces $X$ and~$Y$ are isometric if and only if their relational
-OSAs, together with the labelled elements $(R_r)_{r\in\mathbb R_+}$, are
-isomorphic.
+Two affine spaces of dimension at least two have isomorphic pointed OSAs of
+the above kind if and only if they are isomorphic as affine incidence
+spaces.  For affine spaces over division rings, such an isomorphism is
+induced by a semiaffine bijection.
 \end{prop}
 
 \begin{proof}
-An isometry plainly induces an isomorphism.  In the other direction, the
-order isomorphism of powersets is induced by a bijection $h:X\to Y$ as in
-the lemma.  Preservation of every labelled relation gives
-\[
- d_Y(hx,hy)\leq r\quad\Longleftrightarrow\quad d_X(x,y)\leq r
- \qquad(r\in\mathbb R_+).
-\]
-Taking the infimum of all such~$r$ proves
-$d_Y(hx,hy)=d_X(x,y)$.
+An affine-space isomorphism preserves points, lines, and incidence, so it
+induces an isomorphism of the pointed OSAs.  Conversely, an OSA
+isomorphism preserves the two distinguished sorts and the incidence
+relation, and therefore restricts to an incidence-preserving bijection of
+points.  The fundamental theorem of affine geometry says that, in
+dimension at least two, this bijection is semiaffine.
 \end{proof}
 
-Consequently Euclidean spaces, and Hilbert spaces regarded merely as metric
-spaces, are faithfully represented up to isometry by these pointed OSAs.
-For real Banach spaces (including real Hilbert spaces with their linear
-structure) also distinguish the singleton~$\{0\}$.  An OSA isomorphism then
-gives a surjective isometry fixing zero, which is linear by the Mazur--Ulam
-theorem; hence two such pointed OSAs are isomorphic exactly when the real
-Banach spaces are linearly isometric.  For complex Banach or Hilbert spaces
-one should additionally distinguish the relation which is the graph of
-$x\mapsto ix$; this forces the resulting real-linear isometry to be
-complex-linear.
+An affine line is exceptional: its bare point--line incidence structure
+does not recover the coordinate division ring.  In dimension one a
+coordinatization, or equivalent additional structure, must also be
+distinguished.
 
-The metric relations are essential for general Banach spaces.  The full
+\section{Hilbert and Banach spaces}
+
+The MGNRM construction already proves that the norm metric of every Hilbert
+or Banach space is a space-in-general, so no separate construction for
+metric spaces is needed here.  To recover the linear structure of a real
+Banach space, additionally distinguish the singleton~$\{0\}$ in the
+underlying powerset action.  A surjective isometry fixing zero is linear by
+the Mazur--Ulam theorem; hence the resulting pointed MGNRM structures are
+isomorphic exactly when the real Banach spaces are linearly isometric.
+This applies in particular to real Hilbert spaces.  For a complex Banach or
+Hilbert space, additionally distinguish the function $x\mapsto ix$ (or its
+graph); a real-linear isometry preserving this function is complex-linear.
+
+The MGNRM datum is essential for general Banach spaces.  The full
 linear-isometry group alone is not a complete invariant: Banach spaces
 which are not linearly isometric can both have only the two linear
 isometries $\{\mathrm{id},-\mathrm{id}\}$.  Such examples and renorming
@@ -931,20 +934,7 @@ recover the coordinate division ring, so one must retain additional
 structure (for example the cross-ratio or a coordinatization).
 
 Thus ``space-in-general'' works literally for these examples after the
-structure-defining relations or labelled metric elements are retained.
-The assignment of only the automorphism group and its action is sufficient
-for Euclidean isomorphism classes, but is false as a general recipe for
-Banach and other spaces.
-
-\section{Manifolds}
-
-A \emph{topological manifold} is a locally Euclidean Hausdorff topological space. So, it mathches space-in-general, because it's a topological space.
-
-Riemannian manifold can be considered as metric spaces (that is can be restored from its metric) by
-\href{https://mathoverflow.net/q/45154/4086}{this} and \href{https://math.stackexchange.com/q/4962648/4876}{this}.
-\fxwarning{Make a proper citation.}
-Therefore they match space-in-general.
-
-\fxnote{What's about differentiable manifolds, are they spaces-in-general?}
-
-\fxnote{What's about homologies and co-homologies, are they spaces-in-general?}
+appropriate transformation group, incidence relations, or MGNRM data are
+retained.  The assignment of only the automorphism group and its action is
+sufficient for Euclidean isomorphism classes, but is false as a general
+recipe for Banach and other spaces.
