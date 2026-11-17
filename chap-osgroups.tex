@@ -785,40 +785,156 @@ It is unrelated with Cachy-completion.
 \end{note}
 
 
-\chapter{Spaces defined by a group}
+\chapter{Geometric spaces as spaces-in-general}
 
-Skip reading this chapter, because it's ``unripe'' (the ideas may be completely wrong). \href{https://chatgpt.com/share/6a80a2aa-2b90-83eb-b184-0f0c582c1c8b}{Some ideas by ChatGPT.}
+\section{Transformation groups}
 
-Any category can be reduced to OSA with one-to-one correspondence bettween OSA elements and category automorphisms, by taking the trivial order and the identity action.
-
-This makes space-in-general ``all encompassing'': every kind of mathematical objects can be described as a category (up to categorical isomorphism), therefore any kind of mathematical objects can be described by OSA up to ?? isomorphism.
-
-\begin{rem}
-The above is just another formality, not a way to describe e.g.\ funcoids as OSA morphisms.
-\end{rem}
-
-Another way: Consider the category of Euclidean spaces. Then a space can be considered as an automorphism and so a morphism of the category. As the action we can take the below or even identiy action and as the order the identity order. (It can also be done for any category or semicategory whatsoever.)
-
-\fxwarning{Usefulness of this is dubious: I just define \emph{some} embedding that may be useless.}
-
-Geometric spaces: Euclidean spaces, projective spaces, Hilbert spaces, vector spaces\fxerror{Not sure about vector spaces, see \href{https://chatgpt.com/share/6a664534-7484-83eb-864f-3999115d07a2}{ChatGPT            }.}, have a symmetry group~$G$, that is a group~$G$ together with its action on a set~$\subsets\mho$. \fxnote{Also consider Banach spaces.}
-
-Now let's construct ordered semigroup action for it:
-
-We have the set, the ordered semigroup is $G$ with the trivial order. As the action take:
-
+If a group~$G$ acts faithfully on a set~$X$, let
 \[
-\lambda X\in\subsets\subsets G:
-\setcond{\setcond{\supfun{f}x}{f\in G}}{x\in X}
+ \mathcal A(X,G)=(G,=,\subsets X,\supfun{}),\qquad
+ \supfun{g}A=\rsupfun{g}A.
 \]
-that is
+Thus the order on~$G$ is equality, the order on~$\subsets X$ is inclusion,
+and every group element acts by direct image.  This is an ordered monoid
+action (and hence an OSA).  It is preferable here to a single orbit
+operator on sets of sets: the latter may forget which motion produced a
+given image.
+
+\begin{lem}
+An isomorphism
+$\mathcal A(X,G)\cong\mathcal A(Y,H)$ is exactly a pair consisting of a
+group isomorphism~$\alpha:G\to H$ and a bijection~$h:X\to Y$ such that
 \[
-\supfun{G'}X=\setcond{\setcond{\supfun{f}x}{f\in G}}{x\in X}
+ h\circ g=\alpha(g)\circ h\quad(g\in G).
 \]
+In other words, this OSA remembers the permutation group, up to conjugacy.
+\end{lem}
 
-The group~$G$ can be restored from this structure simply because it contains~$G$, its action can be restored as: ?? .
+\begin{proof}
+An order isomorphism $\subsets X\to\subsets Y$ sends atoms to atoms, so it
+has the form $A\mapsto h[A]$ for a unique bijection~$h:X\to Y$.  The
+compatibility axiom for an isomorphism of actions, applied to singleton
+sets, is precisely the displayed equation.  The converse is immediate.
+\end{proof}
 
-It's yet unclean which useful properties ``geometric'' spaces-in-general have, but they were considered to justify the name ``space-in-general''.
+\section{Euclidean spaces}
+
+\begin{prop}
+Let $E$ and~$F$ be finite-dimensional real Euclidean affine spaces, and put
+$G_E=\operatorname{Isom}(E)$ and $G_F=\operatorname{Isom}(F)$.  Then
+\[
+ E\cong F\quad\Longleftrightarrow\quad
+ \mathcal A(E,G_E)\cong\mathcal A(F,G_F).
+\]
+Here the isomorphism on the left is a Euclidean isometry.
+\end{prop}
+
+\begin{proof}
+An isometry $h:E\to F$ conjugates $G_E$ onto~$G_F$, so it induces the OSA
+isomorphism $A\mapsto h[A]$.
+
+Conversely, the lemma gives a bijection $h:E\to F$ conjugating the two full
+motion groups.  In dimensions at least two, collinearity is definable from
+the motion-group action: this is the key step in the fundamental theorem of
+Euclidean geometry.  Hence~$h$ preserves collinearity, so it preserves
+affine dimension; the same theorem then says that~$h$ is a similarity.  (A
+proof in precisely this transformation-group formulation is
+Theorem~3.14 of
+\url{https://arxiv.org/abs/0901.3928}.)  Composing~$h$ with a homothety of
+the reciprocal ratio gives an isometry.  Dimension one cannot be confused
+with a higher dimension: the pointwise stabilizer of two distinct points
+is trivial on a Euclidean line, whereas in dimension at least two it
+contains a nonidentity reflection.  Dimension zero is detected by the
+cardinality of the point set.  Thus in all cases $E$ and~$F$ have the same
+dimension and are isometric.
+\end{proof}
+
+This result concerns isomorphism classes, but the construction is not fully
+faithful on morphisms.  For example, in dimension at least two every
+similarity conjugates the motion group to itself, although a similarity of
+ratio different from one is not an isometry.  On the real line there are
+still more action automorphisms, coming from wild additive automorphisms of
+$(\mathbb R,+)$.  Thus the motion-group OSA recovers a Euclidean space only
+up to its isomorphism class, not its individual Euclidean morphisms.
+
+\section{Metric, Hilbert, and Banach spaces}
+
+There is a more robust construction that also treats metric, Hilbert, and
+Banach spaces.  For a metric space $(X,d)$ and $r\in\mathbb R_+$ put
+\[
+ R_r^X=\setcond{(x,y)\in X\times X}{d(x,y)\leq r}.
+\]
+Binary relations on~$X$, ordered by inclusion and composed as relations,
+form an ordered monoid acting on~$\subsets X$ by relational image.  Regard
+the elements $R_r^X$ as distinguished and labelled by~$r$.
+
+\begin{prop}
+Two metric spaces $X$ and~$Y$ are isometric if and only if their relational
+OSAs, together with the labelled elements $(R_r)_{r\in\mathbb R_+}$, are
+isomorphic.
+\end{prop}
+
+\begin{proof}
+An isometry plainly induces an isomorphism.  In the other direction, the
+order isomorphism of powersets is induced by a bijection $h:X\to Y$ as in
+the lemma.  Preservation of every labelled relation gives
+\[
+ d_Y(hx,hy)\leq r\quad\Longleftrightarrow\quad d_X(x,y)\leq r
+ \qquad(r\in\mathbb R_+).
+\]
+Taking the infimum of all such~$r$ proves
+$d_Y(hx,hy)=d_X(x,y)$.
+\end{proof}
+
+Consequently Euclidean spaces, and Hilbert spaces regarded merely as metric
+spaces, are faithfully represented up to isometry by these pointed OSAs.
+For real Banach spaces (including real Hilbert spaces with their linear
+structure) also distinguish the singleton~$\{0\}$.  An OSA isomorphism then
+gives a surjective isometry fixing zero, which is linear by the Mazur--Ulam
+theorem; hence two such pointed OSAs are isomorphic exactly when the real
+Banach spaces are linearly isometric.  For complex Banach or Hilbert spaces
+one should additionally distinguish the relation which is the graph of
+$x\mapsto ix$; this forces the resulting real-linear isometry to be
+complex-linear.
+
+The metric relations are essential for general Banach spaces.  The full
+linear-isometry group alone is not a complete invariant: Banach spaces
+which are not linearly isometric can both have only the two linear
+isometries $\{\mathrm{id},-\mathrm{id}\}$.  Such examples and renorming
+results are discussed in \url{https://arxiv.org/abs/0706.3861} and
+\url{https://arxiv.org/abs/0901.1512}.  Even for a Hilbert space, every
+radial bijection
+\[
+ x\longmapsto
+ \begin{cases}
+  0,&x=0,\\
+  \varphi(\lVert x\rVert)x/\lVert x\rVert,&x\ne0,
+ \end{cases}
+\]
+where $\varphi:\mathbb R_+\to\mathbb R_+$ is a bijection fixing zero,
+commutes with every orthogonal (or unitary) operator.  Therefore the bare
+symmetry action admits automorphisms which do not preserve the norm.
+
+\section{Projective spaces}
+
+For a projective space the natural faithful datum is incidence rather than
+only its symmetry group.  Take the disjoint union of its points and lines,
+distinguish the two sorts, and distinguish the incidence relation as an
+element of the ordered monoid of binary relations.  An isomorphism of these
+pointed OSAs is exactly an incidence-preserving bijection.  For projective
+dimension at least two, the fundamental theorem of projective geometry
+then identifies it with a semilinear isomorphism (with the corresponding
+isomorphism of division rings).  Without distinguishing the two sorts one
+may also obtain sort-exchanging dualities, notably for projective planes.
+Projective lines are an exception: bare point--line incidence does not
+recover the coordinate division ring, so one must retain additional
+structure (for example the cross-ratio or a coordinatization).
+
+Thus ``space-in-general'' works literally for these examples after the
+structure-defining relations or labelled metric elements are retained.
+The assignment of only the automorphism group and its action is sufficient
+for Euclidean isomorphism classes, but is false as a general recipe for
+Banach and other spaces.
 
 \section{Manifolds}
 
