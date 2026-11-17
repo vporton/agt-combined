@@ -1,11 +1,36 @@
 \chapter{Introduction}
 
-I define \emph{space} or \emph{space-in-general} that fully describes (not just generalizes) most, if not all, kinds of spaces met in mathematics.
+\fxwarning{This chapter is in process of rewrite, with heavy assistance of AI. Expect errors in this chapter. Errors in this chapter don't make the rest of the book wrong.}
 
-In~\cite{spaces-in-math}, it's said ``While modern mathematics use many types of spaces, such as Euclidean spaces, linear spaces, topological spaces, Hilbert spaces, or probability spaces, it does not define the notion of "space" itself.'' Now this statement is outdated.
+This chapter introduces the central subject of the book: \emph{ordered
+semigroup actions} (OSAs) and \emph{spaces-in-general}.  A
+space-in-general is an element of an OSA.  Ordered semicategory actions are
+the many-object form, and their morphisms are called \emph{interspaces}.
+The later topological constructions are intended to apply at this level,
+not only to funcoids or to ordinary topological spaces.
 
-The definition is quite simple: space-in-general is an element of an ordered semigroup with an action\footnote{It's defined precisely below.}
-(or I will simply say ``of an ordered semigroup action''). Contrary to possible expectations, ordered semigroup actions were first described only in 2019 (by me).
+There are two categorical levels that must not be confused.  An individual
+space-in-general is an element of the ordered semigroup (or a morphism of
+the ordered semicategory).  A proposed representation of a conventional
+structured space may use such an element or interspace, or a pointed OSA
+with distinguished elements.  I will call a classical kind of space a
+known kind of space-in-general only after proving that the representation
+both preserves and reflects its customary isomorphisms.  Merely encoding
+its data in relations does not suffice.
+
+In~\cite{spaces-in-math}, it is said: ``While modern mathematics use many
+types of spaces, such as Euclidean spaces, linear spaces, topological
+spaces, Hilbert spaces, or probability spaces, it does not define the
+notion of `space' itself.''  This book proposes such a notion.  The strict
+catalogue below records only the kinds for which the proposal has already
+been verified by an isomorphism theorem; it does not claim that every kind
+named in this quotation has yet been verified.
+
+The basic definition is simple: a space-in-general is an element of an
+ordered semigroup equipped with a monotone action\footnote{The precise
+definition is given below.}  The representation may nevertheless retain
+all of the structure and all isomorphisms of much richer familiar spaces.
+Ordered semigroup actions were first described by me in 2019.
 
 In~\cite{important} I argue that ordered semicategory actions (together with below defined \emph{funcoids}) are as important as groups, with the main distinction that discovery of ordered semicategory action was delayed.
 
@@ -35,12 +60,115 @@ The set, on which these actions act, is the set of subsets of our universal set.
 
 So we have topological space defined by actions of an ordered semigroup.
 
+This shows an element-level realization of each closure operator.  It does
+not yet prove that homeomorphisms of topological spaces correspond exactly
+to isomorphisms of the resulting OSA representations; that stronger claim
+is therefore not entered in the strict catalogue below.
+
 Below I will define a \emph{space} as an \emph{ordered semigroup action element}.
 
-This, as I show below, includes topological spaces, uniform spaces, proximity spaces, (directed) graphs, metric spaces, semigroups of operators, as well as Euclidean spaces, vector spaces,
-manifolds, etc.
+The constructions below prove the required isomorphism correspondence for
+the kinds stated in the catalogue, including relations as arrows,
+funcoids, reloids, MGNRMs, transformation-group spaces, and certain
+Euclidean, affine, projective, and vector spaces.  Other familiar spaces
+remain candidates until the corresponding two-way theorem is proved.
 
 Moreover we can consider the semigroup of all functions~$\subsets\mho\to\subsets\mho$ for some set~$\mho$ (the set of ``points'' of our space). Above we showed that topological spaces correspond to elements of this semigroup. Functions on~$\mho$ also can be considered as elements of this semigroup (replace every function with its ``image of a set'' function). Then we have an ordered semigroup action containing both topospaces and functions. As it will be considered below, we can describe a function~$f$ being continuous from a space~$\mu$ to a space~$\nu$ by the formula $f\circ\mu\sqsubseteq\nu\circ f$. See, it's an instance of \emph{algebraic} theory of general topology: a topological concept was described by an algebraic formula, without any quantifiers.
+
+\section{Catalogue of spaces-in-general}
+
+This catalogue uses a strict criterion.  A kind of classical space is
+listed as a known kind of space-in-general only when the current text gives
+a particular representation~$R$ and proves
+\begin{equation}\label{space-in-general-isomorphism-test}
+ A\cong B\quad\Longleftrightarrow\quad R(A)\cong R(B).
+\end{equation}
+An informal encoding, an injective assignment on objects, or a proof of
+only the forward implication does not qualify.  In particular, the fact
+that a structure can be encoded using labelled binary relations does not by
+itself establish that it is a space-in-general in the sense of this book.
+
+\subsection{Kinds established in this text}
+
+The following are the kinds for which the required two-way result is
+actually proved.
+
+\begin{enumerate}
+\item \emph{Binary relations and functions as arrows.}  Binary relations
+are interspaces in the ordered semicategory~$\mathbf{Rel}$, and functions
+are special binary relations.  The ordered Yoneda correspondence below
+preserves and reflects their arrow isomorphisms.  This does not by itself
+establish ordinary graph isomorphism for endorelations: an isomorphism in
+the arrow category may use different bijections on the source and target,
+whereas a graph isomorphism must use the same vertex bijection on both
+sides.
+
+\item \emph{Pointfree funcoids, funcoids, reloids, and MGNRMs.}  Each is
+an interspace in its specified ordered semicategory.  The ordered Yoneda
+theorem and its corollary below give a fully faithful representation by
+morphisms of ordered semicategory actions.  Therefore equality and arrow
+isomorphism are both preserved and reflected.
+
+\item \emph{Faithful transformation-group spaces.}  The lemma in the
+chapter ``Geometric spaces as spaces-in-general'' proves that
+$\mathcal A(X,G)\cong\mathcal A(Y,H)$ exactly when there are a group
+isomorphism $G\cong H$ and a bijection $X\cong Y$ intertwining the two
+actions.
+
+\item \emph{Finite-dimensional real Euclidean spaces.}  The proposition
+in that chapter proves~\eqref{space-in-general-isomorphism-test}, where the
+left side means existence of a Euclidean isometry and the representation is
+the OSA of the full Euclidean isometry group.  The result concerns
+isomorphism classes; the construction is not fully faithful on all
+morphisms.
+
+\item \emph{Affine incidence spaces of dimension at least two.}  The
+pointed relation OSA constructed later retains the point sort, line sort,
+and incidence relation.  The accompanying proposition proves that its OSA
+isomorphisms are exactly incidence-space isomorphisms.  An affine line is
+not covered unless a coordinatization or equivalent extra structure is
+also retained.
+
+\item \emph{Vector spaces.}  For vector spaces over a fixed labelled
+field~$K$, the proposition later in this chapter proves that pointed OSA
+isomorphism is equivalent to bijective $K$-linear isomorphism.  The extended
+construction in which the field is also a sort recovers a field isomorphism
+together with a semilinear bijection.
+
+\item \emph{Projective incidence spaces of dimension at least two.}  The
+pointed incidence OSA later in this chapter has exactly the
+incidence-preserving bijections as its isomorphisms.  Projective lines are
+not covered without additional structure such as a coordinatization or
+cross-ratio.
+\end{enumerate}
+
+These are the established entries.  Topological, proximity, uniform, and
+metric spaces occur throughout the book as motivating examples and as
+special cases of funcoids, reloids, or MGNRMs.  However, to put a
+\emph{classical kind} itself in the catalogue, one must also prove that its
+customary isomorphisms correspond exactly to the relevant OSA
+isomorphisms.  That final reflection statement is not supplied in the
+current text for all of these specializations, so they are not included in
+the strict list above.
+
+\subsection{Kinds not yet established by this criterion}
+
+No two-way isomorphism theorem is currently given here for simple directed
+or undirected graphs, multigraphs, hypergraphs, general relational
+structures, preclosure or pretopological spaces, classical topological
+spaces, classical proximity or uniform spaces, classical metric or Cauchy
+spaces, nearness spaces, locales, frames, coarse spaces, bornological
+spaces, staroids, multifuncoids, manifolds, general inner-product or normed
+spaces, Banach or Hilbert spaces, topological vector spaces, measurable
+spaces, measure spaces, probability spaces, ringed or locally ringed
+spaces, sheaf-equipped spaces, or schemes.  Nor is such a theorem given for
+arbitrary products, subspaces, or combinations of these structures.
+
+Some of these claims may be true and some may follow easily from existing
+constructions, but until the representation and both implications
+of~\eqref{space-in-general-isomorphism-test} are written down, this book
+treats them as open representation tasks rather than as known kinds of
+space-in-general.
 
 \chapter{Semicategories}
 
@@ -86,7 +214,11 @@ a semicategory together with an order on the set of morphisms conforming to the 
 
 Essentially, a posemigroup is just an ordered semicategory with just one object.
 
-In this book I will call elements of an ordered semigroup \emph{spaces}, because they generalize such things as topological spaces, (quasi)proximity spaces, (quasi)uniform spaces, (directed) graphs, (quasi)metric spaces.
+In this book I call elements of an ordered semigroup participating in a
+specified ordered action \emph{spaces} or \emph{spaces-in-general}.  The
+action is part of the datum: an ordered-semigroup element by itself does not
+determine how it acts.  The terminology is justified by the
+isomorphism-preserving representations listed above.
 
 As I shown above, functions (and more generally binary relations) can also be considered as spaces.
 
@@ -186,7 +318,10 @@ As we know from the above, funcoids are a generalization of topological spaces, 
 
 Remember that elements of our posets of objects may be such things as sets or more generally filters, they may be not just points. So our topological construction is ``pointfree'' (we may consider sets or filters, not points).
 
-The book (\fxnote{after a rewrite}) will be mainly about this topic: describing general topology in terms of ordered semicategory actions. Above are the new axioms for general topology.
+The book is about this topic: describing general topology in terms of
+ordered semigroup and ordered semicategory actions.  Funcoids, reloids,
+metrics, and the other constructions developed later are principal models
+of these axioms for spaces-in-general.
 
 Semiordered semicategory action is \emph{ordered by elements} when \[ a\sqsubseteq b \Leftarrow \supfun{a}\sqsubseteq \supfun{b} \] that is when \[ a\sqsubseteq b \Leftarrow \forall x:\supfun{a}x\sqsubseteq\supfun{b}x. \]
 
@@ -957,15 +1092,19 @@ of their automorphism groups.
 \section{Hilbert and Banach spaces}
 
 The MGNRM construction already proves that the norm metric of every Hilbert
-or Banach space is a space-in-general, so no separate construction for
-metric spaces is needed here.  To recover the linear structure of a real
-Banach space, additionally distinguish the singleton~$\{0\}$ in the
-underlying powerset action.  A surjective isometry fixing zero is linear by
-the Mazur--Ulam theorem; hence the resulting pointed MGNRM structures are
-isomorphic exactly when the real Banach spaces are linearly isometric.
-This applies in particular to real Hilbert spaces.  For a complex Banach or
-Hilbert space, additionally distinguish the function $x\mapsto ix$ (or its
-graph); a real-linear isometry preserving this function is complex-linear.
+or Banach space is an MGNRM interspace.  This is an element-level
+realization, but it does not yet establish the two-way isomorphism criterion
+for Banach or Hilbert spaces.  For that conclusion one must prove that an
+isomorphism of the chosen pointed MGNRM representations is induced by one
+surjective isometry of the underlying metric spaces, rather than by
+independent changes of source and target.  That step is not proved here.
+
+If that step is supplied, then in the real case distinguishing the
+singleton~$\{0\}$ and applying the Mazur--Ulam theorem makes the isometry
+linear.  This would apply in particular to real Hilbert spaces.  In the
+complex case one should additionally distinguish the function
+$x\mapsto ix$ (or its graph); a real-linear isometry preserving this
+function is complex-linear.
 
 The MGNRM datum is essential for general Banach spaces.  The full
 linear-isometry group alone is not a complete invariant: Banach spaces
