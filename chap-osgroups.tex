@@ -376,16 +376,115 @@ $v:B\to A$.  Faithfulness applied to their two composites shows
 $v\circ u=\id_A$ and $u\circ v=\id_B$.  Hence $A\cong B$.
 \end{proof}
 
-\begin{rem}
-The preceding theorem gives the desired equality and isomorphism
-statements once the representations of pointfree funcoids, funcoids,
-reloids, and MGNRMs as morphisms of ordered semicategory actions have been
-defined and proved injective on objects and fully faithful (or at least
-isomorphism-reflecting).  Such a correspondence is not presently defined
-in this book.  Therefore those four specializations cannot yet be claimed
-as proved merely from the fact that these structures are interspaces of
-ordered semicategory actions.
-\end{rem}
+We now construct the required correspondence.  If~$\mathcal C$ is an
+ordered semicategory, let~$\widehat{\mathcal C}$ denote its unital
+completion.  The order of~$\mathcal C$ is retained, and each newly adjoined
+identity is comparable only with itself.  Let
+$\mathbf{OSA}_{\widehat{\mathcal C}}$ be the category of ordered
+semicategory actions on the fixed ordered category
+$\widehat{\mathcal C}$ and action morphisms whose underlying semifunctor
+is $\id_{\widehat{\mathcal C}}$.
+
+For every object~$X$ define the ordered semicategory action
+\[
+\mathsf H_X:\widehat{\mathcal C}\longrightarrow\mathbf{Pos},
+\qquad
+\mathsf H_X(Z)=\Hom_{\widehat{\mathcal C}}(X,Z),
+\]
+where
+\[
+\mathsf H_X(b)(u)=b\circ u.
+\]
+For every interspace $a:X\to Y$ define
+\[
+\eta^a:\mathsf H_Y\longrightarrow\mathsf H_X,
+\qquad
+\eta^a_Z(u)=u\circ a.
+\]
+Thus the corresponding morphism of ordered semicategory actions is
+$(\id_{\widehat{\mathcal C}},\eta^a)$.
+
+\begin{thm}[Ordered Yoneda correspondence]
+For all objects $X,Y$ of~$\widehat{\mathcal C}$, the assignment
+\[
+a\longmapsto\eta^a
+\]
+is a bijection
+\[
+\Hom_{\widehat{\mathcal C}}(X,Y)
+\longrightarrow
+\Hom_{\mathbf{OSA}_{\widehat{\mathcal C}}}
+   (\mathsf H_Y,\mathsf H_X).
+\]
+Consequently it is a fully faithful contravariant representation.
+It induces a fully faithful contravariant functor on arrow categories,
+and hence two interspaces are equal, respectively isomorphic as arrows,
+if and only if their corresponding morphisms of ordered semicategory
+actions are equal, respectively isomorphic in
+$\operatorname{Arr}(\mathbf{OSA}_{\widehat{\mathcal C}})$.
+\end{thm}
+
+\begin{proof}
+Composition in an ordered semicategory is monotone in both arguments.
+Therefore every $\mathsf H_X(b)$ and every $\eta^a_Z$ is monotone.
+Moreover, $b\sqsubseteq c$ implies
+$\mathsf H_X(b)(u)\sqsubseteq\mathsf H_X(c)(u)$ for every~$u$.
+Associativity gives
+\[
+\mathsf H_X(c)\mathsf H_X(b)(u)=(c\circ b)\circ u
+ =\mathsf H_X(c\circ b)(u),
+\]
+so $\mathsf H_X$ is an ordered semicategory action.  It also gives
+\[
+\eta^a_W\mathsf H_Y(b)(u)=(b\circ u)\circ a
+ =b\circ(u\circ a)=\mathsf H_X(b)\eta^a_Z(u),
+\]
+so $\eta^a$ is a morphism of such actions.
+
+Let $\theta:\mathsf H_Y\to\mathsf H_X$ be any morphism in
+$\mathbf{OSA}_{\widehat{\mathcal C}}$ and put
+\[
+a=\theta_Y(\id_Y)\in\Hom_{\widehat{\mathcal C}}(X,Y).
+\]
+Naturality with respect to $u:Y\to Z$ yields
+\[
+\theta_Z(u)=\theta_Z(u\circ\id_Y)
+ =u\circ\theta_Y(\id_Y)=u\circ a=\eta^a_Z(u).
+\]
+Thus $\theta=\eta^a$, and $a$ is unique because
+$a=\eta^a_Y(\id_Y)$.  This proves the displayed bijection.  Moreover
+\[
+\eta^{b\circ a}=\eta^a\circ\eta^b,
+\qquad
+\eta^{\id_X}=\id_{\mathsf H_X},
+\]
+which proves contravariant functoriality and full faithfulness.
+Applying a fully faithful functor to commutative squares gives a fully
+faithful functor between the corresponding arrow categories.  Such a
+functor preserves and reflects equality and isomorphism, proving the last
+assertion.
+\end{proof}
+
+\begin{cor}
+Apply the preceding theorem to each of the ordered semicategories of
+pointfree funcoids, funcoids, reloids, and MGNRMs.  In every one of these
+four cases the formula
+\[
+a\longmapsto(\id,\eta^a),
+\qquad \eta^a_Z(u)=u\circ a,
+\]
+defines the promised correspondence with morphisms of ordered
+semicategory actions.  Two structures of the same kind are equal if and
+only if the corresponding action morphisms are equal, and they are
+isomorphic as arrows if and only if the corresponding action morphisms
+are isomorphic in the fixed-base arrow category.
+\end{cor}
+
+\begin{proof}
+Each of the four kinds is an interspace in its ordered semicategory, so
+the ordered Yoneda construction applies.  The conclusions are exactly
+the equality and isomorphism conclusions of the preceding theorem.
+\end{proof}
 
 \begin{rem}
 Equality and isomorphism are both important.  Equality is the first
