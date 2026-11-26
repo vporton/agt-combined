@@ -1,36 +1,23 @@
 \chapter{Introduction}
 
-\fxwarning{This chapter is in process of rewrite, with heavy assistance of AI. Expect errors in this chapter. Errors in this chapter don't make the rest of the book wrong.}
-
 This chapter introduces the central subject of the book: \emph{ordered
-semigroup actions} (OSAs) and \emph{spaces-in-general}.  A
-space-in-general is an element of an OSA.  Ordered semicategory actions are
-the many-object form, and their morphisms are called \emph{interspaces}.
-The later topological constructions are intended to apply at this level,
-not only to funcoids or to ordinary topological spaces.
+semigroup actions} (OSAs) and \emph{spaces-in-general}.  In a given ordered
+semigroup action, I call its semigroup elements \emph{space elements};
+the many-object version calls the arrows of the underlying semicategory
+\emph{interspaces}. These are the objects of study in the later formulas
+for continuity and other topological operations.
 
-There are two categorical levels that must not be confused.  An individual
-space-in-general is an element of the ordered semigroup (or a morphism of
-the ordered semicategory).  A proposed representation of a conventional
-structured space may use such an element or interspace, or a pointed OSA
-with distinguished elements.  I will call a classical kind of space a
-known kind of space-in-general only after proving that the representation
-both preserves and reflects its customary isomorphisms.  Merely encoding
-its data in relations does not suffice.
-
-In~\cite{spaces-in-math}, it is said: ``While modern mathematics use many
-types of spaces, such as Euclidean spaces, linear spaces, topological
-spaces, Hilbert spaces, or probability spaces, it does not define the
-notion of `space' itself.''  This book proposes such a notion.  The strict
-catalogue below records only the kinds for which the proposal has already
-been verified by an isomorphism theorem; it does not claim that every kind
-named in this quotation has yet been verified.
-
-The basic definition is simple: a space-in-general is an element of an
-ordered semigroup equipped with a monotone action\footnote{The precise
-definition is given below.}  The representation may nevertheless retain
-all of the structure and all isomorphisms of much richer familiar spaces.
-Ordered semigroup actions were first described by me in 2019.
+For a category of familiar structures and its specified maps, a
+\emph{space-in-general} in the categorical sense is a structure equipped
+with a chosen representation of its category as a full subcategory of
+the arrow category of ordered semicategory actions. The representation
+retains every map and therefore every isomorphism. The full definition,
+the representation theorem, and the catalogue follow in
+Section~\ref{sec-space-in-general-representation}. They cover the kinds
+of spaces discussed in~\cite{spaces-in-math}, including Euclidean,
+linear, topological, Hilbert, and probability spaces, as well as graphs.
+The existence theorem also covers algebraic structures, so the chosen
+action and the operations it makes available are important data.
 
 In~\cite{important} I argue that ordered semicategory actions (together with below defined \emph{funcoids}) are as important as groups, with the main distinction that discovery of ordered semicategory action was delayed.
 
@@ -50,125 +37,22 @@ I denote $\rsupfun{f}X = \setcond{fx}{x\in X}$.
 
 A topological space is determined by its closure operator.
 
-Consider the semigroup formed by composing together any finite number of topological closure operators (on some fixed ``universal'' set).
-
-This semigroup can be considered as its own action.
-
-So every topological space is an element of this semigroup that is associated with an action.
-
-The set, on which these actions act, is the set of subsets of our universal set. The set of subsets of a set is a partially ordered set.
-
-So we have topological space defined by actions of an ordered semigroup.
-
-This shows an element-level realization of each closure operator.  It does
-not yet prove that homeomorphisms of topological spaces correspond exactly
-to isomorphisms of the resulting OSA representations; that stronger claim
-is therefore not entered in the strict catalogue below.
-
-Below I will define a \emph{space} as an \emph{ordered semigroup action element}.
-
-The constructions below prove the required isomorphism correspondence for
-the kinds stated in the catalogue, including relations as arrows,
-funcoids, reloids, MGNRMs, transformation-group spaces, and certain
-Euclidean, affine, projective, and vector spaces.  Other familiar spaces
-remain candidates until the corresponding two-way theorem is proved.
-
-Moreover we can consider the semigroup of all functions~$\subsets\mho\to\subsets\mho$ for some set~$\mho$ (the set of ``points'' of our space). Above we showed that topological spaces correspond to elements of this semigroup. Functions on~$\mho$ also can be considered as elements of this semigroup (replace every function with its ``image of a set'' function). Then we have an ordered semigroup action containing both topospaces and functions. As it will be considered below, we can describe a function~$f$ being continuous from a space~$\mu$ to a space~$\nu$ by the formula $f\circ\mu\sqsubseteq\nu\circ f$. See, it's an instance of \emph{algebraic} theory of general topology: a topological concept was described by an algebraic formula, without any quantifiers.
-
-\section{Catalogue of spaces-in-general}
-
-This catalogue uses a strict criterion.  A kind of classical space is
-listed as a known kind of space-in-general only when the current text gives
-a particular representation~$R$ and proves
-\begin{equation}\label{space-in-general-isomorphism-test}
- A\cong B\quad\Longleftrightarrow\quad R(A)\cong R(B).
-\end{equation}
-An informal encoding, an injective assignment on objects, or a proof of
-only the forward implication does not qualify.  In particular, the fact
-that a structure can be encoded using labelled binary relations does not by
-itself establish that it is a space-in-general in the sense of this book.
-
-\subsection{Kinds established in this text}
-
-The following are the kinds for which the required two-way result is
-actually proved.
-
-\begin{enumerate}
-\item \emph{Binary relations and functions as arrows.}  Binary relations
-are interspaces in the ordered semicategory~$\mathbf{Rel}$, and functions
-are special binary relations.  The ordered Yoneda correspondence below
-preserves and reflects their arrow isomorphisms.  This does not by itself
-establish ordinary graph isomorphism for endorelations: an isomorphism in
-the arrow category may use different bijections on the source and target,
-whereas a graph isomorphism must use the same vertex bijection on both
-sides.
-
-\item \emph{Pointfree funcoids, funcoids, reloids, and MGNRMs.}  Each is
-an interspace in its specified ordered semicategory.  The ordered Yoneda
-theorem and its corollary below give a fully faithful representation by
-morphisms of ordered semicategory actions.  Therefore equality and arrow
-isomorphism are both preserved and reflected.
-
-\item \emph{Faithful transformation-group spaces.}  The lemma in the
-chapter ``Geometric spaces as spaces-in-general'' proves that
-$\mathcal A(X,G)\cong\mathcal A(Y,H)$ exactly when there are a group
-isomorphism $G\cong H$ and a bijection $X\cong Y$ intertwining the two
-actions.
-
-\item \emph{Finite-dimensional real Euclidean spaces.}  The proposition
-in that chapter proves~\eqref{space-in-general-isomorphism-test}, where the
-left side means existence of a Euclidean isometry and the representation is
-the OSA of the full Euclidean isometry group.  The result concerns
-isomorphism classes; the construction is not fully faithful on all
-morphisms.
-
-\item \emph{Affine incidence spaces of dimension at least two.}  The
-pointed relation OSA constructed later retains the point sort, line sort,
-and incidence relation.  The accompanying proposition proves that its OSA
-isomorphisms are exactly incidence-space isomorphisms.  An affine line is
-not covered unless a coordinatization or equivalent extra structure is
-also retained.
-
-\item \emph{Vector spaces.}  For vector spaces over a fixed labelled
-field~$K$, the proposition later in this chapter proves that pointed OSA
-isomorphism is equivalent to bijective $K$-linear isomorphism.  The extended
-construction in which the field is also a sort recovers a field isomorphism
-together with a semilinear bijection.
-
-\item \emph{Projective incidence spaces of dimension at least two.}  The
-pointed incidence OSA later in this chapter has exactly the
-incidence-preserving bijections as its isomorphisms.  Projective lines are
-not covered without additional structure such as a coordinatization or
-cross-ratio.
-\end{enumerate}
-
-These are the established entries.  Topological, proximity, uniform, and
-metric spaces occur throughout the book as motivating examples and as
-special cases of funcoids, reloids, or MGNRMs.  However, to put a
-\emph{classical kind} itself in the catalogue, one must also prove that its
-customary isomorphisms correspond exactly to the relevant OSA
-isomorphisms.  That final reflection statement is not supplied in the
-current text for all of these specializations, so they are not included in
-the strict list above.
-
-\subsection{Kinds not yet established by this criterion}
-
-No two-way isomorphism theorem is currently given here for simple directed
-or undirected graphs, multigraphs, hypergraphs, general relational
-structures, preclosure or pretopological spaces, classical topological
-spaces, classical proximity or uniform spaces, classical metric or Cauchy
-spaces, nearness spaces, locales, frames, coarse spaces, bornological
-spaces, staroids, multifuncoids, manifolds, general inner-product or normed
-spaces, Banach or Hilbert spaces, topological vector spaces, measurable
-spaces, measure spaces, probability spaces, ringed or locally ringed
-spaces, sheaf-equipped spaces, or schemes.  Nor is such a theorem given for
-arbitrary products, subspaces, or combinations of these structures.
-
-Some of these claims may be true and some may follow easily from existing
-constructions, but until the representation and both implications
-of~\eqref{space-in-general-isomorphism-test} are written down, this book
-treats them as open representation tasks rather than as known kinds of
-space-in-general.
+On a fixed set~$X$, the monotone self-maps of~$\subsets X$ form an ordered
+monoid under composition and pointwise inclusion. They act on~$\subsets X$
+by evaluation, and each topological closure operator is a space element of
+this action. Write $c_X$ and $c_Y$ for the closures of two topological
+spaces and $f_!(A)=f[A]$ for direct image along $f:X\to Y$. Then
+\[
+ f\text{ is continuous}\quad\Longleftrightarrow\quad
+ f_!\circ c_X\sqsubseteq c_Y\circ f_!.
+\]
+For the forward implication, $f^{-1}[c_Y(f[A])]$ is closed and contains~$A$,
+so it contains $c_X(A)$. For the reverse implication, take $A=f^{-1}[B]$
+for any closed $B\subseteq Y$. Then $f[c_X(A)]\subseteq c_Y(f[A])\subseteq B$,
+so $c_X(A)\subseteq A$. This is an example of the algebraic continuity
+condition used later. Its inequality uses the closure operators directly,
+whereas the full embedding in Section~\ref{sec-space-in-general-representation}
+represents the entire category of topological spaces.
 
 \chapter{Semicategories}
 
@@ -214,11 +98,11 @@ a semicategory together with an order on the set of morphisms conforming to the 
 
 Essentially, a posemigroup is just an ordered semicategory with just one object.
 
-In this book I call elements of an ordered semigroup participating in a
-specified ordered action \emph{spaces} or \emph{spaces-in-general}.  The
-action is part of the datum: an ordered-semigroup element by itself does not
-determine how it acts.  The terminology is justified by the
-isomorphism-preserving representations listed above.
+In the algebraic formulas of this book I call elements of an ordered
+semigroup participating in a specified ordered action \emph{spaces} or
+\emph{space elements}. The action is part of the datum. The categorical
+definition of a space-in-general is given in
+Section~\ref{sec-space-in-general-representation}.
 
 As I shown above, functions (and more generally binary relations) can also be considered as spaces.
 
@@ -234,20 +118,16 @@ The category~$\mathbf{Pos}$ is the category whose objects are (small) posets and
 \emph{Semiordered semicategory action} (denoted $\supfun{}$) is a semifunctor from an ordered semicategory~$\mathcal{C}$ to the category~$\mathbf{Pos}$.
 \end{defn}
 
-An equivalent definition is:
+In components, a semiordered semicategory action assigns a poset
+$\supfun{X}$ to each object $X$ and a monotone map
+$\supfun{a}:\supfun{X}\to\supfun{Y}$ to each arrow $a:X\to Y$.
+The assignment preserves composition. I call the arrows of the
+underlying semicategory \emph{semi-interspaces}.
 
 \begin{defn}
-\emph{Semiordered semicategory action} is a function~$\supfun{}$ (\emph{action}) from an ordered semicategory~$\mathcal{C}$ objects and morphisms to the category~$\mathbf{Pos}$ objects and morphisms, such that
+\emph{Ordered semicategory action} is a semiordered semicategory action with the property
 \begin{enumerate}
-\item $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq \supfun{a}y$ for all $a\in\Hom(x,y)$, $x,y\in\Ob\mathcal{C}$.
-\end{enumerate}
-I call morphisms of such a semicategory as \emph{semi-interspaces}.\footnote{The prefix inter- is supposed to mean that the morphisms may have the source different than the destination.}
-\end{defn}
-
-\begin{defn}
-\emph{Ordered semicategory action} is an ordered semicategory action with the property
-\begin{enumerate}
-\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in\Hom(x,y)$, $x,y\in\Ob\mathcal{C}$;
+\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq\supfun{b}x$ for all $a,b\in\Hom(X,Y)$ and $x\in\supfun{X}$.
 \end{enumerate}
 In other words, an ordered semicategory action is a (not necessarily strictly) increasing semicategory action (we consider transformations of this action to be ordered pointwise, that is by the product order).
 
@@ -320,8 +200,8 @@ Remember that elements of our posets of objects may be such things as sets or mo
 
 The book is about this topic: describing general topology in terms of
 ordered semigroup and ordered semicategory actions.  Funcoids, reloids,
-metrics, and the other constructions developed later are principal models
-of these axioms for spaces-in-general.
+metrics, and the other constructions developed later are principal
+sources of space elements and interspaces.
 
 Semiordered semicategory action is \emph{ordered by elements} when \[ a\sqsubseteq b \Leftarrow \supfun{a}\sqsubseteq \supfun{b} \] that is when \[ a\sqsubseteq b \Leftarrow \forall x:\supfun{a}x\sqsubseteq\supfun{b}x. \]
 
@@ -497,15 +377,14 @@ morphisms of ordered semicategory actions are equal exactly when the
 object map of~$R$ is injective.
 \item Isomorphic objects have isomorphic corresponding morphisms whenever
 $R$ is a functor.
-\item The converse for isomorphism holds whenever $R$ reflects
-isomorphisms; in particular it holds if $R$ is fully faithful.
+\item If $R$ is fully faithful, $R(A)\cong R(B)$ implies $A\cong B$.
 \end{enumerate}
 \end{thm}
 
 \begin{proof}
-The first item is the definition of injectivity of the object map.  A
-functor preserves inverse morphisms, proving the second item.  For the
-third, suppose $R(A)\cong R(B)$.  If $R$ is fully faithful, an isomorphism
+The first item is the definition of injectivity of the object map. A
+functor preserves inverse morphisms, proving the second item. For the
+third, suppose $R(A)\cong R(B)$. By full faithfulness, an isomorphism
 $R(A)\to R(B)$ and its inverse lift to morphisms $u:A\to B$ and
 $v:B\to A$.  Faithfulness applied to their two composites shows
 $v\circ u=\id_A$ and $u\circ v=\id_B$.  Hence $A\cong B$.
@@ -594,10 +473,12 @@ $a=\eta^a_Y(\id_Y)$.  This proves the displayed bijection.  Moreover
 \eta^{\id_X}=\id_{\mathsf H_X},
 \]
 which proves contravariant functoriality and full faithfulness.
+The object map is injective: if $\mathsf H_X=\mathsf H_Y$, then
+$\id_X\in\mathsf H_Y(X)$ forces $X=Y$.
 Applying a fully faithful functor to commutative squares gives a fully
-faithful functor between the corresponding arrow categories.  Such a
-functor preserves and reflects equality and isomorphism, proving the last
-assertion.
+faithful functor between the corresponding arrow categories. Here that
+functor is also injective on objects, so it preserves and reflects
+equality as well as isomorphism.
 \end{proof}
 
 \begin{cor}
@@ -633,6 +514,267 @@ on objects and fully faithful; neither requirement replaces the other.
 \begin{rem}
 The same definition works for the dagger case: a morphism of ordered dagger semicategory actions is required to commute with the involution, that is $f(a^{\dagger})=f(a)^{\dagger}$ and $g\bigl(\supfun{a^{\dagger}}x\bigr)=\supfun{f(a)^{\dagger}}'g(x)$ whenever the formula is meaningful. The next chapter develops the corresponding ordered dagger framework.
 \end{rem}
+
+\section{Full representations and the catalogue of spaces-in-general}
+\label{sec-space-in-general-representation}
+
+\begin{defn}
+Let $\mathcal K$ be a category of structures with specified morphisms.
+A \emph{categorical representation by ordered actions} is a specified
+isomorphism of categories
+\[
+ R:\mathcal K\xrightarrow{\ \cong\ }\mathcal S,
+ \qquad \mathcal S\subseteq\operatorname{Arr}(\mathbf{OSA})
+ \text{ a full subcategory}.
+\]
+A \emph{space-in-general} in this sense consists of an object
+$X\in\mathcal K$ equipped with such a representation. Its representative
+is the arrow $R(X)$. Equivalently, one specifies a functor to
+$\operatorname{Arr}(\mathbf{OSA})$ that is full, faithful, and injective on
+objects. For two objects in the same represented category, this gives
+\begin{equation}\label{space-in-general-isomorphism-test}
+ X\cong Y\quad\Longleftrightarrow\quad R(X)\cong R(Y).
+\end{equation}
+Every isomorphism on the right is induced by a unique isomorphism on the
+left, because the functor is fully faithful.
+\end{defn}
+
+\begin{lem}\label{lem-osa-diagram-embedding}
+Let $D$ be a small category. The category $\mathbf{Set}^{D}$ of
+set-valued functors and natural transformations is isomorphic to a full
+subcategory of $\mathbf{OSA}$.
+\end{lem}
+
+\begin{proof}
+For a functor $A:D\to\mathbf{Set}$ form the single-sorted algebra with
+carrier
+\[
+ \{0,1\}\sqcup\coprod_{d\in\Ob D} A(d).
+\]
+The summands are tagged. Use two unary constant operations with values
+$0$ and $1$ to name the extra elements. For each $d$ give
+the algebra a unary operation that takes the value $1$ precisely on the
+summand for $d$ and the value $0$ elsewhere. For each arrow $a:d\to e$
+give it a unary operation that acts as $A(a)$ from the $d$-summand to
+the $e$-summand and is constantly $0$ elsewhere. This is one fixed
+finitary signature, with a set of operation symbols. Every algebra
+homomorphism fixes $0,1$ and preserves the summands. Commutation with the
+arrow operations is exactly the naturality of its restrictions. Every
+natural transformation extends uniquely by fixing $0,1$. The algebra
+also determines $A$, since the summands and arrow maps can be recovered
+from its labelled operations.
+
+Use the classical full embedding of the category of algebras of a
+fixed finitary signature into semigroups (Sichler's
+corollary~\cite{sichler-semigroup-embedding}). Here the embedding is
+injective on objects. Send a semigroup to its one-object ordered
+semicategory with equality order, acting on the one-point poset. Between
+two such actions, the poset component of a morphism is unique and the
+underlying semifunctor is exactly an arbitrary semigroup homomorphism.
+This last functor is also full, faithful, and injective on objects.
+\end{proof}
+
+\begin{thm}\label{thm-osa-full-embedding}
+Every small category $\mathcal K$ is isomorphic to a full subcategory of
+$\mathbf{OSA}$ and to a full subcategory of
+$\operatorname{Arr}(\mathbf{OSA})$.
+\end{thm}
+
+\begin{proof}
+Yoneda sends $X\in\mathcal K$ to
+$\Hom_{\mathcal K}(-,X)\in\mathbf{Set}^{\mathcal K^{\mathrm{op}}}$ and
+sends an arrow to postcomposition by that arrow. A natural
+transformation out of $\Hom_{\mathcal K}(-,X)$ is determined by its value
+on $\id_X$ at $X$. If its target is $\Hom_{\mathcal K}(-,Y)$ that value
+is an arrow $X\to Y$, which induces the transformation. This proves
+full faithfulness. Using typed arrows, equality of two representables
+implies equality of their representing objects: evaluate at $X$ and
+use the fact that $\id_X$ has target $X$. Now apply
+Lemma~\ref{lem-osa-diagram-embedding}.
+
+For any category $\mathcal E$, the functor
+$\mathcal E\to\operatorname{Arr}(\mathcal E)$ sending $A$ to $\id_A$
+is full, faithful, and injective on objects. In a commutative square
+between identity arrows, the two components must be the same arrow
+$A\to B$. Apply this functor with $\mathcal E=\mathbf{OSA}$.
+\end{proof}
+
+The two target categories have different objects and morphisms. In
+$\mathbf{OSA}$ an object is an action and a morphism is an action
+homomorphism. In $\operatorname{Arr}(\mathbf{OSA})$ an object is an action
+homomorphism and a morphism is a commuting square. The identity-arrow
+embedding gives one way to pass from the first representation to the
+second. For existence of full representations of small categories,
+Theorem~\ref{thm-osa-full-embedding} gives both targets.
+
+With the definitions here the two target categories are inequivalent.
+An object is subterminal if it receives at most one morphism from each
+object. A subterminal action has at most one base object, at most one arrow,
+and a carrier of at most one element at its sole base object, if any.
+To see the three bounds, test maps out of the arrowless one-object base
+with empty carrier, the free one-generator semigroup with empty carrier,
+and the arrowless one-object base with singleton carrier, respectively.
+Conversely, each action satisfying the three bounds is subterminal.
+This gives five isomorphism classes: the empty action and the four
+one-object actions obtained by independently allowing or omitting the
+single arrow and the single carrier element. In the arrow category the
+five identity arrows on these actions are subterminal, as is the arrow
+from the empty action to the terminal one. That arrow is in a sixth
+isomorphism class, since it has nonisomorphic endpoints.
+
+The smallness condition is relative to the ambient category. For
+example, take all structures and maps small in a universe $\mathcal U$,
+and carry out the theorem in a larger universe containing $\mathcal U$.
+Then each standard category in the catalogue below is small for the
+proof, even if it is large in $\mathcal U$. One can also work with a
+specified set of structures and a set of maps in ordinary set theory.
+The theorem makes no assertion about representing all sizes at once
+using only actions small in the original universe.
+
+\subsection{Algebraic and relational structures}
+\label{sec-osa-algebraic-structures}
+
+There is also a direct application of
+Lemma~\ref{lem-osa-diagram-embedding} which uses just the signature.
+For a fixed set-sized signature, take a diagram with one set for each
+sort. For each operation, add a set of input tuples with its coordinate
+projections and a map giving the output. A nullary operation has the
+singleton of empty tuples as its input sort. For each relation, add its
+set of tuples with the projections to its argument sorts. The index
+category is the free category on this fixed diagram of named arrows.
+
+In a natural transformation of these diagrams, the components on tuple
+sorts are forced coordinatewise by the projections. On a relation sort
+the required tuple must belong to the target relation. On an operation
+sort the output map forces the ordinary homomorphism equation. Conversely,
+any family of homomorphisms of the underlying sorts that respects the
+operations and relations extends by these coordinatewise formulas.
+The diagrams determine the original structure, including its labels.
+This gives an injective-on-objects, fully faithful representation for
+algebraic and relational structures with their usual homomorphisms. It
+works with set-sized arities when the requisite tuple sets are allowed.
+It also applies to full subcategories specified by axioms on the
+structures, such as groups, rings, or vector spaces over a fixed field.
+
+Thus every ordinary set-based algebraic structure admits a
+space-in-general representation. The existence of the categorical
+isomorphism cannot distinguish a familiar geometric or topological space
+from an arbitrary algebra. The definition records a choice of $R$ and
+retains the represented structure and its maps. The universal construction
+alone supplies no particular formula for closure, distance, or
+continuity. To obtain such a formula one studies a representation with
+specific ordered actions, as in the closure example and the later
+chapters on interspaces.
+
+\subsection{Graphs and relations}
+\label{sec-osa-graphs}
+
+A simple undirected graph on $X$ is precisely an irreflexive symmetric
+relation $R\subseteq X\times X$. In the ordered dagger category
+$\mathbf{Rel}$, this says that $R:X\to X$ satisfies
+$R=R^{\dagger}$ and $R\cap\id_X=\varnothing$. If loops are permitted,
+omit the irreflexivity condition. An arbitrary endorelation gives a
+directed graph with loops allowed, with at most one edge per ordered
+pair. Relational image gives the ordered action of $\mathbf{Rel}$ on
+powersets, so an adjacency relation is directly an interspace of that
+action. Regarding vertex maps as their graph relations, the graph
+homomorphism condition is
+\[
+ f\circ R\subseteq S\circ f\qquad(f:X\to Y).
+\]
+Indeed, for each $xRx'$ it requires $f(x)S f(x')$. A graph isomorphism
+is a bijection with $f\circ R=S\circ f$.
+
+A square in $\operatorname{Arr}(\mathbf{Rel})$ may use independent
+source and target maps even for two symmetric endorelations. This changes
+the isomorphism relation. For example, on
+$\{0,1,2\}\times\{0,1\}$ let $R$ join pairs with different first
+coordinates and the same second coordinate, and let $S$ join pairs
+with different first coordinates and different second coordinates.
+Then $R$ gives two disjoint triangles and $S$ gives a six-cycle.
+Flipping the second coordinate at the target gives an arrow
+isomorphism, since for that flip $t$ we have $t\circ R=S$. The graphs
+have different numbers of connected components.
+
+To recover graph maps in a full representation, use one vertex sort
+and one edge-relation sort, with two projections to the \emph{same}
+vertex sort. A natural transformation has a single vertex component.
+Its edge component is forced by the projections and exists precisely for
+a graph homomorphism. The diagram lemma gives the claimed full embedding
+for directed and undirected simple graphs. A directed multigraph has an
+independent edge set and two endpoint maps. For undirected multigraphs
+one may use an incidence diagram of vertices, edges, and ends, retaining
+both incidences at a loop. Hypergraphs with specified incidence maps
+likewise have an incidence diagram. In any convention the morphisms must
+be specified; for example, a map of incidence diagrams includes the
+maps on its incidence data.
+
+\subsection{Catalogue of spaces}
+
+Here are the principal families to which the representation theorem
+applies. The named maps are examples of category choices. The theorem
+applies separately to each other choice forming a small category in the
+stated ambient universe. One may use the disjoint union of any
+set-indexed list of these categories to represent that entire list at
+once. The criterion is the existence of the chosen category and its
+size bound, so the catalogue does not depend on a fixed list of uses
+of the word ``space''.
+
+\begin{itemize}
+\item \emph{Graphs, hypergraphs, relations, and functions.}
+Use the graph and incidence representations above. With binary relations
+as objects and commuting squares of relations as maps, use
+$\operatorname{Arr}(\mathbf{Rel})$. For functions and commuting squares of
+functions, use $\operatorname{Arr}(\mathbf{Set})$.
+\item \emph{General topology and pointfree topology.}
+Topological, preclosure, pretopological, proximity, uniform, Cauchy,
+nearness, coarse, and bornological spaces, with their respective
+structure-preserving maps. Examples include continuous maps, proximally
+continuous maps, and uniformly continuous maps. Also included are frames
+with frame homomorphisms and locales with locale maps. These are distinct
+choices of categories, including the reversal of frame arrows in the
+locale case. CW spaces with continuous maps and simplicial complexes
+with simplicial maps give further examples.
+\item \emph{Metric, linear, and geometric spaces.}
+Metric spaces with nonexpansive maps, or with distance-preserving maps.
+For the former, the binary relations $d(x,y)\le r$ for nonnegative
+rational $r$ suffice. For the latter, include their complements as
+labelled relations as well. The same distance presentation applies
+to Euclidean spaces. Normed, inner-product, Banach, and Hilbert
+spaces, and topological vector spaces use the appropriate structure and
+linear maps, for example linear contractions for normed spaces.
+This includes function and sequence spaces when equipped with one of
+these structures and its maps.
+Transformation-group spaces use equivariant maps, with a map of groups
+as part of the morphism when the groups vary. Affine and projective
+incidence spaces have point and line sorts and an incidence relation.
+For coordinatized spaces the coordinate data can be included when
+required, including for lines. Manifolds with continuous or smooth
+maps give further categories.
+\item \emph{Measure and sheaf structures.}
+Measurable spaces with measurable maps, measure and probability
+spaces with measure-preserving maps, and sheaf-equipped, ringed,
+and locally ringed spaces with their respective maps. Schemes and
+algebraic spaces with their usual morphisms are also covered. The
+representation of a ringed space retains its sheaf maps because
+Yoneda uses all the morphisms of the chosen category.
+\item \emph{Structures of this book.}
+Pointfree funcoids, funcoids, reloids, and MGNRMs can be taken as objects
+of the arrow categories of their unital completions, using commuting
+squares as maps. The ordered Yoneda correspondence above gives a
+more specific contravariant representation in the fixed-base arrow
+category. Its covariant version uses the action
+$Z\mapsto\Hom_{\widehat{\mathcal C}}(Z,X)$ of
+$\widehat{\mathcal C}^{\mathrm{op}}$ and sends $a:X\to Y$ to
+postcomposition by~$a$. Applying
+Theorem~\ref{thm-osa-full-embedding} to the chosen arrow category also
+gives a full representation in the unrestricted target. Staroids
+and multifuncoids can likewise be represented once a category of
+their maps has been chosen, for instance the groupoid of
+structure-preserving isomorphisms. The same theorem applies to
+specified categories of products, subspaces, or combinations carrying
+more than one of the listed structures.
+\end{itemize}
 
 \chapter{Ordered dagger categories and ordered semigroups with involution}
 
@@ -920,7 +1062,13 @@ It is unrelated with Cachy-completion.
 \end{note}
 
 
-\chapter{Geometric spaces as spaces-in-general}
+\chapter{Concrete ordered actions for geometric spaces}
+
+The full embedding theorem already applies to the categories of
+geometric spaces in this chapter. The following constructions exhibit
+additional structure directly in particular ordered actions. In each
+case the statement specifies whether the action recovers isomorphisms
+themselves or just isomorphism classes.
 
 \section{Transformation groups}
 
@@ -969,19 +1117,18 @@ An isometry $h:E\to F$ conjugates $G_E$ onto~$G_F$, so it induces the OSA
 isomorphism $A\mapsto h[A]$.
 
 Conversely, the lemma gives a bijection $h:E\to F$ conjugating the two full
-motion groups.  In dimensions at least two, collinearity is definable from
-the motion-group action: this is the key step in the fundamental theorem of
-Euclidean geometry.  Hence~$h$ preserves collinearity, so it preserves
-affine dimension; the same theorem then says that~$h$ is a similarity.  (A
-proof in precisely this transformation-group formulation is
-Theorem~3.14 of
-\url{https://arxiv.org/abs/0901.3928}.)  Composing~$h$ with a homothety of
-the reciprocal ratio gives an isometry.  Dimension one cannot be confused
-with a higher dimension: the pointwise stabilizer of two distinct points
-is trivial on a Euclidean line, whereas in dimension at least two it
-contains a nonidentity reflection.  Dimension zero is detected by the
-cardinality of the point set.  Thus in all cases $E$ and~$F$ have the same
-dimension and are isometric.
+motion groups. For distinct $x,y$, the line through them is the common
+fixed set of the isometries fixing both points. Every such isometry fixes
+the line pointwise, and the isometry that negates the orthogonal complement
+of the line fixes precisely the line. This description includes dimension
+one, when the line is the whole space. Conjugation therefore carries lines
+to lines. Closing a nonempty set under the lines through pairs of its
+points gives its affine span: after translating a point of the set to
+the origin, closure under lines gives scalar multiples and sums (take
+the midpoint and double it). Consequently $h$ preserves affine
+independence and dimension. Dimension zero is detected by having one
+point. Equal finite Euclidean dimensions give an isometry by choosing
+orthonormal coordinates.
 \end{proof}
 
 This result concerns isomorphism classes, but the construction is not fully
@@ -1085,34 +1232,27 @@ and projections, the graphs of field addition and multiplication, and the
 scalar-action relation.  The same proof then shows that an isomorphism of
 the resulting pointed OSAs is exactly a field isomorphism together with a
 semilinear bijection of the vector spaces.
-Consequently vector spaces are spaces-in-general without attempting to
-recover their linear structure from the usually insufficient bare action
-of their automorphism groups.
+The labelled operations also yield a full representation on linear maps
+by Section~\ref{sec-osa-algebraic-structures}, which retains the labels
+in its diagram.
 
 \section{Hilbert and Banach spaces}
 
-The MGNRM construction already proves that the norm metric of every Hilbert
-or Banach space is an MGNRM interspace.  This is an element-level
-realization, but it does not yet establish the two-way isomorphism criterion
-for Banach or Hilbert spaces.  For that conclusion one must prove that an
-isomorphism of the chosen pointed MGNRM representations is induced by one
-surjective isometry of the underlying metric spaces, rather than by
-independent changes of source and target.  That step is not proved here.
+The norm distance of a Hilbert or Banach space is an MGNRM interspace.
+To represent the usual linear isometries, one can use the diagram
+construction with one vector sort, its linear operations over the fixed
+scalar field, and the labelled unary relations
+$\{v:\lVert v\rVert\le r\}$ for nonnegative rational $r$, together with
+their complements. Homomorphisms preserve every threshold and its
+complement, hence preserve the norm. Their inverses, when they exist, are
+linear isometries as well, and every surjective linear isometry gives
+such an isomorphism. Keeping only the sublevel sets gives the category
+of linear contractions. For a Hilbert space the norm also determines
+the inner product by polarization.
 
-If that step is supplied, then in the real case distinguishing the
-singleton~$\{0\}$ and applying the Mazur--Ulam theorem makes the isometry
-linear.  This would apply in particular to real Hilbert spaces.  In the
-complex case one should additionally distinguish the function
-$x\mapsto ix$ (or its graph); a real-linear isometry preserving this
-function is complex-linear.
-
-The MGNRM datum is essential for general Banach spaces.  The full
-linear-isometry group alone is not a complete invariant: Banach spaces
-which are not linearly isometric can both have only the two linear
-isometries $\{\mathrm{id},-\mathrm{id}\}$.  Such examples and renorming
-results are discussed in \url{https://arxiv.org/abs/0706.3861} and
-\url{https://arxiv.org/abs/0901.1512}.  Even for a Hilbert space, every
-radial bijection
+The norm labels carry information beyond the bare action of the
+isometry group. For example, in a nonzero Hilbert space every radial
+bijection
 \[
  x\longmapsto
  \begin{cases}
@@ -1121,8 +1261,9 @@ radial bijection
  \end{cases}
 \]
 where $\varphi:\mathbb R_+\to\mathbb R_+$ is a bijection fixing zero,
-commutes with every orthogonal (or unitary) operator.  Therefore the bare
-symmetry action admits automorphisms which do not preserve the norm.
+commutes with every orthogonal (or unitary) operator. Choosing
+$\varphi\ne\id$ gives an automorphism of the bare symmetry action that
+changes the norm.
 
 \section{Projective spaces}
 
@@ -1130,8 +1271,9 @@ For a projective space the natural faithful datum is incidence rather than
 only its symmetry group.  Take the disjoint union of its points and lines,
 distinguish the two sorts, and distinguish the incidence relation as an
 element of the ordered monoid of binary relations.  An isomorphism of these
-pointed OSAs is exactly an incidence-preserving bijection.  For projective
-dimension at least two, the fundamental theorem of projective geometry
+pointed OSAs is exactly an incidence-preserving bijection. For projective
+spaces over division rings of dimension at least two, the fundamental
+theorem of projective geometry
 then identifies it with a semilinear isomorphism (with the corresponding
 isomorphism of division rings).  Without distinguishing the two sorts one
 may also obtain sort-exchanging dualities, notably for projective planes.
@@ -1139,8 +1281,7 @@ Projective lines are an exception: bare point--line incidence does not
 recover the coordinate division ring, so one must retain additional
 structure (for example the cross-ratio or a coordinatization).
 
-Thus ``space-in-general'' works literally for these examples after the
-appropriate transformation group, incidence relations, or MGNRM data are
-retained.  The assignment of only the automorphism group and its action is
-sufficient for Euclidean isomorphism classes, but is false as a general
-recipe for Banach and other spaces.
+Thus the motion-group action suffices to classify finite-dimensional
+Euclidean spaces up to isometry. For full representations with ordinary
+maps, labelled distances, vector operations, and incidence provide
+alternative data as appropriate.

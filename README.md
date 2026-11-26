@@ -4,7 +4,7 @@ This open research considers in details **_ordered semicategory actions_** (and 
 
 Ordered semicategory actions take a **place in mathematics** similar to "place" (generarity and amount of usage) **of group theory**. Therefore ordered semicategory actions are **as important as group theory** (like **half of world economy**). Contrary to sound sense, ordered semigroup actions (and ordered semicategory actions) were discovered (by the author) only in 2019, not in 19th century.
 
-**All kinds of spaces** met **in general topology**, from locales/frames to metric spaces and everything in between, e.g. as topological spaces and uniform spaces (and, apparently, however yet unchecked, geometric spaces) are **represented as elements of ordered semigroup with an action ("space-in-general")**. This allows to study **general topology** in the universal, **most general setting of space-in-general**, namely as properties of ordered semicategory actions.
+Every small category is isomorphic to a full subcategory of the category of ordered semicategory actions and of its arrow category. The book applies this result to graphs, spaces in topology and geometry, measurable and sheaf-equipped spaces, and ordinary algebraic structures, with an explicit size convention. A categorical space-in-general includes a chosen arrow-category representation. Concrete actions on space elements and interspaces give algebraic formulas for continuity and other topological operations.
 
 The theorems of general topology usually map to **algebraic formulas with ordered semicategory actions**, what **much simplifies usage** (and remembering) of formulas, because they are of an algebraic kind, **not a mess of quantifiers** as in traditional general topology.
 
