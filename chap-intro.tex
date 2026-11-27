@@ -240,6 +240,64 @@ The last I research generalizations of funcoids, \emph{pointfree funcoids},
 of products of morphisms.
 
 
+\section{Some standard terminology used later}
+\label{sec-intro-standard-terminology}
+
+The catalogue of spaces in this book uses the following standard terms.
+They are recorded here so that the catalogue does not require additional
+prerequisites.  Topological spaces are defined in
+Section~\ref{sec-top}, and categories and functors are defined in
+Chapter~\ref{chap-common}.
+
+\begin{defn}
+Let $X$ be a set, and denote the set of all subsets of $X$ by
+$\subsets X$.  A \emph{bornology} on $X$ is a collection
+$\mathcal{B}\subseteq\subsets X$ such that
+\begin{enumerate}
+\item every element of $X$ belongs to some member of $\mathcal{B}$;
+\item if $A\subseteq B\in\mathcal{B}$, then $A\in\mathcal{B}$; and
+\item if $A,B\in\mathcal{B}$, then $A\cup B\in\mathcal{B}$.
+\end{enumerate}
+The members of $\mathcal{B}$ are called \emph{bounded sets}, and the
+pair $(X,\mathcal{B})$ is called a \emph{bornological space}.  A map
+$f:(X,\mathcal{B})\to(Y,\mathcal{C})$ of bornological spaces is
+\emph{bounded} if the image of $B$ under $f$ belongs to $\mathcal{C}$
+for every $B\in\mathcal{B}$.
+\end{defn}
+
+\begin{defn}
+Let $X$ be a topological space, let $\operatorname{Open}(X)$ be the
+category whose objects are the open subsets of $X$ and whose arrows are
+inclusions, and let $\mathcal{C}$ be a category.  A
+\emph{$\mathcal{C}$-valued presheaf on $X$} is a contravariant functor
+\[
+ \mathcal{F}:\operatorname{Open}(X)^{\mathrm{op}}\to\mathcal{C}.
+\]
+Thus, when $\mathcal{C}=\mathbf{Set}$, it assigns a set $\mathcal{F}(U)$
+to every open set $U$ and a \emph{restriction map}
+$\rho^U_V:\mathcal{F}(U)\to\mathcal{F}(V)$ to every inclusion
+$V\subseteq U$, with $\rho^U_U$ the identity and
+$\rho^V_W\circ\rho^U_V=\rho^U_W$ whenever $W\subseteq V\subseteq U$.
+The standard spelling is \emph{presheaf}, not ``pre-sheave.''
+\end{defn}
+
+\begin{defn}
+A set-valued presheaf $\mathcal{F}$ on a topological space $X$ is a
+\emph{sheaf} if, for every open set $U$, every open cover
+$U=\bigcup_{i\in I}U_i$, and every family
+$s_i\in\mathcal{F}(U_i)$ satisfying
+\[
+ \rho^{U_i}_{U_i\cap U_j}(s_i)
+ =\rho^{U_j}_{U_i\cap U_j}(s_j)\quad(i,j\in I),
+\]
+there exists a unique $s\in\mathcal{F}(U)$ such that
+$\rho^U_{U_i}(s)=s_i$ for every $i\in I$.  A sheaf with values in a
+concrete category, such as rings, is required to satisfy this condition
+after forgetting to sets.  A \emph{sheaf-equipped space} is a
+topological space together with a specified sheaf on it.
+\end{defn}
+
+
 \section{Basic notation}
 
 I will denote a set definition like $\setcond{x\in A}{P(x)}$ instead
