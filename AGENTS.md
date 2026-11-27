@@ -29,7 +29,7 @@ operators, decorated variants, and terminology introduced in prose. State the
 object's type, domain/codomain, arguments, and any hypotheses needed to make the
 definition unambiguous. A nearby forward reference is not a definition.
 
-Prefer an existing definition and notation when one already exists. If the
+Prefer an existing definition and notation when one already exists. Put definitions of commonly used ter terminology and notation into ``Common knowledge, part 1'' chapter. If the
 definition is elsewhere in the book, cite it with a precise LaTeX cross-reference
 before relying on it. Do not introduce an unexplained synonym or silently change
 the meaning or scope of an established symbol. When revising a passage that
