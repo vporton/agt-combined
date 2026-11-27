@@ -1,0 +1,65 @@
+name: Build PDFs
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Compile books
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v6
+
+      # Build volume 1 first because the other volumes and addons import its
+      # labels through xr's \externaldocument command.
+      - name: Compile PDFs with latexmk
+        uses: xu-cheng/texlive-action@v3
+        with:
+          run: |
+            latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode volume-1.tex
+            latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode volume-2.tex
+            latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode volume-3.tex
+            latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode addons.tex
+            latexmk -pdf -file-line-error -halt-on-error -interaction=nonstopmode ideas.tex
+
+      - name: Upload PDFs
+        uses: actions/upload-artifact@v6
+        with:
+          name: algebraic-general-topology-pdfs
+          path: |
+            volume-1.pdf
+            volume-2.pdf
+            volume-3.pdf
+            addons.pdf
+            ideas.pdf
+          if-no-files-found: error
+
+  publish-release:
+    name: Attach PDFs to release
+    if: github.event_name == 'release'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download compiled PDFs
+        uses: actions/download-artifact@v7
+        with:
+          name: algebraic-general-topology-pdfs
+          path: pdfs
+
+      - name: Attach PDFs to the GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ github.event.release.tag_name }}
+        run: gh release upload "$TAG_NAME" pdfs/*.pdf --clobber
