@@ -62,4 +62,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           TAG_NAME: ${{ github.event.release.tag_name }}
-        run: gh release upload "$TAG_NAME" pdfs/*.pdf --clobber
+        run: gh release upload --repo "$GITHUB_REPOSITORY" --clobber -- "$TAG_NAME" pdfs/*.pdf
