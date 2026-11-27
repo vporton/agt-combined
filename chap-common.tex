@@ -1741,6 +1741,66 @@ we have the paths $\sigma\circ\tau^{-1}$ and $\tau\circ\sigma^{-1}$
 being identities).
 \end{proof}
 
+\section{Bornologies, presheaves, and sheaves}
+\label{sec-common-bornologies-presheaves}
+
+This section records standard terminology used later in the catalogue
+of spaces. Topological spaces and open covers are defined in
+Section~\ref{sec-top}.
+
+\begin{defn}
+Let $X$ be a set. A \emph{bornology} on $X$ is a collection
+$\mathcal{B}\subseteq\subsets X$ such that
+\begin{enumerate}
+\item every element of $X$ belongs to some member of $\mathcal{B}$;
+\item if $A\subseteq B\in\mathcal{B}$, then $A\in\mathcal{B}$; and
+\item if $A,B\in\mathcal{B}$, then $A\cup B\in\mathcal{B}$.
+\end{enumerate}
+The members of $\mathcal{B}$ are called \emph{bounded sets}, and the
+pair $(X,\mathcal{B})$ is called a \emph{bornological space}. A map
+$f:(X,\mathcal{B})\to(Y,\mathcal{C})$ of bornological spaces is
+\emph{bounded} if $f[B]\in\mathcal{C}$ for every $B\in\mathcal{B}$,
+where $f[B]$ is the image of $B$ under~$f$.
+\end{defn}
+
+\begin{defn}
+Let $X$ be a topological space. The category
+$\operatorname{Open}(X)$ has the open subsets of $X$ as its objects
+and, for open subsets $V$ and $U$, a unique morphism $V\to U$ exactly
+when $V\subseteq U$. Let $\mathcal{C}$ be a category. A
+\emph{$\mathcal{C}$-valued presheaf on $X$} is a functor
+\[
+ \mathcal{F}:\operatorname{Open}(X)^{\operatorname{op}}
+ \to\mathcal{C}.
+\]
+Thus, when $\mathcal{C}=\mathbf{Set}$, it assigns a set $\mathcal{F}(U)$
+to every open set $U$ and a \emph{restriction map}
+$\rho^U_V:\mathcal{F}(U)\to\mathcal{F}(V)$ to every inclusion
+$V\subseteq U$, with $\rho^U_U$ the identity and
+$\rho^V_W\circ\rho^U_V=\rho^U_W$ whenever $W\subseteq V\subseteq U$.
+\end{defn}
+
+\begin{defn}
+A set-valued presheaf $\mathcal{F}$ on a topological space $X$ is a
+\emph{sheaf} if, for every open set $U$, every open cover
+$U=\bigcup_{i\in I}U_i$, and every family
+$s_i\in\mathcal{F}(U_i)$ satisfying
+\[
+ \rho^{U_i}_{U_i\cap U_j}(s_i)
+ =\rho^{U_j}_{U_i\cap U_j}(s_j)\quad(i,j\in I),
+\]
+there exists a unique $s\in\mathcal{F}(U)$ such that
+$\rho^U_{U_i}(s)=s_i$ for every $i\in I$.
+
+Suppose that the objects of a category $\mathcal{C}$ have specified
+underlying sets and its morphisms have specified underlying functions,
+compatibly with identities and composition. A $\mathcal{C}$-valued
+presheaf is a \emph{sheaf} if its resulting set-valued presheaf is a
+sheaf in the preceding sense. In particular, this defines sheaves of
+rings. A \emph{sheaf-equipped space} is a topological space together
+with a specified sheaf on it.
+\end{defn}
+
 \section{\index{group theory}Intro to group theory}
 \begin{defn}
 \index{semigroup}A \emph{semigroup} is a pair of a set $G$ and an associative
