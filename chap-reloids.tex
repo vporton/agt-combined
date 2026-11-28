@@ -52,8 +52,11 @@ for every $\mathbf{Rel}$-morphism $f$.
 as \emph{principal} reloids.
 \end{defn}
 
-Reloids are a generalization of uniform spaces. Also reloids are generalization
-of binary relations.
+Reloids generalize uniform spaces and binary relations. The
+ordered action on filters is constructed in
+Section~\ref{sec-reloid-action} by pulling back the funcoid action.
+Here I give the filter constructions needed to identify its
+rectangles, restrictions, images, and domains.
 
 \begin{defn}
 $\up f^{-1} = \setcond{F^{-1}}{F\in\up f}$ for every $f\in\mathsf{RLD}\sharp(A,B)$.
@@ -265,12 +268,17 @@ $g\circ f=\bigsqcup_{F\in\atoms f}(g\circ F)=\bigsqcup_{F\in\atoms f}\bigsqcup_{
 
 \section{Reloidal product of filters}
 \begin{defn}
-\index{product!reloidal}Reloidal product of filters $\mathcal{A}$
-and $\mathcal{B}$ is defined by the formula
+\index{product!reloidal}For filters $\mathcal{A}\in\mathscr F(A)$
+and $\mathcal{B}\in\mathscr F(B)$, the filter formula for the
+\emph{reloidal product} is
 \[
 \mathcal{A}\times^{\mathsf{RLD}}\mathcal{B}\eqdef\bigsqcap^{\mathsf{RLD}}\setcond{A\times B}{A\in\up\mathcal{A},B\in\up\mathcal{B}}.
 \]
 \end{defn}
+The meet is in $\mathsf{RLD}(A,B)$ and each Cartesian product in
+it is read as a principal reloid of that type. In
+Section~\ref{sec-reloid-action} this product is identified with the
+rectangle of Definition~\ref{def-osa-rectangle}.
 \begin{obvious}
 ~
 \begin{itemize}
@@ -358,18 +366,23 @@ by the formula $1_{A}^{\mathsf{RLD}}=\uparrow^{\mathsf{RLD}(A,A)}\id_{A}$.\end{d
 \begin{obvious}
 $(1_{A}^{\mathsf{RLD}})^{-1}=1_{A}^{\mathsf{RLD}}$.\end{obvious}
 \begin{defn}
-\index{restricting!reloid}I define \emph{restricting} a reloid $f$
-to a filter $\mathcal{A}$ as $f|_{\mathcal{A}}=f\sqcap(\mathcal{A}\times^{\mathsf{RLD}}\top^{\mathscr{F}(\Dst f)})$.
+\index{restricting!reloid}For a reloid $f:A\to B$ and
+$\mathcal A\in\mathscr F(A)$ the filter formula for restriction is
+$f|_{\mathcal A}=f\sqcap(\mathcal A\times^{\mathsf{RLD}}\top^{\mathscr F(B)})$.
+The equivalence to the composition formula in
+Definition~\ref{def-osa-restriction} is proved below.
 \end{defn}
 
 \begin{defn}
-\index{reloid!domain}\index{reloid!image}\emph{Domain} and \emph{image}
-of a reloid $f$ are defined as follows:
+\index{reloid!domain}\index{reloid!image}For a reloid $f:A\to B$,
+the values of domain and image can be computed by the following
+filter formulas. Their equivalence to Definition~\ref{def-osa-image}
+for the reloid action is proved in Section~\ref{sec-reloid-action}.
 \[
 \dom f=\bigsqcap^{\mathscr{F}}\rsupfun{\dom}\up f;\quad\im f=\bigsqcap^{\mathscr{F}}\rsupfun{\im}\up f.
 \]
 \end{defn}
-\begin{prop}
+\begin{prop}\label{prop-rld-rectangle-bound}
 $f\sqsubseteq\mathcal{A}\times^{\mathsf{RLD}}\mathcal{B}\Leftrightarrow\dom f\sqsubseteq\mathcal{A}\land\im f\sqsubseteq\mathcal{B}$
 for every reloid $f$ and filters $\mathcal{A}\in\mathscr{F}(\Src f)$,
 $\mathcal{B}\in\mathscr{F}(\Dst f)$.\end{prop}
@@ -428,7 +441,7 @@ K\in\up\uparrow^{\mathsf{RLD}(\Base(\mathcal{A}),\Base(\mathcal{A}))}(\id_{\Base
 \end{proof}
 \begin{cor}
 $(\id_{\mathcal{A}}^{\mathsf{RLD}})^{-1}=\id_{\mathcal{A}}^{\mathsf{RLD}}$.\end{cor}
-\begin{thm}
+\begin{thm}\label{thm-rld-restrict-composition}
 $f|_{\mathcal{A}}=f\circ\id_{\mathcal{A}}^{\mathsf{RLD}}$ for every
 reloid $f$ and $\mathcal{A}\in\mathscr{F}(\Src f)$.\end{thm}
 \begin{proof}
@@ -448,12 +461,9 @@ f\circ\bigsqcap^{\mathsf{RLD}(\Src f,\Src f)}\setcond{\id_{A}}{A\in\up\mathcal{A
 f\sqcap(\mathcal{A}\times^{\mathsf{RLD}}\top).
 \end{align*}
 \end{proof}
-\begin{thm}
-$(g\circ f)|_{\mathcal{A}}=g\circ(f|_{\mathcal{A}})$ for every composable
-reloids $f$ and $g$ and $\mathcal{A}\in\mathscr{F}(\Src f)$.\end{thm}
-\begin{proof}
-$(g\circ f)|_{\mathcal{A}}=(g\circ f)\circ\id_{\mathcal{A}}^{\mathsf{\mathsf{RLD}}}=g\circ(f\circ\id_{\mathcal{A}}^{\mathsf{\mathsf{RLD}}})=g\circ(f|_{\mathcal{A}})$.\end{proof}
-\begin{thm}
+In particular, restriction commutes with postcomposition by
+associativity, as in Section~\ref{sec-osa-restrictions}.
+\begin{thm}\label{thm-rld-rectangle-meet}
 $f\sqcap(\mathcal{A}\times^{\mathsf{RLD}}\mathcal{B})=\id_{\mathcal{B}}^{\mathsf{\mathsf{RLD}}}\circ f\circ\id_{\mathcal{A}}^{\mathsf{\mathsf{RLD}}}$
 for every reloid $f$ and $\mathcal{A}\in\mathscr{F}(\Src f)$, $\mathcal{B}\in\mathscr{F}(\Dst f)$.\end{thm}
 \begin{proof}
@@ -534,17 +544,19 @@ as follows:
 \end{itemize}
 To show it is really a category is trivial.
 
-\index{category!of reloid triples}The \emph{category of reloid triples}
-is defined as follows:
-\begin{itemize}
-\item Objects are small sets.
-\item The morphisms from a filter $\mathcal{A}$ to a filter $\mathcal{B}$
-are triples $(\mathcal{A},\mathcal{B},f)$ where $f\in\mathsf{RLD}(\Base(\mathcal{A}),\Base(\mathcal{B}))$
-and $\dom f\sqsubseteq\mathcal{A}$, $\im f\sqsubseteq\mathcal{B}$.
-\item The composition is defined by the formula $(\mathcal{B},\mathcal{C},g)\circ(\mathcal{A},\mathcal{B},f)=(\mathcal{A},\mathcal{C},g\circ f)$.
-\item Identity morphism for a filter $\mathcal{A}$ is $\id_{\mathcal{A}}^{\mathsf{\mathsf{RLD}}}$.
-\end{itemize}
-To prove that it is really a category is trivial.
+\index{category!of reloid triples}The \emph{category of reloid
+triples} is formed by the same fixed-arrow construction as in
+Definition~\ref{def-osa-restricted-category}. Its objects are filters
+and its arrows from $p\in\mathscr F(A)$ to $q\in\mathscr F(B)$ are
+triples $(p,q,f)$ with $f:A\to B$ and
+$\dom f\sqsubseteq p$, $\im f\sqsubseteq q$. Indeed the two bounds
+give $f\sqsubseteq p\times^{\mathsf{RLD}}q$ by
+Proposition~\ref{prop-rld-rectangle-bound}, which by
+Theorem~\ref{thm-rld-rectangle-meet} is equivalent to
+$f=\id_q^{\mathsf{RLD}}\circ f\circ\id_p^{\mathsf{RLD}}$.
+The proof of the category laws uses idempotence of the restricted
+identities, established in Proposition~\ref{rld-id-comp}.
+
 \begin{prop}
 $\uparrow^{\mathsf{RLD}}$ is a functor from $\mathbf{Rel}$ to $\mathsf{RLD}$.\end{prop}
 \begin{proof}
@@ -555,23 +567,19 @@ is by definition.
 
 \section{Monovalued and injective reloids}
 
-\index{reloid!monovalued}\index{monovalued!reloid}Following the
-idea of definition of monovalued morphism let's call \emph{monovalued}
-such a reloid $f$ that $f\circ f^{-1}\sqsubseteq\id_{\im f}^{\mathsf{RLD}}$.
+Monovaluedness and injectivity use the ordered dagger definitions
+of Section~\ref{sec-ordered-morphism-classes}. For monovaluedness,
+let $k=f\circ f^{-1}$ and $q=\im f$. The domain and image of $k$
+lie below $q$. To see this, for each $F\in\up f$, $F\circ F^{-1}$ is supported in
+$\im F\times\im F$. Taking the meet over $F$ and using the
+filter formula for rectangles gives $k\sqsubseteq q\times^{\mathsf{RLD}}q$.
+Here $\{\im F:F\in\up f\}$ is a filter base, so taking the meet of
+its squares gives the same result as taking the meet over all
+pairs of its members. Thus $k=\id_q^{\mathsf{RLD}}\circ k\circ\id_q^{\mathsf{RLD}}$,
+by Theorem~\ref{thm-rld-rectangle-meet}. Restricting $k\sqsubseteq1_{\Dst f}^{\mathsf{RLD}}$
+at $q$ gives the equivalent test $k\sqsubseteq\id_q^{\mathsf{RLD}}$.
+The dagger gives the corresponding restricted test for injectivity.
 
-\index{reloid!injective}\index{injective!reloid}Similarly, I will
-call a reloid \emph{injective} when $f^{-1}\circ f\sqsubseteq\id_{\dom f}^{\mathsf{RLD}}$.
-\begin{obvious}
-A reloid $f$ is
-\begin{itemize}
-\item monovalued iff $f\circ f^{-1}\sqsubseteq1_{\Dst f}^{\mathsf{RLD}}$;
-\item injective iff $f^{-1}\circ f\sqsubseteq1_{\Src f}^{\mathsf{RLD}}$.
-\end{itemize}
-\end{obvious}
-In other words, a reloid is monovalued (injective) when it is a monovalued
-(injective) morphism of the category of reloids.
-
-Monovaluedness is dual of injectivity.
 \begin{obvious}
 ~
 \begin{enumerate}
@@ -618,19 +626,16 @@ A reloid $f$ is monovalued iff
 \end{conjecture}
 
 \section{Complete reloids and completion of reloids}
-\begin{defn}
-\index{reloid!complete}A \emph{complete} reloid is a reloid representable
-as a join of reloidal products $\uparrow^{A}\{\alpha\}\times^{\mathsf{RLD}}b$
-where $\alpha\in A$ and $b$ is an ultrafilter on $B$ for some sets
-$A$ and $B$.
-\end{defn}
+\index{reloid!complete}\index{reloid!co-complete}
+For reloids use completeness and co-completeness relative to
+rectangles (Definition~\ref{def-osa-rectangle-complete}), with
+principal singleton filters as points. Atoms of $\mathscr F(A)$
+are ultrafilters on $A$. Thus the generators for complete reloids
+from $A$ to $B$ are the rectangles
+$\uparrow^A\{\alpha\}\times^{\mathsf{RLD}}b$ for $\alpha\in A$
+and $b$ an ultrafilter on $B$, and the generators for co-complete
+reloids are their reverses with $A$ and $B$ exchanged.
 
-\begin{defn}
-\index{reloid!co-complete}A \emph{co-complete} reloid is a reloid
-representable as a join of reloidal products $a\times^{\mathsf{RLD}}\uparrow^{A}\{\beta\}$
-where $\beta\in B$ and $a$ is an ultrafilter on $A$ for some sets
-$A$ and $B$.
-\end{defn}
 I will denote the sets of complete and co-complete reloids from a set~$A$ to a set~$B$ as
 $\mathsf{ComplRLD}(A,B)$ and $\mathsf{CoComplRLD}(A,B)$ correspondingly and
 set of all (co-)complete reloids (for small sets)
@@ -739,14 +744,14 @@ G(\alpha) & =\\
 Thus $G(\alpha)$ is a principal filter that is $G(\alpha)=\uparrow^{\Dst f}g(\alpha)$
 for some $g:\Src f\rightarrow\Dst f$; $\uparrow^{\Src f}\{\alpha\}\times^{\mathsf{RLD}}G(\alpha)=\uparrow^{\mathsf{RLD}(\Src f,\Dst f)}(\{\alpha\}\times g(\alpha))$;
 $f$ is principal as a join of principal reloids.\end{proof}
-\begin{defn}
-\index{completion!of reloid}\index{co-completion!of reloid}\emph{Completion}
-and \emph{co-completion} of a reloid $f\in\mathsf{RLD}(A,B)$ are
-defined by the formulas:
-\[
-\Compl f=\Cor^{\mathsf{ComplRLD}(A,B)}f;\quad\CoCompl f=\Cor^{\mathsf{CoComplRLD}(A,B)}f.
-\]
-\end{defn}
+\index{completion!of reloid}\index{co-completion!of reloid}
+The completion $\Compl f$ and co-completion $\CoCompl f$ use
+Definition~\ref{def-osa-completion} with the rectangle generators
+above. Each class is closed under arbitrary joins in the complete
+reloid lattice because a join of joins of generators is a join of
+generators. Thus both operations exist. Their description in terms
+of the corresponding filtrator core parts is established below.
+
 \begin{thm}
 Atoms of the lattice $\mathsf{ComplRLD}(A,B)$ are exactly reloidal
 products of the form $\uparrow^{A}\{\alpha\}\times^{\mathsf{RLD}}b$

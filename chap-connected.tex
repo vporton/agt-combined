@@ -39,31 +39,10 @@ $\supfun f\supfun f\supfun fA\sqsubseteq A\setminus B$, etc. So $\supfun{f^{n}}A
 $B\asymp\supfun{f^{n}}A$, $\lnot(A\rsuprel{f^{n}}B)$.
 \end{proof}
 
-\section{Endomorphism series}
-\begin{defn}
-$S_{1}(\mu)=\mu\sqcup\mu^{2}\sqcup\mu^{3}\sqcup\ldots$ for an endomorphism
-$\mu$ of a semicategory with countable join of morphisms (that is
-join defined for every countable set of morphisms).
-\end{defn}
-
-\begin{defn}
-\index{endomorphism series}$S(\mu)=\mu^{0}\sqcup S_{1}(\mu)=\mu^{0}\sqcup\mu\sqcup\mu^{2}\sqcup\mu^{3}\sqcup\ldots$where
-$\mu^{0}=1_{\Ob\mu}$ (identity morphism for the object $\Ob\mu$)
-where $\Ob\mu$ is the object of endomorphism $\mu$ for an endomorphism
-$\mu$ of a category with countable join of morphisms.
-\end{defn}
-I call $S_{1}$ and $S$ \emph{endomorphism series}.
-\begin{prop}
-The relation $S(\mu)$ is transitive for the category~$\mathbf{Rel}$.\end{prop}
-\begin{proof}
-~
-\begin{multline*}
-S(\mu)\circ S(\mu)=\mu^{0}\sqcup S(\mu)\sqcup\mu\circ S(\mu)\sqcup\mu^{2}\circ S(\mu)\sqcup\dots=\\
-(\mu^{0}\sqcup\mu^{1}\sqcup\mu^{2}\sqcup\dots)\sqcup(\mu^{1}\sqcup\mu^{2}\sqcup\mu^{3}\sqcup\dots)\sqcup(\mu^{2}\sqcup\mu^{3}\sqcup\mu^{4}\sqcup\dots)=\\
-\mu^{0}\sqcup\mu^{1}\sqcup\mu^{2}\sqcup\dots=S(\mu).
-\end{multline*}
-
-\end{proof}
+\section{Endomorphism series for relations}
+For $\mathbf{Rel}$, composition distributes over unions in both
+variables. Thus the series $S(\mu)$ of Definition~\ref{def-osa-series}
+is idempotent and contains the identity relation.
 
 \section{Connectedness regarding binary relations}
 
@@ -74,28 +53,13 @@ binary relations on a set~$\mho$.
 This is commonly studied in ``graph theory'' courses. \emph{Digraph}
 as commonly defined is essentially the same as an endomorphism of
 the category~$\mathbf{Rel}$.
-\begin{defn}
-\index{connectedness!regarding binary relation}A set~$A$ is called
-\emph{(strongly) connected} regarding a binary relation~$\mu$ on~$U$
-when
-\[
-\forall X,Y\in\subsets U\setminus\{\emptyset\}:(X\cup Y=A\Rightarrow X\rsuprel{\mu}Y).
-\]
+For $\mathbf{Rel}$ acting by direct image on the powersets, the
+intersection relation of an endomorphism $\mu$ relates two sets when
+$\mu$ contains a pair from their Cartesian product. Definition~\ref{def-osa-connected}
+says that a subset $A$ of the underlying set is \emph{strongly
+connected} when this holds for every pair of nonempty sets with union
+$A$. For a typed set of that type, apply this condition to its underlying set.
 
-\end{defn}
-
-\begin{defn}
-\index{connectedness!regarding mathbf{Rel}
--endomorphism@regarding $\mathbf{Rel}$-endomorphism}A typed set~$A$ of type~$U$ is called \emph{(strongly) connected}
-regarding a $\mathbf{Rel}$-endomorphism~$\mu$ on~$U$ when
-\[
-\forall X,Y\in\mathscr{T}(\Ob\mu)\setminus\{\bot^{\mathscr{T}(\Ob\mu)}\}:(X\sqcup Y=A\Rightarrow X\rsuprel{\mu}Y).
-\]
-\end{defn}
-\begin{obvious}
-A typed set~$A$ is connected regarding $\mathbf{Rel}$-endomorphism~$\mu$
-on its type iff $\GR A$ is connected regarding $\GR\mu$.
-\end{obvious}
 Let $\mho$ be a set.
 \begin{defn}
 \index{path}\emph{Path} between two elements $a,b\in\mho$ in a set
@@ -205,21 +169,14 @@ Direct implication is obvious. Reverse is proved by contradiction.
 \end{proof}
 
 \section{Connectedness regarding funcoids and reloids}
-\begin{defn}
-\index{connectivity reloid}\emph{Connectivity reloid} $S_{1}^{\ast}(\mu)=\bigsqcap_{M\in\up\mu}^{\mathsf{RLD}}S_{1}(M)$
-for an endoreloid~$\mu$.
-\end{defn}
+For the connectivity series $S_1^\ast,S^\ast$ of
+Definition~\ref{def-osa-series}, take $Z$ to be the principal
+endoreloids. The principal embedding preserves identities,
+composition and joins of relations, so the series of a principal
+endoreloid can be evaluated in $\mathbf{Rel}$ and embedded back
+into the reloids. I call $S_1^\ast(\mu)$ the \emph{connectivity reloid}
+of $\mu$.
 
-\begin{defn}
-$S^{\ast}(\mu)$
-for an endoreloid $\mu$ is defined as follows:
-\[
-S^{\ast}(\mu)=\bigsqcap_{M\in\up\mu}^{\mathsf{RLD}}S(M).
-\]
-
-\end{defn}
-Do not mess the word \emph{connectivity} with the word \emph{connectedness}
-which means being connected.\footnote{In some math literature these two words are used interchangeably.}
 \begin{prop}
 $S^{\ast}(\mu)=1_{\Ob\mu}^{\mathsf{RLD}}\sqcup S_{1}^{\ast}(\mu)$
 for every endoreloid $\mu$.\end{prop}
@@ -231,19 +188,18 @@ $S^{\ast}(\mu)=S(\mu)$ and $S^{\ast}_1(\mu)=S_1(\mu)$ if $\mu$ is a principal re
 $S^{\ast}(\mu)=\bigsqcap\{S(\mu)\}=S(\mu)$;
 $S^{\ast}_1(\mu)=\bigsqcap\{S_1(\mu)\}=S_1(\mu)$.
 \end{proof}
-\begin{defn}
-\index{connected!regarding endoreloid}A filter $\mathcal{A}\in\mathscr{F}(\Ob\mu)$
-is called \emph{connected} regarding an endoreloid $\mu$ when $S^{\ast}_1(\mu\sqcap(\mathcal{A}\times^{\mathsf{RLD}}\mathcal{A}))\sqsupseteq\mathcal{A}\times^{\mathsf{RLD}}\mathcal{A}$.\end{defn}
+Connectedness regarding an endoreloid uses the connectivity series
+with this choice of $Z$ and the reloidal rectangles. That is,
+$\mathcal A\in\mathscr F(\Ob\mu)$ is connected if
+$\mathcal A\times^{\mathsf{RLD}}\mathcal A
+\sqsubseteq S_1^\ast(\mu\sqcap(\mathcal A\times^{\mathsf{RLD}}\mathcal A))$.
 \begin{obvious}
 A filter $\mathcal{A}\in\mathscr{F}(\Ob\mu)$ is connected regarding
 an endoreloid $\mu$ iff $S^{\ast}_1(\mu\sqcap(\mathcal{A}\times^{\mathsf{RLD}}\mathcal{A}))=\mathcal{A}\times^{\mathsf{RLD}}\mathcal{A}$.\end{obvious}
-\begin{defn}
-\index{connected!regarding endofuncoid}A filter $\mathcal{A}\in\mathscr{F}(\Ob\mu)$
-is called \emph{connected} regarding an endofuncoid $\mu$ when
-\[
-\forall\mathcal{X},\mathcal{Y}\in\mathscr{F}(\Ob\mu)\setminus\{\bot^{\mathscr{F}(\Ob\mu)}\}:(\mathcal{X}\sqcup\mathcal{Y}=\mathcal{A}\Rightarrow\mathcal{X}\suprel{\mu}\mathcal{Y}).
-\]
-\end{defn}
+Connectedness regarding an endofuncoid uses the
+intersection-relation condition in Definition~\ref{def-osa-connected}
+on the filter lattice.
+
 \begin{prop}
 Let $A$ be a typed set of type~$U$. The filter $\uparrow A$ is
 connected regarding an endofuncoid $\mu$ on~$U$ iff
@@ -364,19 +320,11 @@ Weaker condition:
 \begin{thm}
 $S^{\ast}(S^{\ast}(f))=S^{\ast}(f)$ for every endoreloid $f$.\end{thm}
 \begin{proof}
-~
-\begin{multline*}
-S^{\ast}(S^{\ast}(f)) =
-\bigsqcap_{R\in\up S^{\ast}(f)}^{\mathsf{RLD}}S(R) \sqsubseteq \\
-\bigsqcap_{R\in\setcond{S(F)}{F\in\up f}}^{\mathsf{RLD}}S(R) =
-\bigsqcap_{R\in\up f}^{\mathsf{RLD}}S(S(R)) =
-\bigsqcap_{R\in\up f}^{\mathsf{RLD}}S(R) =
-S^{\ast}(f).
-\end{multline*}
-
-
-So $S^{\ast}(S^{\ast}(f))\sqsubseteq S^{\ast}(f)$. That $S^{\ast}(S^{\ast}(f))\sqsupseteq S^{\ast}(f)$
-is obvious.\end{proof}
+The principal endoreloids are closed under $S$, and on them
+$S$ is extensive and idempotent by the relational composition
+law. Apply the result on $S^\ast$ in
+Section~\ref{sec-osa-connected}.
+\end{proof}
 \begin{cor}
 $S^{\ast}(S(f))=S(S^{\ast}(f))=S^{\ast}(f)$ for every endoreloid
 $f$.\end{cor}

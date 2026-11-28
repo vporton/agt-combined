@@ -28,6 +28,7 @@
 \usepackage{xr,refcount}
 \externaldocument[book-]{volume-1}
 \newcommand{\bookref}[1]{\ref*{book-#1}}
+\newcommand{\osaprereqref}[1]{\bookref{#1}}
 
 % Continue numbering of book.pdf
 \setcounter{thm}{\getrefnumber{book-finalthm}}
@@ -96,7 +97,10 @@ This is a draft.
 
 It is a continuation of \cite{volume-1}.
 
-You can read this text without any knowledge of algebraic general topology~(\cite{volume-1}). But to have some examples of how to apply this theory, you need to know what funcoids and reloids are and how funcoids are related with topological spaces.
+The chapter on ordered semicategory actions uses the
+order-theoretic and filtrator prerequisites in Volume~1
+(\cite{volume-1}). The concrete chapters of that volume develop
+the funcoid, reloid, and pointfree funcoid examples.
 
 \include{chap-osgroups}
 

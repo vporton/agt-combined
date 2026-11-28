@@ -108,7 +108,7 @@ filters).
 \index{funcoid}Let us call a \emph{funcoid} from a set $A$ to a
 set $B$ a quadruple $(A,B,\alpha,\beta)$ where
 $\alpha\in\mathscr{F}(B)^{\mathscr{F}(A)}$,
-$\alpha\in\mathscr{F}(A)^{\mathscr{F}(B)}$ such that
+$\beta\in\mathscr{F}(A)^{\mathscr{F}(B)}$ satisfying the compatibility condition~\eqref{eq-osa-compatible-pair}, namely
 \[
 \forall\mathcal{X}\in\mathscr{F}(A),\mathcal{Y}\in\mathscr{F}(B):(\mathcal{Y}
 \nasymp\alpha\mathcal{X}\Leftrightarrow\mathcal{X}\nasymp\beta\mathcal{Y}).
@@ -150,114 +150,24 @@ If $f$ is a funcoid then $f^{-1}$ is also a funcoid.\end{prop}
 It follows from symmetry in the definition of funcoid.\end{proof}
 \begin{obvious}
 $(f^{-1})^{-1}=f$ for a funcoid $f$.\end{obvious}
-\begin{defn}
-The relation $\mathord{\suprel f}\in\subsets(\mathscr{F}(\Src
-f)\times\mathscr{F}(\Dst f))$
-is defined (for every funcoid $f$ and $\mathcal{X}\in\mathscr{F}(\Src f)$,
-$\mathcal{Y}\in\mathscr{F}(\Dst f)$ by the formula $\mathcal{X}\suprel
-f\mathcal{Y}\Leftrightarrow\mathcal{Y}\nasymp\supfun f\mathcal{X}$.\end{defn}
-\begin{obvious}
-$\mathcal{X}\suprel f\mathcal{Y}\Leftrightarrow\mathcal{Y}\nasymp\supfun
-f\mathcal{X}\Leftrightarrow\mathcal{X}\nasymp\supfun{f^{-1}}\mathcal{Y}$
-for every funcoid $f$ and $\mathcal{X}\in\mathscr{F}(\Src f)$,
-$\mathcal{Y}\in\mathscr{F}(\Dst f)$.
-\end{obvious}
+The relation $\suprel{f}$ is the intersection relation of
+Definition~\ref{def-osa-relation}, using the forward map $\supfun{f}$.
+Condition~\eqref{eq-osa-compatible-pair} gives
+$\mathord{\suprel{f^{-1}}}=\mathord{\suprel{f}}^{-1}$. Because the two
+filter lattices are strongly separable, each of $\supfun{f}$ and
+$\suprel{f}$ determines $f$: the relation determines both maps by
+their full stars, and the forward map determines the relation.
 
-\begin{obvious}
-$\suprel{f^{-1}}=\suprel f^{-1}$ for a funcoid $f$.\end{obvious}
-\begin{thm}
-Let $A$, $B$ be sets.
-\begin{enumerate}
-\item For given value of $\supfun f\in\mathscr{F}(B)^{\mathscr{F}(A)}$
-there exists no more than one funcoid $f\in\mathsf{FCD}(A,B)$.
-\item For given value of $\mathord{\suprel
-f}\in\subsets(\mathscr{F}(A)\times\mathscr{F}(B))$
-there exists no more than one funcoid $f\in\mathsf{FCD}(A,B)$.
-\end{enumerate}
-\end{thm}
-\begin{proof}
-Let $f,g\in\mathsf{FCD}(A,B)$.
-
-Obviously, $\supfun f=\supfun g\Rightarrow\suprel f=\suprel g$ and
-$\supfun{f^{-1}}=\supfun{g^{-1}}\Rightarrow\suprel f=\suprel g$.
-So it's enough to prove that $\suprel f=\suprel g\Rightarrow\supfun f=\supfun
-g$.
-
-Provided that $\suprel f=\suprel g$ we have \[\mathcal{Y}\nasymp\supfun
-f\mathcal{X}\Leftrightarrow\mathcal{X}\suprel
-f\mathcal{Y}\Leftrightarrow\mathcal{X}\suprel
-g\mathcal{Y}\Leftrightarrow\mathcal{Y}\nasymp\supfun g\mathcal{X}\]
-and consequently $\supfun f\mathcal{X}=\supfun g\mathcal{X}$ for
-every $\mathcal{X}\in\mathscr{F}(A)$, $\mathcal{Y}\in\mathscr{F}(B)$
-because a set of filters is separable, thus $\supfun f=\supfun g$.\end{proof}
-\begin{prop}
-$\supfun f\bot=\bot$
-for every funcoid $f$.\end{prop}
-\begin{proof}
-$\mathcal{Y}\nasymp\supfun f\bot\Leftrightarrow\bot\nasymp\supfun{f^{-1}}\mathcal{Y}\Leftrightarrow0\Leftrightarrow\mathcal{Y}
-\nasymp\bot$.
-Thus $\supfun f\bot=\bot$
-by separability of filters.\end{proof}
-
-\begin{prop}
-$\supfun f(\mathcal{I}\sqcup\mathcal{J})=\supfun f\mathcal{I}\sqcup\supfun
-f\mathcal{J}$
-for every funcoid $f$ and $\mathcal{I},\mathcal{J}\in\mathscr{F}(\Src
-f)$.\end{prop}
-\begin{proof}
-~
-\begin{align*}
-\fullstar\supfun f(\mathcal{I}\sqcup\mathcal{J}) & =\\
-\setcond{\mathcal{Y}\in\mathscr{F}}{\mathcal{Y}\nasymp\supfun
-f(\mathcal{I}\sqcup\mathcal{J})} & =\\
-\setcond{\mathcal{Y}\in\mathscr{F}}{\mathcal{I}\sqcup\mathcal{J}\nasymp\supfun{
-f^{-1}}\mathcal{Y}} & =\\
-\setcond{\mathcal{Y}\in\mathscr{F}}{\mathcal{I}\nasymp\supfun{f^{-1}}\mathcal{Y}
-\lor\mathcal{J}\nasymp\supfun{f^{-1}}\mathcal{Y}} & =\\
-\setcond{\mathcal{Y}\in\mathscr{F}}{\mathcal{Y}\nasymp\supfun
-f\mathcal{I}\lor\mathcal{Y}\nasymp\supfun f\mathcal{J}} & =\\
-\setcond{\mathcal{Y}\in\mathscr{F}}{\mathcal{Y}\nasymp\supfun
-f\mathcal{I}\sqcup\supfun f\mathcal{J}} & =\\
-\fullstar(\supfun f\mathcal{I}\sqcup\supfun f\mathcal{J}).
-\end{align*}
-
-
-Thus $\supfun f(\mathcal{I}\sqcup\mathcal{J})=\supfun f\mathcal{I}\sqcup\supfun
-f\mathcal{J}$
-because $\mathscr{F}(\Dst f)$ is separable.\end{proof}
-\begin{prop}
-For every $f\in\mathsf{FCD}(A,B)$ for every sets $A$ and $B$ we
-have:
-\begin{enumerate}
-\item \label{fcd-f-d1}$\mathcal{K}\suprel
-f\mathcal{I}\sqcup\mathcal{J}\Leftrightarrow\mathcal{K}\suprel
-f\mathcal{I}\lor\mathcal{K}\suprel f\mathcal{J}$
-for every $\mathcal{I},\mathcal{J}\in\mathscr{F}(B)$,
-$\mathcal{K}\in\mathscr{F}(A)$.
-\item \label{fcd-f-d2}$\mathcal{I}\sqcup\mathcal{J}\suprel
-f\mathcal{K}\Leftrightarrow\mathcal{I}\suprel f\mathcal{K}\lor\mathcal{J}\suprel
-f\mathcal{K}$
-for every $\mathcal{I},\mathcal{J}\in\mathscr{F}(A)$,
-$\mathcal{K}\in\mathscr{F}(B)$.
-\end{enumerate}
-\end{prop}
-\begin{proof}
-~
-\begin{disorder}
-\item [{\ref{fcd-f-d1}}] ~
-\begin{align*}
-\mathcal{K}\suprel f\mathcal{I}\sqcup\mathcal{J} & \Leftrightarrow\\
-(\mathcal{I}\sqcup\mathcal{J})\sqcap\supfun f\mathcal{K}\ne\bot^{\mathscr{F}(B)}
-& \Leftrightarrow\\
-\mathcal{I}\sqcap\supfun
-f\mathcal{K}\ne\bot^{\mathscr{F}(B)}\lor\mathcal{J}\sqcap\supfun
-f\mathcal{K}\ne\bot^{\mathscr{F}(B)} & \Leftrightarrow\\
-\mathcal{K}\suprel f\mathcal{I}\lor\mathcal{K}\suprel f\mathcal{J}.
-\end{align*}
-
-\item [{\ref{fcd-f-d2}}] Similar.
-\end{disorder}
-\end{proof}
+Proposition~\ref{prop-osa-pair-joins} gives preservation of the least
+element and of binary joins by $\supfun{f}$. The starrish law for
+the filter lattices also gives, for $f:A\to B$ and filters $x,x'$ on
+$A$ and $y,y'$ on $B$,
+\begin{align}
+ x\suprel{f}(y\sqcup y') &\Longleftrightarrow
+ x\suprel{f}y\ \text{or}\ x\suprel{f}y',\label{fcd-f-d1}\\
+ (x\sqcup x')\suprel{f}y &\Longleftrightarrow
+ x\suprel{f}y\ \text{or}\ x'\suprel{f}y.\label{fcd-f-d2}
+\end{align}
 
 \subsection{Composition of funcoids}
 \begin{defn}
@@ -273,47 +183,10 @@ of composable funcoids is defined by the formula
 \circ\alpha_{1},\beta_{1}\circ\beta_{2}).
 \]
 \end{defn}
-\begin{prop}
-If $f$, $g$ are composable funcoids then $g\circ f$ is a funcoid.\end{prop}
-\begin{proof}
-Let $f=(A,B,\alpha_{1},\beta_{1})$, $g=(B,C,\alpha_{2},\beta_{2})$.
-For every $\mathcal{X}\in\mathscr{F}(A)$, $\mathcal{Y}\in\mathscr{F}(C)$
-we have
-\[
-\mathcal{Y}\nasymp(\alpha_{2}\circ\alpha_{1})\mathcal{X}\Leftrightarrow\mathcal{
-Y}\nasymp\alpha_{2}\alpha_{1}\mathcal{X}\Leftrightarrow\alpha_{1}\mathcal{X}
-\nasymp\beta_{2}\mathcal{Y}\Leftrightarrow\mathcal{X}\nasymp\beta_{1}\beta_{2}
-\mathcal{Y}\Leftrightarrow\mathcal{X}\nasymp(\beta_{1}\circ\beta_{2})\mathcal{Y}
-.
-\]
-
-
-So $(A,C,\alpha_{2}\circ\alpha_{1},\beta_{1}\circ\beta_{2})$ is a
-funcoid.\end{proof}
-\begin{obvious}
-$\supfun{g\circ f}=\supfun g\circ\supfun f$ for every composable
-funcoids $f$ and $g$.\end{obvious}
-\begin{prop}
-$(h\circ g)\circ f=h\circ(g\circ f)$ for every composable funcoids
-$f$, $g$, $h$.\end{prop}
-\begin{proof}
-~
-\begin{align*}
-\supfun{(h\circ g)\circ f} & =\\
-\supfun{h\circ g}\circ\supfun f & =\\
-(\supfun h\circ\supfun g)\circ\supfun f & =\\
-\supfun h\circ(\supfun g\circ\supfun f) & =\\
-\supfun h\circ\supfun{g\circ f} & =\\
-\supfun{h\circ(g\circ f)}.
-\end{align*}
-\end{proof}
-\begin{thm}
-$(g\circ f)^{-1}=f^{-1}\circ g^{-1}$ for every composable funcoids
-$f$ and $g$.\end{thm}
-\begin{proof}
-$\supfun{(g\circ
-f)^{-1}}=\supfun{f^{-1}}\circ\supfun{g^{-1}}=\supfun{f^{-1}\circ g^{-1}}$.
-\end{proof}
+The construction following \eqref{eq-osa-compatible-pair} proves
+closure under composition, associativity, the action composition law
+$\supfun{g\circ f}=\supfun{g}\circ\supfun{f}$, and the dagger law
+$(g\circ f)^{-1}=f^{-1}\circ g^{-1}$.
 
 \section{Funcoid as continuation}
 
@@ -357,76 +230,17 @@ X\in\up\mathcal{X},Y\in\up\mathcal{Y}:X\rsuprel fY$.
 \end{enumerate}
 \end{thm}
 \begin{proof}
-~
-\begin{widedisorder}
-\item [{\ref{frel-filt}}] ~
-\begin{align*}
-\mathcal{X}\suprel f\mathcal{Y} & \Leftrightarrow\\
-\mathcal{Y}\sqcap\supfun f\mathcal{X}\ne\bot &
-\Leftrightarrow\\
-\forall Y\in\up\mathcal{Y}:\uparrow Y\sqcap\supfun
-f\mathcal{X}\ne\bot & \Leftrightarrow\\
-\forall Y\in\up\mathcal{Y}:\mathcal{X}\suprel f\uparrow Y.
-\end{align*}
-
-
-
-Analogously $\mathcal{X}\suprel f\mathcal{Y}\Leftrightarrow\forall
-X\in\up\mathcal{X}:\uparrow X\suprel f\mathcal{Y}$.
-Combining these two equivalences we get
-\[
-\mathcal{X}\suprel f\mathcal{Y}\Leftrightarrow\forall
-X\in\up\mathcal{X},Y\in\up\mathcal{Y}:\uparrow X\suprel f\uparrow
-Y\Leftrightarrow\forall X\in\up\mathcal{X},Y\in\up\mathcal{Y}:X\rsuprel fY.
-\]
-
-
-\item [{\ref{f-filt-x}}] ~
-\begin{align*}
-\mathcal{Y}\sqcap\supfun f\mathcal{X}\ne\bot &
-\Leftrightarrow\\
-\mathcal{X}\suprel f\mathcal{Y} & \Leftrightarrow\\
-\forall X\in\up\mathcal{X}:\uparrow X\suprel f\mathcal{Y} & \Leftrightarrow\\
-\forall X\in\up\mathcal{X}:\mathcal{Y}\sqcap\rsupfun fX\ne\bot.
-\end{align*}
-
-
-
-Let's denote $W=\setcond{\mathcal{Y}\sqcap\rsupfun fX}{X\in\up\mathcal{X}}$.
-We will prove that $W$ is a generalized filter base. To prove this
-it is enough to show that $V=\setcond{\rsupfun fX}{X\in\up\mathcal{X}}$
-is a generalized filter base.
-
-
-Let $\mathcal{P},\mathcal{Q}\in V$. Then $\mathcal{P}=\rsupfun fA$,
-$\mathcal{Q}=\rsupfun fB$ where $A,B\in\up\mathcal{X}$; $A\sqcap
-B\in\up\mathcal{X}$
-and $\mathcal{R}\sqsubseteq\mathcal{P}\sqcap\mathcal{Q}$ for
-$\mathcal{R}=\rsupfun f(A\sqcap B)\in V$.
-So $V$ is a generalized filter base and thus $W$ is a generalized
-filter base.
-
-
-$\bot\notin W\Leftrightarrow\bigsqcap
-W\ne\bot$
-by properties of generalized filter bases. That is
-\[
-\forall X\in\up\mathcal{X}:\mathcal{Y}\sqcap\rsupfun
-fX\neq\bot^{\mathscr{F}(\Dst
-f)}\Leftrightarrow\mathcal{Y}\sqcap\bigsqcap\rsupfun{\rsupfun
-f}\up\mathcal{X}\ne\bot.
-\]
-
-
-
-Comparing with the above, $\mathcal{Y}\sqcap\supfun
-f\mathcal{X}\ne\bot^{\mathscr{F}(\Dst
-f)}\Leftrightarrow\mathcal{Y}\sqcap\bigsqcap\rsupfun{\rsupfun
-f}\up\mathcal{X}\ne\bot$.
-So $\supfun f\mathcal{X}=\bigsqcap\rsupfun{\rsupfun f}\up\mathcal{X}$
-because the lattice of filters is separable.
-
-\end{widedisorder}
+Apply Proposition~\ref{prop-osa-core-recovery} to the compatible
+pair of $f$, using principal filters as the approximants in both
+posets. The filtrator has separable core by
+Theorem~\ref{when-sep-core}. For a given $\mathcal X$, the principal
+filters containing it form a nonempty family directed downwards
+(each two have a common lower bound in the family).
+Their images under the monotone forward map are also directed
+downwards. Taking a meet with a fixed filter preserves this
+property. The meet criterion for generalized filter bases
+(Theorem~\ref{genbase-main}) therefore supplies the intersection
+condition in Proposition~\ref{prop-osa-core-recovery}.
 \end{proof}
 \begin{cor}
 Let $f$ be a funcoid.
@@ -1241,22 +1055,12 @@ $\mathcal{X}\suprel{\id_{\mathcal{A}}^{\mathsf{FCD}}}\mathcal{Y}
 \Leftrightarrow\mathcal{A}\sqcap\mathcal{X}\sqcap\mathcal{Y}\ne\bot$.
 \end{enumerate}
 \end{obvious}
-\begin{defn}
-\index{restricting!funcoid}I will define \emph{restricting} of a
-funcoid $f$ to a filter $\mathcal{A}\in\mathscr{F}(\Src f)$ by the
-formula
-\[
-f|_{\mathcal{A}}=f\circ\id_{\mathcal{A}}^{\mathsf{FCD}}.
-\]
+Restriction, image and domain use Definitions~\ref{def-osa-restriction}
+and~\ref{def-osa-image} with $P_A=\mathscr F(A)$ and with the reverse
+as dagger. Thus $f|_{\mathcal A}=f\circ\id_{\mathcal A}^{\mathsf{FCD}}$,
+$\im f=\supfun{f}\top^{\mathscr F(\Src f)}$, and
+$\dom f=\im(f^{-1})$.
 
-\end{defn}
-
-\begin{defn}
-\index{image!of funcoid}\emph{Image} of a funcoid $f$ will be defined
-by the formula $\im f=\supfun f\top^{\mathscr{F}(\Src f)}$.
-
-\index{domain!of funcoid}\emph{Domain} of a funcoid $f$ is defined
-by the formula $\dom f=\im f^{-1}$.\end{defn}
 \begin{obvious}
 For every morphism $f\in\mathbf{Rel}(A,B)$ for sets~$A$ and~$B$
 \begin{enumerate}
@@ -1264,74 +1068,24 @@ For every morphism $f\in\mathbf{Rel}(A,B)$ for sets~$A$ and~$B$
 \item $\dom\uparrow^{\mathsf{FCD}}f=\uparrow\dom f$.
 \end{enumerate}
 \end{obvious}
-\begin{prop}
-$\supfun f\mathcal{X}=\supfun f(\mathcal{X}\sqcap\dom f)$ for every
-funcoid $f$, $\mathcal{X}\in\mathscr{F}(\Src f)$.\end{prop}
-\begin{proof}
-For every $\mathcal{Y}\in\mathscr{F}(\Dst f)$ we have
-\begin{align*}
-\mathcal{Y}\sqcap\supfun f(\mathcal{X}\sqcap\dom f)\ne\bot
-& \Leftrightarrow\\
-\mathcal{X}\sqcap\dom f\sqcap\supfun{f^{-1}}\mathcal{Y}\ne\bot & \Leftrightarrow\\
-\mathcal{X}\sqcap\im
-f^{-1}\sqcap\supfun{f^{-1}}\mathcal{Y}\ne\bot &
-\Leftrightarrow\\
-\mathcal{X}\sqcap\supfun{f^{-1}}\mathcal{Y}\ne\bot &
-\Leftrightarrow\\
-\mathcal{Y}\sqcap\supfun f\mathcal{X}\ne\bot.
-\end{align*}
-
-
-Thus $\supfun f(\mathcal{X}\sqcap\dom f)=\supfun f\mathcal{X}$ because
-the lattice of filters is separable.\end{proof}
-\begin{prop}
-$\supfun f\mathcal{X}=\im(f|_{\mathcal{X}})$ for every funcoid $f$,
-$\mathcal{X}\in\mathscr{F}(\Src f)$.\end{prop}
-\begin{proof}
-~
-\begin{align*}
-\im(f|_{\mathcal{X}}) & =\\
-\supfun{f\circ\id_{\mathcal{X}}^{\mathsf{FCD}}}\top & =\\
-\supfun f\supfun{\id_{\mathcal{X}}^{\mathsf{FCD}}}\top &
-=\\
-\supfun f(\mathcal{X}\sqcap\top) & =\\
-\supfun f\mathcal{X}.
-\end{align*}
-\end{proof}
+The restricted identities act by meets. The support and restriction
+formulas of Sections~\ref{sec-osa-image} and~\ref{sec-osa-restrictions}
+therefore give
+\[
+ \supfun{f}x=\supfun{f}(x\sqcap\dom f)=\im(f|_x),\qquad
+ \dom(f|_x)=x\sqcap\dom f
+ \qquad(x\in\mathscr F(\Src f)).
+\]
 \begin{prop}\label{x-dom-fcd}
-$\mathcal{X}\sqcap\dom f\ne\bot\Leftrightarrow\supfun
-f\mathcal{X}\ne\bot$
-for every funcoid $f$ and $\mathcal{X}\in\mathscr{F}(\Src f)$.\end{prop}
-\begin{proof}
-~
-\begin{align*}
-\mathcal{X}\sqcap\dom f\ne\bot & \Leftrightarrow\\
-\mathcal{X}\sqcap\supfun{f^{-1}}\top^{\mathscr{F}(\Dst
-f)}\ne\bot & \Leftrightarrow\\
-\top\sqcap\supfun f\mathcal{X}\ne\bot & \Leftrightarrow\\
-\supfun f\mathcal{X}\ne\bot.
-\end{align*}
-\end{proof}
+For $x\in\mathscr F(\Src f)$, $x\nasymp\dom f$ iff
+$\supfun{f}x\ne\bot$, by Proposition~\ref{prop-osa-support}.
+\end{prop}
 \begin{cor}\label{dom-fcd-at}
 $\dom f=\bigsqcup\setcond{a\in\atoms^{\mathscr{F}(\Src f)}}{\supfun
 fa\ne\bot}$.\end{cor}
 \begin{proof}
 This follows from the fact that $\mathscr{F}(\Src f)$ is an atomistic
 lattice.\end{proof}
-\begin{prop}
-$\dom(f|_{\mathcal{A}})=\mathcal{A}\sqcap\dom f$ for every funcoid
-$f$ and $\mathcal{A}\in\mathscr{F}(\Src f)$.\end{prop}
-\begin{proof}
-~
-
-\begin{align*}
-\dom(f|_{\mathcal{A}}) & =\\
-\im(\id_{\mathcal{A}}^{\mathsf{FCD}}\circ f^{-1}) & =\\
-\supfun{\id_{\mathcal{A}}^{\mathsf{FCD}}}\supfun{f^{-1}}\top & =\\
-\mathcal{A}\sqcap\supfun{f^{-1}}\top & =\\
-\mathcal{A}\sqcap\dom f.
-\end{align*}
-\end{proof}
 \begin{thm}
 $\im f=\bigsqcap^{\mathscr{F}}\rsupfun{\im}\up f$ and $\dom
 f=\bigsqcap^{\mathscr{F}}\rsupfun{\dom}\up f$
@@ -1349,31 +1103,17 @@ for every funcoid $f$.\end{thm}
 
 The second formula follows from symmetry.\end{proof}
 \begin{prop}
-For every composable funcoids $f$, $g$:
+For composable funcoids $f,g$ the following hold.
 \begin{enumerate}
-\item \label{im-gf}If $\im f\sqsupseteq\dom g$ then $\im(g\circ f)=\im g$.
-\item \label{dom-gf}If $\im f\sqsubseteq\dom g$ then $\dom(g\circ f)=\dom f$.
+\item\label{im-gf} If $\im f\sqsupseteq\dom g$, then $\im(g\circ f)=\im g$.
+\item\label{dom-gf} If $\im f\sqsubseteq\dom g$, then $\dom(g\circ f)=\dom f$.
 \end{enumerate}
 \end{prop}
 \begin{proof}
-~
-\begin{widedisorder}
-\item [{\ref{im-gf}}] ~
-\begin{align*}
-\im(g\circ f) & =\\
-\supfun{g\circ f}\top & =\\
-\supfun g\supfun f\top & =\\
-\supfun g\im f & =\\
-\supfun g(\im f\sqcap\dom g) & =\\
-\supfun g\dom g & =\\
-\supfun g\top & =\\
-\im g.
-\end{align*}
-
-\item [{\ref{dom-gf}}] $\dom(g\circ f)=\im(f^{-1}\circ g^{-1})$ what
-by proved above is equal to $\im f^{-1}$ that is $\dom f$.
-\end{widedisorder}
+Corollary~\ref{cor-osa-composite-image} applies because filter lattices
+are separable meet-semilattices with greatest elements.
 \end{proof}
+
 \section{Categories of funcoids}
 
 I will define two categories, the \emph{category of funcoids} and
@@ -1389,21 +1129,30 @@ as follows:
 \end{itemize}
 To show it is really a category is trivial.
 
+\begin{prop}\label{prop-fcd-osa}
+The category of funcoids acts on $P_A=\mathscr F(A)$ by the forward
+maps. It is an intersection-symmetric ordered dagger action,
+ordered by elements, correctly bounded, and with restricted identities.
+\end{prop}
+\begin{proof}
+The maps of a funcoid satisfy \eqref{eq-osa-compatible-pair} and the
+filter lattices are strongly separable. The order of funcoids, given
+by forward maps, is therefore also the componentwise order of the
+pair construction. The identity funcoid acts by the identity map.
+The restricted identity funcoids act by meets and are self-adjoint.
+Order by elements supplies their composition and restriction laws.
+The two bounds follow from the bounded-pair construction of
+Section~\ref{sec-osa-intersection}.
+\end{proof}
+
 \index{category!of funcoid triples}The \emph{category of funcoid
-triples} is defined as follows:
-\begin{itemize}
-\item Objects are filters on small sets.
-\item The morphisms from a filter $\mathcal{A}$ to a filter $\mathcal{B}$
-are triples $(\mathcal{A},\mathcal{B},f)$ where
-$f\in\mathsf{FCD}(\Base(\mathcal{A}),\Base(\mathcal{B}))$
-and $\dom f\sqsubseteq\mathcal{A}\land\im f\sqsubseteq\mathcal{B}$.
-\item The composition is defined by the formula
-$(\mathcal{B},\mathcal{C},g)\circ(\mathcal{A},\mathcal{B},f)=(\mathcal{A}
-,\mathcal{C},g\circ f)$.
-\item Identity morphism for a filter $\mathcal{A}$ is
-$\id_{\mathcal{A}}^{\mathsf{FCD}}$.
-\end{itemize}
-To prove that it is really a category is trivial.
+triples} is the category of restricted interspaces from
+Definition~\ref{def-osa-restricted-category} for this action.
+Its objects are filters $p$ on small sets $A$, with $A$ understood
+from $p$. An arrow is a triple $(p,q,f)$ with $f:A\to B$ a funcoid,
+$\dom f\sqsubseteq p$ and $\im f\sqsubseteq q$. These inequalities
+give exactly the restricted arrows by Proposition~\ref{prop-osa-rectangle-meet}.
+
 \begin{prop}
 $\uparrow^{\mathsf{FCD}}$ is a functor from $\mathbf{Rel}$ to
 $\mathsf{FCD}$.\end{prop}
@@ -1795,32 +1544,12 @@ g\nasymp h\circ f^{-1}.
 
 \section{Funcoidal product of filters}
 
-A generalization of Cartesian product of two sets is funcoidal product
-of two filters:
-\begin{defn}
-\index{product!funcoidal}\emph{Funcoidal product} of filters $\mathcal{A}$
-and $\mathcal{B}$ is such a funcoid
-$\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}\in\mathsf{FCD}(\Base(\mathcal{A}
-),\Base(\mathcal{B}))$
-that for every $\mathcal{X}\in\Base(\mathcal{A})$,
-$\mathcal{Y}\in\Base(\mathcal{B})$
-\[
-\mathcal{X}\suprel{\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}}\mathcal{Y}
-\Leftrightarrow\mathcal{X}\nasymp\mathcal{A}\land\mathcal{Y}\nasymp\mathcal{B}.
-\]
-\end{defn}
-\begin{prop}
-$\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}$ is really a funcoid
-and
-\[
-\supfun{\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}}\mathcal{X}=\begin{cases}
-\mathcal{B} & \text{if }\mathcal{X}\nasymp\mathcal{A}\\
-\bot^{\mathscr{F}(\Base(\mathcal{B}))} & \text{if }\mathcal{X}\asymp\mathcal{A}.
-\end{cases}
-\]
-\end{prop}
-\begin{proof}
-Obvious.\end{proof}
+The \emph{funcoidal product}
+$\mathcal A\times^{\mathsf{FCD}}\mathcal B$ of filters is the
+rectangle of Definition~\ref{def-osa-rectangle} in the funcoid action
+(Proposition~\ref{prop-fcd-osa}). Its action and intersection relation
+are given by Proposition~\ref{prop-osa-rectangle-action}.
+
 \begin{obvious}
 ~
 \begin{itemize}
@@ -1830,60 +1559,16 @@ for sets $A\subseteq U$ and $B\subseteq V$.
 typed sets~$A$ and~$B$.
 \end{itemize}
 \end{obvious}
-\begin{prop}
-$f\sqsubseteq\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}\Leftrightarrow\dom
-f\sqsubseteq\mathcal{A}\land\im f\sqsubseteq\mathcal{B}$
-for every $f\in\mathsf{FCD}(A,B)$ and $\mathcal{A}\in\mathscr{F}(A)$,
-$\mathcal{B}\in\mathscr{F}(B)$.\end{prop}
-\begin{proof}
-If $f\sqsubseteq\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}$ then
-$\dom
-f\sqsubseteq\dom(\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B})\sqsubseteq\mathcal
-{A}$,
-$\im
-f\sqsubseteq\im(\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B})\sqsubseteq\mathcal{
-B}$.
-If $\dom f\sqsubseteq\mathcal{A}\land\im f\sqsubseteq\mathcal{B}$
-then
+For $f\in\mathsf{FCD}(A,B)$, $p\in\mathscr F(A)$, and $q\in\mathscr F(B)$,
+Proposition~\ref{prop-osa-rectangle-meet} gives
 \[
-\forall\mathcal{X}\in\mathscr{F}(A),\mathcal{Y}\in\mathscr{F}(B):(\mathcal{X}
-\suprel
-f\mathcal{Y}\Rightarrow\mathcal{X}\sqcap\mathcal{A}\ne\bot
-\land\mathcal{Y}\sqcap\mathcal{B}\ne\bot);
-\]
-consequently $f\sqsubseteq\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}$.
-\end{proof}
-The following theorem gives a formula for calculating an important
-particular case of a meet on the lattice of funcoids:
-\begin{thm}
-$f\sqcap(\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B})=\id_{\mathcal{B}}^{\mathsf
-{FCD}}\circ f\circ\id_{\mathcal{A}}^{\mathsf{FCD}}$
-for every funcoid $f$ and $\mathcal{A}\in\mathscr{F}(\Src f)$,
-$\mathcal{B}\in\mathscr{F}(\Dst f)$.\end{thm}
-\begin{proof}
-$h\eqdef\id_{\mathcal{B}}^{\mathsf{FCD}}\circ
-f\circ\id_{\mathcal{A}}^{\mathsf{FCD}}$.
-For every $\mathcal{X}\in\mathscr{F}(\Src f)$
-\[
-\supfun h\mathcal{X}=\supfun{\id_{\mathcal{B}}^{\mathsf{FCD}}}\supfun
-f\supfun{\id_{\mathcal{A}}^{\mathsf{FCD}}}\mathcal{X}=\mathcal{B}\sqcap\supfun
-f(\mathcal{A}\sqcap\mathcal{X}).
+ f\sqsubseteq p\times^{\mathsf{FCD}}q
+ \quad\Longleftrightarrow\quad\dom f\sqsubseteq p\text{ and }\im f\sqsubseteq q,
+ \qquad
+ f\sqcap(p\times^{\mathsf{FCD}}q)
+ =\id_q^{\mathsf{FCD}}\circ f\circ\id_p^{\mathsf{FCD}}.
 \]
 
-
-From this, as easy to show, $h\sqsubseteq f$ and
-$h\sqsubseteq\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}$.
-If $g\sqsubseteq f\land g\sqsubseteq\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}$
-for a $g\in\mathsf{FCD}(\Src f,\Dst f)$ then $\dom g\sqsubseteq\mathcal{A}$,
-$\im g\sqsubseteq\mathcal{B}$,
-\[
-\supfun g\mathcal{X}=\mathcal{B}\sqcap\supfun
-g(\mathcal{A}\sqcap\mathcal{X})\sqsubseteq\mathcal{B}\sqcap\supfun
-f(\mathcal{A}\sqcap\mathcal{X})=\supfun{\id_{\mathcal{B}}^{\mathsf{FCD}}}\supfun
-f\supfun{\id_{\mathcal{A}}^{\mathsf{FCD}}}\mathcal{X}=\supfun h\mathcal{X},
-\]
-$g\sqsubseteq h$. So
-$h=f\sqcap(\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B})$.\end{proof}
 \begin{cor}
 $f|_{\mathcal{A}}=f\sqcap(\mathcal{A}\times^{\mathsf{FCD}}\top^{\mathscr{F}(\Dst
 f)})$
@@ -2310,13 +1995,11 @@ is obvious.
 \end{proof}
 
 \section{Complete funcoids}
-\begin{defn}
-\index{funcoid!co-complete}I will call \emph{co-complete} such a
-funcoid $f$ that $\rsupfun fX$ is a principal filter for every
-$X\in\mathscr{T}(\Src f)$.\end{defn}
-\begin{obvious}
-Funcoid $f$ is co-complete iff $\supfun f\mathcal{X}\in\mathfrak{P}(\Dst f)$
-for every $\mathcal{X}\in\mathfrak{P}(\Src f)$.\end{obvious}
+Use the principal filters as the cores in
+Definition~\ref{def-osa-complete}. Thus co-completeness of a funcoid
+means that its forward map takes principal filters to principal
+filters.
+
 \begin{defn}
 \index{generalized closure}I will call \emph{generalized closure}
 such a function $\alpha\in(\mathscr{T}B)^{\mathscr{T}A}$ (for some
@@ -2334,9 +2017,10 @@ Thus funcoids can be considered as a generalization of generalized
 closures. A topological space in Kuratowski sense is the same as reflexive
 and transitive generalized closure. So topological spaces can be considered
 as a special case of funcoids.\end{rem}
-\begin{defn}
-\index{funcoid!complete}I will call a \emph{complete funcoid} a funcoid
-whose reverse is co-complete.\end{defn}
+Completeness means completeness for the action in
+Definition~\ref{def-osa-complete}. The next theorem relates this
+condition to co-completeness of the reverse funcoid.
+
 \begin{thm}
 The following conditions are equivalent for every funcoid $f$:
 \begin{enumerate}
@@ -2682,24 +2366,19 @@ So $g=f^{-1}$.
 $\Cor f=\Cor'f$ for an element $f$ of a filtrator of funcoids.\end{thm}
 \begin{proof}
 By theorem~\ref{cor-eq} and corollary~\ref{fcd-filtered}.\end{proof}
-\begin{defn}
-\index{completion!of funcoid}\emph{Completion} of a funcoid
-$f\in\mathsf{FCD}(A,B)$
-is the complete funcoid $\Compl f\in\mathsf{FCD}(A,B)$ defined by
-the formula $\rsupfun{\Compl f}@\{\alpha\}=\rsupfun
-f@\{\alpha\}$
-for $\alpha\in\Src f$.
-\end{defn}
+\index{completion!of funcoid}\index{co-completion!of funcoid}
+Use the completion of Definition~\ref{def-osa-completion} with
+complete funcoids as the specified class. Concretely, $\Compl f$ is
+the unique complete funcoid agreeing with $f$ on principal
+singleton filters. Such a funcoid exists by the representation of
+complete funcoids on singletons. It lies below $f$: on each
+principal filter its value is a join of values at singletons,
+each of which lies below the value of $f$ at that filter.
+Order of funcoids is determined by their values on principal filters.
+The same computation shows that every complete funcoid below $f$
+lies below $\Compl f$. Hence $\Compl f$ is the completion.
+The co-completion is $\CoCompl f=(\Compl(f^{-1}))^{-1}$.
 
-\begin{defn}
-\index{co-completion!of funcoid}\emph{Co-completion} of a funcoid
-$f$ is defined by the formula
-\[
-\CoCompl f=(\Compl f^{-1})^{-1}.
-\]
-\end{defn}
-\begin{obvious}
-$\Compl f\sqsubseteq f$ and $\CoCompl f\sqsubseteq f$.\end{obvious}
 \begin{prop}
 The filtrator $(\mathsf{FCD}(A,B),\mathsf{ComplFCD}(A,B))$ is
 filtered.\end{prop}
@@ -2950,23 +2629,12 @@ The filtrator of complete funcoids is also with co-separable core.
 
 \section{Monovalued and injective funcoids}
 
-\index{funcoid!monovalued}\index{monovalued!funcoid}Following the
-idea of definition of monovalued morphism let's call \emph{monovalued}
-such a funcoid $f$ that $f\circ f^{-1}\sqsubseteq\id_{\im f}^{\mathsf{FCD}}$.
+Monovaluedness and injectivity use the ordered dagger definitions
+of Section~\ref{sec-ordered-morphism-classes}. By
+Section~\ref{sec-osa-restrictions}, the equivalent restricted tests are
+$f\circ f^{-1}\sqsubseteq\id_{\im f}^{\mathsf{FCD}}$ and
+$f^{-1}\circ f\sqsubseteq\id_{\dom f}^{\mathsf{FCD}}$, respectively.
 
-\index{funcoid!injective}\index{injective!funcoid}Similarly, I will
-call a funcoid injective when $f^{-1}\circ f\sqsubseteq\id_{\dom
-f}^{\mathsf{FCD}}$.
-\begin{obvious}
-A funcoid $f$ is:
-\begin{enumerate}
-\item monovalued iff $f\circ f^{-1}\sqsubseteq1_{\Dst f}^{\mathsf{FCD}}$;
-\item injective iff $f^{-1}\circ f\sqsubseteq1_{\Src f}^{\mathsf{FCD}}$.
-\end{enumerate}
-\end{obvious}
-In other words, a funcoid is monovalued (injective) when it is a monovalued
-(injective) morphism of the category of funcoids. Monovaluedness is
-dual of injectivity.
 \begin{obvious}
 ~
 \begin{enumerate}
@@ -2994,34 +2662,10 @@ J)=\rsupfun{f^{-1}}I\sqcap\rsupfun{f^{-1}}J$.
 \begin{proof}
 ~
 \begin{description}
-\item [{\ref{mnv-atom}$\Rightarrow$\ref{mnv-flt}}] Let
-$a\in\atoms^{\mathscr{F}(\Src f)}$,
-$\supfun fa=b$. Then because $b\in\atoms^{\mathscr{F}(\Dst
-f)}\cup\{\bot^{\mathscr{F}(\Dst f)}\}$
-\begin{gather*}
-(\mathcal{I}\sqcap\mathcal{J})\sqcap b\ne\bot \Leftrightarrow
-\mathcal{I}\sqcap b\ne\bot\land\mathcal{J}\sqcap b\ne\bot;\\
-a\suprel f\mathcal{I}\sqcap\mathcal{J}\Leftrightarrow a\suprel f\mathcal{I}\land
-a\suprel f\mathcal{J};\\
-\mathcal{I}\sqcap\mathcal{J}\suprel{f^{-1}}a\Leftrightarrow\mathcal{I}\suprel{f^
-{-1}}a\land\mathcal{J}\suprel{f^{-1}}a;\\
-a\sqcap\supfun{f^{-1}}(\mathcal{I}\sqcap\mathcal{J})\ne\bot
-\Leftrightarrow a\sqcap\supfun{f^{-1}}\mathcal{I}\ne\bot
-\land a\sqcap\supfun{f^{-1}}\mathcal{J}\ne\bot;\\
-\supfun{f^{-1}}(\mathcal{I}\sqcap\mathcal{J})=\supfun{f^{-1}}\mathcal{I}
-\sqcap\supfun{f^{-1}}\mathcal{J}.
-\end{gather*}
-
-\item [{\ref{mnv-flt}$\Rightarrow$\ref{fcd-mv}}]
-$\supfun{f^{-1}}a\sqcap\supfun{f^{-1}}b=\supfun{f^{-1}}(a\sqcap
-b)=\supfun{f^{-1}}\bot=\bot$
-for every two distinct atomic filter objects $a$ and $b$ on $\Dst f$.
-This is equivalent to $\lnot(\supfun{f^{-1}}a\suprel fb)$; $b\asymp\supfun
-f\supfun{f^{-1}}a$;
-$b\asymp\supfun{f\circ f^{-1}}a$; $\lnot(a\suprel{f\circ f^{-1}}b)$.
-So $a\suprel{f\circ f^{-1}}b\Rightarrow a=b$ for every ultrafilters
-$a$ and $b$. This is possible only when $f\circ f^{-1}\sqsubseteq1_{\Dst
-f}^{\mathsf{FCD}}$.
+\item[\ref{fcd-mv}, \ref{mnv-atom}, \ref{mnv-flt}]
+These three conditions are equivalent by
+Proposition~\ref{prop-osa-monovalued-atoms}, since the filter
+lattices are atomistic meet-semilattices.
 \item [{\ref{mnv-set}$\Rightarrow$\ref{mnv-flt}}] ~
 \begin{align*}
 \supfun{f^{-1}}(\mathcal{I}\sqcap\mathcal{J}) & =\\
@@ -3030,27 +2674,13 @@ f}^{\mathsf{FCD}}$.
 J}{I\in\up\mathcal{I},J\in\up\mathcal{J}} & =\\
 \bigsqcap\setcond{\rsupfun{f^{-1}}(I\sqcap J)}{I\in\up\mathcal{I},J\in\up\mathcal{J}}
 & =\\
-\bigsqcap\setcond{\rsupfun{f^{-1}}I\sqcap\rsupfun
-fJ}{I\in\up\mathcal{I},J\in\up\mathcal{J}} & =\\
-\bigsqcap\setcond{\rsupfun
-fI}{I\in\up\mathcal{I}}\sqcap\bigsqcap\setcond{\rsupfun{f^{-1}}J}{J\in\up\mathcal{J}}
+\bigsqcap\setcond{\rsupfun{f^{-1}}I\sqcap\rsupfun{f^{-1}}J}{I\in\up\mathcal{I},J\in\up\mathcal{J}} & =\\
+\bigsqcap\setcond{\rsupfun{f^{-1}}I}{I\in\up\mathcal{I}}\sqcap\bigsqcap\setcond{\rsupfun{f^{-1}}J}{J\in\up\mathcal{J}}
 & =\\
 \supfun{f^{-1}}\mathcal{I}\sqcap\supfun{f^{-1}}\mathcal{J}.
 \end{align*}
 
 \item [{\ref{mnv-flt}$\Rightarrow$\ref{mnv-set}}] Obvious.
-\item [{$\lnot$\ref{mnv-atom}$\Rightarrow$$\lnot$\ref{fcd-mv}}] Suppose
-$\supfun fa\notin\atoms^{\mathscr{F}(\Dst f)}\cup\{\bot^{\mathscr{F}(\Dst f)}\}$
-for some $a\in\atoms^{\mathscr{F}(\Src f)}$. Then there exist two
-atomic filters $p$ and $q$ on $\Dst f$ such that $p\ne q$ and
-$\supfun fa\sqsupseteq p\land\supfun fa\sqsupseteq q$. Consequently
-$p\nasymp\supfun fa$; $a\nasymp\supfun{f^{-1}}p$;
-$a\sqsubseteq\supfun{f^{-1}}p$;
-$\supfun{f\circ f^{-1}}p=\supfun f\supfun{f^{-1}}p\sqsupseteq\supfun
-fa\sqsupseteq q$;
-$\supfun{f\circ f^{-1}}p\nsqsubseteq p$ and $\supfun{f\circ
-f^{-1}}p\ne\bot^{\mathscr{F}(\Dst f)}$.
-So it cannot be $f\circ f^{-1}\sqsubseteq1_{\Dst f}^{\mathsf{FCD}}$.
 \item [{\ref{fcd-mmv}$\Rightarrow$\ref{fcd-wmmv}}] Obvious.
 \item [{\ref{fcd-mv}$\Rightarrow$\ref{fcd-mmv}}] ~
 \begin{multline*}
@@ -3097,19 +2727,14 @@ that is $\supfun ga\sqsubset\supfun fa$ what is impossible.
 
 \section{\texorpdfstring{$T_{0}$-, $T_{1}$-, $T_{2}$-, $T_{3}$-, and $T_{4}$-separable
 funcoids}%
-{T0-, T1-, T2-, and T3-separable funcoids}}
+{T0-, T1-, T2-, T3-, and T4-separable funcoids}}
 
-\index{funcoids!separable}For funcoids it can be generalized $T_{0}$-,
-$T_{1}$-, $T_{2}$-, and $T_{3}$- separability. Worthwhile note
-that $T_{0}$ and $T_{2}$ separability is defined through $T_{1}$
-separability.
-\begin{defn}
-Let call \emph{$T_{1}$-separable} such endofuncoid $f$ that for
-every $\alpha,\beta\in\Ob f$ is true
-\[
-\alpha\ne\beta\Rightarrow\lnot(@\{\alpha\}\rsuprel f@\{\beta\}).
-\]
-\end{defn}
+Use the separation predicates of Definition~\ref{def-osa-separation},
+with principal singleton filters as points and all principal filters
+as the test elements for regularity. Distinct principal singleton
+filters have least meet. Hence $T_1$-separability of an endofuncoid
+requires that no two distinct principal singleton filters be related.
+
 \begin{prop}
 An endofuncoid $f$ is $T_{1}$-separable iff $\Cor f\sqsubseteq1_{\Ob
 f}^{\mathsf{FCD}}$.\end{prop}
@@ -3135,28 +2760,22 @@ x \} \Leftrightarrow \\ \Compl \CoCompl f \sqsubseteq
 \end{multline*}
 \end{proof}
 
-\begin{defn}
-Let call \emph{$T_{0}$-separable} such funcoid $f\in\mathsf{FCD}(A,A)$
-that $f\sqcap f^{-1}$ is $T_{1}$-separable.
-\end{defn}
-
-\begin{defn}
-Let call \emph{$T_{2}$-separable} such funcoid $f$ that $f^{-1}\circ f$
-is $T_{1}$-separable.
-\end{defn}
 For symmetric transitive funcoids $T_{0}$-, $T_{1}$- and $T_{2}$-separability
-are the same (see theorem \ref{sym-trans}).
+coincide by Definition~\ref{def-osa-separation}.
 \begin{obvious}
 A funcoid $f$ is $T_{2}$-separable iff $\alpha\ne\beta\Rightarrow\rsupfun
 f@\{\alpha\}\asymp\rsupfun f@\{\beta\}$
 for every $\alpha,\beta\in\Src f$.\end{obvious}
-\begin{defn}
-Funcoid $f$ is \emph{regular} iff for every $C\in\mathscr{T}\Dst f$ and
-$p\in\Src f$
-\[\supfun{f} \langle f^{- 1} \rangle C \asymp \supfun{f}
-@\{ p \} \Leftarrow \uparrow^{\Src f} \{ p \}
-\asymp \langle f^{- 1} \rangle C.\]
-\end{defn}
+In terms of the two maps of a funcoid $f$, regularity of
+Definition~\ref{def-osa-separation} asks for
+\[
+ \supfun{f}\supfun{f^{-1}}C\asymp\supfun{f}p
+ \quad\text{whenever}\quad
+ p\asymp\supfun{f^{-1}}C,
+\]
+for principal singleton filters $p$ on $\Src f$ and principal
+filters $C$ on $\Dst f$. This is the contrapositive of the same
+condition after applying intersection symmetry twice.
 
 \begin{prop}
 The following are pairwise equivalent:
@@ -3213,10 +2832,6 @@ wrong.
 \end{rem}
 
 
-\begin{defn}
-An endofuncoid is $T_{3}$- iff it is both $T_{2}$- and regular.
-\end{defn}
-
 A topological space~$S$ is called $T_4$-separable when for any two disjoint closed sets $A,B\subseteq S$
 there exist disjoint open sets~$U$,~$V$ containing $A$ and $B$ respectively.
 
@@ -3244,39 +2859,13 @@ $\rsupfun{f} \rsupfun{f^{-1}} \langle f
 
 $f \circ f^{- 1} \circ f \circ f^{- 1} \sqsubseteq f \circ f^{- 1}$.
 
-Take the last formula as the definition of $T_4$-funcoid~$f$.
+The last formula is the $T_4$ condition of Definition~\ref{def-osa-separation}.
 
 \section{Filters closed regarding a funcoid}
-\begin{defn}
-\index{filter!closed}Let's call \emph{closed} regarding a funcoid
-$f\in\mathsf{FCD}(A,A)$ such filter $\mathcal{A}\in\mathscr{F}(\Src f)$
-that $\supfun f\mathcal{A}\sqsubseteq\mathcal{A}$.
-\end{defn}
-This is a generalization of closedness of a set regarding an unary
-operation.
-\begin{prop}
-If $I$ and $J$ are closed (regarding some funcoid $f$), $S$ is
-a set of closed filters on $\Src f$, then
-\begin{enumerate}
-\item $\mathcal{I}\sqcup\mathcal{J}$ is a closed filter;
-\item $\bigsqcap S$ is a closed filter.
-\end{enumerate}
-\end{prop}
-\begin{proof}
-Let denote the given funcoid as $f$. $\supfun
-f(\mathcal{I}\sqcup\mathcal{J})=\supfun f\mathcal{I}\sqcup\supfun
-f\mathcal{J}\sqsubseteq\mathcal{I}\sqcup\mathcal{J}$,
-$\supfun f\bigsqcap S\sqsubseteq\bigsqcap\rsupfun{\supfun
-f}S\sqsubseteq\bigsqcap S$.
-Consequently the filters $\mathcal{I}\sqcup\mathcal{J}$ and $\bigsqcap S$
-are closed.\end{proof}
-\begin{prop}
-If $S$ is a set of filters closed regarding a complete funcoid, then
-the filter $\bigsqcup S$ is also closed regarding our funcoid.\end{prop}
-\begin{proof}
-$\supfun f\bigsqcup S=\bigsqcup\rsupfun{\supfun f}S\sqsubseteq\bigsqcup S$
-where $f$ is the given funcoid.
-\end{proof}
+Apply Definition~\ref{def-osa-closed} with $P_A=\mathscr F(A)$.
+The action preserves binary joins, so the join of two closed filters
+is closed. All meets of closed filters are closed by monotonicity,
+and for a complete funcoid all their joins are closed as well.
 
 \section{Proximity spaces}
 

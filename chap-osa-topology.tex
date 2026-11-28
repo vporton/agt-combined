@@ -1,0 +1,987 @@
+\section[Intersection relations]{Actions on posets and their intersection relations}
+\label{sec-osa-intersection}
+
+An action is \emph{ordered by elements} if, for parallel interspaces
+$f,g:X\to Y$, the inequalities $\supfun{f}x\sqsubseteq\supfun{g}x$
+for every $x\in P_X$ imply $f\sqsubseteq g$. In particular the action
+then distinguishes parallel interspaces. In a \emph{functional} action
+the interspaces themselves are the monotone maps that act on the posets.
+Every action induces a functional action by taking, for each $X,Y$,
+the image of $\Hom(X,Y)$ under $f\mapsto\supfun{f}$ with pointwise
+order. Keep the objects $X$ as labels for the posets $P_X$, even when
+two of the posets coincide. Composition of image maps is well defined
+because the original action preserves composition. An action ordered
+by elements is isomorphic to this functional action.
+
+An \emph{ordered semifunctor} is a semifunctor that is monotone on each
+Hom-set. If $F:\mathcal D\to\mathcal C$ is an ordered semifunctor and
+$\mathcal C$ acts on the posets $P_X$, the \emph{pullback action} along
+$F$ assigns to an object $U$ of $\mathcal D$ the poset $P_{F(U)}$ and
+to an arrow $f$ the map $\supfun{F(f)}$. The two composition laws and
+the two monotonicity conditions follow from those for $F$ and the given
+action.
+
+I use the ordered dagger semicategories of
+Section~\osaprereqref{sec-ordered-dagger}. In particular, a dagger
+takes $f:X\to Y$ to $f^\dagger:Y\to X$, preserves the order and
+reverses composition. An \emph{ordered dagger semicategory action}
+is an ordered semicategory action whose underlying semicategory has
+such a dagger. In the one-object case this is an ordered semigroup
+action with an involution on the semigroup. Compatibility of the two
+action maps associated to $f$ and $f^\dagger$ can be expressed by
+intersection.
+
+\begin{defn}\label{def-osa-relation}
+\index{intersection relation}
+The \emph{intersection relation} $\mathord{\suprel{f}}\subseteq P_X\times P_Y$
+of an interspace $f:X\to Y$ is
+\[
+ x\suprel{f}y\quad\Longleftrightarrow\quad y\nasymp\supfun{f}x
+ \qquad(x\in P_X,\ y\in P_Y).
+\]
+An ordered dagger semicategory action is \emph{intersection-symmetric}
+if $\mathord{\suprel{f^\dagger}}=\mathord{\suprel{f}}^{-1}$ for every $f$,
+where the inverse of a relation is its converse. Equivalently,
+$y\nasymp\supfun{f}x$ iff $x\nasymp\supfun{f^\dagger}y$.
+\end{defn}
+
+\begin{prop}\label{prop-osa-relation}
+For every ordered action, $f\sqsubseteq g$ implies
+$\mathord{\suprel{f}}\subseteq\mathord{\suprel{g}}$. If $P_Y$ is separable
+in the sense of Section~\osaprereqref{sep-and-full}, $\suprel{f}$
+determines $\supfun{f}$. If $P_Y$ is strongly separable and the action is
+ordered by elements on $\Hom(X,Y)$, then
+$\mathord{\suprel{f}}\subseteq\mathord{\suprel{g}}$ implies $f\sqsubseteq g$.
+\end{prop}
+
+\begin{proof}
+The set of $y$ related to $x$ is the full star of $\supfun{f}x$.
+The full star is monotone. Separability makes it injective, and
+strong separability makes it order reflecting. Apply these facts for
+each $x$ and use order by elements for the last assertion.
+\end{proof}
+
+\begin{prop}\label{prop-osa-rel-comp}
+For $f:X\to Y$ and $g:Y\to Z$,
+$\mathord{\suprel{g\circ f}}=\mathord{\suprel{g}}\circ\supfun{f}$,
+where a function in a relational composition stands for its graph.
+In an intersection-symmetric action, for $x\in P_X$ and $z\in P_Z$,
+\[
+ x\suprel{g\circ f}z
+ \quad\Longleftrightarrow\quad
+ \supfun{f}x\nasymp\supfun{g^\dagger}z.
+\]
+If $P_Y$ is atomic with least element (Section~\osaprereqref{sec-common-atoms}),
+this is equivalent to the
+existence of an atom $y$ of $P_Y$ with $x\suprel{f}y$ and $y\suprel{g}z$.
+\end{prop}
+
+\begin{proof}
+The composition law for the action gives
+$z\nasymp\supfun{g\circ f}x$ iff $\supfun{f}x\suprel{g}z$.
+Apply intersection symmetry for the second formula. In an atomic
+poset with least element, two elements intersect iff an atom lies
+below both. An atom intersects an element iff it lies below that
+element, giving the last assertion.
+\end{proof}
+
+The following construction gives actions whose arrows record the forward
+and reverse maps explicitly. For posets $P,Q$ take pairs of maps
+$\alpha:P\to Q$ and $\beta:Q\to P$ satisfying
+\begin{equation}\label{eq-osa-compatible-pair}
+ y\nasymp\alpha x\quad\Longleftrightarrow\quad x\nasymp\beta y
+ \qquad(x\in P,\ y\in Q).
+\end{equation}
+Composition applies the forward maps in order and the reverse maps in
+reverse order. Indeed, if $(\gamma,\delta)$ is a second pair from $Q$ to
+a poset $R$, then for $z\in R$,
+$z\nasymp\gamma\alpha x$ iff $\alpha x\nasymp\delta z$ iff
+$x\nasymp\beta\delta z$. Identity maps form the identity pair and
+interchanging the two maps gives the dagger. These operations give a
+dagger category with the posets as objects. If the objects are strongly
+separable, both maps of every pair are monotone. For example,
+$x\sqsubseteq x'$ implies that every $y$ intersecting $\alpha x$ also
+intersects $\alpha x'$, by \eqref{eq-osa-compatible-pair}. Hence
+$\alpha x\sqsubseteq\alpha x'$. Interchanging the maps proves monotonicity
+of $\beta$. With the componentwise pointwise order on pairs, composition
+is monotone and evaluation of the forward map is an intersection-symmetric
+ordered action. Strong separability also gives order by elements. An
+inequality between forward maps gives inclusion of the corresponding
+relations and hence inclusion of the full stars of the reverse values
+at each $y$, which gives the inequality between reverse maps.
+
+If $P,Q$ are bounded, the least compatible pair consists of the
+two constant least maps. The greatest compatible pair sends each
+least input to the least output and each non-least input to the
+greatest output. For the latter pair both sides of
+\eqref{eq-osa-compatible-pair} hold exactly when $x$ and $y$ are
+both non-least. These are the bounds in the componentwise order:
+any compatible pair preserves the least elements, since the image
+of a least element intersects no element by
+\eqref{eq-osa-compatible-pair}.
+
+\begin{prop}\label{prop-osa-core-recovery}
+For each of two action posets $P_X,P_Y$ choose a subset $Z_X,Z_Y$,
+respectively. For an element $x\in P_X$, put
+$\up_{Z_X}x=\setcond{u\in Z_X}{x\sqsubseteq u}$, and use the same
+notation for elements of $P_Y$. Suppose that in each poset an
+element intersects a fixed element iff all its upper approximants
+in the selected subset intersect that fixed element. In an
+intersection-symmetric action one then has
+\[
+ x\suprel{f}y
+ \iff
+ \forall(u,v)\in \up_{Z_X}x\times\up_{Z_Y}y:\ u\suprel{f}v.
+\]
+This formula applies also to a pair satisfying
+\eqref{eq-osa-compatible-pair}. With the hypothesis on $Z_X$ alone,
+one may approximate $x$ alone. If $P_Y$ is separable and
+intersection with $y\in P_Y$ commutes with the meet of the
+values $\supfun{f}u$ for $u\in\up_{Z_X}x$, then
+\[
+ \supfun{f}x=\bigsqcap_{u\in\up_{Z_X}x}\supfun{f}u.
+\]
+Here commuting means that a test element intersects the meet iff
+it intersects every member of the family, and requires that the
+meet exist.
+\end{prop}
+
+\begin{proof}
+Use the compatibility equation to test $x$ against
+$\supfun{f^\dagger}y$. The approximation hypothesis for $x$ gives
+the test at each $u\in\up_{Z_X}x$. For each $u$, approximate $y$
+in the test of its intersection with $\supfun{f}u$. If the meet
+satisfies the stated condition, it has the same full star as
+$\supfun{f}x$. Separability gives equality.
+\end{proof}
+
+\begin{prop}\label{prop-osa-atom-recovery}
+Suppose $P_X$ and $P_Y$ are atomic with least elements.
+In an intersection-symmetric action $x\suprel{f}y$ holds iff
+there are atoms $p\sqsubseteq x$ and $q\sqsubseteq y$ with
+$p\suprel{f}q$.
+If both posets are atomistic and the action is ordered by elements,
+the relation on atoms determines $f$ and reflects its order.
+For every $x\in P_X$ one has
+$\supfun{f}x=\bigsqcup_{p\in\atoms^{P_X},\,p\sqsubseteq x}\supfun{f}p$.
+\end{prop}
+
+\begin{proof}
+An atom $q$ below $y$ and $\supfun{f}x$ exists exactly when these
+elements intersect. Equivalently, $x$ intersects $\supfun{f^\dagger}q$,
+so choose an atom $p$ below both. The converse uses monotonicity.
+If every element is a join of its atoms, the action at $x$ is
+the join of the atoms $q$ obtained by this test. This also shows
+that it is the least upper bound of the values at the atoms below $x$.
+Inclusion of the relation on atoms thus gives pointwise order of
+the action values and hence arrow order.
+\end{proof}
+
+\section{Images, domains, and preservation of joins}
+\label{sec-osa-image}
+
+\begin{defn}\label{def-osa-image}
+\index{image!of an interspace}\index{domain!of an interspace}
+For $f:X\to Y$ with $P_X$ having a greatest element $\top^{P_X}$,
+define the \emph{image} $\im f=\supfun{f}\top^{P_X}\in P_Y$.
+In a dagger action with $P_Y$ having a greatest element, define the
+\emph{domain} $\dom f=\im(f^\dagger)\in P_X$.
+\end{defn}
+
+Both are monotone on their Hom-sets. Every $\supfun{f}x$ lies below
+$\im f$ when it is defined. For $g:Y\to Z$ one has
+$\im(g\circ f)=\supfun{g}(\im f)$, by the composition law.
+
+\begin{prop}\label{prop-osa-support}
+In an intersection-symmetric action, let $f:X\to Y$ with $P_Y$ having
+a greatest element. For each $x\in P_X$, $x\nasymp\dom f$ iff
+$\supfun{f}x$ is a non-least element. If also $P_X$ is a
+meet-semilattice and $P_Y$ is separable, then
+\[
+ \supfun{f}(x\sqcap\dom f)=\supfun{f}x .
+\]
+The second assertion and its proof also
+apply to a pair satisfying \eqref{eq-osa-compatible-pair} whenever its
+reverse map is monotone.
+\end{prop}
+
+\begin{proof}
+Intersection with $\top^{P_Y}$ detects non-least elements. Thus the first
+assertion follows from
+$x\nasymp\supfun{f^\dagger}\top^{P_Y}$ iff
+$\top^{P_Y}\nasymp\supfun{f}x$. For the second assertion,
+$\supfun{f^\dagger}y\sqsubseteq\dom f$, so
+$(x\sqcap\dom f)\nasymp\supfun{f^\dagger}y$ iff
+$x\nasymp\supfun{f^\dagger}y$. Apply intersection symmetry and
+separability of $P_Y$. For a pair of maps, use $\beta$ in place of
+$\supfun{f^\dagger}$ in the same argument.
+\end{proof}
+
+\begin{cor}\label{cor-osa-composite-image}
+Under the meet and separability hypotheses of Proposition~\ref{prop-osa-support}
+for $g:Y\to Z$, if $\im f\sqsupseteq\dom g$ for $f:X\to Y$, then
+$\im(g\circ f)=\im g$ whenever both images exist. Under the
+corresponding hypotheses for $f^\dagger$, if $\im f\sqsubseteq\dom g$,
+then $\dom(g\circ f)=\dom f$ whenever both domains exist.
+\end{cor}
+
+\begin{proof}
+The image is $\supfun{g}(\im f)=\supfun{g}(\dom g)=\supfun{g}\top^{P_Y}$,
+using the support formula twice. Apply this result to
+$f^\dagger\circ g^\dagger$ for the domain assertion.
+\end{proof}
+
+\begin{prop}\label{prop-osa-pair-joins}
+In an intersection-symmetric action, the action maps preserve least
+elements when both posets have them. If $P_X,P_Y$ are starrish join-semilattices
+and $P_Y$ is separable, then $\supfun{f}$ preserves binary joins.
+For a starrish poset (Section~\osaprereqref{sec-filtrator-starrish}),
+intersection with a binary join is equivalent to intersection with
+at least one of its summands. These assertions
+also hold for maps satisfying \eqref{eq-osa-compatible-pair}.
+\end{prop}
+
+\begin{proof}
+For any $y\in P_Y$, $y\nasymp\supfun{f}\bot^{P_X}$ would imply
+$\bot^{P_X}\nasymp\supfun{f^\dagger}y$. Hence the image of the least
+element intersects no element, and is therefore least. For $u,v\in P_X$,
+intersection of $y$ with $\supfun{f}(u\sqcup v)$ is equivalent to
+intersection of $\supfun{f^\dagger}y$ with $u\sqcup v$, hence with
+$u$ or $v$. By symmetry and the corresponding starrish law in $P_Y$,
+this is equivalent to $y\nasymp(\supfun{f}u\sqcup\supfun{f}v)$.
+Separability gives the asserted equality. The proof uses only the
+intersection equivalence, so it applies to the indicated pairs as well.
+\end{proof}
+
+\begin{defn}\label{def-osa-complete}
+\index{completeness!of an interspace}
+An interspace $f:X\to Y$ is \emph{complete for the action} if
+\[
+ \supfun{f}\bigsqcup S=\bigsqcup\rsupfun{\supfun{f}}S
+ \qquad(S\subseteq P_X)
+\]
+whenever both joins exist. If $Z_X\subseteq P_X$ and $Z_Y\subseteq P_Y$
+are specified cores of filtrators (Chapter~\osaprereqref{chap-filt}), $f$ is \emph{co-complete relative to
+the cores} if $\supfun{f}x\in Z_Y$ for every $x\in Z_X$.
+Both predicates apply to a forward map of a pair satisfying
+\eqref{eq-osa-compatible-pair} as well.
+\end{defn}
+
+For example, these conditions concern joins of elements of $P_X$.
+A separate condition concerns joins of arrows. The action
+\emph{preserves a join of parallel arrows} $H\subseteq\Hom(X,Y)$ if
+$\supfun{\bigsqcup H}x=\bigsqcup_{h\in H}\supfun{h}x$
+for every $x\in P_X$, with all indicated joins defined.
+In this case evaluation at $\top^{P_X}$ shows that image preserves that
+join. If $f:Y\to Z$ acts by a map preserving the resulting joins in
+$P_Y$ and the action both preserves the join of $\{f\circ h:h\in H\}$
+and is ordered by elements on $\Hom(X,Z)$, then
+\[
+ f\circ\bigsqcup H=\bigsqcup_{h\in H}(f\circ h).
+\]
+Indeed, the action maps on both sides agree at every $x\in P_X$ by
+the two join preservation hypotheses and the composition law.
+
+\begin{defn}\label{def-osa-element-category}
+For an action on a category that preserves identities, the
+\emph{category of elements of the action} has objects $(X,x)$
+with $x\in P_X$. An arrow from $(X,x)$ to $(Y,y)$ is an
+interspace $f:X\to Y$ with $\supfun{f}x\sqsubseteq y$, together
+with its indicated source and destination. Composition and
+identities use the underlying category.
+\end{defn}
+
+Indeed, if $\supfun{g}y\sqsubseteq z$ as well, monotonicity
+gives $\supfun{g\circ f}x\sqsubseteq\supfun{g}y\sqsubseteq z$.
+The identity sends $x$ to itself.
+
+\section[Restrictions and rectangles]{Restricted identities, restrictions, and rectangles}
+\label{sec-osa-restrictions}
+
+\begin{defn}\label{def-osa-restriction}
+\index{restricted identity}
+An \emph{action with restricted identities} has meet-semilattices $P_X$
+and a specified interspace $\id_p:X\to X$ for each $p\in P_X$,
+called the \emph{restricted identity} at $p$. They satisfy
+\[
+\begin{gathered}
+ \supfun{\id_p}x=p\sqcap x,\qquad
+ \id_q\circ\id_p=\id_{p\sqcap q},\\
+ f\circ\id_p\sqsubseteq f,\qquad \id_r\circ f\sqsubseteq f
+\end{gathered}
+\]
+for $p,q,x\in P_X$, $f:X\to Y$, and $r\in P_Y$. In a dagger
+action with restricted identities require $\id_p^\dagger=\id_p$.
+If the underlying category has identities, the action preserves them,
+and $P_X$ has a greatest element, require $\id_{\top^{P_X}}=1_X$.
+\end{defn}
+
+The values at $p$ and at $q$ show that the maps
+$x\mapsto p\sqcap x$ and $x\mapsto q\sqcap x$ agree only if $p=q$.
+In an action ordered by elements the composition law for these maps
+and both restriction inequalities already follow from their action.
+
+For $f:X\to Y$, $p\in P_X$ and $q\in P_Y$, its \emph{restriction}
+is $f|_p=f\circ\id_p$ and its \emph{rectangular restriction} is
+$\id_q\circ f\circ\id_p$. If $X=Y$ and $q=p$, this is its
+\emph{square restriction}. These are arrows of the same type as $f$.
+Associativity gives $(g\circ f)|_p=g\circ(f|_p)$ for $g:Y\to Z$.
+The action and dagger give
+\[
+ \im(f|_p)=\supfun{f}p,\qquad
+ \dom(f|_p)=p\sqcap\dom f
+\]
+whenever the images or domains in the respective formulas are defined.
+
+\begin{defn}\label{def-osa-rectangle}
+\index{product!rectangle}
+An ordered action is \emph{correctly bounded} if the posets $P_X$ and
+the Hom-sets are bounded, the least arrow acts by the constant least
+map, and the greatest arrow $\top_{X,Y}:X\to Y$ takes every non-least
+element to $\top^{P_Y}$ and the least element to $\bot^{P_Y}$.
+In an action with restricted identities and greatest arrows, the
+\emph{binary product} or \emph{rectangle} of $p\in P_X$ and
+$q\in P_Y$ is
+\[
+ p\times q=\id_q\circ\top_{X,Y}\circ\id_p:X\to Y .
+\]
+The product symbol here denotes an arrow formed from two poset
+elements.
+\end{defn}
+
+\begin{prop}\label{prop-osa-rectangle-action}
+In a correctly bounded action with restricted identities,
+\[
+ \supfun{p\times q}x=
+ \begin{cases}
+ q & \text{if }x\nasymp p,\\
+ \bot^{P_Y} & \text{otherwise}.
+ \end{cases}
+\]
+Consequently $x\suprel{p\times q}y$ iff $x\nasymp p$ and $y\nasymp q$.
+If there is a dagger, $(p\times q)^\dagger=q\times p$.
+\end{prop}
+
+\begin{proof}
+The three maps in the definition send $x$ successively to $p\sqcap x$,
+to $\top^{P_Y}$ or $\bot^{P_Y}$ according as $p\sqcap x$ is non-least
+or least, and then to its meet with $q$. For the dagger formula,
+the dagger exchanges the greatest arrows in the two Hom-sets and
+fixes the restricted identities.
+\end{proof}
+
+\begin{prop}\label{prop-osa-rectangle-meet}
+Suppose an intersection-symmetric correctly bounded action has
+restricted identities, separable posets and order by elements.
+Then $f=\id_{\im f}\circ f\circ\id_{\dom f}$, and
+\[
+ f\sqsubseteq p\times q
+ \quad\Longleftrightarrow\quad
+ \dom f\sqsubseteq p\ \text{and}\ \im f\sqsubseteq q .
+\]
+Moreover, $f\sqcap(p\times q)$ exists and equals
+$\id_q\circ f\circ\id_p$.
+\end{prop}
+
+\begin{proof}
+Proposition~\ref{prop-osa-support} makes restriction at $\dom f$
+act as $f$ does, and meeting its values with $\im f$ leaves them
+unchanged. Order by elements gives the first equality.
+If $f\sqsubseteq p\times q$, image and domain monotonicity and
+Proposition~\ref{prop-osa-rectangle-action} give the two bounds.
+Conversely, those bounds imply $f=\id_q\circ f\circ\id_p$,
+using $\id_q\circ\id_{\im f}=\id_{\im f}$ and
+$\id_{\dom f}\circ\id_p=\id_{\dom f}$. This implies
+$f\sqsubseteq p\times q$. For the meet formula the three-factor
+composite lies below both $f$ and $p\times q$. Any common lower
+bound $h$ satisfies $h=\id_q\circ h\circ\id_p$ by the same bounds
+and hence lies below the composite.
+\end{proof}
+
+The proof of the meet formula also applies to actions in which
+$f=\id_{\im f}\circ f\circ\id_{\dom f}$ has been established by a
+different argument. In a correctly bounded, intersection-symmetric
+action ordered by elements, Proposition~\ref{prop-osa-support} also
+shows that $\im f$ is least iff $f$ is the least arrow. Thus in the
+setting of Proposition~\ref{prop-osa-rectangle-meet},
+$f\nasymp(p\times q)$ iff $p\suprel{f}q$. In fact, the image of the
+meet is $q\sqcap\supfun{f}p$ by the restriction formula.
+
+\begin{prop}\label{prop-osa-atomic-rectangles}
+In the setting of Proposition~\ref{prop-osa-rectangle-meet},
+if $P_X$ and $P_Y$ are atomic, the rectangles of two atoms
+are exactly the atoms of $\Hom(X,Y)$. If $P_X$ and $P_Y$
+are atomistic, every $f:X\to Y$ is the join of those atom
+rectangles below it.
+\end{prop}
+
+\begin{proof}
+Let $p\in P_X$ and $q\in P_Y$ be atoms. If $g$ is non-least and
+$g\sqsubseteq p\times q$, the domain and image bounds force
+$\dom g=p$ and $\im g=q$. Both are non-least, since a least
+image or domain forces the arrow to be least. By the domain
+test in Proposition~\ref{prop-osa-support}, $\supfun{g}x$ is
+non-least iff $x\nasymp p$, and then its bound $q$ forces
+$\supfun{g}x=q$. Thus $g=p\times q$ by order by elements.
+Conversely, any non-least $f$ has a nonempty intersection
+relation, so by Proposition~\ref{prop-osa-atom-recovery} there
+are atoms $p,q$ with $p\suprel{f}q$. The meet $f\sqcap(p\times q)$
+is non-least by the intersection test for rectangles and
+hence equals $p\times q$. This proves the characterization of
+atoms.
+
+When both posets are atomistic, each atom pair related by $f$
+gives a rectangle below $f$. Any upper bound of these rectangles
+relates all those pairs, so it lies above $f$ by the order test in
+Proposition~\ref{prop-osa-atom-recovery}. This gives the join.
+\end{proof}
+
+The two case formulas for $p\times q$ and $q\times p$ also define
+a compatible pair on any two posets with least elements, without
+requiring greatest elements or restricted identities. In the
+compatibility condition for this pair, both sides hold exactly
+when $x\nasymp p$ and $y\nasymp q$. In a correctly bounded
+intersection-symmetric action with restricted identities, these
+maps are the action of the rectangle and its dagger.
+
+In the same setting the action on rectangles satisfies
+\[
+ g\circ(p\times q)\circ h=\supfun{h^\dagger}p\times\supfun{g}q
+\]
+for $h:W\to X$ and $g:Y\to Z$. To see this, first compose on the
+right. By intersection symmetry, $\supfun{h}w\nasymp p$ iff
+$w\nasymp\supfun{h^\dagger}p$. Now compose on the left and use
+preservation of the least element by $\supfun{g}$. The resulting map
+is the action of the rectangle on the right, so order by elements
+gives the identity.
+
+\begin{defn}\label{def-osa-restricted-category}
+Let an action with restricted identities have an underlying category.
+Its \emph{category of restricted interspaces} has objects $(X,p)$
+with $p\in P_X$. An arrow from $(X,p)$ to $(Y,q)$ is an interspace
+$f:X\to Y$ satisfying $f=\id_q\circ f\circ\id_p$, together
+with its specified source and destination pairs. Composition uses
+the underlying composition, and the identity of $(X,p)$ is $\id_p$.
+\end{defn}
+
+This is a category because $\id_p$ is idempotent. The defining equality
+is equivalent to $\id_q\circ f=f=f\circ\id_p$, so it is preserved by
+composition. The dagger, when available, exchanges the source and
+destination pairs. Under the hypotheses of
+Proposition~\ref{prop-osa-rectangle-meet}, the condition on an arrow
+is equivalent to $\dom f\sqsubseteq p$ and $\im f\sqsubseteq q$.
+Indeed, that pair of bounds implies the defining equality, and the
+equality implies $f\sqsubseteq p\times q$. For a self-adjoint
+$k:Y\to Y$ in that setting, $k\sqsubseteq 1_Y$ implies
+$k\sqsubseteq\id_{\im k}$, by restricting both sides at $\im k$.
+In particular, for $k=f\circ f^\dagger$ one has
+$\im k\sqsubseteq\im f$. Restricting at $\im f$ gives the equivalent
+form $f\circ f^\dagger\sqsubseteq\id_{\im f}$ of monovaluedness.
+The dagger gives the corresponding form of injectivity using $\dom f$.
+Here monovaluedness and injectivity use the identity inequalities of
+Section~\osaprereqref{sec-ordered-morphism-classes}.
+
+\begin{prop}\label{prop-osa-monovalued-atoms}
+Let an intersection-symmetric action preserve categorical identities
+and be ordered by elements. If $P_X$ and $P_Y$ are atomistic
+meet-semilattices with least elements, the following are equivalent
+for $f:X\to Y$.
+\begin{enumerate}
+\item $f$ is monovalued.
+\item $\supfun{f}p$ is least or an atom for every atom $p$ of $P_X$.
+\item $\supfun{f^\dagger}$ preserves binary meets.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+On atoms $q,r$ of $P_Y$, the relation of $f\circ f^\dagger$ relates
+$q$ to $r$ precisely when some atom $p$ of $P_X$ is related by $f$
+to both of them, by Proposition~\ref{prop-osa-rel-comp}. The identity
+relates only equal atoms, so the order test in
+Proposition~\ref{prop-osa-atom-recovery} gives the equivalence of the
+first two conditions. For the second to imply the third, test
+$\supfun{f^\dagger}(u\sqcap v)$ on a source atom $p$.
+The test is whether $\supfun{f}p$ intersects $u\sqcap v$, which
+for a least element or an atom is equivalent to intersecting both
+$u$ and $v$. That is exactly the test for
+$\supfun{f^\dagger}u\sqcap\supfun{f^\dagger}v$. For the converse,
+distinct atoms $q,r$ in $P_Y$ have least meet. If their inverse
+images have least meet, no source atom can be related to both.
+Use preservation of the least element by the reverse map and
+apply the first equivalence.
+\end{proof}
+
+\section{Continuity and anticontinuity}\label{sec-osa-continuity}
+
+\begin{defn}\label{def-osa-continuity}
+\index{continuity!of interspaces}\index{anticontinuity}
+Let $\mu:X\to X$ and $\nu:Y\to Y$ be endointerspaces. The set
+$\continuous(\mu,\nu)$ consists of the arrows $f:X\to Y$ satisfying
+$f\circ\mu\sqsubseteq\nu\circ f$. In a dagger action, the sets
+$\continuous'(\mu,\nu)$ and $\continuous''(\mu,\nu)$ consist,
+respectively, of the arrows satisfying
+\[
+ \mu\sqsubseteq f^\dagger\circ\nu\circ f,
+ \qquad
+ f\circ\mu\circ f^\dagger\sqsubseteq\nu .
+\]
+These are the three forms of \emph{continuity}. Their
+\emph{anticontinuity} counterparts
+$\continuous_\ast(\mu,\nu)$, $\continuous_\ast'(\mu,\nu)$,
+and $\continuous_\ast''(\mu,\nu)$ use the reverse inequality
+in each corresponding formula.
+\end{defn}
+
+Each continuity formula gives a semicategory of endointerspaces
+with the indicated arrows between them. When the underlying
+semicategory has identities it gives a category. For the first
+formula, composing $f\in\continuous(\mu,\nu)$ and
+$g\in\continuous(\nu,\pi)$ gives
+$g\circ f\circ\mu\sqsubseteq g\circ\nu\circ f\sqsubseteq
+\pi\circ g\circ f$. The corresponding chains for the other two are
+\[
+\begin{gathered}
+ \mu\sqsubseteq f^\dagger\circ\nu\circ f
+ \sqsubseteq (g\circ f)^\dagger\circ\pi\circ(g\circ f),\\
+ (g\circ f)\circ\mu\circ(g\circ f)^\dagger
+ \sqsubseteq g\circ\nu\circ g^\dagger\sqsubseteq\pi.
+\end{gathered}
+\]
+The identity arrows satisfy each formula. Reversing the order gives
+the same conclusions for anticontinuity. The dagger carries each
+anticontinuity condition to a continuity condition for
+$f^\dagger$ from $\nu^\dagger$ to $\mu^\dagger$, leaving the
+unprimed form in place and exchanging the two primed forms.
+
+\begin{defn}\label{def-osa-cont-category}
+For an ordered category $\mathcal C$, write
+$\operatorname{cont}(\mathcal C)$ for the category with objects
+the endomorphisms of $\mathcal C$ and arrows $(f,\mu,\nu)$ with
+$f\in\continuous(\mu,\nu)$. Composition is
+$(g,\nu,\pi)\circ(f,\mu,\nu)=(g\circ f,\mu,\pi)$ and the
+identity of $\mu:X\to X$ is $(1_X,\mu,\mu)$.
+If only arrows $f$ in a specified subcategory $\mathcal D$ with
+all objects of $\mathcal C$ are allowed, write
+$\operatorname{cont}(\mathcal C;\mathcal D)$. It is a subcategory
+with all the same endomorphisms as objects.
+\end{defn}
+
+\begin{thm}\label{cont-eq}
+In an ordered dagger action with categorical identities, the three
+continuity conditions satisfy
+$\continuous'\Rightarrow\continuous\Rightarrow\continuous''$ on
+monovalued interspaces and the reverse implications on entirely defined
+interspaces. Thus they coincide on interspaces with both properties.
+On such interspaces,
+$f\in\continuous(\mu,\nu)$ iff
+$f\in\continuous(\mu^\dagger,\nu^\dagger)$.
+\end{thm}
+
+\begin{proof}
+For a monovalued $f$, compose the primed inequality on the left by $f$
+and use $f\circ f^\dagger\sqsubseteq1_Y$ to get the unprimed
+inequality. Compose the latter on the right by $f^\dagger$ and use
+the same bound to get the double-primed inequality. For an entirely
+defined $f$, use $1_X\sqsubseteq f^\dagger\circ f$: compose the
+double-primed inequality on the right by $f$, or the unprimed
+inequality on the left by $f^\dagger$, respectively.
+Applying the dagger to the primed inequality shows that it holds
+exactly when the primed inequality for $\mu^\dagger,\nu^\dagger$
+holds. The equivalence of all three forms gives the last assertion.
+\end{proof}
+
+\begin{thm}\label{rect-cont}
+For an action with restricted identities, let $p\in P_X$ and
+$\mu_p=\id_p\circ\mu\circ\id_p$. Then
+\begin{enumerate}
+\item\label{contrestr-C}
+$f\in\continuous(\mu,\nu)\Rightarrow f|_p\in\continuous(\mu_p,\nu)$.
+\item\label{contrestr-Ci}
+In a dagger action,
+$f\in\continuous'(\mu,\nu)\Rightarrow f|_p\in\continuous'(\mu_p,\nu)$.
+\item\label{contrestr-Cii}
+In a dagger action,
+$f\in\continuous''(\mu,\nu)\Rightarrow f|_p\in\continuous''(\mu_p,\nu)$.
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+For the unprimed case use idempotence of $\id_p$ and the restriction
+inequality to obtain
+$f|_p\circ\mu_p=f\circ\id_p\circ\mu\circ\id_p
+\sqsubseteq f\circ\mu\circ\id_p\sqsubseteq\nu\circ f|_p$.
+For the primed case compose the original inequality on both sides by
+$\id_p$. For the double-primed case, the new left-hand side is
+$f\circ\id_p\circ\mu\circ\id_p\circ f^\dagger$, which lies
+below $f\circ\mu\circ f^\dagger$.
+\end{proof}
+
+\section[Closed elements and convergence]{Neighborhoods, closed elements, and convergence}
+\label{sec-osa-convergence}
+
+\begin{defn}\label{def-osa-convergence}
+\index{convergence!in an ordered action}
+Given $\mu:X\to Y$ and $a\in P_X$, an element $b\in P_Y$ is a
+\emph{neighborhood} of $a$ regarding $\mu$ if
+$\supfun{\mu}a\sqsubseteq b$. The \emph{interior} of $b$ regarding
+$\mu$ is $\bigsqcup\setcond{a\in P_X}{\supfun{\mu}a\sqsubseteq b}$
+when that join exists. If $\supfun{\mu}$ preserves this join, the
+interior is the greatest element having $b$ as a neighborhood.
+
+An element $v\in P_Y$ \emph{converges} to $a$ regarding $\mu$,
+written $v\overset{\mu}{\longrightarrow}a$, if
+$v\sqsubseteq\supfun{\mu}a$. An interspace $f:W\to Y$
+\emph{converges} to $a$ regarding $\mu$ if its image is defined
+and $\im f\overset{\mu}{\longrightarrow}a$. It \emph{converges
+on $p$} for $p\in P_W$ if
+$\supfun{f}p\overset{\mu}{\longrightarrow}a$. With restricted
+identities and images this is equivalent to convergence of $f|_p$.
+\end{defn}
+
+\begin{defn}\label{def-osa-closed}
+\index{closed element}\index{open element}
+For an endointerspace $\mu:X\to X$, an element $x\in P_X$ is
+\emph{closed regarding $\mu$} if $\supfun{\mu}x\sqsubseteq x$.
+In a dagger action, $x$ is \emph{open regarding $\mu$} if it is
+closed regarding $\mu^\dagger$. Given another endointerspace
+$\nu:Y\to Y$, an interspace $f:X\to Y$ is \emph{open regarding
+$\mu$ and $\nu$} if $\supfun{f}$ sends elements open regarding $\mu$
+to elements open regarding $\nu$. The endointerspace $\mu$ is
+\emph{closed} if every element is closed regarding it.
+When the action preserves the
+identity, $\mu\sqsubseteq1_X$ implies that every element is closed
+regarding $\mu$. In an action ordered by elements the converse holds.
+\end{defn}
+
+Any existing meet of closed elements is closed, since monotonicity
+places the action on the meet below each member of the family.
+A join of closed elements is closed whenever the action map preserves
+that join. In particular, a complete endointerspace on a complete
+lattice has both closure properties. I call an idempotent endointerspace
+that is complete for the action a \emph{Kuratowski space}. For a
+functional action on a powerset, requiring also $1_X\sqsubseteq\mu$
+makes it a topological closure operator when all joins are preserved.
+
+\begin{prop}\label{prop-osa-cont-conv}
+Let $f:W\to X$, $g:X\to Y$, $\mu:X\to X$, and $\nu:Y\to Y$.
+If $g\in\continuous(\mu,\nu)$, then
+$f\overset{\mu}{\longrightarrow}a$ implies
+$g\circ f\overset{\nu}{\longrightarrow}\supfun{g}a$ whenever
+$\im f$ is defined. The same implication holds for convergence on
+$p\in P_W$. Continuity implies the pointwise inequalities
+\[
+ \supfun{g}\supfun{\mu}a\sqsubseteq\supfun{\nu}\supfun{g}a
+ \qquad(a\in P_X).
+\]
+In an action ordered by elements these inequalities imply continuity.
+\end{prop}
+
+\begin{proof}
+Apply the action to the continuity inequality. For convergence of
+arrows, use
+$\im(g\circ f)=\supfun{g}(\im f)\sqsubseteq
+\supfun{g}\supfun{\mu}a\sqsubseteq\supfun{\nu}\supfun{g}a$.
+For convergence on $p$ use $\supfun{f}p$ in place of $\im f$.
+The converse follows by order by elements.
+\end{proof}
+
+The composition result also has a local form. Let
+$b=\supfun{\mu}a$ and $a\sqsubseteq b$. In an action with restricted
+identities, write $\mu_b=\id_b\circ\mu\circ\id_b$. If
+$g|_b\in\continuous(\mu_b,\nu)$ and
+$f\overset{\mu}{\longrightarrow}a$, then again
+$g\circ f\overset{\nu}{\longrightarrow}\supfun{g}a$.
+Indeed, $\im f\sqsubseteq b$ makes
+$\im(g\circ f)=\supfun{g|_b}(\im f)$. Since
+$\supfun{\mu_b}a=b$, local continuity bounds
+$\supfun{g|_b}b$ by $\supfun{\nu}\supfun{g|_b}a$,
+which equals $\supfun{\nu}\supfun{g}a$.
+
+There is also a local form in an action with restricted identities.
+For $\mu:X\to X$, $g:X\to Y$, and $a\in P_X$, the inequality
+$\supfun{g\circ(\mu|_a)}a\sqsubseteq\supfun{\nu\circ g}a$
+is equivalent to convergence of $g$ to $\supfun{g}a$ regarding
+$\nu:Y\to Y$ on $\supfun{\mu}a$. This uses
+$\supfun{\mu|_a}a=\supfun{\mu}a$.
+When $a$ is an atom, the poset $P_X$ has a least element,
+$\supfun{g}$ and $\supfun{\mu}$ preserve it, and the action is
+ordered by elements, the local inequality is equivalent to
+$g\in\continuous(\mu|_a,\nu)$. Indeed, for $x\in P_X$, the meet
+$a\sqcap x$ is either least or $a$. In the former case the
+left-hand action value is least; in the latter use the local
+inequality and $a\sqsubseteq x$.
+
+For a family $V\subseteq P_Y$ with an existing join, $\bigsqcup V$
+converges to $a$ regarding $\mu:X\to Y$ iff each member of $V$ does.
+The same equivalence holds for a join of parallel interspaces whose
+images preserve the join. For convergence of $f$ on a join of
+elements of $P_W$, the equivalence holds if $\supfun{f}$ preserves
+that join. In all cases, use the least-upper-bound property with
+upper bound $\supfun{\mu}a$.
+
+\section{Separability, limits, and compactness}
+\label{sec-osa-separation}
+
+\begin{defn}\label{def-osa-separation}
+\index{separation!of interspaces}
+Choose a subset of pairwise nonintersecting non-least elements of each
+poset of interest and call the chosen elements \emph{points}. For
+$\mu:X\to X$, call $\mu$ \emph{$T_1$-separable} if for points $p,q$
+in $P_X$, $p\suprel{\mu}q$ implies $p=q$. In a dagger action,
+$\mu$ is \emph{$T_0$-separable} if the meet
+$\mu\sqcap\mu^\dagger$ exists and is $T_1$-separable. An arrow
+$\mu:X\to Y$ is \emph{$T_2$-separable} if $\mu^\dagger\circ\mu$
+is $T_1$-separable. An endointerspace $\mu:X\to X$ is
+\emph{$T_4$-separable} if
+\[
+ (\mu\circ\mu^\dagger)\circ(\mu\circ\mu^\dagger)
+ \sqsubseteq \mu\circ\mu^\dagger.
+\]
+
+Given also a subset $Z_Y\subseteq P_Y$ of test elements,
+$\mu:X\to Y$ is \emph{regular} relative to the points and $Z_Y$ if
+the following implication holds for every point $p$ of $P_X$
+and every $z\in Z_Y$.
+\[
+ z\nasymp\supfun{\mu\circ\mu^\dagger\circ\mu}p
+ \quad\Longrightarrow\quad z\nasymp\supfun{\mu}p.
+\]
+An endointerspace is \emph{$T_3$-separable} if it is $T_2$-separable
+and regular for the specified test elements.
+For a symmetric idempotent endointerspace, all three conditions
+$T_0$, $T_1$, and $T_2$ coincide because the meet and composite
+in their definitions both equal the endointerspace itself.
+\end{defn}
+
+In an intersection-symmetric action, the composition formula in
+Proposition~\ref{prop-osa-rel-comp} makes $T_2$-separability exactly
+the condition that the values $\supfun{\mu}p$ and $\supfun{\mu}q$
+do not intersect for distinct points $p,q$.
+
+\begin{defn}\label{def-osa-limit}
+A point $p$ of $P_X$ is a \emph{limit} of $v\in P_Y$ regarding
+$\mu:X\to Y$ if $v\overset{\mu}{\longrightarrow}p$. The limits
+of an interspace $f:W\to Y$ are the limits of its image,
+when that image exists. Its limits on $a\in P_W$ are the limits
+of $\supfun{f}a$. When there is exactly one limit use the
+notations $\lim^\mu f$ and $\lim_a^\mu f$ for the last two cases.
+\end{defn}
+
+In an intersection-symmetric action, if $\mu$ is $T_2$-separable
+and $v$ is non-least, there is at most one limit of $v$. If there
+were distinct limits $p,q$, then $v$ would witness intersection of
+$\supfun{\mu}p$ and $\supfun{\mu}q$.
+
+\begin{defn}\label{def-osa-xlim}
+\index{limit!generalized}
+Suppose the underlying semicategory is a category. Fix a group $G$,
+a homomorphism $\rho:G\to\operatorname{Aut}(X)$ to the group of
+invertible arrows $X\to X$, and an endointerspace $\nu:Y\to Y$.
+The \emph{generalized limit} of $f:X\to Y$ for these choices is
+the subset of $\Hom(X,Y)$
+\[
+ \xlim f=\setcond{\nu\circ f\circ\rho(r)}{r\in G}.
+\]
+If $\mu:X\to X$ is given and the action has restricted identities,
+define the generalized limit at $a\in P_X$ by
+$\xlim_a f=\xlim(f|_{\supfun{\mu}a})$.
+\end{defn}
+
+\begin{defn}\label{def-osa-compact}
+\index{compactness!of an interspace}
+Let $f:X\to Y$, where the destination action poset is a filtrator
+$(P_Y,Z_Y)$. Assume its core part $\Cor y$ is defined for each
+$y\in P_Y$ and both $Z_Y$ and $P_Y$ have least elements.
+Then $f$ is \emph{directly compact} if for each $x\in P_X$,
+\[
+ \supfun{f}x\ne\bot^{P_Y}
+ \quad\Longrightarrow\quad
+ \Cor\supfun{f}x\ne\bot^{Z_Y}.
+\]
+In a dagger action, $f$ is \emph{reversely compact} if
+$f^\dagger$ is directly compact using the source filtrator.
+It is \emph{compact} if both conditions hold.
+Here $\Cor$ is the core part of Section~\osaprereqref{sec-filtrator-core-part}.
+\end{defn}
+
+If the domain of $f$ is defined in an intersection-symmetric
+action with atomic source poset having a least element, direct
+compactness can be tested on atoms under $\dom f$. In fact, every
+$x$ with non-least image intersects $\dom f$, so it has an atom
+$a\sqsubseteq x,\dom f$. The image of $a$ is non-least, and
+monotonicity of $\supfun{f}$ and $\Cor$ extends the condition at $a$
+to $x$. The reverse implication follows from testing each such atom.
+
+\section{Connectedness and endomorphism series}
+\label{sec-osa-connected}
+
+\begin{defn}\label{def-osa-connected}
+\index{connectedness!in an ordered action}
+Let $P_X$ have a least element and let $\mu:X\to X$. An element
+$a\in P_X$ is \emph{connected regarding $\mu$} in the sense of its
+intersection relation if, for non-least $x,y\in P_X$,
+\[
+ x\sqcup y=a\quad\Longrightarrow\quad x\suprel{\mu}y .
+\]
+The condition tests pairs whose join exists.
+\end{defn}
+
+\begin{defn}\label{def-osa-series}
+\index{endomorphism series}
+For $\mu:X\to X$, write $\mu^1=\mu$ and
+$\mu^{n+1}=\mu\circ\mu^n$ for positive integers $n$. The
+\emph{endomorphism series} are
+\[
+ S_1(\mu)=\bigsqcup_{n\ge1}\mu^n,
+ \qquad
+ S(\mu)=\bigsqcup_{n\ge0}\mu^n,
+\]
+when the indicated joins exist in $\Hom(X,X)$ and, for the second
+formula, $\mu^0=1_X$ exists. Whenever composition distributes over the
+joins in the second formula, $S(\mu)$ is reflexive and idempotent.
+Indeed, the composite of the two joins is the join of the powers
+$\mu^{m+n}$ with $m,n\ge0$, which gives the same join.
+
+Suppose now that a subset $Z\subseteq\Hom(X,X)$ is specified,
+and that the series are defined on $Z$. Write
+$\up_Z\mu=\setcond{e\in Z}{\mu\sqsubseteq e}$.
+Define the \emph{connectivity series relative to $Z$} by
+\[
+ S_1^\ast(\mu)=\bigsqcap_{e\in\up_Z\mu} S_1(e),\qquad
+ S^\ast(\mu)=\bigsqcap_{e\in\up_Z\mu} S(e),
+\]
+where the meets are in $\Hom(X,X)$. Given rectangles,
+$a\in P_X$ is \emph{connected regarding $\mu$ relative to $Z$} in
+this sense if the following meet and series exist and
+\[
+ a\times a\sqsubseteq S_1^\ast(\mu\sqcap(a\times a)).
+\]
+\end{defn}
+
+If $Z$ is closed under $S$, and $S$ is extensive and idempotent on
+$Z$, then $S^\ast$ is idempotent wherever both applications are
+defined. In fact $S^\ast(\mu)\sqsupseteq\mu$. For each $e\in\up_Z\mu$,
+$S(e)$ belongs to $\up_Z S^\ast(\mu)$. Hence
+$S^\ast(S^\ast(\mu))\sqsubseteq S(S(e))=S(e)$ for each $e$.
+Taking the meet gives the reverse of the inequality from extensivity.
+
+\section{Rectangles and filtrators}
+\label{sec-osa-rectangles-topology}
+
+\begin{defn}\label{def-osa-rectangle-complete}
+In an action with rectangles, choose points in the action posets
+and use their atoms. The set of atoms can be empty. An interspace $f:X\to Y$ is
+\emph{complete relative to these rectangles} if it is the join
+of a family of rectangles $p\times b$ with $p$ a chosen point of
+$P_X$ and $b$ an atom of $P_Y$. It is \emph{co-complete relative
+to these rectangles} if it is a join of rectangles $a\times q$
+with $a$ an atom of $P_X$ and $q$ a chosen point of $P_Y$.
+In a dagger action the dagger exchanges these two predicates,
+by Proposition~\ref{prop-osa-rectangle-action}.
+\end{defn}
+
+\begin{defn}\label{def-osa-completion}
+\index{completion!of an interspace}
+Given a specified class of complete arrows in each Hom-set
+(for example, Definition~\ref{def-osa-complete} or
+\ref{def-osa-rectangle-complete}), the \emph{completion} $\Compl f$ is
+the greatest complete arrow below $f$ in the Hom-set of $f$, when
+it exists. With a specified class of co-complete arrows, the
+\emph{co-completion} $\CoCompl f$ is the greatest co-complete arrow
+below $f$, when it exists. If the co-complete arrows are the
+daggers of the complete arrows, then
+$\CoCompl f=(\Compl(f^\dagger))^\dagger$. If the complete arrows below $f$ have a join which is
+complete, that join is the completion. In particular, for
+completeness relative to rectangles, the join of all the specified
+generator rectangles below $f$ is the completion when it exists.
+\end{defn}
+
+\begin{defn}\label{def-osa-thickness}
+\index{total boundedness}
+Suppose $P_X$ has a greatest element and has finite joins.
+Choose a subset $K\subseteq P_X$ of allowed covering elements,
+with $K=P_X$ if no restriction is specified.
+For an endointerspace $e:X\to X$ with rectangles, write
+$\thick_\alpha(e)$, or call it \emph{$\alpha$-thick}, if some
+finite $A\subseteq K$ has $\bigsqcup A=\top^{P_X}$ and
+$a\times a\sqsubseteq e$ for all $a\in A$. Given a set of points
+in $P_X$, write $\thick_\beta(e)$, or call it \emph{$\beta$-thick},
+if for some finite set $B$ of those points,
+$\supfun{e}(\bigsqcup B)=\top^{P_X}$.
+Relative to $Z\subseteq\Hom(X,X)$, an endointerspace $\mu$
+is \emph{$\alpha$-totally bounded} (respectively
+\emph{$\beta$-totally bounded}) if every $e\in\up_Z\mu$ is
+$\alpha$-thick (respectively $\beta$-thick).
+\end{defn}
+
+In a correctly bounded action with restricted identities, if every
+non-least element contains a chosen point below it, then
+$\alpha$-thickness implies $\beta$-thickness. For a finite family $A$ with join $\top^{P_X}$, choose a point $p_a\sqsubseteq a$ below each
+non-least $a$. Since $a\times a\sqsubseteq e$,
+Proposition~\ref{prop-osa-rectangle-action} gives
+$a\sqsubseteq\supfun{e}p_a$. Monotonicity gives the same bound for
+$\supfun{e}(\bigsqcup_a p_a)$, so that value is greatest.
+
+A \emph{lower set} in an action poset is a subset $C\subseteq P_X$
+such that $q\in C$ whenever $q\sqsubseteq p\in C$.
+If $P_X$ has a least element, I call such a family \emph{totally
+bounded in the Cauchy sense} if every non-least $p\in P_X$ has a
+non-least $q\in C$ with $q\sqsubseteq p$. This condition concerns
+a lower set, whereas Definition~\ref{def-osa-thickness} concerns
+upper approximants of an interspace.
+
+\begin{defn}\label{def-osa-cauchy}
+\index{Cauchy completeness}
+In an action with rectangles, an element $p\in P_X$ is
+\emph{Cauchy regarding $\mu:X\to X$} if $p\times p\sqsubseteq\mu$.
+With chosen points, $\mu$ is \emph{Cauchy-complete} if every
+Cauchy element converges to a point regarding $\mu$.
+For specified subsets $C_X\subseteq P_X$ and $C_Y\subseteq P_Y$
+of Cauchy elements of interest, an arrow $f:X\to Y$ is
+\emph{Cauchy continuous} from $C_X$ to $C_Y$ if
+$\supfun{f}p\in C_Y$ for every $p\in C_X$.
+\end{defn}
+
+For a subset $C\subseteq P_X$, the join
+$\bigsqcup_{p\in C}(p\times p)$, when it exists, is the least
+endointerspace regarding which every element of $C$ is Cauchy.
+This follows from the defining inequality for Cauchy elements
+and the least-upper-bound property.
+
+\section[Projection and injection products]{Products specified by projections or injections}
+\label{sec-osa-projection-products}
+
+These products use a chosen family of projections or injections
+in an ordered dagger semicategory. Let $I$ be a small index set
+and let $A=(A_i)_{i\in I}$ and $B=(B_i)_{i\in I}$ be families of
+objects. Suppose chosen objects $U_A,U_B$ have projection arrows
+$\pi_i^A:U_A\to A_i$ and $\pi_i^B:U_B\to B_i$, respectively.
+Here the product objects are specified independently of the action
+posets. For a family $F=(F_i:A_i\to B_i)_{i\in I}$ define
+\begin{equation}\label{def-osa-projective-product}
+ \bigodot^{\mathrm{proj}}_{\sqcap}F=
+ \bigsqcap_{i\in I}\bigl((\pi_i^B)^\dagger\circ F_i\circ\pi_i^A\bigr)
+ \ \in\Hom(U_A,U_B)
+\end{equation}
+when the meet exists. The subscript $\sqcup$ specifies the
+join of the same family. For a common source $W$ and
+$F_i:W\to B_i$, use
+$\prod^{\mathrm{proj}}_{\sqcap}F=
+\bigsqcap_{i\in I}((\pi_i^B)^\dagger\circ F_i)$ in $\Hom(W,U_B)$.
+For a common destination $W$ and $F_i:A_i\to W$, use
+$\coprod^{\mathrm{proj}}_{\sqcup}F=
+\bigsqcup_{i\in I}(F_i\circ\pi_i^A)$ in $\Hom(U_A,W)$.
+The other subscript in each case switches meet and join.
+If instead there are chosen objects with injection arrows from
+the family members, the superscript $\mathrm{inj}$ uses the
+daggers of those injections in place of the indicated projections.
+
+In a category, consider endomorphisms $F_i:A_i\to A_i$ and
+projections that are entirely defined and monovalued. The meet
+product of \eqref{def-osa-projective-product} is the greatest
+endomorphism of the chosen product object for which each
+projection is continuous. For any endomorphism $M$ of that
+object, by Theorem~\ref{cont-eq}, continuity of $\pi_i^A$ from
+$M$ to $F_i$ is equivalent to
+$M\sqsubseteq(\pi_i^A)^\dagger\circ F_i\circ\pi_i^A$.
+The assertion is the defining property of the meet.

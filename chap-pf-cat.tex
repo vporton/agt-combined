@@ -13,56 +13,10 @@ funcoids}.
 
 \section{Category of continuous morphisms}
 
-I will denote $\Ob f$ the object (source and destination) of an
-endomorphism $f$.
-
-\begin{defn}
-  Let $C$ is a partially ordered category. The category
-  $\cont (C)$ (which I call \emph{the category of
-  continuous morphism} over $C$) is:
-  \begin{itemize}
-    \item Objects are endomorphisms of category $C$.
-    
-    \item Morphisms are triples $(f , a , b)$ where $a$ and $b$ are objects
-    and $f : \Ob a \rightarrow \Ob b$ is a morphism of the
-    category $C$ such that $f \circ a \sqsubseteq b \circ f$.
-    
-    \item Composition of morphisms is defined by the formula $(g , b , c)
-    \circ (f , a , b) = (g \circ f , a , c)$.
-    
-    \item Identity morphisms are $(a , a , 1^C_a)$.
-  \end{itemize}
-\end{defn}
-
-It is really a category:
-
-\begin{proof}
-  We need to prove that: composition of morphisms is a morphism, composition
-  is associative, and identity morphisms can be canceled on the left and on
-  the right.
-  
-  That composition of morphisms is a morphism follows from these implications:
-  \[ f \circ a \sqsubseteq b \circ f \wedge g \circ b \sqsubseteq c \circ g
-     \Rightarrow g \circ f \circ a \sqsubseteq g \circ b \circ f \sqsubseteq c
-     \circ g \circ f. \]
-  That composition is associative is obvious.
-  
-  That identity morphisms can be canceled on the left and on the right is
-  obvious.
-\end{proof}
-
-\begin{rem}
-  The ``physical'' meaning of this category is:
-  \begin{itemize}
-    \item Objects (endomorphisms of $C$) are spaces.
-    
-    \item Morphisms are continuous functions between spaces.
-    
-    \item $f \circ a \sqsubseteq b \circ f$ intuitively means that $f$
-    combined with an infinitely small is less than infinitely small combined
-    with $f$ (that is $f$ is continuous).
-  \end{itemize}
-\end{rem}
+I use the category $\cont(C)$ of
+Definition~\bookref{def-osa-cont-category}. Its objects are
+endomorphisms, and its arrows are the triples coming from the
+continuity condition $f\circ a\sqsubseteq b\circ f$.
 
 \begin{rem}
   Every $\Hom (\mathfrak{A}, \mathfrak{B})$ of $\mathbf{Pos}$

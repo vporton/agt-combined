@@ -196,6 +196,51 @@ $\tofcd$ is a functor from~$\mathsf{RLD}$ to~$\mathsf{FCD}$.\end{prop}
 Preservation of composition and of identity is proved above.
 \end{proof}
 
+\section{The ordered action of reloids on filters}
+\label{sec-reloid-action}
+
+\begin{prop}\label{prop-rld-osa}
+The reloid category acts on $P_A=\mathscr F(A)$ by
+$\supfun{f}=\supfun{\tofcd f}$ for $f:A\to B$. This is an
+intersection-symmetric ordered dagger action with restricted
+identities and correct bounds. The binary product of filters
+in this action is their reloidal product.
+\end{prop}
+\begin{proof}
+The formulas defining $\tofcd$ give monotonicity: if
+$f\sqsubseteq g$, then $\up g\subseteq\up f$, and the meet of the
+forward values over $\up f$ is below the meet over $\up g$.
+The composition law proved above gives the pullback action of
+Section~\ref{sec-osa-intersection}. In the defining relation,
+reversing each $F\in\up f$ gives
+$\mathord{\suprel{\tofcd(f^{-1})}}=\mathord{\suprel{\tofcd f}}^{-1}$.
+Thus $\tofcd(f^{-1})=(\tofcd f)^{-1}$ and the pullback action
+is intersection-symmetric.
+
+The image of $\id_p^{\mathsf{RLD}}$ under $\tofcd$ is
+$\id_p^{\mathsf{FCD}}$ by the compatibility with restricted
+identities proved above. Its action is therefore meet with $p$.
+The reloid restricted identities are self-adjoint, compose by
+meet, and lie below the categorical identity. These are the
+required restriction laws. At the greatest filter the restricted
+identity is the categorical identity, since its defining
+rectangle with two greatest filters is the greatest reloid.
+The least and greatest reloids are principal on the empty
+and full relations and map to the corresponding funcoid bounds
+by Proposition~\ref{fcd-discr}. This proves correct boundedness.
+
+Finally, applying Theorem~\ref{thm-rld-rectangle-meet} to the
+greatest reloid $\top_{A,B}$ gives
+$p\times^{\mathsf{RLD}}q=
+\id_q^{\mathsf{RLD}}\circ\top_{A,B}\circ\id_p^{\mathsf{RLD}}$.
+This is the rectangle of Definition~\ref{def-osa-rectangle}.
+\end{proof}
+
+The action may identify distinct reloids, as the examples in
+Chapter~\ref{chap-fcd-counter} show. In particular, proofs that
+recover an arrow inequality from its action require a separate
+argument for reloids.
+
 \begin{prop}
 ~
 \begin{enumerate}
@@ -263,7 +308,9 @@ Further
 \end{multline*}
 Thus $\mathcal{X}\suprel{\tofcd(\mathcal{A}\times^{\mathsf{RLD}}\mathcal{B})}\mathcal{Y}\Leftrightarrow\mathcal{X}\suprel{\mathcal{A}\times^{\mathsf{FCD}}\mathcal{B}}\mathcal{Y}$.\end{proof}
 \begin{prop}
-$\dom\tofcd f=\dom f$ and $\im\tofcd f=\im f$ for every reloid~$f$.\end{prop}
+$\dom\tofcd f=\dom f$ and $\im\tofcd f=\im f$ for every reloid~$f$.
+Thus the action's domain and image from Definition~\ref{def-osa-image}
+agree with the reloid filter formulas.\end{prop}
 \begin{proof}
 ~
 \begin{multline*}

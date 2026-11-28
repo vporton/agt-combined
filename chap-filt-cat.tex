@@ -44,17 +44,13 @@ we have that $Y$ is a supset of some set of the form $\rsupfun{f}A$, so $Y\in\ma
 $\up\supfun{f}\mathcal{A} = \setcond{Y\in\subsets B}{\rsupfun{f^{-1}}Y\in\up\mathcal{A}}$.
 \end{cor}
 
-\begin{defn}
-The \emph{category of filtered sets} $\mathbf{Filt}$ is the category defined as follows:
-\begin{enumerate}
-\item Objects are pairs $(A,\mathcal{A})$ where $A$ is a (small) set and $\mathcal{A}$ is a filter on~$A$.
-\item Morphisms from $(A,\mathcal{A})$ to $(B,\mathcal{B})$ are functions $f:A\rightarrow B$ such that
-$\supfun{f}\mathcal{A} \sqsubseteq \mathcal{B}$.
-\item Identities are identity functions.
-\end{enumerate}
-\end{defn}
-
-To verify that it is a category is straightforward.
+The \emph{category of filtered sets} $\mathbf{Filt}$ is the
+category of elements of Definition~\bookref{def-osa-element-category}
+for the action of functions on filters. This is the pullback of the
+funcoid action along the functor sending each function to its
+principal funcoid. Its objects are pairs $(A,\mathcal A)$ with
+$\mathcal A\in\mathscr F(A)$, and an arrow to $(B,\mathcal B)$ is
+a function $f:A\to B$ whose filter image is below $\mathcal B$.
 
 It is the same category as $\mathscr{F}$ in \cite{filt-cat}, as follows from an above proposition.
 

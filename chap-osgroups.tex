@@ -1,3 +1,5 @@
+\providecommand{\osaprereqref}[1]{\ref{#1}}
+
 \chapter{Introduction}
 
 This chapter introduces the central subject of the book: \emph{ordered
@@ -27,11 +29,10 @@ You need to know about \emph{semigroups} and \emph{semigroup actions} before rea
 
 I will denote meet and join on a poset correspondingly as~$\sqcap$ and~$\sqcup$.
 
-I call two elements~$a$ and~$b$ \emph{intersecting} ($a\nasymp b$) when there is a non-least element~$c$ such that $c\sqsubseteq a\land c\sqsubseteq b$. For	 meet-semilattices with meet operation~$\sqcap$ this condition is equivalent to $a\sqcap b$ being non-least element.
+I use the intersection and joining relations $\nasymp$ and $\equiv$
+from Section~\osaprereqref{sec-common-intersection}.
 
-I call two elements~$a$ and~$b$ \emph{joining} ($a\equiv b$) when there is no non-greatest element~$c$ such that $c\sqsupseteq a\land c\sqsupseteq b$. For join-semilattices with meet operation~$\sqcup$ this condition is equivalent to $a\sqcup b$ being the greatest element.
-
-I denote $\rsupfun{f}X = \setcond{fx}{x\in X}$.
+I denote the direct image of a subset $X$ of the domain of a function~$f$ by $\rsupfun{f}X = \setcond{fx}{x\in X}$.
 
 \chapter{Basic examples}
 
@@ -84,9 +85,14 @@ A semigroup is essentially a special case of a semicategory (with only one objec
 \chapter{Ordered semicategories}
 
 \begin{defn}
-\emph{Ordered semicategory} (or \emph{posemicategory}) is
-a semicategory together with an order on the set of morphisms conforming to the equality:
-\[ x_0\sqsubseteq x_1\land y_0\sqsubseteq y_1\Rightarrow y_0\circ x_0\sqsubseteq y_1\circ x_1. \]
+An \emph{ordered semicategory}, or \emph{posemicategory}, is a
+semicategory with a partial order on each Hom-set such that
+composition is monotone in both arguments. In detail, for
+$f,f':X\to Y$ and $g,g':Y\to Z$,
+\[
+ f\sqsubseteq f'\quad\text{and}\quad g\sqsubseteq g'
+ \quad\Longrightarrow\quad g\circ f\sqsubseteq g'\circ f'.
+\]
 \end{defn}
 
 \chapter{Ordered semigroups}
@@ -106,7 +112,7 @@ Section~\ref{sec-space-in-general-representation}.
 
 As I shown above, functions (and more generally binary relations) can also be considered as spaces.
 
-\chapter{Ordered semicategory actions}
+\chapter{Ordered semicategory actions}\label{chap-osa}
 
 \begin{defn}
 \emph{Semicategory action} (denoted $\supfun{}$) is a semifunctor from a semicategory to the category~$\mathbf{Set}$.
@@ -131,81 +137,31 @@ underlying semicategory \emph{semi-interspaces}.
 \end{enumerate}
 In other words, an ordered semicategory action is a (not necessarily strictly) increasing semicategory action (we consider transformations of this action to be ordered pointwise, that is by the product order).
 
-I call morphisms of such a semicategory as \emph{interspaces}.
+I call the arrows of the underlying semicategory \emph{interspaces}.
 \end{defn}
 
-Note that this ``inducting'' is an ordered semigroup homomorphism.
+For this chapter write $P_X=\supfun{X}$ for the poset assigned to an
+object~$X$. Thus an interspace $f:X\to Y$ acts by a monotone map
+$\supfun{f}:P_X\to P_Y$. An \emph{endointerspace} is an interspace
+$\mu:X\to X$. When the underlying semicategory is a category,
+I say the action \emph{preserves identities} if
+$\supfun{1_X}=\id_{P_X}$ for every object~$X$.
+
+\input{chap-osa-topology}
 
 \chapter{Ordered semigroup actions}
 
-\begin{defn}
-\emph{Curried semiordered semigroup action} on a poset~$\mathfrak{A}$ for an ordered semigroup~$S$ is a function $\supfun{}:S\to(\mathfrak{A}\to\mathfrak{A})$ such that
-\begin{enumerate}
-\item $\supfun{b\circ a}x = \supfun{b}\supfun{a}x$ for all $a,b\in S$, $x\in\mathfrak{A}$;
-$x,y\in\mathfrak{A}$;
-\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in S$, $x\in\mathfrak{A}$.
-\end{enumerate}
-I call elements of such an action \emph{semispaces}.
-\end{defn}
-
-\begin{defn}
-\emph{Curried ordered semigroup action} on a poset~$\mathfrak{A}$ for an ordered semigroup~$S$ is a function $\supfun{}:S\to(\mathfrak{A}\to\mathfrak{A})$ such that
-\begin{enumerate}
-\item $\supfun{b\circ a}x = \supfun{b}\supfun{a}x$ for all $a,b\in S$, $x\in\mathfrak{A}$;
-$x,y\in\mathfrak{A}$;
-\item $a\sqsubseteq b\Rightarrow\supfun{a}x\sqsubseteq \supfun{b}x$ for all $a,b\in S$, $x\in\mathfrak{A}$;
-\item $x\sqsubseteq y\Rightarrow\supfun{a}x\sqsubseteq \supfun{a}y$ for all $a\in S$.
-\end{enumerate}
-I call elements of such an action \emph{spaces}.
-\end{defn}
-
-\begin{rem}
-Google search for ``"ordered semigroup action"'' showed nothing. Was a spell laid onto Earth mathematicians not to find the most important structure in general topology?
-\end{rem}
-
-Essentially, an ordered semigroup action is an ordered semicategory action with just one object.
-
-We can order actions componentwise. Then the above axioms simplify to:
-\begin{enumerate}
-\item $\supfun{b\circ a} = \supfun{b}\circ\supfun{a}$ for all $a,b\in S$;
-\item $\supfun{}$ is a (not necessarily strictly) increasing;
-\item $\supfun{a}$ is a (not necessarily strictly) increasing, for every space~$a$.
-\end{enumerate}
-
-\begin{defn}
-A \emph{functional ordered semicategory action} is such an ordered semicategory action that $\supfun{a}=a$ for every space~$a$.
-\end{defn}
-
-\begin{thm}
-Each ordered semicategory action induces as functional ordered semicategory action, whose morphisms are the same a of the original one but with objects being posets, spaces are the actions of the original semicategory, the composition operation is function composition, and order of spaces is the product order.
-\end{thm}
-
-\begin{proof}
-That it's a semicategory is obvious. The partial order is the same as the original. It remains to prove the remaining axioms.
-
-For our semicategory
-\[ \supfun{b\circ a} = b\circ a=\supfun{b}\circ \supfun{a}. \]
-
-$\supfun{}$ is increasing because it's the identity function.
-
-$\supfun{a}$ is the same as one of the original ordered semicategory action and thus is increasing.
-\end{proof}
-
-Having a ordered semicategory action and a homomorphism to its ordered semicategory, we can define in an obvious way a new ordered semicategory action. \fxerror{Move this below in the book.} The following is an example of this construction (here $\tofcd$ is a functor of ordered semicategories).
-
-\emph{Funcoids} form an ordered semicategory with action $\supfun{}$. \emph{Reloids} form an ordered semicategory with action $a\mapsto\supfun{\tofcd a}$.
-As we know from the above, funcoids are a generalization of topological spaces, proximity spaces, and directed graphs (``discrete spaces''), reloids is a generalization of uniform spaces and directed graphs. Funcoid is determined by its action.
-
-Remember that elements of our posets of objects may be such things as sets or more generally filters, they may be not just points. So our topological construction is ``pointfree'' (we may consider sets or filters, not points).
-
-The book is about this topic: describing general topology in terms of
-ordered semigroup and ordered semicategory actions.  Funcoids, reloids,
-metrics, and the other constructions developed later are principal
-sources of space elements and interspaces.
-
-Semiordered semicategory action is \emph{ordered by elements} when \[ a\sqsubseteq b \Leftarrow \supfun{a}\sqsubseteq \supfun{b} \] that is when \[ a\sqsubseteq b \Leftarrow \forall x:\supfun{a}x\sqsubseteq\supfun{b}x. \]
-
-Obviously, in this case~$\supfun{}$ is a faithful functor. So our ordered semicategory action is \emph{essentially functional} (functional, up to a faithful functor).
+Let $S$ be an ordered semigroup and $P$ a poset. In the
+\emph{curried} form, an action is written as a function sending
+each $a\in S$ to a map $\supfun{a}:P\to P$. The action law is
+$\supfun{b\circ a}=\supfun{b}\circ\supfun{a}$ for $a,b\in S$.
+Following the many-object definitions, a \emph{semiordered
+semigroup action} requires each map $\supfun{a}$ to be monotone.
+The elements of $S$ are then \emph{semispaces}. An
+\emph{ordered semigroup action} requires in addition that
+$a\sqsubseteq b$ imply $\supfun{a}x\sqsubseteq\supfun{b}x$ for all
+$x\in P$. Its elements of $S$ are the \emph{space elements}.
+This is the one-object case of Chapter~\ref{chap-osa}.
 
 \chapter{Morphisms of ordered semicategory actions}
 
@@ -730,7 +686,7 @@ functions, use $\operatorname{Arr}(\mathbf{Set})$.
 Topological, preclosure, pretopological, proximity, uniform, Cauchy,
 nearness, coarse, and bornological spaces, with their respective
 structure-preserving maps.  Bornological spaces and their bounded maps
-are defined in Section~\ref{sec-common-bornologies-presheaves}. Examples
+are defined in Section~\osaprereqref{sec-common-bornologies-presheaves}. Examples
 include continuous maps, proximally
 continuous maps, and uniformly continuous maps. Also included are frames
 with frame homomorphisms and locales with locale maps. These are distinct
@@ -758,7 +714,7 @@ Measurable spaces with measurable maps, measure and probability
 spaces with measure-preserving maps, and sheaf-equipped, ringed,
 and locally ringed spaces with their respective maps.  Presheaves,
 sheaves, and sheaf-equipped spaces are defined in
-Section~\ref{sec-common-bornologies-presheaves}. Schemes and
+Section~\osaprereqref{sec-common-bornologies-presheaves}. Schemes and
 algebraic spaces with their usual morphisms are also covered. The
 representation of a ringed space retains its sheaf maps because
 Yoneda uses all the morphisms of the chosen category.
@@ -779,292 +735,6 @@ structure-preserving isomorphisms. The same theorem applies to
 specified categories of products, subspaces, or combinations carrying
 more than one of the listed structures.
 \end{itemize}
-
-\chapter{Ordered dagger categories and ordered semigroups with involution}
-
-\begin{defn}
-\emph{Dagger semicategory} is a semicategory together with the operation $a\mapsto a^{\dagger}$ (called \emph{involution} or \emph{dagger}) such that:
-\begin{enumerate}
-\item $a^{\dagger\dagger} = a$;
-\item $(b\circ a)^{\dagger} = a^{\dagger}\circ b^{\dagger}$.
-\end{enumerate}
-\end{defn}
-
-For an \emph{ordered dagger semicategory} we additionally require
-\[
- a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}
-\]
-(and hence $a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}$).
-
-\begin{defn}
-\emph{Semigroup with involution} is a dagger semicategory with just one object.
-\end{defn}
-
-For an \emph{ordered semigroup with involution} or \emph{ordered dagger semigroup} we likewise require monotonicity of the involution:
-\[
- a\sqsubseteq b\Rightarrow a^{\dagger}\sqsubseteq b^{\dagger}
-\quad\text{and hence}\quad
- a\sqsubseteq b\Leftrightarrow a^{\dagger}\sqsubseteq b^{\dagger}.
-\]
-
-A prototypical example is the semigroup of binary relations on a set under composition, with the dagger given by converse relation. In such an example, the order is inclusion and the involution is order preserving. This is why the formulas from the preceding chapter with $f^{\dagger}$ are the correct generalization of the usual adjoint or inverse operations.
-
-\begin{defn}
-An \emph{ordered dagger semicategory action} is an ordered semicategory action $\supfun{}$ together with an involution on the underlying semicategory and a compatible involution on the values of the action, such that
-\[
-\supfun{a^{\dagger}} = \bigl(\supfun{a}\bigr)^{\dagger}
-\]
-whenever the latter is defined.
-\end{defn}
-
-This compatibility means that the action preserves the dagger operation and thus the formulas
-\[
-\mathrm{C}(a,b)\Leftrightarrow f\circ a\sqsubseteq b\circ f,
-\qquad
-\mathrm{C}'(a,b)\Leftrightarrow a\sqsubseteq f^{\dagger}\circ b\circ f,
-\qquad
-\mathrm{C}''(a,b)\Leftrightarrow f\circ a\circ f^{\dagger}\sqsubseteq b
-\]
-are the natural generalizations of continuity in ordered dagger settings. In particular, the involution allows us to express the inverse or adjoint direction of a morphism without leaving the algebraic framework.
-
-\begin{rem}
-For ordered semigroup actions with involution, the same definitions reduce to the one-object case. Then the involution on the semigroup and the action are compatible, and the whole theory becomes the algebraic language of symmetry, duality, and generalized continuity.
-\end{rem}
-
-\chapter{Topological properties}
-
-Why the following are generalizations of sa\-me-na\-med properties in classic general topology, will become clear in the below chapter about funcoids.
-
-Continuity for semicategories or semicategories with involution is described by the formulas
-\[
-\mathrm{C}(a,b)\Leftrightarrow f\circ a\sqsubseteq b\circ f,\quad \mathrm{C}'(a,b)\Leftrightarrow a\sqsubseteq f^{\dagger}\circ b\circ f,\quad \mathrm{C}''(a,b)\Leftrightarrow f\circ a\circ f^{\dagger}\sqsubseteq b.
-\]
-
-Convergence of a function~$f$ from an endomorphism (space)~$\mu$ to an endomorphism (space)~$\nu$ at filter~$x$ to a set or filter~$y$ is described by the formula $\supfun{f}\supfun{\mu}x\sqsubseteq\supfun{\nu}y$.
-
-\section{Generalized limit}
-
-\fxwarning{This is out-of-scope for this book.}
-Generalized limit of an arbitrary interspace~$f$ (for example, of an arbitrary (possibly discontinuous) function), see \cite{limit}, is described by the formula \[ \xlim f=\setcond{\nu\circ f\circ r}{r\in G}, \]
-where~$G$~is a suitable group (consider for example the group of all translations of a vector space).
-
-\section{Neighborhood/interior}
-
-\emph{Neighborhood} of element~$x$ is such a $y$ that $\supfun{a}x\sqsubseteq y$. \emph{Interior} of~$x$ (if it exists) if the join of all $y$ such that $x$ is a neighborhood of~$y$.
-
-An element~$x$ is closed regarding~$a$ iff $\supfun{a}x\sqsubseteq x$. $x$~is open iff $x$ is closed regarding $\supfun{a}^{\dagger}$.
-
-\begin{defn}
-Space~$a$ is \emph{closed} iff $\forall x:\supfun{a}x\sqsubseteq x$.
-\end{defn}
-
-\fxwarning{We can define open functions in two ways: $\forall x:\supfun{a}x\sqsupseteq x$ or $\forall x:\supfun{a}^\dagger x\sqsubseteq x$. It remains also the fourth variant $\forall x:\supfun{a}^\dagger x\sqsupseteq x$.}
-
-\section{Compactness}
-
-\fxwarning{Move it to a more suitable place in the text.}
-
-We will generalize properties of funcoids, but instead of funcoids~$\mathsf{FCD}(A,B)$ we will consider more general maps in~$\mathbf{Set}(\mathscr{F}A,\mathscr{F}B)$.
-
-To define compactness\footnote{That this coincides with the traditional definition of compactness of topological spaces, follows from the well known fact that a topological space is compact iff each proper filter on it has an adherent point.\fxwarning{Describe in more detail.}} we additionally need the structure of filtrator $(\mathfrak{A},\mathfrak{Z})$ on our poset. Then it is space~$a$ is \emph{directly compact} iff
-\[\forall x\in\mathfrak{A}:(x\text{ is non-least}\Rightarrow\Cor\supfun{a}x\text{ is non-least}); \]
-$a$~is \emph{reversely compact} iff $a^{\dagger}$ is directly compact; $a$~is \emph{compact} iff it is both directly and reversely compact.
-
-Denote~$c$ the element of the semicategory~$\mathbf{Set}$ such that
-$\supfun{c}=\Cor$, then the above can be rewritten
-\[\forall x\in\mathfrak{A}:(x\text{ is non-least}\Rightarrow\supfun{c\circ a}x\text{ is non-least}); \]
-what is equivalent to $1 \sqsubseteq c\circ a$.
-
-However, we can define compactness without specifying~$\mathfrak{Z}$ as we can take~$\mathfrak{Z}$ to be the \emph{center} (the set of all its complemented elements) of the poset~$\mathfrak{A}$.
-
-The same reasoning applies to $\Cor'$ in place of~$\Cor$.
-
-\section{Total boundness}
-
-It seem we cannot define \emph{total boundness} purely in terms of ordered semigroups, because it is a property of reloids and reloid is not determined by its action.
-
-\chapter{A relation}
-
-The below is motivated by the definition of pointfree funcoids (below).
-
-Every ordered semicategory action~$\supfun{}$ defines a relation~$R$: $x\suprel{a}y\Leftrightarrow y\nasymp\supfun{a}x$.
-
-If $\suprel{a}^{\dagger}=\suprel{a}^{-1}$ for every~$a$, we call the action~$\supfun{}$ on an dagger semicategory \emph{inter\-sec\-tion-sym\-met\-ric}. In this case our action defines a pointfree funcoid. \fxwarning{Move this after the definition of pointfree funcoids.}
-
-\begin{prop}
-If $\Dst a$ is a separable poset, then a functional ordered semicategory action~$a$~is uniquely determined by~$\suprel{a}$.
-\end{prop}
-
-\begin{proof}
-$\supfun{a}$~is uniquely determined by separability.
-
-By functionality, $a=\supfun{a}$.
-\end{proof}
-
-A space is connected iff $x\equiv y\Rightarrow x\suprel{a}y$. \fxnote{It can be simplified to $\suprel{a}\supseteq({\equiv})$.}
-
-\fxwarning{Another definition of connectedness through~$S^\ast$.}
-
-\chapter{Further axioms}
-
-Further possible axioms for an ordered semigroup action with binary joins:
-
-\begin{itemize}
-\item $\supfun{f}(x\sqcup y)=\supfun{f}x\sqcup\supfun{f}y$;
-\item $\supfun{f\sqcup g}x=\supfun{f}x\sqcup\supfun{g}x$.
-\end{itemize}
-
-\fxnote{Need to generalize for a wider class of posets.}
-
-\section{Kuratowski spaces}
-
-\begin{defn}
-\emph{Kuratowski space} is a complete idempotent ($a\circ a=a$) space.
-\end{defn}
-
-Kuratowski spaces are a generalization of topological spaces.
-
-\chapter{Restricted identity transformations}
-
-\emph{Restricted identity transformation} $\id_p$, where ~$p$ is an element of a poset, is the (generally, partially defined) transformation $x\mapsto x\sqcap p$.
-
-\begin{obvious}
-$\id_q\circ\id_p = \id_{p\sqcap q}$ if~$p$ and~$q$ are elements of some poset for which binary meet is defined.
-\end{obvious}
-
-\begin{prop}
-$p\ne q\Rightarrow\id_p\ne\id_q$.
-\end{prop}
-
-\begin{proof}
-$\id_p p=p \ne q = \id_q q$.
-\end{proof}
-
-\emph{Ordered semicategory action with identities} is an ordered semicategory~$S$ action~$\supfun{}$ together with a function $p\mapsto\id_p\in S$ such that
-\begin{enumerate}
-\item $\supfun{\id_p}=\id_p$ whenever this equality is defined;
-\item $\id_p\circ x\sqsubseteq x$;
-\item $x\circ\id_p\sqsubseteq x$.
-\end{enumerate}
-(I abuse\fxerror{Seems wrong.} the notation $\id_p$ for both interspaces and for transformations; this won't lead to inconsistencies, because as proved above this mapping is faithful on restricted identities.)
-
-\begin{obvious}
-For every ordered semicategory action with identities, the identity transformations are entirely defined on their domains.
-\end{obvious}
-
-From injectivity it follows $\id_{p\sqcap q} = \id_p\circ\id_q$.
-
-\emph{Restriction} of an interspace~$a$ to element~$x$ is $a|_x=a\circ\id_x$.
-
-\emph{Square restriction} (a generalization of restriction of a topological space, metric space, etc.) of a space~$a$ to element~$x$ is $\id_x\circ a\circ\id_x$.
-
-\chapter{Binary product of poset elements}
-
-\begin{defn}
-I call an ordered semicategory action \emph{correctly bounded} when the set of interspaces between two fixed objects is bounded and:
-\begin{enumerate}
-\item $\supfun{\bot}x = \bot$ for every poset element~$x$;
-\item $\supfun{\top}x =
-\left\{\begin{array}{ll}\top&\text{if }x\ne\bot,\\\bot&\text{if }x=\bot.\end{array}\right.$
-\end{enumerate}
-\end{defn}
-
-\emph{Binary product} in an ordered semigroup action having a greatest element~$\top$ is defined as $p\times q=\id_q\circ\top\circ\id_p$.
-
-\begin{thm}
-If our action is correctly bounded, then
-\[
-\supfun{p\times q}x =
-\left\{\begin{array}{ll}q&\text{if }x\nasymp p,\\\bot&\text{if }x\asymp p.\end{array}\right.
-\]
-\end{thm}
-
-\begin{proof}
-\begin{multline*}
-\supfun{p\times q}x = \\
-\supfun{\id_q\circ\top\circ\id_p}x = \\
-\supfun{\id_q}\supfun{\top}\supfun{\id_p}x = \\
-q\sqcap\supfun{\top}(p\sqcap x) = \\
-\left\{\begin{array}{ll}q&\text{if }x\nasymp p,\\\bot&\text{if }x\asymp p.\end{array}\right.
-\end{multline*}
-\end{proof}
-
-% \begin{thm}
-% $f\sqcap(p\times q)=\id_q\circ f\circ\id_p$, if our action is functional.
-% \end{thm}
-% 
-% \begin{proof}
-% Obviously $\id_q\circ f\circ\id_p\sqsubseteq f$ and $\id_q\circ f\circ\id_p\sqsubseteq q\times p$.
-% 
-% Suppose~$h\sqsubseteq f$ and~$h\sqsubseteq q\times p$. Then 
-% \end{proof}
-
-\begin{thm}
-If our action is correctly bounded, then
-\[ x\suprel{p\times q}y\Leftrightarrow x\nasymp p\land y\nasymp q. \]
-\end{thm}
-
-\begin{proof}
-\begin{multline*}
-x\suprel{p\times q}y \Leftrightarrow
-y\nasymp\supfun{p\times q}x \Leftrightarrow \\
-y\nasymp
-\left\{\begin{array}{ll}q&\text{if }x\nasymp p,\\\bot&\text{if }x\asymp p.\end{array}\right. \Leftrightarrow \\
-x\nasymp p\land y\nasymp q.
-\end{multline*}
-\end{proof}
-
-% \begin{thm}
-% If our action is correctly bounded, then
-% \[ p_0\times q_0\nasymp p_1\times q_1 \Leftrightarrow p_0\nasymp p_1\land q_0\nasymp q_1. \]
-% \end{thm}
-% 
-% \begin{proof}
-% \begin{multline*}
-% p_0\nasymp p_1\land q_0\nasymp q_1 \Leftrightarrow\\
-% x\suprel{p\times q}y \Leftrightarrow\\
-% y\nasymp\supfun{p\times q}x \Leftrightarrow
-% \end{multline*}
-% \end{proof}
-
-\chapter{Separable spaces}
-
-\fxnote{a. $\Cor$ or $\Cor'$?}
-
-\fxwarning{Need to show that it coincides with standard definitions for topological spaces.}
-
-$T_1$-space when ${\Cor\mathrel{a}}\subseteq({\nasymp})$ that is $\overline{\Cor\mathrel{a}}\supseteq({\asymp})$, that is $x\overline{\Cor\mathrel{a}}y$ for every $x\asymp y$.
-
-$T_2$-space or \emph{Hausdorff} is such a space~$f$ that $f^{-1}\circ f$ is $T_1$-separable.
-
-$T_0$-space is such a space~$f$ that $f^{-1}\sqcap f$ is $T_1$-separable.
-
-$T_4$-space is such a space~$f$ that \[ f\circ f^{-1}\circ f\circ f^{-1}\sqsubseteq f\circ f^{-1}. \]
-
-\chapter{Distributive ordered semigroup actions}
-
-We can define (product) order of ordered semicategory actions. For functional ordered semicategory actions composition is defined. So we have one more ``level'' of ordered semicategories. By the way, it can be continued indefinitely building new and new levels of such ordered semicategories.
-
-More generally we could consider ordered semicategory functors (or specifically, ordered semigroup homomorphisms). Examples of such homomorphisms are $\supfun{}$, $\tofcd$, $\torldin$.
-
-Pointfree funcoids (and consequently funcoids) are an ordered semicategory action. Reloids are also an ordered semicategory action.
-
-\chapter{Complete spaces and completion of spaces}
-
-A space~$a$ is \emph{complete} when $\supfun{a}\bigsqcup S=\bigsqcup\rsupfun{\supfun{a}}S$ whenever both $\bigsqcup S$ and $\bigsqcup\rsupfun{\supfun{a}}S$ are defined.
-
-\begin{defn}
-\emph{Completion} of an interspace is its core part (see above for a definition of core part) on the filtrator of interspace and complete interspace.
-\end{defn}
-
-\begin{note}
-Apparently, not every space has a completion.
-\end{note}
-
-\begin{note}
-It is unrelated with Cachy-completion.
-\end{note}
-
 
 \chapter{Concrete ordered actions for geometric spaces}
 

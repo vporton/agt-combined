@@ -27,12 +27,9 @@ including (``On continuity structures and spaces of mappings'' freely available 
 the category of filter merotopic spaces (copy its definition).}
 
 \begin{defn}
-A \emph{lower set}\footnote{Remember that our orders on filters is the
-reverse to set theoretic inclusion. It could be called an \emph{upper} set
-in other sources.} of filters on $U$ (a set) is a set $\mathscr{C}$
-of filters on $U$, such that if $\mathcal{G} \sqsubseteq
-\mathcal{F}$ and $\mathcal{F} \in \mathscr{C}$ then $\mathcal{G} \in
-\mathscr{C}$.
+A lower set of filters on $U$ is a lower set in the action poset
+$\mathscr F(U)$ in Section~\bookref{sec-osa-rectangles-topology}.
+The order on filters is reverse inclusion.
 \end{defn}
 
 \begin{rem}
@@ -956,7 +953,8 @@ Low filter on an endoreloid $\nu$ is a filter $\mathcal{F}$ such that
 \section{Cauchy continuous functions}
 
 \begin{defn}
-  A function $f : U \rightarrow V$ is \emph{Cauchy continuous} from a low
+  A function $f : U \rightarrow V$ is \emph{Cauchy continuous} in the
+  sense of Definition~\bookref{def-osa-cauchy} from a low
   space $\left( U , \mathscr{C} \right)$ to a low space
   $\left( V , \mathscr{D} \right)$ when $\forall \mathcal{X} \in \mathscr{C} :
   \langle \uparrow^{\mathsf{FCD}} f \rangle \mathcal{X} \in
@@ -995,16 +993,11 @@ Thus we have expressed Cauchy properties through the algebra of reloids.
 
 \section{Cauchy-complete reloids}
 
-\begin{defn}
-  An endoreloid $\nu$ is \emph{Cauchy-complete} iff every low filter for
-  this reloid converges to a point.
-\end{defn}
-
-\begin{rem}
-  In my book \cite{volume-1} \emph{complete reloid} means something
-  different. I will always prepend the word ``Cauchy'' to the word
-  ``complete'' when meaning is by the last definition.
-\end{rem}
+Use Definition~\bookref{def-osa-cauchy} for the reloid action
+on filters with principal singleton filters as points. A low
+filter for an endoreloid $\nu$ is Cauchy regarding $\nu$ because
+its reloidal square lies below $\nu$. Cauchy completeness says
+that every such filter converges to a point.
 
 \url{https://en.wikipedia.org/wiki/Complete\_uniform\_space\#Completeness}
 
@@ -1012,10 +1005,10 @@ Thus we have expressed Cauchy properties through the algebra of reloids.
 
 \url{http://ncatlab.org/nlab/show/Cauchy+space}
 
-\begin{defn}
-  Low space is called \emph{totally bounded} when every proper filter
-  contains a proper Cauchy filter.
-\end{defn}
+A low space is totally bounded if its lower set of filters satisfies
+the Cauchy condition in Section~\bookref{sec-osa-rectangles-topology}.
+Thus every proper filter contains a proper Cauchy filter in the
+order $\sqsubseteq$.
 
 \begin{obvious}
 A reloid $\nu$ is totally bounded iff

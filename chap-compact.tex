@@ -10,33 +10,13 @@ This is a rough partial draft. The proofs are with errors.
 
 \section{The rest}
 
-\begin{defn}
-  A funcoid $f$ is \emph{directly compact} iff
-  \[ \forall \mathcal{F} \in \mathfrak{F}: (\supfun{f}
-     \mathcal{F} \neq \bot \Rightarrow \Cor \supfun{f} \mathcal{F}
-     \neq \bot). \]
-\end{defn}
-
-\begin{obvious}
-A funcoid $f$ is directly compact iff $\forall a \in \atoms \dom f :
-\Cor \supfun{f} a \neq \bot$.
-\end{obvious}
-
-\begin{obvious}
-A reflexive funcoid~$f$ is directly compact iff
-\[ \forall \mathcal{F} \in \mathfrak{F}: (\mathcal{F} \neq \bot \Rightarrow \Cor \supfun{f} \mathcal{F}
-     \neq \bot). \]
-\end{obvious}
-
-\begin{defn}
-  A funcoid $f$ is \emph{reversely compact} iff $f^{- 1}$ is directly
-  compact.
-\end{defn}
-
-\begin{defn}
-  A funcoid is \emph{compact} iff it is both directly compact and reversely
-  compact.
-\end{defn}
+Compactness uses Definition~\bookref{def-osa-compact} with
+the principal filters as the cores. The criterion using atoms
+below the domain applies because the filter lattice is atomic.
+For a reflexive funcoid, the forward image of every non-least
+filter is non-least, and the least filter has least image.
+Thus direct compactness for such a funcoid asks that the core
+part of the forward image of each non-least filter be non-least.
 
 \begin{prop}
   $\prod^{\mathsf{RLD}} a = \uparrow^{\mathsf{RLD}} \prod_{i \in

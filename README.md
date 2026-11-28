@@ -12,7 +12,7 @@ So, called "funcoids" and also reloids, that is filters on Cartesian product of 
 
 Also, they are researched "multidimensional" (including infinite dimensional) analogies of funcoids and reloids (next, should research multidimensional analogs of ordered semicategory actions).
 
-Ordered semicategory actions are currently briefly considered at the end of the book, after their special cases (funcoids, reloids, etc.), because they were discovered when most of the book (about their special cases) has been already written. The book needs to be rewritten to consider ordered semicategory actions in more details, partly replacing the former text about their special cases.
+Volume 1 develops ordered semicategory actions before the examples. The action chapter defines intersection relations, images and domains, restrictions and products, continuity and convergence, separation, connectedness, compactness, and related notions. The chapters on funcoids, reloids, and pointfree funcoids verify which hypotheses hold in each action and develop their particular representations and properties.
 
 The book also considers **filters on ordered sets** (and on lattices, powersets, etc.) in more details than any book before it.
 

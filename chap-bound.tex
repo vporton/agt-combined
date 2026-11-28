@@ -3,37 +3,19 @@
 
 
 \section{Thick binary relations}
-\begin{defn}
-\index{alpha-thick@$\alpha$-thick}I will call \emph{$\alpha$-thick} and denote $\thick_{\alpha}(E)$
-a $\mathbf{Rel}$-endomorphism $E$ when there exists a finite cover $S$
-of $\Ob E$ such that $\forall A\in S:A\times A\subseteq\GR E$.
-\end{defn}
+Use Definition~\ref{def-osa-thickness} for relations acting by
+direct image, with the singletons as points. A finite join covering
+the greatest element is a finite cover of the underlying set.
+The rectangles are Cartesian products, so $\alpha$-thickness of
+$E$ means that every member $A$ of one such cover satisfies
+$A\times A\subseteq\GR E$. Equivalently,
+$\CS(S)\subseteq\GR E$ for some finite cover $S$, where
+$\CS(S)=\bigcup\setcond{A\times A}{A\in S}$.
+The $\beta$ condition is that $\rsupfun{\GR E}B=\Ob E$ for some
+finite set $B\subseteq\Ob E$. Every nonempty subset contains a
+singleton, so $\alpha$-thickness implies $\beta$-thickness by the
+argument following Definition~\ref{def-osa-thickness}.
 
-\begin{defn}
-$\CS(S)=\bigcup\setcond{A\times A}{A\in S}$ for a collection $S$
-of sets.\end{defn}
-\begin{rem}
-$\CS$ means ``Cartesian squares''.\end{rem}
-\begin{obvious}
-A $\mathbf{Rel}$-endomorphism is $\alpha$-thick iff there exists
-a finite cover $S$ of $\Ob E$ such that $\CS(S)\subseteq\GR E$.\end{obvious}
-\begin{defn}
-\index{beta
--thick@$\beta$-thick}I will call \emph{$\beta$-thick} and denote $\thick_{\beta}(E)$
-a $\mathbf{Rel}$-endomorphism $E$ when there exists a finite set
-$B$ such that $\rsupfun{\GR E}B=\Ob E$.\end{defn}
-\begin{prop}
-$\thick_{\alpha}(E)\Rightarrow\thick_{\beta}(E)$.\end{prop}
-\begin{proof}
-Let $\thick_{\alpha}(E)$. Then there exists a finite cover $S$ of
-the set $\Ob E$ such that $\forall A\in S:A\times A\subseteq\GR E$.
-Without loss of generality assume $A\ne\emptyset$ for every $A\in S$.
-So $A\subseteq\rsupfun{\GR E}\{x_{A}\}$ for some $x_{A}$ for every
-$A\in S$. So
-\[
-\rsupfun{\GR E}\setcond{x_{A}}{A\in S}=\bigcup\setcond{\rsupfun{\GR E}\{x_{A}\}}{A\in S}=\Ob E
-\]
-and thus $E$ is $\beta$-thick.\end{proof}
 \begin{obvious}
 Let $X$ be a set, $A$ and $B$ be $\mathbf{Rel}$-endomorphisms
 on $X$ and $B\sqsupseteq A$. Then:
@@ -79,24 +61,16 @@ subset of $\Gamma$.
 
 \section{Totally bounded endoreloids}
 
-The below is a straightforward generalization of the customary definition
-of totally bounded sets on uniform spaces (it's proved below that
-for uniform spaces the below definitions are equivalent).
-\begin{defn}
-\index{alpha
--totally bounded@$\alpha$-totally bounded}An endoreloid $f$ is \emph{$\alpha$-totally bounded} ($\totBound_{\alpha}(f)$)
-if every~$E\in\up f$ is $\alpha$-thick.
-\end{defn}
+In Definition~\ref{def-osa-thickness}, take $Z$ to be the
+principal endoreloids. Above a given reloid $f$, these are represented
+by $E\in\up f$. The action and rectangles of a principal
+endoreloid on principal filters agree with the direct images and
+rectangles of its representing relation. For this test use finite
+covers by principal filters, that is, evaluate thickness in the
+principal relation category acting on powersets. Thus
+$\totBound_\alpha(f)$ and $\totBound_\beta(f)$ require every such
+$E$ to be $\alpha$-thick and $\beta$-thick, respectively.
 
-\begin{defn}
-\index{beta
--totally bounded@$\beta$-totally bounded}An endoreloid $f$ is \emph{$\beta$-totally bounded} ($\totBound_{\beta}(f)$)
-if every~$E\in\up f$ is $\beta$-thick.\end{defn}
-\begin{rem}
-We could rewrite the above definitions in a more algebraic way like
-$\up f\subseteq\thick_{\alpha}$ (with $\thick_{\alpha}$ would be
-defined as a set rather than as a predicate), but we don't really
-need this simplification.\end{rem}
 \begin{prop}
 If an endoreloid is $\alpha$-totally bounded then it is $\beta$-totally
 bounded.\end{prop}

@@ -78,22 +78,9 @@ families $\prod^{(Q)} X \rightarrow X_i$ of principal morphisms (called
 
 We will denote particular projections as $\pi^X_i$.
 
-\begin{defn}
-  If $\pi$ is defined at $\lambda
-  j \in n : \Src F_j$ and $\lambda j \in n : \Dst F_j$, then
-  \[ \bigodot^{\text{proj}}_{\sqcap} F = \bigsqcap_{i \in \dom F} ((\pi^{\Dst \circ
-   F_{}}_i)^{\dagger} \circ F_i \circ \pi^{\Src \circ F}_i) . \]
-\end{defn}
-
-If $F_i:Y\to X_i$ for all~$i$ for some object~$Y$:
-\[
-  \prod^{\text{proj}}_{\sqcap} F = \bigsqcap_{i \in \dom F} ((\pi^{\Dst\circ F}_i)^{\dagger} \circ F_i) .
-\]
-
-If $F_i:X_i\to Y$ for all~$i$ for some object~$Y$:
-\[
-  \coprod^{\text{proj}}_{\sqcup} F = \bigsqcup_{i \in \dom F} (F_i \circ \pi^{\Src\circ F}_i) .
-\]
+Use the products of
+Section~\bookref{sec-osa-projection-products}, with
+$\prod^{(Q)}X$ as the chosen object for the family $X$.
 
 \begin{rem}
   \begin{align*}
@@ -278,56 +265,15 @@ n} \Ob F_j \right) }{ \forall i \in n : \pi_i
 
 \subsection{Category of continuous morphisms}
 
-\begin{defn}
-  The category $\cont (\mathcal{C})$ is defined as follows:
-  \begin{itemize}
-    \item Objects are endomorphisms of the category $\mathcal{C}$.
-    
-    \item Morphisms are triples $(f , a , b)$ where $a$ and $b$ are objects
-    and $f : \Ob a \rightarrow \Ob b$ is an entirely defined
-    monovalue principal morphism of the category $\mathcal{C}$ such that $f
-    \in \mathrm{C} (a , b)$ (in other words, $f \circ a \sqsubseteq b \circ
-    f$).
-    
-    \item Composition of morphisms is defined by the formula $(g , b , c)
-    \circ (f , a , b) = (g \circ f , a , c)$.
-    
-    \item Identity morphisms are $(a , a , 1^{\mathcal{C}}_a)$.
-  \end{itemize}
-\end{defn}
-
-It is really a category:
-
-\begin{proof}
-  We need to prove that: composition of morphisms is a morphism, composition
-  is associative, and identity morphisms can be canceled on the left and on
-  the right.
-  
-  That composition of morphisms is a morphism by properties of generalized
-  continuity.
-  
-  That composition is associative is obvious.
-  
-  That identity morphisms can be canceled on the left and on the right is
-  obvious.
-\end{proof}
-
-\begin{rem}
-  The ``physical'' meaning of this category is:
-  \begin{itemize}
-    \item Objects (endomorphisms of $\mathcal{C}$) are spaces.
-    
-    \item Morphisms are continuous functions between spaces.
-    
-    \item $f \circ a \sqsubseteq b \circ f$ intuitively means that $f$
-    combined with an infinitely small is less than infinitely small combined
-    with $f$ (that is $f$ is continuous).
-  \end{itemize}
-\end{rem}
+Let $\mathcal D$ be the subcategory whose arrows are the
+entirely defined monovalued principal arrows. Here assume the
+principal arrows include the identities and are closed under
+composition. In this chapter we use
+$\cont(\mathcal C;\mathcal D)$ from
+Definition~\bookref{def-osa-cont-category}.
 
 \begin{defn}
-  $\pi^{\cont (\mathcal{C})}_i = \left( \bigodot^{\text{proj}}_{\sqcap} F , F_i ,
-  \pi_i \right)$.
+  $\pi^{\cont(\mathcal C;\mathcal D)}_i = \left(\pi_i,\bigodot^{\text{proj}}_{\sqcap}F,F_i\right)$.
 \end{defn}
 
 \begin{prop}
@@ -343,7 +289,7 @@ It is really a category:
 Let further $\mathcal{C}$ have sets as objects and $\prod^{(Q)}X=\prod X$ for an indexed family~$X$ of sets and $\pi_i = \Pr_i$ (for $i \in \dom F$).
 
 \begin{lem}
-  $f \in \Hom_{\cont (\mathcal{C})} \left( Y ,
+  $f \in \Hom_{\cont(\mathcal C;\mathcal D)} \left( Y ,
   \bigodot^{\text{proj}}_{\sqcap} F \right)$ is continuous iff all $\pi_i \circ f$ are continuous.
 \end{lem}
 
@@ -358,10 +304,10 @@ Let further $\mathcal{C}$ have sets as objects and $\prod^{(Q)}X=\prod X$ for an
     f$. Thus $\pi_i \circ f$ is continuous.
     
     \item[$\Leftarrow$] Let all $\pi_i \circ f$ be continuous. Then
-    $\pi^{\cont (\mathcal{C})}_i \circ f \in
-    \Hom_{\cont (\mathcal{C})} (Y , F_i)$;
-    $\pi^{\cont (\mathcal{C})}_i \circ f \circ Y \sqsubseteq
-    F_i \circ \pi^{\cont (\mathcal{C})}_i \circ f$. We need
+    $\pi^{\cont(\mathcal C;\mathcal D)}_i \circ f \in
+    \Hom_{\cont(\mathcal C;\mathcal D)} (Y , F_i)$;
+    $\pi^{\cont(\mathcal C;\mathcal D)}_i \circ f \circ Y \sqsubseteq
+    F_i \circ \pi^{\cont(\mathcal C;\mathcal D)}_i \circ f$. We need
     to prove $Y \sqsubseteq f^{\dagger} \circ \left( \bigodot^{\text{proj}}_{\sqcap} F \right)
     \circ f$ that is
     \[ Y \sqsubseteq f^{\dagger} \circ \bigsqcap_{i \in n} ((\pi_i)^{\dagger}
@@ -375,7 +321,7 @@ Let further $\mathcal{C}$ have sets as objects and $\prod^{(Q)}X=\prod X$ for an
 \end{proof}
 
 \begin{thm}\label{cont-pr-pr}
-$\prod^{\text{proj}}_{\sqcap}$ together with $\pi$ is a categorical product in the category $\cont (\mathcal{C})$.
+$\prod^{\text{proj}}_{\sqcap}$ together with $\pi$ is a categorical product in the category $\cont(\mathcal C;\mathcal D)$.
 \end{thm}
 
 \begin{proof}
@@ -497,15 +443,15 @@ The last two theorems don't require that our category is dagger. I omit the proo
 Let $\iota_i$ be canonical injections.
 
 \begin{defn}
-$\iota^{\cont(\mathcal{C})}_i = \left(F_i,\bigodot^{\operatorname{inj}}_{\sqcup}F,\iota_i\right)$.
+$\iota^{\cont(\mathcal C;\mathcal D)}_i = \left(\iota_i,F_i,\bigodot^{\operatorname{inj}}_{\sqcup}F\right)$.
 \end{defn}
 
 \begin{obvious}
-$\iota_i$ are continuous that is $\iota^{\cont(\mathcal{C})}_i$ are morphisms.
+$\iota_i$ are continuous that is $\iota^{\cont(\mathcal C;\mathcal D)}_i$ are morphisms.
 \end{obvious}
 
 \begin{thm}
-$\coprod^{\operatorname{inj}}_{\sqcup}$ together with $\iota$ is a categorical coproduct in the category~$\cont(\mathcal{C})$.
+$\coprod^{\operatorname{inj}}_{\sqcup}$ together with $\iota$ is a categorical coproduct in the category~$\cont(\mathcal C;\mathcal D)$.
 \end{thm}
 
 \begin{proof}
@@ -516,16 +462,22 @@ Dual to theorem~\ref{cont-pr-pr}.
 
 \subsection{Funcoids}
 
+Write $\mathcal D_{\mathsf{FCD}}$ for the subcategory formed by
+the funcoids induced by functions.
+
 \begin{defn}
-  $\mathbf{Fcd} \eqdef \cont \mathsf{FCD}$.
+  $\mathbf{Fcd} \eqdef \cont(\mathsf{FCD};\mathcal D_{\mathsf{FCD}})$.
 \end{defn}
 
 Let $F$ be a family of endofuncoids.
 
 \subsection{Reloids}
 
+Write $\mathcal D_{\mathsf{RLD}}$ for the subcategory formed by
+the principal reloids induced by functions.
+
 \begin{defn}
-  $\mathbf{Rld} \eqdef \cont \mathsf{RLD}$.
+  $\mathbf{Rld} \eqdef \cont(\mathsf{RLD};\mathcal D_{\mathsf{RLD}})$.
 \end{defn}
 
 Let $F$ be a family of endoreloids.
